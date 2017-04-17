@@ -1,5 +1,5 @@
 # MaFiSoft
 
 Add login with DB connection on localhost 
-ort 3306 login root password mafisoft
+port 3306 login root password mafisoft
 
