@@ -21,7 +21,6 @@ import java.util.EventObject;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
-
     @FXML
     private Label wrongConnection;
     @FXML
@@ -46,7 +45,6 @@ public class LoginController implements Initializable {
                 Parent home_page_parent = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
                 Scene home_page_scene = new Scene(home_page_parent);
                 Stage app_stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-                app_stage.hide();
                 app_stage.setScene(home_page_scene);
                 app_stage.show();
             } else {
@@ -59,7 +57,7 @@ public class LoginController implements Initializable {
 
     public void keyPressed(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.ENTER) {
-            onAction(keyEvent);
+            onAction((EventObject) keyEvent);
         }
     }
 
