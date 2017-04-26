@@ -1,7 +1,9 @@
 # MaFiSoft
 
-Add login with DB connection on localhost 
-port 3306 login root password mafisoft
+Customer service: Add new customer and change customer data
 
-Upload mysql connector with libraries.
+Course service: change course data, have to add the AddCourse
 
+DB connection is already ready XD
+
+Ты все равно не читаешь, по этому я уже пофанюсь )
