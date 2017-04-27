@@ -2,7 +2,7 @@ package changeCustomerData;
 
 
 import DBHelper.DBController;
-import customer_course.Customer;
+import customer.Customer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

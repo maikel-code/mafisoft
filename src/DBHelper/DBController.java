@@ -76,25 +76,27 @@ public class DBController {
         return preparedStatement.executeQuery();
     }
 
-    public static void addCourse(String courseName, String trainer, Timestamp startTime, Timestamp endTime, int customerQuantitys) throws SQLException, ClassNotFoundException {
+    // Course
+
+    public static void addCourse(String courseName, String trainer, Time startTime, Time endTime, int customerQuantitys) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
-        PreparedStatement preparedStatement = getConnection().prepareStatement("INSERT INTO course(course_name, trainer_name, start, endTime, customerQuantity) VALUE (?, ?, ?, ?, ?)");
+        PreparedStatement preparedStatement = getConnection().prepareStatement("INSERT INTO course(course_name, trainer_name, start, end, customerQuantity) VALUE (?, ?, ?, ?, ?)");
         preparedStatement.setString(1, courseName);
         preparedStatement.setString(2, trainer);
-        preparedStatement.setTimestamp(3, startTime);
-        preparedStatement.setTimestamp(4, endTime);
+        preparedStatement.setTime(3, startTime);
+        preparedStatement.setTime(4, endTime);
         preparedStatement.setInt(5, customerQuantitys);
         preparedStatement.executeUpdate();
     }
 
-    public static void updateCourse(int id, String courseName, String trainer, Date startTime, Date endTime) throws SQLException, ClassNotFoundException {
+    public static void updateCourse(int id, String courseName, String trainer, Time startTime, Time endTime) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
-        PreparedStatement preparedStatement = getConnection().prepareStatement("UPDATE course SET course_name=?,  trainer_name=?, start=?, endTime=? WHERE course_id=?");
+        PreparedStatement preparedStatement = getConnection().prepareStatement("UPDATE course SET course_name=?, trainer_name=?, start=?, end=? WHERE course_id=?");
         preparedStatement.setInt(5, id);
         preparedStatement.setString(1, courseName);
         preparedStatement.setString(2, trainer);
-        preparedStatement.setDate(3, startTime);
-        preparedStatement.setDate(4, endTime);
+        preparedStatement.setTime(3, startTime);
+        preparedStatement.setTime(4, endTime);
         preparedStatement.executeUpdate();
     }
 
@@ -123,4 +125,39 @@ public class DBController {
         return preparedStatement.executeQuery();
     }
 
+    // Video
+
+    public static void updateVideoCourse(int id, String courseName, String trainerName, String link, String remark) throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.jdbc.Driver");
+        PreparedStatement preparedStatement = getConnection().prepareStatement("UPDATE video_course SET courseName=?, trainerName=?, link=?, remark=? WHERE videoID=?");
+        preparedStatement.setInt(5, id);
+        preparedStatement.setString(1, courseName);
+        preparedStatement.setString(2, trainerName);
+        preparedStatement.setString(3, link);
+        preparedStatement.setString(4, remark);
+        preparedStatement.executeUpdate();
+    }
+
+    public static ResultSet searchVideoCourse(String searchConfig, String search) throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.jdbc.Driver");
+        PreparedStatement preparedStatement;
+        switch (searchConfig) {
+            case "id":
+            case "ID":
+                preparedStatement = getConnection().prepareStatement("SELECT * FROM video_course WHERE videoID=?");
+                preparedStatement.setString(1, search);
+                return preparedStatement.executeQuery();
+                default:
+                    preparedStatement = getConnection().prepareStatement("SELECT * FROM video_course WHERE courseName=? AND trainerName=?");
+                    preparedStatement.setString(1, search.split("{Punkt}.")[0]);
+                    preparedStatement.setString(1, search.split("{Punkt}.")[1]);
+                    return preparedStatement.executeQuery();
+        }
+    }
+
+    public static ResultSet getAllVideoCourse() throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.jdbc.Driver");
+        PreparedStatement preparedStatement = getConnection().prepareStatement("SELECT * FROM video_course");
+        return preparedStatement.executeQuery();
+    }
 }
