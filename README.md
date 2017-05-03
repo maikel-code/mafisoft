@@ -2,8 +2,6 @@
 
 Was trying to do in Multitier architecture
 
-/play pushit
-
 * Catalogue: 
     1. Course:
     
