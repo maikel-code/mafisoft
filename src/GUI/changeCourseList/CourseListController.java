@@ -79,7 +79,6 @@ public class CourseListController implements Initializable {
     private void fillChangeTabble(Course course) {
         clearAll(1);
         courseID.setText(course.getCourse_id() + "");
-        customerQuantitysTXT.setText(course.getCustomerQuantity() + "");
         coursename.setText(course.getCourse_name());
         trainer.setText(course.getTrainer_name());
         startTime.setText(simpleDateFormat.format(course.getStartTime()));

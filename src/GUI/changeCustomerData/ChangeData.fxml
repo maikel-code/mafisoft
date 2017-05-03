@@ -11,57 +11,52 @@
 <?import javafx.scene.layout.VBox?>
 <?import catalouge.zipCode.NumberTextField?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-            minHeight="400.0" minWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112"
-            fx:controller="GUI.changeCustomerData.ChangeDataController">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="400.0" minWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.changeCustomerData.ChangeDataController">
     <center>
         <TableView fx:id="customerTable" onMouseClicked="#mouseOnClick" BorderPane.alignment="CENTER">
             <columns>
-                <TableColumn fx:id="id" prefWidth="75.0" text="ID"/>
-                <TableColumn fx:id="firstName" prefWidth="75.0" text="Vorname"/>
-                <TableColumn fx:id="lastName" prefWidth="75.0" text="Nacnname"/>
-                <TableColumn fx:id="birthday" prefWidth="75.0" text="Geburtstag"/>
-                <TableColumn fx:id="mail" prefWidth="75.0" text="E-Mail"/>
-                <TableColumn fx:id="phonenummer" prefWidth="75.0" text="Telefonnummer"/>
-                <TableColumn fx:id="address" prefWidth="75.0" text="Adresse"/>
+                <TableColumn fx:id="id" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="firstName" prefWidth="75.0" text="Vorname" />
+                <TableColumn fx:id="lastName" prefWidth="75.0" text="Nacnname" />
+                <TableColumn fx:id="birthday" prefWidth="75.0" text="Geburtstag" />
+                <TableColumn fx:id="mail" prefWidth="75.0" text="E-Mail" />
+                <TableColumn fx:id="phonenummer" prefWidth="75.0" text="Telefonnummer" />
+                <TableColumn fx:id="address" prefWidth="75.0" text="Adresse" />
             </columns>
             <columnResizePolicy>
-                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
             </columnResizePolicy>
         </TableView>
     </center>
     <top>
         <HBox minWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
             <children>
-                <TextField fx:id="customerTXT" prefWidth="200" promptText="KundenNR/Vorname, Nachname"/>
-                <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#searchButton"
-                        text="Suche"/>
-                <Region maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefWidth="-Infinity"/>
-                <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity"
-                        minWidth="200.0" HBox.hgrow="ALWAYS"/>
-                <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goToMainWindow"
-                        text="Zum Hauptfenster"/>
+                <TextField fx:id="customerTXT" prefWidth="200" promptText="KundenNR/Vorname, Nachname" />
+                <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#searchButton" text="Suche" />
+                <Region maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefWidth="-Infinity" />
+                <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="200.0" HBox.hgrow="ALWAYS" />
+                <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goToMainWindow" text="Zum Hauptfenster" />
             </children>
             <padding>
-                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
             </padding>
         </HBox>
     </top>
     <right>
         <VBox spacing="10.0" BorderPane.alignment="CENTER">
             <children>
-                <TextField fx:id="customerID" disable="true" editable="false" promptText="Kundennummer"/>
-                <TextField fx:id="changeFirstName" promptText="Vorname"/>
-                <TextField fx:id="changeLastName" promptText="Nachname"/>
-                <TextField fx:id="changeMail" promptText="MaFiSoft@example.com"/>
-                <TextField fx:id="changePhonenummer" promptText="+4912345678900"/>
-                <NumberTextField fx:id="changeZipcode" promptText="PLZ"/>
-                <TextField fx:id="changeCity" promptText="Stadt"/>
-                <TextField fx:id="changeStreet" promptText="Straße Hausnummer"/>
-                <Button mnemonicParsing="false" onAction="#changeButton" text="Kunndendaten ändern"/>
+                <TextField fx:id="customerID" disable="true" editable="false" promptText="Kundennummer" />
+                <TextField fx:id="changeFirstName" promptText="Vorname" />
+                <TextField fx:id="changeLastName" promptText="Nachname" />
+                <TextField fx:id="changeMail" promptText="MaFiSoft@example.com" />
+                <TextField fx:id="changePhonenummer" promptText="+4912345678900" />
+                <NumberTextField fx:id="changeZipcode" promptText="PLZ" />
+                <TextField fx:id="changeCity" promptText="Stadt" />
+                <TextField fx:id="changeStreet" promptText="Straße Hausnummer" />
+                <Button mnemonicParsing="false" onAction="#changeButton" text="Kunndendaten ändern" />
             </children>
             <padding>
-                <Insets left="5.0" right="5.0"/>
+                <Insets left="5.0" right="5.0" />
             </padding>
         </VBox>
     </right>
