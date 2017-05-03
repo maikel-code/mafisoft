@@ -78,14 +78,13 @@ public class DBController {
 
     // Course
 
-    public static void addCourse(String courseName, String trainer, Time startTime, Time endTime, int customerQuantitys) throws SQLException, ClassNotFoundException {
+    public static void addCourse(String courseName, String trainer, Time startTime, Time endTime) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
-        PreparedStatement preparedStatement = getConnection().prepareStatement("INSERT INTO course(course_name, trainer_name, start, end, customerQuantity) VALUE (?, ?, ?, ?, ?)");
+        PreparedStatement preparedStatement = getConnection().prepareStatement("INSERT INTO course(course_name, trainer_name, start, end) VALUE (?, ?, ?, ?)");
         preparedStatement.setString(1, courseName);
         preparedStatement.setString(2, trainer);
         preparedStatement.setTime(3, startTime);
         preparedStatement.setTime(4, endTime);
-        preparedStatement.setInt(5, customerQuantitys);
         preparedStatement.executeUpdate();
     }
 
@@ -127,6 +126,15 @@ public class DBController {
 
     // Video
 
+    public static void addVideoCourse(String courseName, String trainer, String link, String remark) throws SQLException, ClassNotFoundException {
+        PreparedStatement preparedStatement = getConnection().prepareStatement("INSERT INTO video_course(courseName, trainerName, link, remark) VALUE (?, ?, ?, ?)");
+        preparedStatement.setString(1, courseName);
+        preparedStatement.setString(2, trainer);
+        preparedStatement.setString(3, link);
+        preparedStatement.setString(4, remark);
+        preparedStatement.executeUpdate();
+    }
+
     public static void updateVideoCourse(int id, String courseName, String trainerName, String link, String remark) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
         PreparedStatement preparedStatement = getConnection().prepareStatement("UPDATE video_course SET courseName=?, trainerName=?, link=?, remark=? WHERE videoID=?");
@@ -147,11 +155,11 @@ public class DBController {
                 preparedStatement = getConnection().prepareStatement("SELECT * FROM video_course WHERE videoID=?");
                 preparedStatement.setString(1, search);
                 return preparedStatement.executeQuery();
-                default:
-                    preparedStatement = getConnection().prepareStatement("SELECT * FROM video_course WHERE courseName=? AND trainerName=?");
-                    preparedStatement.setString(1, search.split("{Punkt}.")[0]);
-                    preparedStatement.setString(1, search.split("{Punkt}.")[1]);
-                    return preparedStatement.executeQuery();
+            default:
+                preparedStatement = getConnection().prepareStatement("SELECT * FROM video_course WHERE courseName=? AND trainerName=?");
+                preparedStatement.setString(1, search.split("{Punkt}.")[0]);
+                preparedStatement.setString(1, search.split("{Punkt}.")[1]);
+                return preparedStatement.executeQuery();
         }
     }
 
@@ -160,4 +168,5 @@ public class DBController {
         PreparedStatement preparedStatement = getConnection().prepareStatement("SELECT * FROM video_course");
         return preparedStatement.executeQuery();
     }
+
 }

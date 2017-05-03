@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+         minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" tabClosingPolicy="UNAVAILABLE"
+         xmlns="http://javafx.com/javafx/8" fx:controller="GUI.addCourse.AddCourseController">
+    <tabs>
+        <Tab text="Normale Kurse">
+            <content>
+                <BorderPane prefHeight="200.0" prefWidth="200.0">
+                    <center>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                            <left>
+                                <VBox spacing="50.0" BorderPane.alignment="CENTER">
+                                    <children>
+                                        <Label text="Kurse"/>
+                                        <Label text="Trainer"/>
+                                        <Label text="Anfangszeit"/>
+                                        <Label text="Endzeit"/>
+                                    </children>
+                                    <BorderPane.margin>
+                                        <Insets bottom="50.0" right="15.0" top="20.0"/>
+                                    </BorderPane.margin>
+                                </VBox>
+                            </left>
+                            <right>
+                                <VBox nodeOrientation="LEFT_TO_RIGHT" spacing="38.0" BorderPane.alignment="CENTER">
+                                    <children>
+                                        <TextField fx:id="courseName" promptText="Joga"/>
+                                        <TextField fx:id="trainer" promptText="Mustermann"/>
+                                        <TextField fx:id="startTime" promptText="14:00"/>
+                                        <TextField fx:id="endTime" promptText="16:00"/>
+                                    </children>
+                                    <BorderPane.margin>
+                                        <Insets bottom="20.0" left="10.0" top="20.0"/>
+                                    </BorderPane.margin>
+                                </VBox>
+                            </right>
+                            <bottom>
+                                <HBox minHeight="-Infinity" BorderPane.alignment="CENTER">
+                                    <children>
+                                        <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
+                                                onAction="#addCourseButton" text="Add" HBox.hgrow="ALWAYS"/>
+                                        <Region prefWidth="200.0"/>
+                                        <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
+                                                onAction="#goToMainWindow" text="Zum Hauptfenster"/>
+                                    </children>
+                                    <BorderPane.margin>
+                                        <Insets bottom="10.0"/>
+                                    </BorderPane.margin>
+                                </HBox>
+                            </bottom>
+                        </BorderPane>
+                    </center>
+                    <right>
+                        <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="80.0"
+                                BorderPane.alignment="CENTER"/>
+                    </right>
+                    <left>
+                        <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="60.0"
+                                BorderPane.alignment="CENTER"/>
+                    </left>
+                </BorderPane>
+            </content>
+        </Tab>
+        <Tab text="Video Kurse">
+            <content>
+                <BorderPane prefHeight="200.0" prefWidth="200.0">
+                    <center>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                            <left>
+                                <VBox spacing="50.0" BorderPane.alignment="CENTER">
+                                    <children>
+                                        <Label text="Kurse"/>
+                                        <Label text="Trainer"/>
+                                        <Label text="Link"/>
+                                        <Label text="Bemerkung"/>
+                                    </children>
+                                    <BorderPane.margin>
+                                        <Insets bottom="50.0" right="15.0" top="20.0"/>
+                                    </BorderPane.margin>
+                                </VBox>
+                            </left>
+                            <right>
+                                <VBox nodeOrientation="LEFT_TO_RIGHT" spacing="38.0" BorderPane.alignment="CENTER">
+                                    <children>
+                                        <TextField fx:id="vCourseName" promptText="Joga"/>
+                                        <TextField fx:id="vTrainerName" promptText="Mustermann"/>
+                                        <TextField fx:id="vLink" promptText="joga.example/video"/>
+                                        <TextArea fx:id="vRemark" prefHeight="200.0" prefWidth="200.0"
+                                                  promptText="Bemerkung"/>
+                                    </children>
+                                    <BorderPane.margin>
+                                        <Insets bottom="20.0" left="10.0" top="20.0"/>
+                                    </BorderPane.margin>
+                                </VBox>
+                            </right>
+                            <bottom>
+                                <HBox minHeight="-Infinity" BorderPane.alignment="CENTER">
+                                    <children>
+                                        <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
+                                                onAction="#addVideoButton" text="Add" HBox.hgrow="ALWAYS"/>
+                                        <Region prefWidth="200.0"/>
+                                        <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
+                                                onAction="#goToMainWindow" text="Zum Hauptfenster"/>
+                                    </children>
+                                    <BorderPane.margin>
+                                        <Insets bottom="10.0"/>
+                                    </BorderPane.margin>
+                                </HBox>
+                            </bottom>
+                        </BorderPane>
+                    </center>
+                    <right>
+                        <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="80.0"
+                                BorderPane.alignment="CENTER"/>
+                    </right>
+                    <left>
+                        <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="60.0"
+                                BorderPane.alignment="CENTER"/>
+                    </left>
+                </BorderPane>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>

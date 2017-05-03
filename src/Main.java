@@ -8,7 +8,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/MaFiSoftHomepage/Homepage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/GUI/MaFiSoftHomepage/Homepage.fxml"));
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
