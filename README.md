@@ -1,9 +1,21 @@
 # MaFiSoft
+Was trying to do in Multitier architecture
 
-Customer service: Add new customer and change customer data
 
-Course service: change course data, have to add the AddCourse
+##Catalogue:
 
-DB connection is already ready XD
+####Course
+Add both courses video and normal.
 
-Ты все равно не читаешь, по этому я уже пофанюсь )
+####Customer
+Customer class with SimpleProperty's
+
+####ZipCode
+add for control about zipCode by customer
+
+##DBHelper
+Help with all operation in database
+
+##GUI
+FXML layout with java controller
+
