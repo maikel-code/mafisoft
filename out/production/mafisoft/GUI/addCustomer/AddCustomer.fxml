@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import catalouge.zipCode.NumberTextField?>
+<?import java.lang.String?>
+<BorderPane maxHeight="500.0" maxWidth="400.0" minHeight="500.0" minWidth="400.0" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.addCustomer.AddCustomerController">
+   <center>
+      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <left>
+            <VBox spacing="20.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Vorname" />
+                  <Label text="Nachname" />
+                  <Label text="Geburtsdatum" />
+                  <Label text="E-Mail" />
+                  <Label text="Handynummer" />
+                  <Label text="Vertragszeit" />
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="PLZ" />
+                  <Label text="Stadt" />
+                  <Label text="Straße" />
+                  <Label text="Vertragsdatum" />
+                  <Label fx:id="orderDate" text="Anfangsdatum" />
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="5.0" right="5.0" top="15.0" />
+               </BorderPane.margin>
+            </VBox>
+         </left>
+         <right>
+            <VBox spacing="10.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TextField fx:id="firstNameTXT" promptText="Max" />
+                  <TextField fx:id="lastNameTXT" promptText="Mustermann" />
+                  <DatePicker fx:id="birthdayTXT" promptText="12.12.2012" />
+                  <TextField fx:id="mailTXT" promptText="mustermann@example.com" />
+                  <TextField fx:id="phoneNumberTXT" promptText="+4912345678901" />
+                  <ComboBox fx:id="period" prefWidth="150.0" promptText="Monat(e)">
+                  <items>
+                     <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="1" />
+                        <String fx:value="6" />
+                        <String fx:value="12" />
+                     </FXCollections>
+                  </items>
+                  </ComboBox>
+                  <NumberTextField fx:id="zipCode" onKeyReleased="#checkZipLength" promptText="12345" />
+                  <TextField fx:id="city" promptText="Dreamland" />
+                  <TextField fx:id="streetTXT" promptText="Wallstreet 1" />
+                  <CheckBox fx:id="now_checkBox" mnemonicParsing="false" onAction="#isChecked" selected="true" text="Ab Sofort">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin></CheckBox>
+                  <DatePicker fx:id="newDate" promptText="12.12.2012" />
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </BorderPane.margin>
+            </VBox>
+         </right>
+      </BorderPane>
+   </center>
+   <left>
+      <Region disable="true" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <Region disable="true" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="40.0" BorderPane.alignment="CENTER">
+         <children>
+            <Region prefWidth="200.0" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addButtonPressed" text="Add" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#cleanAll" text="Clear" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goToMainWindow" text="Zum Hauptfenster" />
+            <Region prefWidth="200.0" />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+</BorderPane>
