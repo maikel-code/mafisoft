@@ -19,27 +19,27 @@
   </nodes>
   <notes />
   <edges>
-    <edge source="javafx.application.Application.Parameters" target="javafx.application.Application">
-      <point x="0.0" y="-59.0" />
-      <point x="1671.75" y="1496.0" />
-      <point x="1649.25" y="1496.0" />
-      <point x="-133.25" y="181.0" />
-    </edge>
     <edge source="Main" target="javafx.application.Application">
       <point x="0.0" y="-36.5" />
       <point x="1893.25" y="1496.0" />
       <point x="1915.75" y="1496.0" />
       <point x="133.25" y="181.0" />
     </edge>
+    <edge source="javafx.application.Application.Parameters" target="javafx.application.Application">
+      <point x="0.0" y="-59.0" />
+      <point x="1671.75" y="1496.0" />
+      <point x="1649.25" y="1496.0" />
+      <point x="-133.25" y="181.0" />
+    </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.46514575411913817" x="1269.0" y="1173.5" />
+  <settings layout="Hierarchic Group" zoom="0.42832963989871764" x="1103.1144414168937" y="793.0258855585831" />
   <SelectedNodes />
   <Categories>
     <Category>Fields</Category>
-    <Category>Constructors</Category>
-    <Category>Methods</Category>
     <Category>Inner Classes</Category>
+    <Category>Constructors</Category>
     <Category>Properties</Category>
+    <Category>Methods</Category>
   </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>

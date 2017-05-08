@@ -30,7 +30,6 @@ public class AddCourseController implements Initializable {
     @FXML
     private TextField courseName, trainer, startTime, endTime;
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
