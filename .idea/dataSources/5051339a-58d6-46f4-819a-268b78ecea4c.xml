@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="mafisoftBD@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
+    <root id="1"/>
+    <schema id="2" parent="1" name="mafisoftBD">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="sys"/>
+    <table id="7" parent="2" name="course"/>
+    <table id="8" parent="2" name="customer"/>
+    <table id="9" parent="2" name="video_course"/>
+    <column id="10" parent="7" name="course_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="11" parent="7" name="course_name">
+      <Position>2</Position>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="12" parent="7" name="trainer_name">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="13" parent="7" name="start">
+      <Position>4</Position>
+      <DataType>time|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="14" parent="7" name="end">
+      <Position>5</Position>
+      <DataType>time|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="15" parent="7" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>course_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="16" parent="8" name="customer_firstname">
+      <Position>1</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="17" parent="8" name="customer_lastname">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="18" parent="8" name="birthday">
+      <Position>3</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="19" parent="8" name="email">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="8" name="mobilephone">
+      <Position>5</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="8" name="zipCode">
+      <Position>6</Position>
+      <DataType>int(5)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="8" name="city">
+      <Position>7</Position>
+      <DataType>varchar(70)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="8" name="street">
+      <Position>8</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="8" name="create_time">
+      <Position>9</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="8" name="end_time">
+      <Position>10</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="8" name="customer_id">
+      <Position>11</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <index id="27" parent="8" name="customer_id_UNIQUE">
+      <ColNames>customer_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="28" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>customer_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="29" parent="8" name="customer_id_UNIQUE">
+      <ColNames>customer_id</ColNames>
+      <UnderlyingIndexName>customer_id_UNIQUE</UnderlyingIndexName>
+    </key>
+    <column id="30" parent="9" name="videoID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="31" parent="9" name="courseName">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="32" parent="9" name="trainerName">
+      <Position>3</Position>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="9" name="link">
+      <Position>4</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="9" name="remark">
+      <Position>5</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <key id="35" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>videoID</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

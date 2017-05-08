@@ -14,8 +14,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HomePageController implements Initializable {
-    private final double minWidth = 600;
-    private final double minHeight = 400;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -40,8 +38,6 @@ public class HomePageController implements Initializable {
             Parent home_page_parent = FXMLLoader.load(getClass().getResource("/GUI/changeCustomerData/ChangeData.fxml"));
             Scene home_page_scene = new Scene(home_page_parent);
             Stage app_stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            app_stage.setMinWidth(minWidth);
-            app_stage.setMinHeight(minHeight);
             app_stage.setScene(home_page_scene);
             app_stage.show();
         } catch (IOException e) {
@@ -55,8 +51,6 @@ public class HomePageController implements Initializable {
             Scene home_page_scene = new Scene(home_page_parent);
             Stage app_stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             app_stage.setScene(home_page_scene);
-            app_stage.setMinWidth(minWidth);
-            app_stage.setMinHeight(minHeight);
             app_stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -68,6 +62,7 @@ public class HomePageController implements Initializable {
             Parent home_page_parent = FXMLLoader.load(getClass().getResource("/GUI/addCourse/AddCourse.fxml"));
             Scene home_page_scene = new Scene(home_page_parent);
             Stage app_stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            app_stage.setResizable(false);
             app_stage.setScene(home_page_scene);
             app_stage.show();
         } catch (IOException e) {

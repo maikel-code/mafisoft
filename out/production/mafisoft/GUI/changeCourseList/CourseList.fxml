@@ -87,6 +87,9 @@
                             <columnResizePolicy>
                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                             </columnResizePolicy>
+                     <BorderPane.margin>
+                        <Insets bottom="5.0" />
+                     </BorderPane.margin>
                         </TableView>
                     </center>
                     <top>
@@ -106,14 +109,17 @@
                         </HBox>
                     </top>
                     <right>
-                        <VBox spacing="10.0" BorderPane.alignment="CENTER">
+                        <VBox prefWidth="178.0" spacing="10.0" BorderPane.alignment="CENTER">
                             <children>
                                 <TextField fx:id="vCourseIDChanged" disable="true" editable="false" promptText="Kurse ID" />
                                 <TextField fx:id="vCourseNameChanged" promptText="Kursename" />
                                 <TextField fx:id="vTrainerChanged" promptText="Trainer" />
                                 <TextField fx:id="vURLChanged" promptText="https://www.youtube.com/" />
                         <TextArea fx:id="vRemarkChanged" prefHeight="200.0" prefWidth="200.0" promptText="Bemerkung" />
-                                <Button mnemonicParsing="false" onAction="#videoChangeButtonPressed" text="Videokurs ändern" />
+                                <Button mnemonicParsing="false" onAction="#videoChangeButtonPressed" text="Videokurs ändern">
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin></Button>
                             </children>
                             <padding>
                                 <Insets left="5.0" right="5.0" />

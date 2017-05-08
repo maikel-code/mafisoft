@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>Main</OriginalElement>
+  <nodes>
+    <node x="632.0" y="1756.0">catalouge.courses.VideoCourse</node>
+    <node x="1210.0" y="1756.0">GUI.addCourse.AddCourseController</node>
+    <node x="2245.0" y="1756.0">GUI.MaFiSoftHomepage.HomePageController</node>
+    <node x="1566.25" y="1521.0">javafx.application.Application.Parameters</node>
+    <node x="0.0" y="0.0">GUI.changeCourseList.CourseListController</node>
+    <node x="1516.0" y="1109.0">javafx.application.Application</node>
+    <node x="779.0" y="1109.0">GUI.addCustomer.AddCustomerController</node>
+    <node x="0.0" y="1109.0">GUI.changeCustomerData.ChangeDataController</node>
+    <node x="1728.0" y="1756.0">DBHelper.DBController</node>
+    <node x="0.0" y="1756.0">catalouge.courses.Course</node>
+    <node x="1174.0" y="0.0">catalouge.customer.Customer</node>
+    <node x="0.0" y="2251.0">catalouge.zipCode.NumberTextField</node>
+    <node x="1797.25" y="1543.5">Main</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="javafx.application.Application.Parameters" target="javafx.application.Application">
+      <point x="0.0" y="-59.0" />
+      <point x="1671.75" y="1496.0" />
+      <point x="1649.25" y="1496.0" />
+      <point x="-133.25" y="181.0" />
+    </edge>
+    <edge source="Main" target="javafx.application.Application">
+      <point x="0.0" y="-36.5" />
+      <point x="1893.25" y="1496.0" />
+      <point x="1915.75" y="1496.0" />
+      <point x="133.25" y="181.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.46514575411913817" x="1269.0" y="1173.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
