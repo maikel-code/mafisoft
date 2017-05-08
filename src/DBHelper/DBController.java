@@ -14,15 +14,15 @@ public class DBController {
         if (connection != null) {
             return connection;
         } else {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mafisoftBD?autoReconnect=true&useSSL=false", "root", "mafisoft");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mafisoftBD?autoReconnect=true&useSSL=false", "root", "kTX?joydm4Zv");
         }
 
         return connection;
     }
 
-    public static void addCustomer(String firstName, String lastName, java.sql.Date birthday, String email, String phone, int zipCode, String city, String street, java.sql.Date beginnDate, java.sql.Date endDate) throws SQLException, ClassNotFoundException {
+        public static void addCustomer(String firstName, String lastName, java.sql.Date birthday, String email, String phone, int zipCode, String city, String street, java.sql.Date beginnDate, java.sql.Date endDate) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
-        PreparedStatement preparedStatement = getConnection().prepareStatement("INSERT INTO customer(customer_firstname, customer_lastname, birthday, email, mobilephone, zipCode, city, street, create_time, end_time)" +
+            PreparedStatement preparedStatement = getConnection().prepareStatement("INSERT INTO customer(customer_firstname, customer_lastname, birthday, email, mobilephone, zipCode, city, street, create_time, end_time)" +
                 " VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         preparedStatement.setString(1, firstName);
         preparedStatement.setString(2, lastName);
@@ -127,6 +127,21 @@ public class DBController {
         return preparedStatement.executeQuery();
     }
 
+    public static ResultSet getAllAvailabileCourse(int customer_id) throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.jdbc.Driver");
+        PreparedStatement preparedStatement = getConnection().prepareStatement("select course.* from course where course_id NOT IN (SELECT cc.course_id FROM customer_course cc  where cc.customer_id = ? )");
+        preparedStatement.setInt(1, customer_id);
+        return preparedStatement.executeQuery();
+    }
+
+    public static void addCourseToCustomer(int customer_id, int course_id) throws SQLException, ClassNotFoundException {
+        PreparedStatement preparedStatement = getConnection().prepareStatement("INSERT INTO customer_course(customer_id, course_id) VALUE (?, ?)");
+        preparedStatement.setInt(1, customer_id);
+        preparedStatement.setInt(2, course_id);
+        preparedStatement.executeUpdate();
+    }
+
+
     // Video
 
     public static void addVideoCourse(String courseName, String trainer, String link, String remark) throws SQLException, ClassNotFoundException {
@@ -171,5 +186,6 @@ public class DBController {
         PreparedStatement preparedStatement = getConnection().prepareStatement("SELECT * FROM video_course");
         return preparedStatement.executeQuery();
     }
+
 
 }

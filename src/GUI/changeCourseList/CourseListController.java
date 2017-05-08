@@ -87,7 +87,7 @@ public class CourseListController implements Initializable {
 
     }
 
-    private PhysicalCourse fillCourse(ResultSet rs) throws SQLException {
+    public PhysicalCourse fillCourse(ResultSet rs) throws SQLException {
         PhysicalCourse course = new PhysicalCourse();
 
         course.setCourse_id(rs.getInt("course_id"));

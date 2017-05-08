@@ -72,8 +72,8 @@
       <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="40.0" BorderPane.alignment="CENTER">
          <children>
             <Region prefWidth="200.0" />
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addButtonPressed" text="Add" />
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#cleanAll" text="Clear" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addButtonPressed" text="Hinzufügen" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#cleanAll" text="Leeren" />
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goToMainWindow" text="Zum Hauptfenster" />
             <Region prefWidth="200.0" />
          </children>

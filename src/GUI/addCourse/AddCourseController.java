@@ -2,6 +2,7 @@ package GUI.addCourse;
 
 import DBHelper.DBController;
 import catalouge.courses.Course;
+import catalouge.courses.PhysicalCourse;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -37,7 +38,7 @@ public class AddCourseController implements Initializable {
 
     // Course
     public void addCourseButton(ActionEvent actionEvent) {
-        Course course = new Course();
+        PhysicalCourse course = new PhysicalCourse();
         course.setCourse_name(courseName.getText());
         course.setTrainer_name(trainer.getText());
         int timeHH = Integer.parseInt(startTime.getText().split("\\p{Punct}")[0]);
@@ -49,7 +50,7 @@ public class AddCourseController implements Initializable {
         fillCourseInDB(course, actionEvent);
     }
 
-    private void fillCourseInDB(Course course, ActionEvent actionEvent) {
+    private void fillCourseInDB(PhysicalCourse course, ActionEvent actionEvent) {
         if (check(1)) {
             try {
                 DBController.addCourse(course.getCourse_name(), course.getTrainer_name(), course.getStartTime(), course.getEndTime());

@@ -47,15 +47,16 @@ public class AddCustomerController implements Initializable {
     }
 
     @FXML
-    private void addButtonPressed(ActionEvent actionEvent) {
+    public void addButtonPressed(ActionEvent actionEvent) {
         setCustomer();
         try {
-            if (check())
+            if (check()) {
                 DBController.addCustomer(customer.getCustomer_firstname(), customer.getCustomer_lastname(), customer.getBirthday(),
                         customer.getMail(), customer.getMobilephone(), customer.getZipCode(),
                         customer.getCity(), customer.getStreet(), currentDate, calendarEnd);
 
-            goToMainWindow(actionEvent);
+                goToMainWindow(actionEvent);
+            }
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Fehler");
             alert.setHeaderText(null);
@@ -84,25 +85,25 @@ public class AddCustomerController implements Initializable {
         boolean check = false;
         String fillText = "";
 
-        if (firstNameTXT.getText() != null || !firstNameTXT.getText().isEmpty()) {
+        if (firstNameTXT.getText() == null || firstNameTXT.getText().isEmpty()) {
             check = true;
             fillText += "Vorname f";
-        } else if (lastNameTXT.getText() != null || lastNameTXT.getText().isEmpty()) {
+        } else if (lastNameTXT.getText() == null || lastNameTXT.getText().isEmpty()) {
             check = true;
             fillText += " ";
-        } else if (period.getSelectionModel() != null || period.getSelectionModel().isEmpty()) {
+        } else if (period.getSelectionModel() == null || period.getSelectionModel().isEmpty()) {
             check = true;
             fillText += " ";
-        } else if (birthdayTXT.getEditor() != null || birthdayTXT.getEditor().getText().isEmpty()) {
+        } else if (birthdayTXT.getEditor() == null || birthdayTXT.getEditor().getText().isEmpty()) {
             check = true;
             fillText += " ";
-        } else if (zipCode.getText() != null || zipCode.getText().isEmpty()) {
+        } else if (zipCode.getText() == null || zipCode.getText().isEmpty()) {
             check = true;
             fillText += " ";
-        } else if (city.getText() != null || city.getText().isEmpty()) {
+        } else if (city.getText() == null || city.getText().isEmpty()) {
             check = true;
             fillText += " ";
-        } else if (streetTXT.getText() != null || streetTXT.getText().isEmpty()) {
+        } else if (streetTXT.getText() == null || streetTXT.getText().isEmpty()) {
             check = true;
             fillText += " ";
         } else if (now_checkBox.isSelected() && !newDate.getEditor().getText().isEmpty()) {

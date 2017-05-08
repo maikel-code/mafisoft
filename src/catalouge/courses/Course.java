@@ -6,6 +6,8 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+import java.sql.Time;
+
 public class Course {
     protected IntegerProperty course_id;
     protected StringProperty trainer_name;

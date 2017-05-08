@@ -2,7 +2,11 @@ package GUI.changeCustomerData;
 
 
 import DBHelper.DBController;
+import GUI.changeCourseList.CourseListController;
+import catalouge.courses.Course;
 import catalouge.customer.Customer;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,6 +20,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -30,16 +35,33 @@ import java.util.ResourceBundle;
 public class ChangeDataController implements Initializable {
     @FXML
     private TextField changeFirstName, changeLastName, changeMail, changePhonenummer, changeCity, changeStreet, customerTXT, customerID;
+    @FXML // fx:id="courses"
+    private ComboBox<String> courses;
     @FXML
     private TextField changeZipcode;
     @FXML
     private TableView<Customer> customerTable;
     @FXML
     private TableColumn id, firstName, lastName, birthday, mail, phonenummer, address;
+    private ObservableList<Course> allCourses;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         fillTale();
+
+
+        courses.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> selected, String oldCourse, String newCourse) {
+
+                for (Course oneCourse: allCourses) {
+                    if(newCourse.equals(oneCourse.getCourse_name() + " ID:" + oneCourse.getCourse_id()) ) {
+
+                    }
+                }
+            }
+        });
+
     }
 
     private void fillTale() {
@@ -59,6 +81,18 @@ public class ChangeDataController implements Initializable {
             e.printStackTrace();
         }
     }
+
+
+    private ObservableList<Course> getCourseList(int customer_id) throws SQLException, ClassNotFoundException {
+        CourseListController courseListController = new CourseListController();
+        ResultSet rs = DBController.getAllAvailabileCourse(customer_id);
+        ObservableList<Course> row = FXCollections.observableArrayList();
+        while (rs.next()) {
+            row.add(courseListController.fillCourse(rs));
+        }
+        return row;
+    }
+
 
     private ObservableList<Customer> getCustomerList() throws SQLException, ClassNotFoundException {
         ResultSet rs = DBController.getAllCustomer();
@@ -84,6 +118,19 @@ public class ChangeDataController implements Initializable {
         changeZipcode.setText(customer.getZipCode() + "");
         changeCity.setText(customer.getCity());
         changeStreet.setText(customer.getStreet());
+
+
+        try {
+            allCourses = getCourseList(  customer.getCustomerID() );
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        courses.getItems().clear();
+        for (Course oneCourse: allCourses) {
+            courses.getItems().add(oneCourse.getCourse_name() + " ID:" + oneCourse.getCourse_id());
+        }
     }
 
     public void mouseOnClick(MouseEvent mouseEvent) {
@@ -98,6 +145,15 @@ public class ChangeDataController implements Initializable {
                     changeMail.getText(), changePhonenummer.getText(),
                     Integer.parseInt(changeZipcode.getText()), changeCity.getText(), changeStreet.getText());
             fillTale();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void addCourse() {
+        try {
+            String[] parts = courses.getValue().split("ID:");
+            DBController.addCourseToCustomer(Integer.parseInt(customerID.getText()), Integer.parseInt(parts[1]) );
+            fillChangeTabble(customerTable.getSelectionModel().getSelectedItem());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -138,6 +194,7 @@ public class ChangeDataController implements Initializable {
         customer.setCity(rs.getString("city"));
         customer.setStreet(rs.getString("street"));
 
+        // TODO: create Course Object List from database
         return customer;
     }
 
