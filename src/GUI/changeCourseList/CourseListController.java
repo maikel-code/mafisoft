@@ -186,9 +186,9 @@ public class CourseListController implements Initializable {
 
     public void fillVideoTable() {
         try {
-            vID.setCellValueFactory(new PropertyValueFactory<VideoCourse, Integer>("videoID"));
-            vCourseName.setCellValueFactory(new PropertyValueFactory<VideoCourse, String>("vCourseName"));
-            vTrainerName.setCellValueFactory(new PropertyValueFactory<VideoCourse, String>("vTrainerName"));
+            vID.setCellValueFactory(new PropertyValueFactory<VideoCourse, Integer>("course_id"));
+            vCourseName.setCellValueFactory(new PropertyValueFactory<VideoCourse, String>("course_name"));
+            vTrainerName.setCellValueFactory(new PropertyValueFactory<VideoCourse, String>("trainer_name"));
             vURL.setCellValueFactory(new PropertyValueFactory<VideoCourse, String>("vLink"));
             vRemark.setCellValueFactory(new PropertyValueFactory<VideoCourse, String>("vRemark"));
             vCourseTable.setItems(getVideoCourseList());

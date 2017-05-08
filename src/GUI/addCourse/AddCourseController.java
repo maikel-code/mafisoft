@@ -1,7 +1,6 @@
 package GUI.addCourse;
 
 import DBHelper.DBController;
-import catalouge.courses.Course;
 import catalouge.courses.PhysicalCourse;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

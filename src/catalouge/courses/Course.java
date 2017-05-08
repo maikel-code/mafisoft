@@ -6,8 +6,6 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-import java.sql.Time;
-
 public class Course {
     protected IntegerProperty course_id;
     protected StringProperty trainer_name;
@@ -55,6 +53,7 @@ public class Course {
     public void setCourse_name(String course_name) {
         this.course_name.set(course_name);
     }
+
 
 
 }
