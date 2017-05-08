@@ -62,9 +62,8 @@ CREATE TABLE `customer` (
   `street` varchar(45) COLLATE latin1_german1_ci NOT NULL,
   `create_time` date NOT NULL,
   `end_time` date NOT NULL,
-  `customer_id` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`customer_id`),
-  UNIQUE KEY `customer_id_UNIQUE` (`customer_id`)
+  `customer_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`customer_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -76,6 +75,30 @@ LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
 INSERT INTO `customer` VALUES ('Peter','Yermash','1993-09-04 00:00:00','peter.yermash@fh-dortmund.de','',44227,'Dortmund','Am Gardenkamp 45','2017-04-24','2018-04-02',1),('Anil Can','Afak','1993-02-19 00:00:00','can.afak@fh-dortmund.de','',44135,'Dortmund','Königswall 15','2017-04-24','2018-04-02',11),('Michael','Tjupalow','1990-12-12 00:00:00','typalow.michael@fh-dortmund.de','',44135,'Dortmund','irgendwo 1','2017-04-25','2018-04-03',13),('Max','Mustermann','2012-12-12 00:00:00','','',12345,'Dreamland','Wallstreet 1','2017-04-26','2018-04-04',14);
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `customer_course`
+--
+
+DROP TABLE IF EXISTS `customer_course`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `customer_course` (
+  `id` int(11) unsigned NOT NULL,
+  `customer_id` int(11) DEFAULT NULL,
+  `course_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `customer_course`
+--
+
+LOCK TABLES `customer_course` WRITE;
+/*!40000 ALTER TABLE `customer_course` DISABLE KEYS */;
+/*!40000 ALTER TABLE `customer_course` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -114,4 +137,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-08 22:41:25
+-- Dump completed on 2017-05-09  0:33:31
