@@ -5,6 +5,9 @@ import java.sql.*;
 public class DBController {
     private static Connection connection;
 
+    private DBController() {
+    }
+
     private static Connection getConnection() throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
 

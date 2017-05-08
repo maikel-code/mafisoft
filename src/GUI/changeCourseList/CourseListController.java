@@ -2,6 +2,7 @@ package GUI.changeCourseList;
 
 import DBHelper.DBController;
 import catalouge.courses.Course;
+import catalouge.courses.PhysicalCourse;
 import catalouge.courses.VideoCourse;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -32,7 +33,7 @@ public class CourseListController implements Initializable {
     @FXML
     private TableColumn id, courseName, trainerName, timeBegin, timeEnd;
     @FXML
-    private TextField courseTXT, coursename, trainer, courseID, startTime, endTime, customerQuantitysTXT;
+    private TextField courseTXT, coursename, trainer, courseID, startTime, endTime;
 
     @FXML
     private TableColumn vID, vCourseName, vTrainerName, vURL, vRemark;
@@ -42,7 +43,7 @@ public class CourseListController implements Initializable {
     private TextArea vRemarkChanged;
 
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
-    private Course course;
+    private PhysicalCourse course;
     private VideoCourse videoCourse;
 
     @Override
@@ -54,11 +55,11 @@ public class CourseListController implements Initializable {
 
     public void fillTable() {
         try {
-            id.setCellValueFactory(new PropertyValueFactory<Course, Integer>("course_id"));
-            courseName.setCellValueFactory(new PropertyValueFactory<Course, String>("course_name"));
-            trainerName.setCellValueFactory(new PropertyValueFactory<Course, String>("trainer_name"));
-            timeBegin.setCellValueFactory(new PropertyValueFactory<Course, Time>("startTime"));
-            timeEnd.setCellValueFactory(new PropertyValueFactory<Course, Time>("endTime"));
+            id.setCellValueFactory(new PropertyValueFactory<PhysicalCourse, Integer>("course_id"));
+            courseName.setCellValueFactory(new PropertyValueFactory<PhysicalCourse, String>("course_name"));
+            trainerName.setCellValueFactory(new PropertyValueFactory<PhysicalCourse, String>("trainer_name"));
+            timeBegin.setCellValueFactory(new PropertyValueFactory<PhysicalCourse, Time>("startTime"));
+            timeEnd.setCellValueFactory(new PropertyValueFactory<PhysicalCourse, Time>("endTime"));
             courseTable.setItems(getCourseList());
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -76,7 +77,7 @@ public class CourseListController implements Initializable {
         return row;
     }
 
-    private void fillChangeTabble(Course course) {
+    private void fillChangeTabble(PhysicalCourse course) {
         clearAll(1);
         courseID.setText(course.getCourse_id() + "");
         coursename.setText(course.getCourse_name());
@@ -86,8 +87,8 @@ public class CourseListController implements Initializable {
 
     }
 
-    private Course fillCourse(ResultSet rs) throws SQLException {
-        Course course = new Course();
+    private PhysicalCourse fillCourse(ResultSet rs) throws SQLException {
+        PhysicalCourse course = new PhysicalCourse();
 
         course.setCourse_id(rs.getInt("course_id"));
         course.setCourse_name(rs.getString("course_name"));
@@ -143,7 +144,7 @@ public class CourseListController implements Initializable {
 
     public void mouseOnClick(MouseEvent mouseEvent) {
         if (mouseEvent.getClickCount() == 2) {
-            course = (Course) courseTable.getSelectionModel().getSelectedItem();
+            course = (PhysicalCourse) courseTable.getSelectionModel().getSelectedItem();
             fillChangeTabble(course);
         }
     }
@@ -210,9 +211,9 @@ public class CourseListController implements Initializable {
     private void fillVideoCourseChange(VideoCourse videoCourse) {
         clearAll(2);
 
-        vCourseIDChanged.setText(videoCourse.getVideoID() + "");
-        vCourseNameChanged.setText(videoCourse.getvCourseName());
-        vTrainerChanged.setText(videoCourse.getvTrainerName());
+        vCourseIDChanged.setText(videoCourse.getCourse_id() + "");
+        vCourseNameChanged.setText(videoCourse.getCourse_name());
+        vTrainerChanged.setText(videoCourse.getTrainer_name());
         vURLChanged.setText(videoCourse.getvLink());
         vRemarkChanged.setText(videoCourse.getvRemark());
     }
@@ -221,9 +222,9 @@ public class CourseListController implements Initializable {
         VideoCourse videoCourse = new VideoCourse();
 
         try {
-            videoCourse.setVideoId(rs.getInt("videoID"));
-            videoCourse.setvCourseName(rs.getString("courseName"));
-            videoCourse.setvTrainerName(rs.getString("trainerName"));
+            videoCourse.setCourse_id(rs.getInt("videoID"));
+            videoCourse.setCourse_name(rs.getString("courseName"));
+            videoCourse.setTrainer_name(rs.getString("trainerName"));
             videoCourse.setvLink(rs.getString("link"));
             videoCourse.setvRemark(rs.getString("remark"));
         } catch (SQLException e) {
@@ -256,8 +257,8 @@ public class CourseListController implements Initializable {
     }
 
     private void changeVideoCourse() {
-        videoCourse.setvCourseName(vCourseNameChanged.getText());
-        videoCourse.setvTrainerName(vTrainerChanged.getText());
+        videoCourse.setCourse_name(vCourseNameChanged.getText());
+        videoCourse.setTrainer_name(vTrainerChanged.getText());
         videoCourse.setvLink(vURLChanged.getText());
         videoCourse.setvRemark(vRemarkChanged.getText());
     }
@@ -265,7 +266,7 @@ public class CourseListController implements Initializable {
     public void videoChangeButtonPressed() {
         changeVideoCourse();
         try {
-            DBController.updateVideoCourse(videoCourse.getVideoID(), videoCourse.getvCourseName(),videoCourse.getvTrainerName(),videoCourse.getvLink(),videoCourse.getvRemark());
+            DBController.updateVideoCourse(videoCourse.getCourse_id(), videoCourse.getCourse_name(),videoCourse.getTrainer_name(),videoCourse.getvLink(),videoCourse.getvRemark());
         } catch (Exception e) {
             e.printStackTrace();
         }

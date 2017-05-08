@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f9378abc-c248-4932-bd56-51ca7db0f7e9" name="Default" comment="Fix bug with resizable&#10;Add UML">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mafiSoft.uml" afterPath="$PROJECT_DIR$/mafiSoft.uml" />
+    <list default="true" id="f9378abc-c248-4932-bd56-51ca7db0f7e9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/addCourse/AddCourseController.java" afterPath="$PROJECT_DIR$/src/GUI/addCourse/AddCourseController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DBHelper/DBController.java" afterPath="$PROJECT_DIR$/src/DBHelper/DBController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/changeCourseList/CourseListController.java" afterPath="$PROJECT_DIR$/src/GUI/changeCourseList/CourseListController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/catalouge/courses/Course.java" afterPath="$PROJECT_DIR$/src/catalouge/courses/Course.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/catalouge/courses/VideoCourse.java" afterPath="$PROJECT_DIR$/src/catalouge/courses/VideoCourse.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -72,11 +74,96 @@
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+              <caret line="11" column="16" lean-forward="false" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#499#500#0" expanded="true" />
                 <element signature="e#527#528#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CourseListController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/GUI/changeCourseList/CourseListController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2835">
+              <caret line="215" column="61" lean-forward="false" selection-start-line="215" selection-start-column="61" selection-end-line="215" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PhysicalCourse.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/catalouge/courses/PhysicalCourse.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="613">
+              <caret line="53" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VideoCourse.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/catalouge/courses/VideoCourse.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="524">
+              <caret line="45" column="27" lean-forward="false" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="27" />
+              <folding>
+                <element signature="e#666#667#0" expanded="true" />
+                <element signature="e#700#701#0" expanded="true" />
+                <element signature="e#745#746#0" expanded="true" />
+                <element signature="e#773#774#0" expanded="true" />
+                <element signature="e#815#816#0" expanded="true" />
+                <element signature="e#852#853#0" expanded="true" />
+                <element signature="e#886#887#0" expanded="true" />
+                <element signature="e#922#923#0" expanded="true" />
+                <element signature="e#969#970#0" expanded="true" />
+                <element signature="e#999#1000#0" expanded="true" />
+                <element signature="e#1045#1046#0" expanded="true" />
+                <element signature="e#1086#1087#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddCourseController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GUI/addCourse/AddCourseController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="201">
+              <caret line="48" column="44" lean-forward="false" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="44" />
+              <folding>
+                <element signature="method#initialize#0;class#AddCourseController#0" expanded="false" />
+                <element signature="method#check#0;class#AddCourseController#0" expanded="false" />
+                <element signature="method#goToMainWindow#0;class#AddCourseController#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DBHelper/DBController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="30" column="46" lean-forward="true" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
+              <folding>
+                <marker date="1494262001000" expanded="true" signature="948:1141" ph="INSERT INTO customer... " />
+                <marker date="1494262001000" expanded="true" signature="2000:2155" ph="UPDATE custo... " />
+                <marker date="1494262001000" expanded="true" signature="2963:3036" ph="SELECT * FRO... customer" />
+                <marker date="1494262001000" expanded="true" signature="3373:3415" ph="SELECT * FRO... customer" />
+                <marker date="1494262001000" expanded="true" signature="3790:3812" ph="SELECT * FRO... customer" />
+                <marker date="1494262001000" expanded="true" signature="4159:4235" ph="INSERT INTO course... " />
+                <marker date="1494262001000" expanded="true" signature="4769:4850" ph="UPDATE cours... " />
+                <marker date="1494262001000" expanded="true" signature="5516:5557" ph="SELECT * FRO... course" />
+                <marker date="1494262001000" expanded="true" signature="5790:5828" ph="SELECT * FRO... course" />
+                <marker date="1494262001000" expanded="true" signature="6201:6221" ph="SELECT * FRO... course" />
+                <marker date="1494262001000" expanded="true" signature="6522:6604" ph="INSERT INTO video_course... " />
+                <marker date="1494262001000" expanded="true" signature="7143:7228" ph="UPDATE video... " />
+                <marker date="1494262001000" expanded="true" signature="7891:7933" ph="SELECT * FRO... video_course" />
+                <marker date="1494262001000" expanded="true" signature="8141:8204" ph="SELECT * FRO... video_course" />
+                <marker date="1494262001000" expanded="true" signature="8658:8684" ph="SELECT * FRO... video_course" />
               </folding>
             </state>
           </provider>
@@ -89,144 +176,79 @@
               <ID>JAVA</ID>
               <OriginalElement>Main</OriginalElement>
               <nodes>
-                <node x="632.0" y="1756.0">catalouge.courses.VideoCourse</node>
-                <node x="1210.0" y="1756.0">GUI.addCourse.AddCourseController</node>
-                <node x="2245.0" y="1756.0">GUI.MaFiSoftHomepage.HomePageController</node>
-                <node x="1566.25" y="1521.0">javafx.application.Application.Parameters</node>
-                <node x="0.0" y="0.0">GUI.changeCourseList.CourseListController</node>
-                <node x="1516.0" y="1109.0">javafx.application.Application</node>
-                <node x="779.0" y="1109.0">GUI.addCustomer.AddCustomerController</node>
-                <node x="0.0" y="1109.0">GUI.changeCustomerData.ChangeDataController</node>
-                <node x="1728.0" y="1756.0">DBHelper.DBController</node>
-                <node x="0.0" y="1756.0">catalouge.courses.Course</node>
-                <node x="1174.0" y="0.0">catalouge.customer.Customer</node>
-                <node x="0.0" y="2251.0">catalouge.zipCode.NumberTextField</node>
-                <node x="1797.25" y="1543.5">Main</node>
+                <node x="1039.875" y="22.0">catalouge.courses.VideoCourse</node>
+                <node x="0.0" y="863.0">GUI.addCourse.AddCourseController</node>
+                <node x="2586.0" y="1609.0">GUI.MaFiSoftHomepage.HomePageController</node>
+                <node x="1762.75" y="2021.0">javafx.application.Application.Parameters</node>
+                <node x="492.99999999999994" y="500.0">GUI.changeCourseList.CourseListController</node>
+                <node x="1491.0" y="1609.0">javafx.application.Application</node>
+                <node x="0.0" y="2317.5">GUI.addCustomer.AddCustomerController</node>
+                <node x="712.0" y="2307.0">GUI.changeCustomerData.ChangeDataController</node>
+                <node x="2069.0" y="1609.0">DBHelper.DBController</node>
+                <node x="239.64583333333326" y="0.0">catalouge.courses.Course</node>
+                <node x="409.25" y="1609.0">catalouge.customer.Customer</node>
+                <node x="22.55208333333337" y="1885.0">catalouge.zipCode.NumberTextField</node>
+                <node x="1550.75" y="2043.5">Main</node>
               </nodes>
               <notes />
               <edges>
-                <edge source="Main" target="javafx.application.Application">
-                  <point x="0.0" y="-36.5" />
-                  <point x="1893.25" y="1496.0" />
-                  <point x="1915.75" y="1496.0" />
-                  <point x="133.25" y="181.0" />
+                <edge source="GUI.addCustomer.AddCustomerController" target="catalouge.zipCode.NumberTextField">
+                  <point x="-230.66666666666663" y="-290.5" />
+                  <point x="115.33333333333337" y="2282.0" />
+                  <point x="135.55208333333337" y="2282.0" />
+                  <point x="0.0" y="48.0" />
                 </edge>
                 <edge source="javafx.application.Application.Parameters" target="javafx.application.Application">
                   <point x="0.0" y="-59.0" />
-                  <point x="1671.75" y="1496.0" />
-                  <point x="1649.25" y="1496.0" />
+                  <point x="1868.25" y="1996.0" />
+                  <point x="1890.75" y="1996.0" />
+                  <point x="133.25" y="181.0" />
+                </edge>
+                <edge source="GUI.changeCourseList.CourseListController" target="catalouge.courses.VideoCourse">
+                  <point x="141.125" y="-532.0" />
+                  <point x="1198.625" y="475.0" />
+                  <point x="1173.125" y="475.0" />
+                  <point x="-133.25" y="203.0" />
+                </edge>
+                <edge source="GUI.changeCustomerData.ChangeDataController" target="catalouge.customer.Customer">
+                  <point x="183.5" y="-301.0" />
+                  <point x="1262.5" y="2282.0" />
+                  <point x="1090.0" y="2282.0" />
+                  <point x="291.75" y="324.0" />
+                </edge>
+                <edge source="GUI.addCustomer.AddCustomerController" target="catalouge.customer.Customer">
+                  <point x="230.66666666666663" y="-290.5" />
+                  <point x="576.6666666666666" y="2282.0" />
+                  <point x="701.0" y="2282.0" />
+                  <point x="-97.25" y="324.0" />
+                </edge>
+                <edge source="Main" target="javafx.application.Application">
+                  <point x="0.0" y="-36.5" />
+                  <point x="1646.75" y="1996.0" />
+                  <point x="1624.25" y="1996.0" />
                   <point x="-133.25" y="181.0" />
                 </edge>
+                <edge source="GUI.changeCourseList.CourseListController" target="catalouge.courses.Course">
+                  <point x="-141.125" y="-532.0" />
+                  <point x="916.375" y="475.0" />
+                  <point x="728.8124999999999" y="475.0" />
+                  <point x="195.66666666666663" y="225.0" />
+                </edge>
+                <edge source="GUI.addCourse.AddCourseController" target="catalouge.courses.Course">
+                  <point x="0.0" y="-169.0" />
+                  <point x="236.5" y="475.0" />
+                  <point x="337.47916666666663" y="475.0" />
+                  <point x="-195.66666666666663" y="225.0" />
+                </edge>
               </edges>
-              <settings layout="Hierarchic Group" zoom="0.32832963989871766" x="-195.02731025430842" y="689.9726897456916" />
-              <SelectedNodes>
-                <node>Main</node>
-              </SelectedNodes>
+              <settings layout="Hierarchic Group" zoom="0.34470396865631137" x="-87.75040085687817" y="613.2495991431218" />
+              <SelectedNodes />
               <Categories>
                 <Category>Fields</Category>
                 <Category>Inner Classes</Category>
                 <Category>Constructors</Category>
                 <Category>Properties</Category>
                 <Category>Methods</Category>
-              </Categories>
-              <SCOPE>All</SCOPE>
-              <VISIBILITY>private</VISIBILITY>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VideoCourse.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/catalouge/courses/VideoCourse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6">
-              <caret line="9" column="36" lean-forward="false" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NumberTextField.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/catalouge/zipCode/NumberTextField.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DBController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DBHelper/DBController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-258">
-              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-              <folding>
-                <marker date="1493707963000" expanded="true" signature="912:1105" ph="INSERT INTO customer... " />
-                <marker date="1493707963000" expanded="true" signature="1964:2119" ph="UPDATE custo... " />
-                <marker date="1493707963000" expanded="true" signature="2927:3000" ph="SELECT * FRO... customer" />
-                <marker date="1493707963000" expanded="true" signature="3337:3379" ph="SELECT * FRO... customer" />
-                <marker date="1493707963000" expanded="true" signature="3754:3776" ph="SELECT * FRO... customer" />
-                <marker date="1493707963000" expanded="true" signature="4123:4199" ph="INSERT INTO course... " />
-                <marker date="1493707963000" expanded="true" signature="4733:4814" ph="UPDATE cours... " />
-                <marker date="1493707963000" expanded="true" signature="5480:5521" ph="SELECT * FRO... course" />
-                <marker date="1493707963000" expanded="true" signature="5754:5792" ph="SELECT * FRO... course" />
-                <marker date="1493707963000" expanded="true" signature="6165:6185" ph="SELECT * FRO... course" />
-                <marker date="1493707963000" expanded="true" signature="6486:6568" ph="INSERT INTO video_course... " />
-                <marker date="1493707963000" expanded="true" signature="7107:7192" ph="UPDATE video... " />
-                <marker date="1493707963000" expanded="true" signature="7855:7897" ph="SELECT * FRO... video_course" />
-                <marker date="1493707963000" expanded="true" signature="8105:8168" ph="SELECT * FRO... video_course" />
-                <marker date="1493707963000" expanded="true" signature="8622:8648" ph="SELECT * FRO... video_course" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JAVA/Main" pinned="false" current-in-tab="false">
-        <entry file="uml://JAVA/Main">
-          <provider selected="true" editor-type-id="UmlEditorProvider">
-            <state>
-              <ID>JAVA</ID>
-              <OriginalElement>Main</OriginalElement>
-              <nodes>
-                <node x="632.0" y="1756.0">catalouge.courses.VideoCourse</node>
-                <node x="1210.0" y="1756.0">GUI.addCourse.AddCourseController</node>
-                <node x="2206.5" y="1778.5">GUI.MaFiSoftHomepage.HomePageController</node>
-                <node x="1566.25" y="1521.0">javafx.application.Application.Parameters</node>
-                <node x="0.0" y="0.0">GUI.changeCourseList.CourseListController</node>
-                <node x="1516.0" y="1109.0">javafx.application.Application</node>
-                <node x="779.0" y="1109.0">GUI.addCustomer.AddCustomerController</node>
-                <node x="0.0" y="1109.0">GUI.changeCustomerData.ChangeDataController</node>
-                <node x="1728.0" y="1756.0">DBHelper.DBController</node>
-                <node x="0.0" y="1756.0">catalouge.courses.Course</node>
-                <node x="1174.0" y="0.0">catalouge.customer.Customer</node>
-                <node x="0.0" y="2251.0">catalouge.zipCode.NumberTextField</node>
-                <node x="1797.25" y="1543.5">Main</node>
-              </nodes>
-              <notes />
-              <edges>
-                <edge source="javafx.application.Application.Parameters" target="javafx.application.Application">
-                  <point x="0.0" y="-59.0" />
-                  <point x="1671.75" y="1496.0" />
-                  <point x="1649.25" y="1496.0" />
-                  <point x="-133.25" y="181.0" />
-                </edge>
-                <edge source="Main" target="javafx.application.Application">
-                  <point x="0.0" y="-36.5" />
-                  <point x="1893.25" y="1496.0" />
-                  <point x="1915.75" y="1496.0" />
-                  <point x="133.25" y="181.0" />
-                </edge>
-              </edges>
-              <settings layout="Hierarchic Group" zoom="0.46514575411913817" x="237.06539509536788" y="505.96730245231606" />
-              <SelectedNodes>
-                <node>Main</node>
-              </SelectedNodes>
-              <Categories>
-                <Category>Fields</Category>
-                <Category>Constructors</Category>
-                <Category>Methods</Category>
-                <Category>Inner Classes</Category>
-                <Category>Properties</Category>
               </Categories>
               <SCOPE>All</SCOPE>
               <VISIBILITY>private</VISIBILITY>
@@ -235,6 +257,18 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>getCourseList</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -254,6 +288,11 @@
         <option value="$PROJECT_DIR$/src/GUI/MaFiSoftHomepage/HomePageController.java" />
         <option value="$PROJECT_DIR$/src/GUI/changeCourseList/CourseList.fxml" />
         <option value="$PROJECT_DIR$/src/GUI/addCourse/AddCourseController.java" />
+        <option value="$PROJECT_DIR$/src/DBHelper/DBController.java" />
+        <option value="$PROJECT_DIR$/src/catalouge/courses/PhysicalCourse.java" />
+        <option value="$PROJECT_DIR$/src/catalouge/courses/VideoCourse.java" />
+        <option value="$PROJECT_DIR$/src/catalouge/courses/Course.java" />
+        <option value="$PROJECT_DIR$/src/GUI/changeCourseList/CourseListController.java" />
       </list>
     </option>
   </component>
@@ -365,7 +404,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="addCustomer" />
+              <option name="myItemId" value="changeCourseList" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -446,6 +485,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="catalouge" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="customer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -921,7 +964,7 @@
       <option name="presentableId" value="Default" />
       <updated>1494230117544</updated>
       <workItem from="1494230119658" duration="2069000" />
-      <workItem from="1494251625454" duration="3368000" />
+      <workItem from="1494251625454" duration="6413000" />
     </task>
     <task id="LOCAL-00001" summary="Fix bug with resizable&#10;Add UML">
       <created>1494259713919</created>
@@ -930,11 +973,25 @@
       <option name="project" value="LOCAL" />
       <updated>1494259713919</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fix bug with resizable&#10;Add UML">
+      <created>1494260469196</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1494260469196</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add UML">
+      <created>1494261353222</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1494261353222</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5437000" />
+    <option name="totallyTimeSpent" value="8482000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1200" extended-state="0" />
@@ -943,27 +1000,27 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957503" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957503" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24978317" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24978317" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16770834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.178125" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.178125" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957503" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -979,7 +1036,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fix bug with resizable&#10;Add UML" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix bug with resizable&#10;Add UML" />
+    <MESSAGE value="Add UML" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add UML" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1105,14 +1163,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/changeCourseList/CourseListController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="906">
-          <caret line="143" column="29" lean-forward="false" selection-start-line="143" selection-start-column="29" selection-end-line="143" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/changeCourseList/CourseList.fxml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="335">
@@ -1148,57 +1198,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="uml://JAVA/Main">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>Main</OriginalElement>
-          <nodes>
-            <node x="632.0" y="1756.0">catalouge.courses.VideoCourse</node>
-            <node x="1210.0" y="1756.0">GUI.addCourse.AddCourseController</node>
-            <node x="2206.5" y="1778.5">GUI.MaFiSoftHomepage.HomePageController</node>
-            <node x="1566.25" y="1521.0">javafx.application.Application.Parameters</node>
-            <node x="0.0" y="0.0">GUI.changeCourseList.CourseListController</node>
-            <node x="1516.0" y="1109.0">javafx.application.Application</node>
-            <node x="779.0" y="1109.0">GUI.addCustomer.AddCustomerController</node>
-            <node x="0.0" y="1109.0">GUI.changeCustomerData.ChangeDataController</node>
-            <node x="1728.0" y="1756.0">DBHelper.DBController</node>
-            <node x="0.0" y="1756.0">catalouge.courses.Course</node>
-            <node x="1174.0" y="0.0">catalouge.customer.Customer</node>
-            <node x="0.0" y="2251.0">catalouge.zipCode.NumberTextField</node>
-            <node x="1797.25" y="1543.5">Main</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="javafx.application.Application.Parameters" target="javafx.application.Application">
-              <point x="0.0" y="-59.0" />
-              <point x="1671.75" y="1496.0" />
-              <point x="1649.25" y="1496.0" />
-              <point x="-133.25" y="181.0" />
-            </edge>
-            <edge source="Main" target="javafx.application.Application">
-              <point x="0.0" y="-36.5" />
-              <point x="1893.25" y="1496.0" />
-              <point x="1915.75" y="1496.0" />
-              <point x="133.25" y="181.0" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="0.46514575411913817" x="237.06539509536788" y="505.96730245231606" />
-          <SelectedNodes>
-            <node>Main</node>
-          </SelectedNodes>
-          <Categories>
-            <Category>Fields</Category>
-            <Category>Constructors</Category>
-            <Category>Methods</Category>
-            <Category>Inner Classes</Category>
-            <Category>Properties</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/addCourse/AddCourse.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1075">
@@ -1210,62 +1209,47 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#499#500#0" expanded="true" />
-            <element signature="e#527#528#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DBHelper/DBController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-258">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <marker date="1493707963000" expanded="true" signature="912:1105" ph="INSERT INTO customer... " />
-            <marker date="1493707963000" expanded="true" signature="1964:2119" ph="UPDATE custo... " />
-            <marker date="1493707963000" expanded="true" signature="2927:3000" ph="SELECT * FRO... customer" />
-            <marker date="1493707963000" expanded="true" signature="3337:3379" ph="SELECT * FRO... customer" />
-            <marker date="1493707963000" expanded="true" signature="3754:3776" ph="SELECT * FRO... customer" />
-            <marker date="1493707963000" expanded="true" signature="4123:4199" ph="INSERT INTO course... " />
-            <marker date="1493707963000" expanded="true" signature="4733:4814" ph="UPDATE cours... " />
-            <marker date="1493707963000" expanded="true" signature="5480:5521" ph="SELECT * FRO... course" />
-            <marker date="1493707963000" expanded="true" signature="5754:5792" ph="SELECT * FRO... course" />
-            <marker date="1493707963000" expanded="true" signature="6165:6185" ph="SELECT * FRO... course" />
-            <marker date="1493707963000" expanded="true" signature="6486:6568" ph="INSERT INTO video_course... " />
-            <marker date="1493707963000" expanded="true" signature="7107:7192" ph="UPDATE video... " />
-            <marker date="1493707963000" expanded="true" signature="7855:7897" ph="SELECT * FRO... video_course" />
-            <marker date="1493707963000" expanded="true" signature="8105:8168" ph="SELECT * FRO... video_course" />
-            <marker date="1493707963000" expanded="true" signature="8622:8648" ph="SELECT * FRO... video_course" />
-          </folding>
+    <entry file="uml://JAVA/Main">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>Main</OriginalElement>
+          <nodes>
+            <node x="" y="">catalouge.courses.VideoCourse</node>
+            <node x="" y="">GUI.addCourse.AddCourseController</node>
+            <node x="" y="">GUI.MaFiSoftHomepage.HomePageController</node>
+            <node x="" y="">javafx.application.Application.Parameters</node>
+            <node x="" y="">GUI.changeCourseList.CourseListController</node>
+            <node x="" y="">javafx.application.Application</node>
+            <node x="" y="">GUI.addCustomer.AddCustomerController</node>
+            <node x="" y="">GUI.changeCustomerData.ChangeDataController</node>
+            <node x="" y="">DBHelper.DBController</node>
+            <node x="" y="">catalouge.courses.Course</node>
+            <node x="" y="">catalouge.customer.Customer</node>
+            <node x="" y="">catalouge.zipCode.NumberTextField</node>
+            <node x="" y="">Main</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.46514575411913817" x="1071.2125340599455" y="863.9196185286103" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+            <Category>Inner Classes</Category>
+            <Category>Properties</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/catalouge/zipCode/NumberTextField.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        <state relative-caret-position="228">
+          <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/addCourse/AddCourseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="30" column="14" lean-forward="true" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
-          <folding>
-            <element signature="method#initialize#0;class#AddCourseController#0" expanded="false" />
-            <element signature="method#addCourseButton#0;class#AddCourseController#0" expanded="false" />
-            <element signature="method#fillCourseInDB#0;class#AddCourseController#0" expanded="false" />
-            <element signature="method#check#0;class#AddCourseController#0" expanded="false" />
-            <element signature="method#goToMainWindow#0;class#AddCourseController#0" expanded="false" />
-            <element signature="method#addVideoButton#0;class#AddCourseController#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1275,39 +1259,73 @@
           <ID>JAVA</ID>
           <OriginalElement>Main</OriginalElement>
           <nodes>
-            <node x="632.0" y="1756.0">catalouge.courses.VideoCourse</node>
-            <node x="1210.0" y="1756.0">GUI.addCourse.AddCourseController</node>
-            <node x="2245.0" y="1756.0">GUI.MaFiSoftHomepage.HomePageController</node>
-            <node x="1566.25" y="1521.0">javafx.application.Application.Parameters</node>
-            <node x="0.0" y="0.0">GUI.changeCourseList.CourseListController</node>
-            <node x="1516.0" y="1109.0">javafx.application.Application</node>
-            <node x="779.0" y="1109.0">GUI.addCustomer.AddCustomerController</node>
-            <node x="0.0" y="1109.0">GUI.changeCustomerData.ChangeDataController</node>
-            <node x="1728.0" y="1756.0">DBHelper.DBController</node>
-            <node x="0.0" y="1756.0">catalouge.courses.Course</node>
-            <node x="1174.0" y="0.0">catalouge.customer.Customer</node>
-            <node x="0.0" y="2251.0">catalouge.zipCode.NumberTextField</node>
-            <node x="1797.25" y="1543.5">Main</node>
+            <node x="1039.875" y="22.0">catalouge.courses.VideoCourse</node>
+            <node x="0.0" y="863.0">GUI.addCourse.AddCourseController</node>
+            <node x="2586.0" y="1609.0">GUI.MaFiSoftHomepage.HomePageController</node>
+            <node x="1762.75" y="2021.0">javafx.application.Application.Parameters</node>
+            <node x="492.99999999999994" y="500.0">GUI.changeCourseList.CourseListController</node>
+            <node x="1491.0" y="1609.0">javafx.application.Application</node>
+            <node x="0.0" y="2317.5">GUI.addCustomer.AddCustomerController</node>
+            <node x="712.0" y="2307.0">GUI.changeCustomerData.ChangeDataController</node>
+            <node x="2069.0" y="1609.0">DBHelper.DBController</node>
+            <node x="239.64583333333326" y="0.0">catalouge.courses.Course</node>
+            <node x="409.25" y="1609.0">catalouge.customer.Customer</node>
+            <node x="22.55208333333337" y="1885.0">catalouge.zipCode.NumberTextField</node>
+            <node x="1550.75" y="2043.5">Main</node>
           </nodes>
           <notes />
           <edges>
-            <edge source="Main" target="javafx.application.Application">
-              <point x="0.0" y="-36.5" />
-              <point x="1893.25" y="1496.0" />
-              <point x="1915.75" y="1496.0" />
-              <point x="133.25" y="181.0" />
+            <edge source="GUI.addCustomer.AddCustomerController" target="catalouge.zipCode.NumberTextField">
+              <point x="-230.66666666666663" y="-290.5" />
+              <point x="115.33333333333337" y="2282.0" />
+              <point x="135.55208333333337" y="2282.0" />
+              <point x="0.0" y="48.0" />
             </edge>
             <edge source="javafx.application.Application.Parameters" target="javafx.application.Application">
               <point x="0.0" y="-59.0" />
-              <point x="1671.75" y="1496.0" />
-              <point x="1649.25" y="1496.0" />
+              <point x="1868.25" y="1996.0" />
+              <point x="1890.75" y="1996.0" />
+              <point x="133.25" y="181.0" />
+            </edge>
+            <edge source="GUI.changeCourseList.CourseListController" target="catalouge.courses.VideoCourse">
+              <point x="141.125" y="-532.0" />
+              <point x="1198.625" y="475.0" />
+              <point x="1173.125" y="475.0" />
+              <point x="-133.25" y="203.0" />
+            </edge>
+            <edge source="GUI.changeCustomerData.ChangeDataController" target="catalouge.customer.Customer">
+              <point x="183.5" y="-301.0" />
+              <point x="1262.5" y="2282.0" />
+              <point x="1090.0" y="2282.0" />
+              <point x="291.75" y="324.0" />
+            </edge>
+            <edge source="GUI.addCustomer.AddCustomerController" target="catalouge.customer.Customer">
+              <point x="230.66666666666663" y="-290.5" />
+              <point x="576.6666666666666" y="2282.0" />
+              <point x="701.0" y="2282.0" />
+              <point x="-97.25" y="324.0" />
+            </edge>
+            <edge source="Main" target="javafx.application.Application">
+              <point x="0.0" y="-36.5" />
+              <point x="1646.75" y="1996.0" />
+              <point x="1624.25" y="1996.0" />
               <point x="-133.25" y="181.0" />
             </edge>
+            <edge source="GUI.changeCourseList.CourseListController" target="catalouge.courses.Course">
+              <point x="-141.125" y="-532.0" />
+              <point x="916.375" y="475.0" />
+              <point x="728.8124999999999" y="475.0" />
+              <point x="195.66666666666663" y="225.0" />
+            </edge>
+            <edge source="GUI.addCourse.AddCourseController" target="catalouge.courses.Course">
+              <point x="0.0" y="-169.0" />
+              <point x="236.5" y="475.0" />
+              <point x="337.47916666666663" y="475.0" />
+              <point x="-195.66666666666663" y="225.0" />
+            </edge>
           </edges>
-          <settings layout="Hierarchic Group" zoom="0.32832963989871766" x="-195.02731025430842" y="689.9726897456916" />
-          <SelectedNodes>
-            <node>Main</node>
-          </SelectedNodes>
+          <settings layout="Hierarchic Group" zoom="0.34470396865631137" x="-87.75040085687817" y="613.2495991431218" />
+          <SelectedNodes />
           <Categories>
             <Category>Fields</Category>
             <Category>Inner Classes</Category>
@@ -1320,10 +1338,137 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="110" column="40" lean-forward="false" selection-start-line="110" selection-start-column="40" selection-end-line="110" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/Collection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="143" column="43" lean-forward="true" selection-start-line="143" selection-start-column="43" selection-end-line="143" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/lang/Iterable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="44" column="17" lean-forward="false" selection-start-line="44" selection-start-column="17" selection-end-line="44" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/javafx-src.zip!/javafx/beans/Observable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="50" column="17" lean-forward="false" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/javafx-src.zip!/javafx/collections/ObservableList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="45" column="46" lean-forward="true" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DBHelper/DBController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="46" lean-forward="true" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
+          <folding>
+            <marker date="1494262001000" expanded="true" signature="948:1141" ph="INSERT INTO customer... " />
+            <marker date="1494262001000" expanded="true" signature="2000:2155" ph="UPDATE custo... " />
+            <marker date="1494262001000" expanded="true" signature="2963:3036" ph="SELECT * FRO... customer" />
+            <marker date="1494262001000" expanded="true" signature="3373:3415" ph="SELECT * FRO... customer" />
+            <marker date="1494262001000" expanded="true" signature="3790:3812" ph="SELECT * FRO... customer" />
+            <marker date="1494262001000" expanded="true" signature="4159:4235" ph="INSERT INTO course... " />
+            <marker date="1494262001000" expanded="true" signature="4769:4850" ph="UPDATE cours... " />
+            <marker date="1494262001000" expanded="true" signature="5516:5557" ph="SELECT * FRO... course" />
+            <marker date="1494262001000" expanded="true" signature="5790:5828" ph="SELECT * FRO... course" />
+            <marker date="1494262001000" expanded="true" signature="6201:6221" ph="SELECT * FRO... course" />
+            <marker date="1494262001000" expanded="true" signature="6522:6604" ph="INSERT INTO video_course... " />
+            <marker date="1494262001000" expanded="true" signature="7143:7228" ph="UPDATE video... " />
+            <marker date="1494262001000" expanded="true" signature="7891:7933" ph="SELECT * FRO... video_course" />
+            <marker date="1494262001000" expanded="true" signature="8141:8204" ph="SELECT * FRO... video_course" />
+            <marker date="1494262001000" expanded="true" signature="8658:8684" ph="SELECT * FRO... video_course" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/addCourse/AddCourseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="48" column="44" lean-forward="false" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="44" />
+          <folding>
+            <element signature="method#initialize#0;class#AddCourseController#0" expanded="false" />
+            <element signature="method#check#0;class#AddCourseController#0" expanded="false" />
+            <element signature="method#goToMainWindow#0;class#AddCourseController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="16" lean-forward="false" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#499#500#0" expanded="true" />
+            <element signature="e#527#528#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/catalouge/courses/PhysicalCourse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="613">
+          <caret line="53" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/catalouge/courses/Course.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/catalouge/courses/VideoCourse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6">
-          <caret line="9" column="36" lean-forward="false" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+        <state relative-caret-position="524">
+          <caret line="45" column="27" lean-forward="false" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="27" />
+          <folding>
+            <element signature="e#666#667#0" expanded="true" />
+            <element signature="e#700#701#0" expanded="true" />
+            <element signature="e#745#746#0" expanded="true" />
+            <element signature="e#773#774#0" expanded="true" />
+            <element signature="e#815#816#0" expanded="true" />
+            <element signature="e#852#853#0" expanded="true" />
+            <element signature="e#886#887#0" expanded="true" />
+            <element signature="e#922#923#0" expanded="true" />
+            <element signature="e#969#970#0" expanded="true" />
+            <element signature="e#999#1000#0" expanded="true" />
+            <element signature="e#1045#1046#0" expanded="true" />
+            <element signature="e#1086#1087#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/changeCourseList/CourseListController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2835">
+          <caret line="215" column="61" lean-forward="false" selection-start-line="215" selection-start-column="61" selection-end-line="215" selection-end-column="61" />
           <folding />
         </state>
       </provider>

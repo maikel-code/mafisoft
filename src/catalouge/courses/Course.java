@@ -1,25 +1,21 @@
 package catalouge.courses;
 
 
-import javafx.beans.property.*;
-
-import java.sql.Time;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 public class Course {
-    private IntegerProperty course_id;
-    private StringProperty trainer_name;
-    private StringProperty course_name;
-    private SimpleObjectProperty<Time> startTime;
-    private SimpleObjectProperty<Time> endTime;
-    private IntegerProperty customerQuantity;
+    protected IntegerProperty course_id;
+    protected StringProperty trainer_name;
+    protected StringProperty course_name;
+
 
     public Course() {
         this.course_id = new SimpleIntegerProperty();
         this.course_name = new SimpleStringProperty();
         this.trainer_name = new SimpleStringProperty();
-        this.startTime = new SimpleObjectProperty<>();
-        this.endTime = new SimpleObjectProperty<>();
-        this.customerQuantity = new SimpleIntegerProperty();
     }
 
     public int getCourse_id() {
@@ -34,18 +30,6 @@ public class Course {
         this.course_id.set(course_id);
     }
 
-    public String getCourse_name() {
-        return course_name.get();
-    }
-
-    public StringProperty course_nameProperty() {
-        return course_name;
-    }
-
-    public void setCourse_name(String course_name) {
-        this.course_name.set(course_name);
-    }
-
     public String getTrainer_name() {
         return trainer_name.get();
     }
@@ -58,40 +42,17 @@ public class Course {
         this.trainer_name.set(trainer_name);
     }
 
-    public Time getStartTime() {
-        return startTime.get();
+    public String getCourse_name() {
+        return course_name.get();
     }
 
-    public SimpleObjectProperty<Time> startTimeProperty() {
-        return startTime;
+    public StringProperty course_nameProperty() {
+        return course_name;
     }
 
-    public void setStartTime(Time startTime) {
-        this.startTime.set(startTime);
+    public void setCourse_name(String course_name) {
+        this.course_name.set(course_name);
     }
 
-    public Time getEndTime() {
-        return endTime.get();
-    }
-
-    public SimpleObjectProperty<Time> endTimeProperty() {
-        return endTime;
-    }
-
-    public void setEndTime(Time endTime) {
-        this.endTime.set(endTime);
-    }
-
-    public int getCustomerQuantity() {
-        return customerQuantity.get();
-    }
-
-    public IntegerProperty customerQuantityProperty() {
-        return customerQuantity;
-    }
-
-    public void setCustomerQuantity(int customerQuantity) {
-        this.customerQuantity.set(customerQuantity);
-    }
 
 }

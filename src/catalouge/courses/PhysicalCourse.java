@@ -1,46 +1,19 @@
 package catalouge.courses;
 
+import javafx.beans.property.*;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import java.sql.Time;
 
-public class VideoCourse extends Course {
-    private StringProperty vLink;
-    private StringProperty vRemark;
+public class PhysicalCourse extends Course {
+    private SimpleObjectProperty<Time> startTime;
+    private SimpleObjectProperty<Time> endTime;
 
-    public VideoCourse() {
+    public PhysicalCourse() {
         this.course_id = new SimpleIntegerProperty();
         this.course_name = new SimpleStringProperty();
         this.trainer_name = new SimpleStringProperty();
-        this.vLink = new SimpleStringProperty();
-        this.vRemark = new SimpleStringProperty();
-
-    }
-
-    public String getvLink() {
-        return vLink.get();
-    }
-
-    public StringProperty vLinkProperty() {
-        return vLink;
-    }
-
-    public void setvLink(String vLink) {
-        this.vLink.set(vLink);
-    }
-
-    public String getvRemark() {
-        return vRemark.get();
-    }
-
-    public StringProperty vRemarkProperty() {
-        return vRemark;
-    }
-
-    public void setvRemark(String vRemark) {
-        this.vRemark.set(vRemark);
+        this.startTime = new SimpleObjectProperty<>();
+        this.endTime = new SimpleObjectProperty<>();
     }
 
     public int getCourse_id() {
@@ -79,4 +52,30 @@ public class VideoCourse extends Course {
         this.trainer_name.set(trainer_name);
     }
 
+    public Time getStartTime() {
+        return startTime.get();
+    }
+
+    public SimpleObjectProperty<Time> startTimeProperty() {
+        return startTime;
+    }
+
+    public void setStartTime(Time startTime) {
+        this.startTime.set(startTime);
+    }
+
+    public Time getEndTime() {
+        return endTime.get();
+    }
+
+    public SimpleObjectProperty<Time> endTimeProperty() {
+        return endTime;
+    }
+
+    public void setEndTime(Time endTime) {
+        this.endTime.set(endTime);
+    }
+
+
 }
+
