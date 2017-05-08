@@ -109,7 +109,7 @@
                         </HBox>
                     </top>
                     <right>
-                        <VBox prefWidth="178.0" spacing="10.0" BorderPane.alignment="CENTER">
+                        <VBox spacing="10.0" BorderPane.alignment="CENTER">
                             <children>
                                 <TextField fx:id="vCourseIDChanged" disable="true" editable="false" promptText="Kurse ID" />
                                 <TextField fx:id="vCourseNameChanged" promptText="Kursename" />

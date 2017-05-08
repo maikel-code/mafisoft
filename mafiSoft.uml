@@ -3,36 +3,72 @@
   <ID>JAVA</ID>
   <OriginalElement>Main</OriginalElement>
   <nodes>
-    <node x="632.0" y="1756.0">catalouge.courses.VideoCourse</node>
-    <node x="1210.0" y="1756.0">GUI.addCourse.AddCourseController</node>
-    <node x="2245.0" y="1756.0">GUI.MaFiSoftHomepage.HomePageController</node>
-    <node x="1566.25" y="1521.0">javafx.application.Application.Parameters</node>
-    <node x="0.0" y="0.0">GUI.changeCourseList.CourseListController</node>
-    <node x="1516.0" y="1109.0">javafx.application.Application</node>
-    <node x="779.0" y="1109.0">GUI.addCustomer.AddCustomerController</node>
-    <node x="0.0" y="1109.0">GUI.changeCustomerData.ChangeDataController</node>
-    <node x="1728.0" y="1756.0">DBHelper.DBController</node>
-    <node x="0.0" y="1756.0">catalouge.courses.Course</node>
-    <node x="1174.0" y="0.0">catalouge.customer.Customer</node>
-    <node x="0.0" y="2251.0">catalouge.zipCode.NumberTextField</node>
-    <node x="1797.25" y="1543.5">Main</node>
+    <node x="1039.875" y="22.0">catalouge.courses.VideoCourse</node>
+    <node x="0.0" y="863.0">GUI.addCourse.AddCourseController</node>
+    <node x="2586.0" y="1609.0">GUI.MaFiSoftHomepage.HomePageController</node>
+    <node x="1762.75" y="2021.0">javafx.application.Application.Parameters</node>
+    <node x="492.99999999999994" y="500.0">GUI.changeCourseList.CourseListController</node>
+    <node x="1491.0" y="1609.0">javafx.application.Application</node>
+    <node x="0.0" y="2317.5">GUI.addCustomer.AddCustomerController</node>
+    <node x="712.0" y="2307.0">GUI.changeCustomerData.ChangeDataController</node>
+    <node x="2069.0" y="1609.0">DBHelper.DBController</node>
+    <node x="239.64583333333326" y="0.0">catalouge.courses.Course</node>
+    <node x="409.25" y="1609.0">catalouge.customer.Customer</node>
+    <node x="22.55208333333337" y="1885.0">catalouge.zipCode.NumberTextField</node>
+    <node x="1550.75" y="2043.5">Main</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="Main" target="javafx.application.Application">
-      <point x="0.0" y="-36.5" />
-      <point x="1893.25" y="1496.0" />
-      <point x="1915.75" y="1496.0" />
-      <point x="133.25" y="181.0" />
+    <edge source="GUI.addCustomer.AddCustomerController" target="catalouge.zipCode.NumberTextField">
+      <point x="-230.66666666666663" y="-290.5" />
+      <point x="115.33333333333337" y="2282.0" />
+      <point x="135.55208333333337" y="2282.0" />
+      <point x="0.0" y="48.0" />
     </edge>
     <edge source="javafx.application.Application.Parameters" target="javafx.application.Application">
       <point x="0.0" y="-59.0" />
-      <point x="1671.75" y="1496.0" />
-      <point x="1649.25" y="1496.0" />
+      <point x="1868.25" y="1996.0" />
+      <point x="1890.75" y="1996.0" />
+      <point x="133.25" y="181.0" />
+    </edge>
+    <edge source="GUI.changeCourseList.CourseListController" target="catalouge.courses.VideoCourse">
+      <point x="141.125" y="-532.0" />
+      <point x="1198.625" y="475.0" />
+      <point x="1173.125" y="475.0" />
+      <point x="-133.25" y="203.0" />
+    </edge>
+    <edge source="GUI.changeCustomerData.ChangeDataController" target="catalouge.customer.Customer">
+      <point x="183.5" y="-301.0" />
+      <point x="1262.5" y="2282.0" />
+      <point x="1090.0" y="2282.0" />
+      <point x="291.75" y="324.0" />
+    </edge>
+    <edge source="GUI.addCustomer.AddCustomerController" target="catalouge.customer.Customer">
+      <point x="230.66666666666663" y="-290.5" />
+      <point x="576.6666666666666" y="2282.0" />
+      <point x="701.0" y="2282.0" />
+      <point x="-97.25" y="324.0" />
+    </edge>
+    <edge source="Main" target="javafx.application.Application">
+      <point x="0.0" y="-36.5" />
+      <point x="1646.75" y="1996.0" />
+      <point x="1624.25" y="1996.0" />
       <point x="-133.25" y="181.0" />
     </edge>
+    <edge source="GUI.changeCourseList.CourseListController" target="catalouge.courses.Course">
+      <point x="-141.125" y="-532.0" />
+      <point x="916.375" y="475.0" />
+      <point x="728.8124999999999" y="475.0" />
+      <point x="195.66666666666663" y="225.0" />
+    </edge>
+    <edge source="GUI.addCourse.AddCourseController" target="catalouge.courses.Course">
+      <point x="0.0" y="-169.0" />
+      <point x="236.5" y="475.0" />
+      <point x="337.47916666666663" y="475.0" />
+      <point x="-195.66666666666663" y="225.0" />
+    </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.42832963989871764" x="1103.1144414168937" y="793.0258855585831" />
+  <settings layout="Hierarchic Group" zoom="0.34470396865631137" x="1477.9999999999995" y="1454.5" />
   <SelectedNodes />
   <Categories>
     <Category>Fields</Category>
