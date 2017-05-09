@@ -1,387 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/DBHelper/DBController.java" line="93" mnemonic="4" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="f9378abc-c248-4932-bd56-51ca7db0f7e9" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/CHANGES" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/COPYING" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/README" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/README.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/build.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/docs/README.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/docs/connector-j.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/docs/connector-j.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/mysql-connector-java-5.1.41-bin.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/FabricCommunicationException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/FabricConnection.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/FabricStateResponse.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/HashShardMapping.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/RangeShardMapping.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/Response.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/Server.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/ServerGroup.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/ServerMode.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/ServerRole.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/ShardIndex.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/ShardMapping.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/ShardMappingFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/ShardTable.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/ShardingType.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/hibernate/FabricMultiTenantConnectionProvider.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/jdbc/ErrorReportingExceptionInterceptor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/jdbc/FabricMySQLConnection.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/jdbc/FabricMySQLConnectionProperties.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/jdbc/FabricMySQLConnectionProxy.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/jdbc/FabricMySQLDataSource.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/jdbc/FabricMySQLDriver.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/jdbc/JDBC4FabricMySQLConnection.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/jdbc/JDBC4FabricMySQLConnectionProxy.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/proto/xmlrpc/AuthenticatedXmlRpcMethodCaller.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/proto/xmlrpc/DigestAuthentication.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/proto/xmlrpc/InternalXmlRpcMethodCaller.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/proto/xmlrpc/ResultSetParser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/proto/xmlrpc/XmlRpcClient.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/proto/xmlrpc/XmlRpcMethodCaller.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/xmlrpc/Client.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/xmlrpc/base/Array.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/xmlrpc/base/Data.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/xmlrpc/base/Fault.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/xmlrpc/base/Member.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/xmlrpc/base/MethodCall.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/xmlrpc/base/MethodResponse.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/xmlrpc/base/Param.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/xmlrpc/base/Params.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/xmlrpc/base/ResponseParser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/xmlrpc/base/Struct.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/xmlrpc/base/Value.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/fabric/xmlrpc/exceptions/MySQLFabricException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/AbandonedConnectionCleanupThread.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/AssertionFailedException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/AuthenticationPlugin.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/BalanceStrategy.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/BestResponseTimeBalanceStrategy.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/Blob.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/BlobFromLocator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/Buffer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/BufferRow.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ByteArrayRow.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/CacheAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/CacheAdapterFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/CachedResultSetMetaData.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/CallableStatement.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/CharsetMapping.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/Charsets.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/Clob.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/CommunicationsException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/CompressedInputStream.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/Connection.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ConnectionFeatureNotAvailableException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ConnectionGroup.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ConnectionGroupManager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ConnectionImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ConnectionLifecycleInterceptor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ConnectionProperties.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ConnectionPropertiesImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ConnectionPropertiesTransform.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/Constants.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/DatabaseMetaData.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/DatabaseMetaDataUsingInfoSchema.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/DocsConnectionPropsHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/Driver.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/EscapeProcessor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/EscapeProcessorResult.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/EscapeTokenizer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ExceptionInterceptor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ExportControlled.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/Extension.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/FailoverConnectionProxy.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/Field.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/IterateBlock.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/JDBC42CallableStatement.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/JDBC42Helper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/JDBC42PreparedStatement.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/JDBC42ResultSet.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/JDBC42ServerPreparedStatement.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/JDBC42UpdatableResultSet.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/JDBC4CallableStatement.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/JDBC4ClientInfoProvider.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/JDBC4ClientInfoProviderSP.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/JDBC4CommentClientInfoProvider.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/JDBC4Connection.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/JDBC4DatabaseMetaData.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/JDBC4DatabaseMetaDataUsingInfoSchema.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/JDBC4LoadBalancedMySQLConnection.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/JDBC4MultiHostMySQLConnection.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/JDBC4MySQLConnection.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/JDBC4MysqlSQLXML.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/JDBC4NClob.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/JDBC4PreparedStatement.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/JDBC4PreparedStatementHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/JDBC4ReplicationMySQLConnection.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/JDBC4ResultSet.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/JDBC4ServerPreparedStatement.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/JDBC4UpdatableResultSet.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/LicenseConfiguration.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/LoadBalanceExceptionChecker.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/LoadBalancedAutoCommitInterceptor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/LoadBalancedConnection.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/LoadBalancedConnectionProxy.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/LoadBalancedMySQLConnection.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/LocalizedErrorMessages.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/Messages.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/MiniAdmin.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/MultiHostConnectionProxy.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/MultiHostMySQLConnection.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/MySQLConnection.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/MysqlDataTruncation.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/MysqlDefs.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/MysqlErrorNumbers.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/MysqlIO.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/MysqlParameterMetadata.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/MysqlSavepoint.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/NamedPipeSocketFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/NdbLoadBalanceExceptionChecker.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/NetworkResources.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/NoSubInterceptorWrapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/NonRegisteringDriver.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/NonRegisteringReplicationDriver.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/NotImplemented.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/NotUpdatable.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/OperationNotSupportedException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/OutputStreamWatcher.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/PacketTooBigException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ParameterBindings.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/PerConnectionLRUFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/PerVmServerConfigCacheFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/PingTarget.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/PreparedStatement.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ProfilerEventHandlerFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/RandomBalanceStrategy.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ReflectiveStatementInterceptorAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ReplicationConnection.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ReplicationConnectionGroup.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ReplicationConnectionGroupManager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ReplicationConnectionProxy.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ReplicationDriver.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ReplicationMySQLConnection.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ResultSetImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ResultSetInternalMethods.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ResultSetMetaData.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ResultSetRow.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/RowData.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/RowDataCursor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/RowDataDynamic.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/RowDataStatic.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/SQLError.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/Security.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/SequentialBalanceStrategy.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ServerPreparedStatement.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/SingleByteCharsetConverter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/SocketFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/SocketMetadata.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/SocksProxySocketFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/StandardLoadBalanceExceptionChecker.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/StandardSocketFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/Statement.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/StatementImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/StatementInterceptor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/StatementInterceptorV2.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/StreamingNotifiable.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/StringUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/TimeUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/TimeZoneMapping.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/UpdatableResultSet.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/Util.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/V1toV2StatementInterceptorAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/WatchableOutputStream.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/WatchableWriter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/Wrapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/WriterWatcher.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/authentication/MysqlClearPasswordPlugin.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/authentication/MysqlNativePasswordPlugin.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/authentication/MysqlOldPasswordPlugin.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/authentication/Sha256PasswordPlugin.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/configs/3-0-Compat.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/configs/5-0-Compat.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/configs/clusterBase.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/configs/coldFusion.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/configs/fullDebug.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/configs/maxPerformance.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/configs/solarisMaxPerformance.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/exceptions/DeadlockTimeoutRollbackMarker.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/exceptions/MySQLDataException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/exceptions/MySQLIntegrityConstraintViolationException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/exceptions/MySQLInvalidAuthorizationSpecException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/exceptions/MySQLNonTransientConnectionException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/exceptions/MySQLNonTransientException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/exceptions/MySQLQueryInterruptedException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/exceptions/MySQLStatementCancelledException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/exceptions/MySQLSyntaxErrorException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/exceptions/MySQLTimeoutException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/exceptions/MySQLTransactionRollbackException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/exceptions/MySQLTransientConnectionException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/exceptions/MySQLTransientException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/exceptions/jdbc4/CommunicationsException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/exceptions/jdbc4/MySQLDataException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/exceptions/jdbc4/MySQLIntegrityConstraintViolationException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/exceptions/jdbc4/MySQLInvalidAuthorizationSpecException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/exceptions/jdbc4/MySQLNonTransientConnectionException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/exceptions/jdbc4/MySQLNonTransientException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/exceptions/jdbc4/MySQLQueryInterruptedException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/exceptions/jdbc4/MySQLSyntaxErrorException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/exceptions/jdbc4/MySQLTimeoutException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/exceptions/jdbc4/MySQLTransactionRollbackException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/exceptions/jdbc4/MySQLTransientConnectionException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/exceptions/jdbc4/MySQLTransientException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/integration/c3p0/MysqlConnectionTester.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/integration/jboss/ExtendedMysqlExceptionSorter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/integration/jboss/MysqlValidConnectionChecker.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/interceptors/ResultSetScannerInterceptor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/interceptors/ServerStatusDiffInterceptor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/interceptors/SessionAssociationInterceptor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jdbc2/optional/CallableStatementWrapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jdbc2/optional/ConnectionWrapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jdbc2/optional/JDBC42CallableStatementWrapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jdbc2/optional/JDBC42PreparedStatementWrapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jdbc2/optional/JDBC4CallableStatementWrapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jdbc2/optional/JDBC4ConnectionWrapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jdbc2/optional/JDBC4MysqlPooledConnection.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jdbc2/optional/JDBC4MysqlXAConnection.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jdbc2/optional/JDBC4PreparedStatementWrapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jdbc2/optional/JDBC4StatementWrapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jdbc2/optional/JDBC4SuspendableXAConnection.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jdbc2/optional/MysqlConnectionPoolDataSource.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jdbc2/optional/MysqlDataSource.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jdbc2/optional/MysqlDataSourceFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jdbc2/optional/MysqlPooledConnection.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jdbc2/optional/MysqlXAConnection.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jdbc2/optional/MysqlXADataSource.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jdbc2/optional/MysqlXAException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jdbc2/optional/MysqlXid.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jdbc2/optional/PreparedStatementWrapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jdbc2/optional/StatementWrapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jdbc2/optional/SuspendableXAConnection.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jdbc2/optional/WrapperBase.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jmx/LoadBalanceConnectionGroupManager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jmx/LoadBalanceConnectionGroupManagerMBean.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jmx/ReplicationGroupManager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/jmx/ReplicationGroupManagerMBean.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/log/Jdk14Logger.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/log/Log.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/log/LogFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/log/LogUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/log/NullLogger.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/log/Slf4JLogger.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/log/StandardLogger.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/profiler/LoggingProfilerEventHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/profiler/ProfilerEvent.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/profiler/ProfilerEventHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/util/Base64Decoder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/util/BaseBugReport.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/util/ErrorMappingsDocGenerator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/util/LRUCache.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/util/PropertiesDocGenerator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/util/ReadAheadInputStream.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/util/ResultSetUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/util/ServerController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/util/TimezoneDump.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/util/VersionFSHierarchyMaker.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/demo/fabric/Client1_Fabric.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/demo/fabric/Employee.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/demo/fabric/EmployeesDataSource.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/demo/fabric/EmployeesJdbc.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/demo/fabric/HibernateFabric.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/demo/fabric/resources/com/mysql/fabric/demo/employee.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/doc/sources/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/lib/c3p0-0.9.1-pre6.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/lib/c3p0-0.9.1-pre6.src.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/lib/jboss-common-jdbc-wrapper-src.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/lib/jboss-common-jdbc-wrapper.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/lib/slf4j-api-1.6.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/org/gjt/mm/mysql/Driver.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/BaseStatementInterceptor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/BaseTestCase.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/UnreliableSocketFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/fabric/BaseFabricTestCase.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/fabric/SetupFabricTestsuite.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/fabric/TestAdminCommands.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/fabric/TestDumpCommands.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/fabric/TestResultSetParser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/fabric/TestShardMapping.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/fabric/TestXmlRpcCore.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/fabric/jdbc/TestBasicConnection.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/fabric/jdbc/TestFabricMySQLConnectionSharding.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/fabric/jdbc/TestHABasics.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/fabric/jdbc/TestHashSharding.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/fabric/jdbc/TestRegressions.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/perf/BasePerfTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/perf/LoadStorePerfTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/perf/RetrievalPerfTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/regression/BlobRegressionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/regression/CachedRowsetTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/regression/CallableStatementRegressionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/regression/CharsetRegressionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/regression/ConnectionRegressionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/regression/DataSourceRegressionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/regression/EscapeProcessorRegressionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/regression/MetaDataRegressionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/regression/MicroPerformanceRegressionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/regression/NumbersRegressionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/regression/PooledConnectionRegressionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/regression/ResultSetRegressionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/regression/StatementRegressionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/regression/StressRegressionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/regression/StringRegressionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/regression/SubqueriesRegressionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/regression/SyntaxRegressionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/regression/UtilsRegressionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/regression/jdbc4/ConnectionRegressionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/regression/jdbc4/ExceptionSubclassesTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/regression/jdbc4/MetaDataRegressionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/regression/jdbc4/StatementRegressionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/regression/jdbc42/ConnectionRegressionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/regression/jdbc42/StatementRegressionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/BlobTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/CallableStatementTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/CharsetTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/ConnectionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/DataSourceTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/DateTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/EscapeProcessingTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/MetadataTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/MiniAdminTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/MultiHostConnectionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/NumbersTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/ReadOnlyCallableStatementTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/ResultSetTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/SSLTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/ServerControllerTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/SimpleTransformer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/SplitDBdotNameTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/StatementsTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/StringUtilsTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/TestBug57662Logger.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/TestLifecycleInterceptor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/TransactionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/TraversalTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/UpdatabilityTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/UtilsTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/XATest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/jdbc4/StatementsTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/jdbc42/ConnectionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/jdbc42/ResultSetTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/jdbc42/StatementsTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/simple/tb2-data.txt.gz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/ssl-test-certs/ca-cert.pem" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/ssl-test-certs/ca-key.pem" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/ssl-test-certs/certs_howto.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/ssl-test-certs/mykey.pem" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/ssl-test-certs/mykey.pub" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/ssl-test-certs/server-cert.pem" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/ssl-test-certs/server-key.pem" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/ssl-test-certs/server-req.pem" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/testsuite/ssl-test-certs/test-cert-store" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bash_profile.rtf" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/5051339a-58d6-46f4-819a-268b78ecea4c.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/5051339a-58d6-46f4-819a-268b78ecea4c.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/README.txt" afterPath="$PROJECT_DIR$/mysql-connector-java-5.1.41/README.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/docs/README.txt" afterPath="$PROJECT_DIR$/mysql-connector-java-5.1.41/docs/README.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/doc/sources/pom.xml" afterPath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/doc/sources/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/mafisoft/GUI/changeCustomerData/ChangeData.fxml" afterPath="$PROJECT_DIR$/out/production/mafisoft/GUI/changeCustomerData/ChangeData.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DBHelper/DBController.java" afterPath="$PROJECT_DIR$/src/DBHelper/DBController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/changeCourseList/CourseListController.java" afterPath="$PROJECT_DIR$/src/GUI/changeCourseList/CourseListController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/changeCustomerData/ChangeData.fxml" afterPath="$PROJECT_DIR$/src/GUI/changeCustomerData/ChangeData.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/changeCustomerData/ChangeDataController.java" afterPath="$PROJECT_DIR$/src/GUI/changeCustomerData/ChangeDataController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/catalouge/courses/Course.java" afterPath="$PROJECT_DIR$/src/catalouge/courses/Course.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -427,6 +63,42 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="mafisoftBD@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="mafisoftBD" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="customer_course" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="mafisoftBD@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="mafisoftBD" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="course" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -437,12 +109,21 @@
       <file leaf-file-name="Course.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/catalouge/courses/Course.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="44" column="5" lean-forward="false" selection-start-line="38" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+            <state relative-caret-position="120">
+              <caret line="11" column="40" lean-forward="false" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PhysicalCourse.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/catalouge/courses/PhysicalCourse.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="158">
+              <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1122#1123#0" expanded="true" />
-                <element signature="e#1162#1163#0" expanded="true" />
+                <element signature="e#818#819#0" expanded="true" />
+                <element signature="e#858#859#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -451,7 +132,7 @@
       <file leaf-file-name="HomePageController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI/MaFiSoftHomepage/HomePageController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
+            <state relative-caret-position="242">
               <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
               <folding />
             </state>
@@ -461,9 +142,25 @@
       <file leaf-file-name="CourseListController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI/changeCourseList/CourseListController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+            <state relative-caret-position="235">
+              <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChangeDataController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GUI/changeCustomerData/ChangeDataController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="163">
+              <caret line="130" column="0" lean-forward="false" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+              <folding>
+                <element signature="method#mouseOnClick#0;class#ChangeDataController#0" expanded="false" />
+                <element signature="method#changeButton#0;class#ChangeDataController#0" expanded="false" />
+                <element signature="method#searchButton#0;class#ChangeDataController#0" expanded="false" />
+                <element signature="method#fillCustomer#0;class#ChangeDataController#0" expanded="false" />
+                <element signature="method#goToMainWindow#0;class#ChangeDataController#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -471,67 +168,71 @@
       <file leaf-file-name="DBController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DBHelper/DBController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="124" column="0" lean-forward="false" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
+            <state relative-caret-position="333">
+              <caret line="32" column="15" lean-forward="true" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
               <folding>
-                <marker date="1494278619000" expanded="true" signature="960:1153" ph="INSERT INTO customer... " />
-                <marker date="1494278619000" expanded="true" signature="1117:1153" ph="VALUE (?, ?,... " />
-                <marker date="1494278619000" expanded="true" signature="2012:2167" ph="UPDATE custo... " />
-                <marker date="1494278619000" expanded="true" signature="2975:3048" ph="SELECT * FRO... customer" />
-                <marker date="1494278619000" expanded="true" signature="3385:3427" ph="SELECT * FRO... customer" />
-                <marker date="1494278619000" expanded="true" signature="3802:3824" ph="SELECT * FRO... customer" />
-                <marker date="1494278619000" expanded="true" signature="4171:4247" ph="INSERT INTO course... " />
-                <marker date="1494278619000" expanded="true" signature="4229:4247" ph="VALUE (?, ?,... " />
-                <marker date="1494278619000" expanded="true" signature="4781:4862" ph="UPDATE cours... " />
-                <marker date="1494278619000" expanded="true" signature="5528:5569" ph="SELECT * FRO... course" />
-                <marker date="1494278619000" expanded="true" signature="5802:5840" ph="SELECT * FRO... course" />
-                <marker date="1494278619000" expanded="true" signature="6213:6233" ph="SELECT * FRO... course" />
-                <marker date="1494278619000" expanded="true" signature="6535:6658" ph="select cours... course" />
-                <marker date="1494278619000" expanded="true" signature="6587:6656" ph="SELECT cc.co... customer_course" />
-                <marker date="1494278619000" expanded="true" signature="6969:7033" ph="INSERT INTO customer_course... " />
-                <marker date="1494278619000" expanded="true" signature="7427:7509" ph="INSERT INTO video_course... " />
-                <marker date="1494278619000" expanded="true" signature="7491:7509" ph="VALUE (?, ?,... " />
-                <marker date="1494278619000" expanded="true" signature="8048:8133" ph="UPDATE video... " />
-                <marker date="1494278619000" expanded="true" signature="8796:8838" ph="SELECT * FRO... video_course" />
-                <marker date="1494278619000" expanded="true" signature="9046:9109" ph="SELECT * FRO... video_course" />
-                <marker date="1494278619000" expanded="true" signature="9563:9589" ph="SELECT * FRO... video_course" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#DBController#0;class#DBController#0" expanded="false" />
+                <element signature="method#addCustomer#0;class#DBController#0" expanded="false" />
+                <element signature="method#updateCustomer#0;class#DBController#0" expanded="false" />
+                <element signature="method#searchCustomer#0;class#DBController#0" expanded="false" />
+                <element signature="method#getAllCustomer#0;class#DBController#0" expanded="false" />
+                <element signature="method#getAllCourseByCustomer#0;class#DBController#0" expanded="false" />
+                <element signature="method#addCourse#0;class#DBController#0" expanded="false" />
+                <element signature="method#updateCourse#0;class#DBController#0" expanded="false" />
+                <element signature="method#searchCourse#0;class#DBController#0" expanded="false" />
+                <element signature="method#getAllCourse#0;class#DBController#0" expanded="false" />
+                <element signature="method#getAllAvailabileCourse#0;class#DBController#0" expanded="false" />
+                <element signature="method#addCourseToCustomer#0;class#DBController#0" expanded="false" />
+                <element signature="method#addVideoCourse#0;class#DBController#0" expanded="false" />
+                <element signature="method#updateVideoCourse#0;class#DBController#0" expanded="false" />
+                <element signature="method#searchVideoCourse#0;class#DBController#0" expanded="false" />
+                <element signature="method#getAllVideoCourse#0;class#DBController#0" expanded="false" />
+                <marker date="1494329925000" expanded="true" signature="1478:1671" ph="INSERT INTO customer... " />
+                <marker date="1494329925000" expanded="true" signature="1635:1671" ph="VALUE (?, ?,... " />
+                <marker date="1494329925000" expanded="true" signature="2530:2685" ph="UPDATE custo... " />
+                <marker date="1494329925000" expanded="true" signature="3486:3559" ph="SELECT * FRO... customer" />
+                <marker date="1494329925000" expanded="true" signature="3896:3938" ph="SELECT * FRO... customer" />
+                <marker date="1494329925000" expanded="true" signature="4313:4335" ph="SELECT * FRO... customer" />
+                <marker date="1494329925000" expanded="true" signature="4636:4748" ph="select cours... course" />
+                <marker date="1494329925000" expanded="true" signature="5144:5220" ph="INSERT INTO course... " />
+                <marker date="1494329925000" expanded="true" signature="5202:5220" ph="VALUE (?, ?,... " />
+                <marker date="1494329925000" expanded="true" signature="5754:5837" ph="UPDATE cours... " />
+                <marker date="1494329925000" expanded="true" signature="6503:6544" ph="SELECT * FRO... course" />
+                <marker date="1494329925000" expanded="true" signature="6777:6815" ph="SELECT * FRO... course" />
+                <marker date="1494329925000" expanded="true" signature="7188:7208" ph="SELECT * FRO... course" />
+                <marker date="1494329925000" expanded="true" signature="7510:7633" ph="select cours... course" />
+                <marker date="1494329925000" expanded="true" signature="7562:7631" ph="SELECT cc.co... customer_course" />
+                <marker date="1494329925000" expanded="true" signature="7944:8008" ph="INSERT INTO customer_course... " />
+                <marker date="1494329925000" expanded="true" signature="8401:8483" ph="INSERT INTO video_course... " />
+                <marker date="1494329925000" expanded="true" signature="8465:8483" ph="VALUE (?, ?,... " />
+                <marker date="1494329925000" expanded="true" signature="9022:9107" ph="UPDATE video... " />
+                <marker date="1494329925000" expanded="true" signature="9770:9812" ph="SELECT * FRO... video_course" />
+                <marker date="1494329925000" expanded="true" signature="10020:10083" ph="SELECT * FRO... video_course" />
+                <marker date="1494329925000" expanded="true" signature="10541:10567" ph="SELECT * FRO... video_course" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AddCustomerController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GUI/addCustomer/AddCustomerController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="53" column="87" lean-forward="false" selection-start-line="53" selection-start-column="84" selection-end-line="53" selection-end-column="87" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1215#1216#0" expanded="false" />
-                <element signature="e#1242#1243#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AddCustomer.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GUI/addCustomer/AddCustomer.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="42" column="44" lean-forward="false" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
+      <file leaf-file-name="ChangeData.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GUI/changeCustomerData/ChangeData.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="62" column="90" lean-forward="false" selection-start-line="62" selection-start-column="90" selection-end-line="62" selection-end-column="90" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="AddCourseController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI/addCourse/AddCourseController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="59" column="22" lean-forward="false" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
+            <state relative-caret-position="263">
+              <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
               <folding>
                 <element signature="method#initialize#0;class#AddCourseController#0" expanded="false" />
                 <element signature="method#check#0;class#AddCourseController#0" expanded="false" />
@@ -543,6 +244,19 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>getAllCustomerCourse</find>
+      <find>coursename</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="MERGE" />
@@ -561,17 +275,19 @@
         <option value="$PROJECT_DIR$/src/GUI/addCourse/AddCourse.fxml" />
         <option value="$PROJECT_DIR$/src/GUI/MaFiSoftHomepage/HomePageController.java" />
         <option value="$PROJECT_DIR$/src/GUI/changeCourseList/CourseList.fxml" />
-        <option value="$PROJECT_DIR$/src/GUI/changeCustomerData/ChangeData.fxml" />
-        <option value="$PROJECT_DIR$/src/GUI/changeCourseList/CourseListController.java" />
         <option value="$PROJECT_DIR$/src/GUI/addCustomer/AddCustomer.fxml" />
         <option value="$PROJECT_DIR$/src/GUI/addCustomer/AddCustomerController.java" />
-        <option value="$PROJECT_DIR$/src/DBHelper/DBController.java" />
         <option value="$PROJECT_DIR$/src/GUI/addCourse/AddCourseController.java" />
-        <option value="$PROJECT_DIR$/src/GUI/changeCustomerData/ChangeDataController.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/catalouge/courses/Course.java" />
         <option value="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ConnectionImpl.java" />
         <option value="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/Driver.java" />
+        <option value="$PROJECT_DIR$/src/GUI/changeCourseList/CourseListController.java" />
+        <option value="$PROJECT_DIR$/mysql-connector-java-5.1.41/build.xml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/catalouge/courses/Course.java" />
+        <option value="$PROJECT_DIR$/src/catalouge/customer/CustomerCourse.java" />
+        <option value="$PROJECT_DIR$/src/GUI/changeCustomerData/ChangeDataController.java" />
+        <option value="$PROJECT_DIR$/src/GUI/changeCustomerData/ChangeData.fxml" />
+        <option value="$PROJECT_DIR$/src/DBHelper/DBController.java" />
       </list>
     </option>
   </component>
@@ -592,8 +308,10 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="x" value="205" />
+    <option name="y" value="23" />
+    <option name="width" value="1715" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -602,10 +320,16 @@
           <State>
             <id />
           </State>
+          <State>
+            <id>Code maturity issuesJava</id>
+          </State>
+          <State>
+            <id>Java</id>
+          </State>
         </expanded-state>
         <selected-state>
           <State>
-            <id>Android</id>
+            <id>Deprecation</id>
           </State>
         </selected-state>
       </profile-state>
@@ -626,6 +350,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -638,11 +363,42 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mafisoft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mafisoft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mafisoft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mafisoft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DBHelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -656,7 +412,7 @@
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.runner" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
-    <property name="FullScreen" value="true" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -1133,7 +889,9 @@
       <workItem from="1494230119658" duration="2069000" />
       <workItem from="1494251625454" duration="3368000" />
       <workItem from="1494262083193" duration="10457000" />
-      <workItem from="1494278797846" duration="1540000" />
+      <workItem from="1494278797846" duration="2996000" />
+      <workItem from="1494282730950" duration="522000" />
+      <workItem from="1494283273803" duration="10629000" />
     </task>
     <task id="LOCAL-00001" summary="Fix bug with resizable&#10;Add UML">
       <created>1494259713919</created>
@@ -1149,44 +907,61 @@
       <option name="project" value="LOCAL" />
       <updated>1494278925596</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added association between course and customer. // Added fucntion for adding a course to customer // Must be done: Showing selected courses">
+      <created>1494281488375</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1494281488375</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Update DB">
+      <created>1494282867992</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1494282867992</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17434000" />
+    <option name="totallyTimeSpent" value="30041000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
+    <frame x="205" y="23" width="1715" height="1057" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32720232" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32692307" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24665391" sideWeight="0.5028612" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23523717" sideWeight="0.49713877" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913843" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292797" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.100520834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16354166" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23481782" sideWeight="0.49713877" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913843" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292797" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17084548" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18425655" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3126195" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22469635" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913843" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957503" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913843" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913843" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1216,25 +991,12 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fix bug with resizable&#10;Add UML" />
     <MESSAGE value="Added association between course and customer. // Added fucntion for adding a course to customer // Must be done: Showing selected courses" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added association between course and customer. // Added fucntion for adding a course to customer // Must be done: Showing selected courses" />
+    <MESSAGE value="Update DB" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update DB" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/DBHelper/DBController.java</url>
-          <line>36</line>
-          <properties />
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/DBHelper/DBController.java</url>
-          <line>25</line>
-          <properties />
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="12" />
+      <option name="time" value="27" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1243,169 +1005,12 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/GUI/addCustomer/AddCustomer.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="44" lean-forward="false" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/changeCustomerData/ChangeDataController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1755">
-          <caret line="117" column="40" lean-forward="false" selection-start-line="117" selection-start-column="40" selection-end-line="117" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/catalouge/courses/PhysicalCourse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#656#657#0" expanded="false" />
-            <element signature="e#688#689#0" expanded="false" />
-            <element signature="e#735#736#0" expanded="false" />
-            <element signature="e#780#781#0" expanded="false" />
-            <element signature="e#909#910#0" expanded="false" />
-            <element signature="e#943#944#0" expanded="false" />
-            <element signature="e#997#998#0" expanded="false" />
-            <element signature="e#1046#1047#0" expanded="false" />
-            <element signature="e#1085#1086#0" expanded="false" />
-            <element signature="e#1126#1127#0" expanded="false" />
-            <element signature="e#1178#1179#0" expanded="false" />
-            <element signature="e#1213#1214#0" expanded="false" />
-            <element signature="e#1269#1270#0" expanded="false" />
-            <element signature="e#1320#1321#0" expanded="false" />
-            <element signature="e#1354#1355#0" expanded="false" />
-            <element signature="e#1392#1393#0" expanded="false" />
-            <element signature="e#1453#1454#0" expanded="false" />
-            <element signature="e#1485#1486#0" expanded="false" />
-            <element signature="e#1533#1534#0" expanded="false" />
-            <element signature="e#1578#1579#0" expanded="false" />
-            <element signature="e#1610#1611#0" expanded="false" />
-            <element signature="e#1646#1647#0" expanded="false" />
-            <element signature="e#1705#1706#0" expanded="false" />
-            <element signature="e#1735#1736#0" expanded="false" />
-            <element signature="e#1779#1780#0" expanded="false" />
-            <element signature="e#1820#1821#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/addCourse/AddCourseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="52" column="23" lean-forward="true" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
-          <folding>
-            <element signature="method#initialize#0;class#AddCourseController#0" expanded="false" />
-            <element signature="method#check#0;class#AddCourseController#0" expanded="false" />
-            <element signature="method#goToMainWindow#0;class#AddCourseController#0" expanded="false" />
-            <element signature="method#addVideoButton#0;class#AddCourseController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="5" lean-forward="false" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/catalouge/courses/Course.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1122#1123#0" expanded="true" />
-            <element signature="e#1162#1163#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/changeCourseList/CourseListController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="11" column="16" lean-forward="false" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/catalouge/courses/VideoCourse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/catalouge/zipCode/NumberTextField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <element signature="e#419#420#0" expanded="false" />
-            <element signature="e#470#471#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DBHelper/DBController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <marker date="1494278619000" expanded="true" signature="960:1153" ph="INSERT INTO customer... " />
-            <marker date="1494278619000" expanded="true" signature="1117:1153" ph="VALUE (?, ?,... " />
-            <marker date="1494278619000" expanded="true" signature="2012:2167" ph="UPDATE custo... " />
-            <marker date="1494278619000" expanded="true" signature="2975:3048" ph="SELECT * FRO... customer" />
-            <marker date="1494278619000" expanded="true" signature="3385:3427" ph="SELECT * FRO... customer" />
-            <marker date="1494278619000" expanded="true" signature="3802:3824" ph="SELECT * FRO... customer" />
-            <marker date="1494278619000" expanded="true" signature="4171:4247" ph="INSERT INTO course... " />
-            <marker date="1494278619000" expanded="true" signature="4229:4247" ph="VALUE (?, ?,... " />
-            <marker date="1494278619000" expanded="true" signature="4781:4862" ph="UPDATE cours... " />
-            <marker date="1494278619000" expanded="true" signature="5528:5569" ph="SELECT * FRO... course" />
-            <marker date="1494278619000" expanded="true" signature="5802:5840" ph="SELECT * FRO... course" />
-            <marker date="1494278619000" expanded="true" signature="6213:6233" ph="SELECT * FRO... course" />
-            <marker date="1494278619000" expanded="true" signature="6535:6658" ph="select cours... course" />
-            <marker date="1494278619000" expanded="true" signature="6587:6656" ph="SELECT cc.co... customer_course" />
-            <marker date="1494278619000" expanded="true" signature="6969:7033" ph="INSERT INTO customer_course... " />
-            <marker date="1494278619000" expanded="true" signature="7427:7509" ph="INSERT INTO video_course... " />
-            <marker date="1494278619000" expanded="true" signature="7491:7509" ph="VALUE (?, ?,... " />
-            <marker date="1494278619000" expanded="true" signature="8048:8133" ph="UPDATE video... " />
-            <marker date="1494278619000" expanded="true" signature="8796:8838" ph="SELECT * FRO... video_course" />
-            <marker date="1494278619000" expanded="true" signature="9046:9109" ph="SELECT * FRO... video_course" />
-            <marker date="1494278619000" expanded="true" signature="9563:9589" ph="SELECT * FRO... video_course" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="20" column="1" lean-forward="false" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1426,6 +1031,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/MaFiSoftHomepage/Homepage.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="12" column="104" lean-forward="false" selection-start-line="12" selection-start-column="104" selection-end-line="12" selection-end-column="104" />
@@ -1433,9 +1041,6 @@
             <element signature="n#MenuBar#0;n#top#0;n#BorderPane#0;n#!!top" expanded="false" />
           </folding>
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mafisoft.iml">
@@ -1446,17 +1051,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/changeCourseList/CourseList.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="23" column="82" lean-forward="false" selection-start-line="23" selection-start-column="82" selection-end-line="23" selection-end-column="82" />
           <folding />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/MaFiSoftHomepage/Homepage.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="47" column="33" lean-forward="false" selection-start-line="47" selection-start-column="33" selection-end-line="47" selection-end-column="33" />
@@ -1465,70 +1073,16 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/addCourse/AddCourse.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
-    </entry>
-    <entry file="uml://JAVA/Main">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>Main</OriginalElement>
-          <nodes>
-            <node x="632.0" y="1756.0">catalouge.courses.VideoCourse</node>
-            <node x="1210.0" y="1756.0">GUI.addCourse.AddCourseController</node>
-            <node x="2206.5" y="1778.5">GUI.MaFiSoftHomepage.HomePageController</node>
-            <node x="1566.25" y="1521.0">javafx.application.Application.Parameters</node>
-            <node x="0.0" y="0.0">GUI.changeCourseList.CourseListController</node>
-            <node x="1516.0" y="1109.0">javafx.application.Application</node>
-            <node x="779.0" y="1109.0">GUI.addCustomer.AddCustomerController</node>
-            <node x="0.0" y="1109.0">GUI.changeCustomerData.ChangeDataController</node>
-            <node x="1728.0" y="1756.0">DBHelper.DBController</node>
-            <node x="0.0" y="1756.0">catalouge.courses.Course</node>
-            <node x="1174.0" y="0.0">catalouge.customer.Customer</node>
-            <node x="0.0" y="2251.0">catalouge.zipCode.NumberTextField</node>
-            <node x="1797.25" y="1543.5">Main</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="javafx.application.Application.Parameters" target="javafx.application.Application">
-              <point x="0.0" y="-59.0" />
-              <point x="1671.75" y="1496.0" />
-              <point x="1649.25" y="1496.0" />
-              <point x="-133.25" y="181.0" />
-            </edge>
-            <edge source="Main" target="javafx.application.Application">
-              <point x="0.0" y="-36.5" />
-              <point x="1893.25" y="1496.0" />
-              <point x="1915.75" y="1496.0" />
-              <point x="133.25" y="181.0" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="0.46514575411913817" x="237.0" y="506.0" />
-          <SelectedNodes>
-            <node>Main</node>
-          </SelectedNodes>
-          <Categories>
-            <Category>Fields</Category>
-            <Category>Inner Classes</Category>
-            <Category>Constructors</Category>
-            <Category>Properties</Category>
-            <Category>Methods</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/addCourse/AddCourse.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="14" column="148" lean-forward="false" selection-start-line="14" selection-start-column="148" selection-end-line="14" selection-end-column="148" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/catalouge/zipCode/NumberTextField.java">
@@ -1580,157 +1134,187 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="17" column="20" lean-forward="false" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/javafx-src.zip!/javafx/scene/control/TextInputControl.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/javafx-src.zip!/javafx/scene/control/TextField.java" />
-    <entry file="file://$PROJECT_DIR$/src/GUI/changeCustomerData/ChangeData.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="59" column="68" lean-forward="false" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/javafx-src.zip!/javafx/beans/value/ObservableIntegerValue.java" />
     <entry file="file://$PROJECT_DIR$/src/catalouge/customer/Customer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="30" column="19" lean-forward="false" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/addCustomer/AddCustomerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="53" column="87" lean-forward="false" selection-start-line="53" selection-start-column="84" selection-end-line="53" selection-end-column="87" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1215#1216#0" expanded="false" />
-            <element signature="e#1242#1243#0" expanded="false" />
+            <element signature="e#1102#1103#0" expanded="true" />
+            <element signature="e#1149#1150#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/javafx-src.zip!/javafx/scene/control/ComboBox.java" />
-    <entry file="file://$PROJECT_DIR$/src/catalouge/courses/PhysicalCourse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#656#657#0" expanded="false" />
-            <element signature="e#688#689#0" expanded="false" />
-            <element signature="e#735#736#0" expanded="false" />
-            <element signature="e#780#781#0" expanded="false" />
-            <element signature="e#909#910#0" expanded="false" />
-            <element signature="e#943#944#0" expanded="false" />
-            <element signature="e#997#998#0" expanded="false" />
-            <element signature="e#1046#1047#0" expanded="false" />
-            <element signature="e#1085#1086#0" expanded="false" />
-            <element signature="e#1126#1127#0" expanded="false" />
-            <element signature="e#1178#1179#0" expanded="false" />
-            <element signature="e#1213#1214#0" expanded="false" />
-            <element signature="e#1269#1270#0" expanded="false" />
-            <element signature="e#1320#1321#0" expanded="false" />
-            <element signature="e#1354#1355#0" expanded="false" />
-            <element signature="e#1392#1393#0" expanded="false" />
-            <element signature="e#1453#1454#0" expanded="false" />
-            <element signature="e#1485#1486#0" expanded="false" />
-            <element signature="e#1533#1534#0" expanded="false" />
-            <element signature="e#1578#1579#0" expanded="false" />
-            <element signature="e#1610#1611#0" expanded="false" />
-            <element signature="e#1646#1647#0" expanded="false" />
-            <element signature="e#1705#1706#0" expanded="false" />
-            <element signature="e#1735#1736#0" expanded="false" />
-            <element signature="e#1779#1780#0" expanded="false" />
-            <element signature="e#1820#1821#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/javafx-src.zip!/javafx/collections/ModifiableObservableListBase.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/javafx-src.zip!/javafx/fxml/FXMLLoader.java" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/mafiDB.sql" />
+    <entry file="file://$PROJECT_DIR$/mafisoftBD_2017-05-08.sql" />
+    <entry file="file://$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/AbandonedConnectionCleanupThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="5" lean-forward="false" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
-          <folding />
+        <state relative-caret-position="150">
+          <caret line="36" column="13" lean-forward="false" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/catalouge/courses/Course.java">
+    <entry file="file://$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/Driver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="44" column="5" lean-forward="false" selection-start-line="38" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1122#1123#0" expanded="true" />
-            <element signature="e#1162#1163#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="630">
+          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/changeCustomerData/ChangeDataController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="117" column="40" lean-forward="false" selection-start-line="117" selection-start-column="40" selection-end-line="117" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/addCustomer/AddCustomer.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="42" column="44" lean-forward="false" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/ConnectionImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="2648" column="7" lean-forward="true" selection-start-line="2648" selection-start-column="7" selection-end-line="2648" selection-end-column="7" />
+        <state relative-caret-position="8130">
+          <caret line="2609" column="22" lean-forward="true" selection-start-line="2609" selection-start-column="22" selection-end-line="2609" selection-end-column="22" />
+          <folding>
+            <marker date="1487100478000" expanded="true" signature="117394:117423" ph="SELECT @@ses... " />
+            <marker date="1487100478000" expanded="true" signature="133159:133186" ph="SELECT @@ses... " />
+            <marker date="1487100478000" expanded="true" signature="137259:137288" ph="select @@ses... " />
+            <marker date="1487100478000" expanded="true" signature="145073:145094" ph="/* missingVa... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/SQLError.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="963" column="0" lean-forward="false" selection-start-line="963" selection-start-column="0" selection-end-line="963" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mafiDB.sql">
+    <entry file="file://$PROJECT_DIR$/mysql-connector-java-5.1.41/src/demo/fabric/resources/com/mysql/fabric/demo/employee.hbm.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="739">
-          <caret line="106" column="41" lean-forward="true" selection-start-line="106" selection-start-column="41" selection-end-line="106" selection-end-column="41" />
+        <state relative-caret-position="405">
+          <caret line="27" column="32" lean-forward="false" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysql-connector-java-5.1.41/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="1665" column="105" lean-forward="true" selection-start-line="1665" selection-start-column="105" selection-end-line="1665" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mafisoftBD_2017-05-08.sql">
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="65" selection-end-column="37" />
+        <state relative-caret-position="150">
+          <caret line="10" column="81" lean-forward="false" selection-start-line="10" selection-start-column="81" selection-end-line="10" selection-end-column="81" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/98156cf5/5051339a-58d6-46f4-819a-268b78ecea4c/mafisoftBD.course">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/javafx-src.zip!/javafx/scene/control/ComboBox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="286" column="35" lean-forward="false" selection-start-line="286" selection-start-column="35" selection-end-line="286" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="1768" column="0" lean-forward="false" selection-start-line="1768" selection-start-column="0" selection-end-line="1768" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/catalouge/courses/PhysicalCourse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+          <folding>
+            <element signature="e#818#819#0" expanded="true" />
+            <element signature="e#858#859#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/addCustomer/AddCustomerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="53" column="87" lean-forward="false" selection-start-line="53" selection-start-column="84" selection-end-line="53" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/addCustomer/AddCustomer.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" column="44" lean-forward="false" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/javafx-src.zip!/com/sun/javafx/tk/quantum/GlassViewEventHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="294" column="0" lean-forward="false" selection-start-line="294" selection-start-column="0" selection-end-line="294" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/catalouge/customer/CustomerCourse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/javafx-src.zip!/javafx/stage/Stage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6889">
+          <caret line="249" column="32" lean-forward="false" selection-start-line="249" selection-start-column="32" selection-end-line="249" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="407" column="0" lean-forward="false" selection-start-line="407" selection-start-column="0" selection-end-line="407" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/addCourse/AddCourseController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="59" column="22" lean-forward="false" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
+        <state relative-caret-position="263">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding>
             <element signature="method#initialize#0;class#AddCourseController#0" expanded="false" />
             <element signature="method#check#0;class#AddCourseController#0" expanded="false" />
@@ -1740,9 +1324,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/catalouge/courses/Course.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="40" lean-forward="false" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/changeCustomerData/ChangeDataController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="130" column="0" lean-forward="false" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+          <folding>
+            <element signature="method#mouseOnClick#0;class#ChangeDataController#0" expanded="false" />
+            <element signature="method#changeButton#0;class#ChangeDataController#0" expanded="false" />
+            <element signature="method#searchButton#0;class#ChangeDataController#0" expanded="false" />
+            <element signature="method#fillCustomer#0;class#ChangeDataController#0" expanded="false" />
+            <element signature="method#goToMainWindow#0;class#ChangeDataController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/changeCustomerData/ChangeData.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="62" column="90" lean-forward="false" selection-start-line="62" selection-start-column="90" selection-end-line="62" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/lang/Throwable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="129" column="25" lean-forward="false" selection-start-line="129" selection-start-column="25" selection-end-line="129" selection-end-column="25" />
+          <folding>
+            <element signature="e#15711#15712#0" expanded="false" />
+            <element signature="e#15747#15748#0" expanded="false" />
+            <element signature="e#16192#16193#0" expanded="false" />
+            <element signature="e#16227#16228#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/MaFiSoftHomepage/HomePageController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="242">
           <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding />
         </state>
@@ -1750,54 +1380,92 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/changeCourseList/CourseListController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+        <state relative-caret-position="235">
+          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/AbandonedConnectionCleanupThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="36" column="13" lean-forward="false" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mysql-connector-java-5.1.41/src/com/mysql/jdbc/Driver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding />
+    <entry file="uml://JAVA/Main">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>Main</OriginalElement>
+          <nodes>
+            <node x="" y="">catalouge.courses.VideoCourse</node>
+            <node x="" y="">GUI.addCourse.AddCourseController</node>
+            <node x="" y="">GUI.MaFiSoftHomepage.HomePageController</node>
+            <node x="" y="">javafx.application.Application.Parameters</node>
+            <node x="" y="">GUI.changeCourseList.CourseListController</node>
+            <node x="" y="">javafx.application.Application</node>
+            <node x="" y="">GUI.addCustomer.AddCustomerController</node>
+            <node x="" y="">GUI.changeCustomerData.ChangeDataController</node>
+            <node x="" y="">DBHelper.DBController</node>
+            <node x="" y="">catalouge.courses.Course</node>
+            <node x="" y="">catalouge.customer.Customer</node>
+            <node x="" y="">catalouge.zipCode.NumberTextField</node>
+            <node x="" y="">catalouge.courses.PhysicalCourse</node>
+            <node x="" y="">Main</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.5235799873583805" x="679.9577062278408" y="781.8636511914522" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DBHelper/DBController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="124" column="0" lean-forward="false" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
+        <state relative-caret-position="333">
+          <caret line="32" column="15" lean-forward="true" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
           <folding>
-            <marker date="1494278619000" expanded="true" signature="960:1153" ph="INSERT INTO customer... " />
-            <marker date="1494278619000" expanded="true" signature="1117:1153" ph="VALUE (?, ?,... " />
-            <marker date="1494278619000" expanded="true" signature="2012:2167" ph="UPDATE custo... " />
-            <marker date="1494278619000" expanded="true" signature="2975:3048" ph="SELECT * FRO... customer" />
-            <marker date="1494278619000" expanded="true" signature="3385:3427" ph="SELECT * FRO... customer" />
-            <marker date="1494278619000" expanded="true" signature="3802:3824" ph="SELECT * FRO... customer" />
-            <marker date="1494278619000" expanded="true" signature="4171:4247" ph="INSERT INTO course... " />
-            <marker date="1494278619000" expanded="true" signature="4229:4247" ph="VALUE (?, ?,... " />
-            <marker date="1494278619000" expanded="true" signature="4781:4862" ph="UPDATE cours... " />
-            <marker date="1494278619000" expanded="true" signature="5528:5569" ph="SELECT * FRO... course" />
-            <marker date="1494278619000" expanded="true" signature="5802:5840" ph="SELECT * FRO... course" />
-            <marker date="1494278619000" expanded="true" signature="6213:6233" ph="SELECT * FRO... course" />
-            <marker date="1494278619000" expanded="true" signature="6535:6658" ph="select cours... course" />
-            <marker date="1494278619000" expanded="true" signature="6587:6656" ph="SELECT cc.co... customer_course" />
-            <marker date="1494278619000" expanded="true" signature="6969:7033" ph="INSERT INTO customer_course... " />
-            <marker date="1494278619000" expanded="true" signature="7427:7509" ph="INSERT INTO video_course... " />
-            <marker date="1494278619000" expanded="true" signature="7491:7509" ph="VALUE (?, ?,... " />
-            <marker date="1494278619000" expanded="true" signature="8048:8133" ph="UPDATE video... " />
-            <marker date="1494278619000" expanded="true" signature="8796:8838" ph="SELECT * FRO... video_course" />
-            <marker date="1494278619000" expanded="true" signature="9046:9109" ph="SELECT * FRO... video_course" />
-            <marker date="1494278619000" expanded="true" signature="9563:9589" ph="SELECT * FRO... video_course" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#DBController#0;class#DBController#0" expanded="false" />
+            <element signature="method#addCustomer#0;class#DBController#0" expanded="false" />
+            <element signature="method#updateCustomer#0;class#DBController#0" expanded="false" />
+            <element signature="method#searchCustomer#0;class#DBController#0" expanded="false" />
+            <element signature="method#getAllCustomer#0;class#DBController#0" expanded="false" />
+            <element signature="method#getAllCourseByCustomer#0;class#DBController#0" expanded="false" />
+            <element signature="method#addCourse#0;class#DBController#0" expanded="false" />
+            <element signature="method#updateCourse#0;class#DBController#0" expanded="false" />
+            <element signature="method#searchCourse#0;class#DBController#0" expanded="false" />
+            <element signature="method#getAllCourse#0;class#DBController#0" expanded="false" />
+            <element signature="method#getAllAvailabileCourse#0;class#DBController#0" expanded="false" />
+            <element signature="method#addCourseToCustomer#0;class#DBController#0" expanded="false" />
+            <element signature="method#addVideoCourse#0;class#DBController#0" expanded="false" />
+            <element signature="method#updateVideoCourse#0;class#DBController#0" expanded="false" />
+            <element signature="method#searchVideoCourse#0;class#DBController#0" expanded="false" />
+            <element signature="method#getAllVideoCourse#0;class#DBController#0" expanded="false" />
+            <marker date="1494329925000" expanded="true" signature="1478:1671" ph="INSERT INTO customer... " />
+            <marker date="1494329925000" expanded="true" signature="1635:1671" ph="VALUE (?, ?,... " />
+            <marker date="1494329925000" expanded="true" signature="2530:2685" ph="UPDATE custo... " />
+            <marker date="1494329925000" expanded="true" signature="3486:3559" ph="SELECT * FRO... customer" />
+            <marker date="1494329925000" expanded="true" signature="3896:3938" ph="SELECT * FRO... customer" />
+            <marker date="1494329925000" expanded="true" signature="4313:4335" ph="SELECT * FRO... customer" />
+            <marker date="1494329925000" expanded="true" signature="4636:4748" ph="select cours... course" />
+            <marker date="1494329925000" expanded="true" signature="5144:5220" ph="INSERT INTO course... " />
+            <marker date="1494329925000" expanded="true" signature="5202:5220" ph="VALUE (?, ?,... " />
+            <marker date="1494329925000" expanded="true" signature="5754:5837" ph="UPDATE cours... " />
+            <marker date="1494329925000" expanded="true" signature="6503:6544" ph="SELECT * FRO... course" />
+            <marker date="1494329925000" expanded="true" signature="6777:6815" ph="SELECT * FRO... course" />
+            <marker date="1494329925000" expanded="true" signature="7188:7208" ph="SELECT * FRO... course" />
+            <marker date="1494329925000" expanded="true" signature="7510:7633" ph="select cours... course" />
+            <marker date="1494329925000" expanded="true" signature="7562:7631" ph="SELECT cc.co... customer_course" />
+            <marker date="1494329925000" expanded="true" signature="7944:8008" ph="INSERT INTO customer_course... " />
+            <marker date="1494329925000" expanded="true" signature="8401:8483" ph="INSERT INTO video_course... " />
+            <marker date="1494329925000" expanded="true" signature="8465:8483" ph="VALUE (?, ?,... " />
+            <marker date="1494329925000" expanded="true" signature="9022:9107" ph="UPDATE video... " />
+            <marker date="1494329925000" expanded="true" signature="9770:9812" ph="SELECT * FRO... video_course" />
+            <marker date="1494329925000" expanded="true" signature="10020:10083" ph="SELECT * FRO... video_course" />
+            <marker date="1494329925000" expanded="true" signature="10541:10567" ph="SELECT * FRO... video_course" />
           </folding>
         </state>
       </provider>

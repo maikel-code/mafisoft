@@ -29,14 +29,32 @@ import java.util.ResourceBundle;
 
 public class CourseListController implements Initializable {
     @FXML
-    private TableView courseTable, vCourseTable;
+    private TableView courseTable;
     @FXML
-    private TableColumn id, courseName, trainerName, timeBegin, timeEnd;
+    private TableView<VideoCourse> vCourseTable;
+    @FXML
+    private TableColumn<PhysicalCourse, Integer> id;
+    @FXML
+    private TableColumn<PhysicalCourse, String> courseName;
+    @FXML
+    private TableColumn<PhysicalCourse, String> trainerName;
+    @FXML
+    private TableColumn<PhysicalCourse, Time> timeBegin;
+    @FXML
+    private TableColumn<PhysicalCourse, Time> timeEnd;
     @FXML
     private TextField courseTXT, coursename, trainer, courseID, startTime, endTime;
 
     @FXML
-    private TableColumn vID, vCourseName, vTrainerName, vURL, vRemark;
+    private TableColumn<VideoCourse, Integer> vID;
+    @FXML
+    private TableColumn<VideoCourse, String> vCourseName;
+    @FXML
+    private TableColumn<VideoCourse, String> vTrainerName;
+    @FXML
+    private TableColumn<VideoCourse, String> vURL;
+    @FXML
+    private TableColumn<VideoCourse, String> vRemark;
     @FXML
     private TextField vSearch, vCourseIDChanged, vCourseNameChanged, vTrainerChanged, vURLChanged;
     @FXML
@@ -55,11 +73,11 @@ public class CourseListController implements Initializable {
 
     public void fillTable() {
         try {
-            id.setCellValueFactory(new PropertyValueFactory<PhysicalCourse, Integer>("course_id"));
-            courseName.setCellValueFactory(new PropertyValueFactory<PhysicalCourse, String>("course_name"));
-            trainerName.setCellValueFactory(new PropertyValueFactory<PhysicalCourse, String>("trainer_name"));
-            timeBegin.setCellValueFactory(new PropertyValueFactory<PhysicalCourse, Time>("startTime"));
-            timeEnd.setCellValueFactory(new PropertyValueFactory<PhysicalCourse, Time>("endTime"));
+            id.setCellValueFactory(new PropertyValueFactory<>("course_id"));
+            courseName.setCellValueFactory(new PropertyValueFactory<>("course_name"));
+            trainerName.setCellValueFactory(new PropertyValueFactory<>("trainer_name"));
+            timeBegin.setCellValueFactory(new PropertyValueFactory<>("startTime"));
+            timeEnd.setCellValueFactory(new PropertyValueFactory<>("endTime"));
             courseTable.setItems(getCourseList());
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -186,11 +204,11 @@ public class CourseListController implements Initializable {
 
     public void fillVideoTable() {
         try {
-            vID.setCellValueFactory(new PropertyValueFactory<VideoCourse, Integer>("course_id"));
-            vCourseName.setCellValueFactory(new PropertyValueFactory<VideoCourse, String>("course_name"));
-            vTrainerName.setCellValueFactory(new PropertyValueFactory<VideoCourse, String>("trainer_name"));
-            vURL.setCellValueFactory(new PropertyValueFactory<VideoCourse, String>("vLink"));
-            vRemark.setCellValueFactory(new PropertyValueFactory<VideoCourse, String>("vRemark"));
+            vID.setCellValueFactory(new PropertyValueFactory<>("course_id"));
+            vCourseName.setCellValueFactory(new PropertyValueFactory<>("course_name"));
+            vTrainerName.setCellValueFactory(new PropertyValueFactory<>("trainer_name"));
+            vURL.setCellValueFactory(new PropertyValueFactory<>("vLink"));
+            vRemark.setCellValueFactory(new PropertyValueFactory<>("vRemark"));
             vCourseTable.setItems(getVideoCourseList());
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -274,7 +292,7 @@ public class CourseListController implements Initializable {
 
     public void mouseOnClickVideoCourse(MouseEvent mouseEvent) {
         if (mouseEvent.getClickCount() == 2) {
-            videoCourse = (VideoCourse) vCourseTable.getSelectionModel().getSelectedItem();
+            videoCourse = vCourseTable.getSelectionModel().getSelectedItem();
             fillVideoCourseChange(videoCourse);
         }
     }

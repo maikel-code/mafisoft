@@ -6,7 +6,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class Course {
+public abstract class Course {
     protected IntegerProperty course_id;
     protected StringProperty trainer_name;
     protected StringProperty course_name;
