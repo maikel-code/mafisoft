@@ -16,7 +16,7 @@ public class DBController {
             if (connection != null) {
                 return connection;
             } else {
-                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mafisoftBD?autoReconnect=true&useSSL=false", "rootd", "mafisoft");
+                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mafisoftBD?autoReconnect=true&useSSL=false", "root", "mafisoft");
             }
         } catch (SQLException sql) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Datenank existiert nicht oder wird nicht gefunden");

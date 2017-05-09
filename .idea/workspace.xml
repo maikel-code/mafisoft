@@ -5,19 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9378abc-c248-4932-bd56-51ca7db0f7e9" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.bash_profile.rtf" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/5051339a-58d6-46f4-819a-268b78ecea4c.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/5051339a-58d6-46f4-819a-268b78ecea4c.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/README.txt" afterPath="$PROJECT_DIR$/mysql-connector-java-5.1.41/README.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/docs/README.txt" afterPath="$PROJECT_DIR$/mysql-connector-java-5.1.41/docs/README.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/doc/sources/pom.xml" afterPath="$PROJECT_DIR$/mysql-connector-java-5.1.41/src/doc/sources/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/mafisoft/GUI/changeCustomerData/ChangeData.fxml" afterPath="$PROJECT_DIR$/out/production/mafisoft/GUI/changeCustomerData/ChangeData.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DBHelper/DBController.java" afterPath="$PROJECT_DIR$/src/DBHelper/DBController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/changeCourseList/CourseListController.java" afterPath="$PROJECT_DIR$/src/GUI/changeCourseList/CourseListController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/changeCustomerData/ChangeData.fxml" afterPath="$PROJECT_DIR$/src/GUI/changeCustomerData/ChangeData.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/changeCustomerData/ChangeDataController.java" afterPath="$PROJECT_DIR$/src/GUI/changeCustomerData/ChangeDataController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/catalouge/courses/Course.java" afterPath="$PROJECT_DIR$/src/catalouge/courses/Course.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -168,8 +160,8 @@
       <file leaf-file-name="DBController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DBHelper/DBController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="32" column="15" lean-forward="true" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
+            <state relative-caret-position="155">
+              <caret line="18" column="136" lean-forward="false" selection-start-line="18" selection-start-column="136" selection-end-line="18" selection-end-column="136" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#DBController#0;class#DBController#0" expanded="false" />
@@ -188,28 +180,28 @@
                 <element signature="method#updateVideoCourse#0;class#DBController#0" expanded="false" />
                 <element signature="method#searchVideoCourse#0;class#DBController#0" expanded="false" />
                 <element signature="method#getAllVideoCourse#0;class#DBController#0" expanded="false" />
-                <marker date="1494329925000" expanded="true" signature="1478:1671" ph="INSERT INTO customer... " />
-                <marker date="1494329925000" expanded="true" signature="1635:1671" ph="VALUE (?, ?,... " />
-                <marker date="1494329925000" expanded="true" signature="2530:2685" ph="UPDATE custo... " />
-                <marker date="1494329925000" expanded="true" signature="3486:3559" ph="SELECT * FRO... customer" />
-                <marker date="1494329925000" expanded="true" signature="3896:3938" ph="SELECT * FRO... customer" />
-                <marker date="1494329925000" expanded="true" signature="4313:4335" ph="SELECT * FRO... customer" />
-                <marker date="1494329925000" expanded="true" signature="4636:4748" ph="select cours... course" />
-                <marker date="1494329925000" expanded="true" signature="5144:5220" ph="INSERT INTO course... " />
-                <marker date="1494329925000" expanded="true" signature="5202:5220" ph="VALUE (?, ?,... " />
-                <marker date="1494329925000" expanded="true" signature="5754:5837" ph="UPDATE cours... " />
-                <marker date="1494329925000" expanded="true" signature="6503:6544" ph="SELECT * FRO... course" />
-                <marker date="1494329925000" expanded="true" signature="6777:6815" ph="SELECT * FRO... course" />
-                <marker date="1494329925000" expanded="true" signature="7188:7208" ph="SELECT * FRO... course" />
-                <marker date="1494329925000" expanded="true" signature="7510:7633" ph="select cours... course" />
-                <marker date="1494329925000" expanded="true" signature="7562:7631" ph="SELECT cc.co... customer_course" />
-                <marker date="1494329925000" expanded="true" signature="7944:8008" ph="INSERT INTO customer_course... " />
-                <marker date="1494329925000" expanded="true" signature="8401:8483" ph="INSERT INTO video_course... " />
-                <marker date="1494329925000" expanded="true" signature="8465:8483" ph="VALUE (?, ?,... " />
-                <marker date="1494329925000" expanded="true" signature="9022:9107" ph="UPDATE video... " />
-                <marker date="1494329925000" expanded="true" signature="9770:9812" ph="SELECT * FRO... video_course" />
-                <marker date="1494329925000" expanded="true" signature="10020:10083" ph="SELECT * FRO... video_course" />
-                <marker date="1494329925000" expanded="true" signature="10541:10567" ph="SELECT * FRO... video_course" />
+                <marker date="1494332440000" expanded="true" signature="1477:1670" ph="INSERT INTO customer... " />
+                <marker date="1494332440000" expanded="true" signature="1634:1670" ph="VALUE (?, ?,... " />
+                <marker date="1494332440000" expanded="true" signature="2529:2684" ph="UPDATE custo... " />
+                <marker date="1494332440000" expanded="true" signature="3485:3558" ph="SELECT * FRO... customer" />
+                <marker date="1494332440000" expanded="true" signature="3895:3937" ph="SELECT * FRO... customer" />
+                <marker date="1494332440000" expanded="true" signature="4312:4334" ph="SELECT * FRO... customer" />
+                <marker date="1494332440000" expanded="true" signature="4635:4747" ph="select cours... course" />
+                <marker date="1494332440000" expanded="true" signature="5143:5219" ph="INSERT INTO course... " />
+                <marker date="1494332440000" expanded="true" signature="5201:5219" ph="VALUE (?, ?,... " />
+                <marker date="1494332440000" expanded="true" signature="5753:5836" ph="UPDATE cours... " />
+                <marker date="1494332440000" expanded="true" signature="6502:6543" ph="SELECT * FRO... course" />
+                <marker date="1494332440000" expanded="true" signature="6776:6814" ph="SELECT * FRO... course" />
+                <marker date="1494332440000" expanded="true" signature="7187:7207" ph="SELECT * FRO... course" />
+                <marker date="1494332440000" expanded="true" signature="7509:7632" ph="select cours... course" />
+                <marker date="1494332440000" expanded="true" signature="7561:7630" ph="SELECT cc.co... customer_course" />
+                <marker date="1494332440000" expanded="true" signature="7943:8007" ph="INSERT INTO customer_course... " />
+                <marker date="1494332440000" expanded="true" signature="8400:8482" ph="INSERT INTO video_course... " />
+                <marker date="1494332440000" expanded="true" signature="8464:8482" ph="VALUE (?, ?,... " />
+                <marker date="1494332440000" expanded="true" signature="9021:9106" ph="UPDATE video... " />
+                <marker date="1494332440000" expanded="true" signature="9769:9811" ph="SELECT * FRO... video_course" />
+                <marker date="1494332440000" expanded="true" signature="10019:10082" ph="SELECT * FRO... video_course" />
+                <marker date="1494332440000" expanded="true" signature="10540:10566" ph="SELECT * FRO... video_course" />
               </folding>
             </state>
           </provider>
@@ -259,6 +251,11 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="MrPitty &lt;yermash.peter@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -891,7 +888,7 @@
       <workItem from="1494262083193" duration="10457000" />
       <workItem from="1494278797846" duration="2996000" />
       <workItem from="1494282730950" duration="522000" />
-      <workItem from="1494283273803" duration="10629000" />
+      <workItem from="1494283273803" duration="11843000" />
     </task>
     <task id="LOCAL-00001" summary="Fix bug with resizable&#10;Add UML">
       <created>1494259713919</created>
@@ -921,15 +918,28 @@
       <option name="project" value="LOCAL" />
       <updated>1494282867992</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Update DB // Upload new UML without attribute's // Fix customer course //">
+      <created>1494331495723</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1494331495723</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Upload MaFiSoftDB">
+      <created>1494332014398</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1494332014398</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30041000" />
+    <option name="totallyTimeSpent" value="31255000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="205" y="23" width="1715" height="1057" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -946,7 +956,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292797" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17084548" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17084548" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18425655" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -992,7 +1002,9 @@
     <MESSAGE value="Fix bug with resizable&#10;Add UML" />
     <MESSAGE value="Added association between course and customer. // Added fucntion for adding a course to customer // Must be done: Showing selected courses" />
     <MESSAGE value="Update DB" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update DB" />
+    <MESSAGE value="Update DB // Upload new UML without attribute's // Fix customer course //" />
+    <MESSAGE value="Upload MaFiSoftDB" />
+    <option name="LAST_COMMIT_MESSAGE" value="Upload MaFiSoftDB" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1142,8 +1154,8 @@
         <state relative-caret-position="0">
           <caret line="30" column="19" lean-forward="false" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
           <folding>
-            <element signature="e#1102#1103#0" expanded="true" />
-            <element signature="e#1149#1150#0" expanded="true" />
+            <element signature="e#1102#1103#0" expanded="false" />
+            <element signature="e#1149#1150#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1424,8 +1436,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DBHelper/DBController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="32" column="15" lean-forward="true" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
+        <state relative-caret-position="155">
+          <caret line="18" column="136" lean-forward="false" selection-start-line="18" selection-start-column="136" selection-end-line="18" selection-end-column="136" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#DBController#0;class#DBController#0" expanded="false" />
@@ -1444,28 +1456,28 @@
             <element signature="method#updateVideoCourse#0;class#DBController#0" expanded="false" />
             <element signature="method#searchVideoCourse#0;class#DBController#0" expanded="false" />
             <element signature="method#getAllVideoCourse#0;class#DBController#0" expanded="false" />
-            <marker date="1494329925000" expanded="true" signature="1478:1671" ph="INSERT INTO customer... " />
-            <marker date="1494329925000" expanded="true" signature="1635:1671" ph="VALUE (?, ?,... " />
-            <marker date="1494329925000" expanded="true" signature="2530:2685" ph="UPDATE custo... " />
-            <marker date="1494329925000" expanded="true" signature="3486:3559" ph="SELECT * FRO... customer" />
-            <marker date="1494329925000" expanded="true" signature="3896:3938" ph="SELECT * FRO... customer" />
-            <marker date="1494329925000" expanded="true" signature="4313:4335" ph="SELECT * FRO... customer" />
-            <marker date="1494329925000" expanded="true" signature="4636:4748" ph="select cours... course" />
-            <marker date="1494329925000" expanded="true" signature="5144:5220" ph="INSERT INTO course... " />
-            <marker date="1494329925000" expanded="true" signature="5202:5220" ph="VALUE (?, ?,... " />
-            <marker date="1494329925000" expanded="true" signature="5754:5837" ph="UPDATE cours... " />
-            <marker date="1494329925000" expanded="true" signature="6503:6544" ph="SELECT * FRO... course" />
-            <marker date="1494329925000" expanded="true" signature="6777:6815" ph="SELECT * FRO... course" />
-            <marker date="1494329925000" expanded="true" signature="7188:7208" ph="SELECT * FRO... course" />
-            <marker date="1494329925000" expanded="true" signature="7510:7633" ph="select cours... course" />
-            <marker date="1494329925000" expanded="true" signature="7562:7631" ph="SELECT cc.co... customer_course" />
-            <marker date="1494329925000" expanded="true" signature="7944:8008" ph="INSERT INTO customer_course... " />
-            <marker date="1494329925000" expanded="true" signature="8401:8483" ph="INSERT INTO video_course... " />
-            <marker date="1494329925000" expanded="true" signature="8465:8483" ph="VALUE (?, ?,... " />
-            <marker date="1494329925000" expanded="true" signature="9022:9107" ph="UPDATE video... " />
-            <marker date="1494329925000" expanded="true" signature="9770:9812" ph="SELECT * FRO... video_course" />
-            <marker date="1494329925000" expanded="true" signature="10020:10083" ph="SELECT * FRO... video_course" />
-            <marker date="1494329925000" expanded="true" signature="10541:10567" ph="SELECT * FRO... video_course" />
+            <marker date="1494332440000" expanded="true" signature="1477:1670" ph="INSERT INTO customer... " />
+            <marker date="1494332440000" expanded="true" signature="1634:1670" ph="VALUE (?, ?,... " />
+            <marker date="1494332440000" expanded="true" signature="2529:2684" ph="UPDATE custo... " />
+            <marker date="1494332440000" expanded="true" signature="3485:3558" ph="SELECT * FRO... customer" />
+            <marker date="1494332440000" expanded="true" signature="3895:3937" ph="SELECT * FRO... customer" />
+            <marker date="1494332440000" expanded="true" signature="4312:4334" ph="SELECT * FRO... customer" />
+            <marker date="1494332440000" expanded="true" signature="4635:4747" ph="select cours... course" />
+            <marker date="1494332440000" expanded="true" signature="5143:5219" ph="INSERT INTO course... " />
+            <marker date="1494332440000" expanded="true" signature="5201:5219" ph="VALUE (?, ?,... " />
+            <marker date="1494332440000" expanded="true" signature="5753:5836" ph="UPDATE cours... " />
+            <marker date="1494332440000" expanded="true" signature="6502:6543" ph="SELECT * FRO... course" />
+            <marker date="1494332440000" expanded="true" signature="6776:6814" ph="SELECT * FRO... course" />
+            <marker date="1494332440000" expanded="true" signature="7187:7207" ph="SELECT * FRO... course" />
+            <marker date="1494332440000" expanded="true" signature="7509:7632" ph="select cours... course" />
+            <marker date="1494332440000" expanded="true" signature="7561:7630" ph="SELECT cc.co... customer_course" />
+            <marker date="1494332440000" expanded="true" signature="7943:8007" ph="INSERT INTO customer_course... " />
+            <marker date="1494332440000" expanded="true" signature="8400:8482" ph="INSERT INTO video_course... " />
+            <marker date="1494332440000" expanded="true" signature="8464:8482" ph="VALUE (?, ?,... " />
+            <marker date="1494332440000" expanded="true" signature="9021:9106" ph="UPDATE video... " />
+            <marker date="1494332440000" expanded="true" signature="9769:9811" ph="SELECT * FRO... video_course" />
+            <marker date="1494332440000" expanded="true" signature="10019:10082" ph="SELECT * FRO... video_course" />
+            <marker date="1494332440000" expanded="true" signature="10540:10566" ph="SELECT * FRO... video_course" />
           </folding>
         </state>
       </provider>
