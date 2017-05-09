@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `mafisoftBD` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_german1_ci */;
-USE `mafisoftBD`;
 -- MySQL dump 10.13  Distrib 5.7.17, for macos10.12 (x86_64)
 --
 -- Host: localhost    Database: mafisoftBD
@@ -31,7 +29,7 @@ CREATE TABLE `course` (
   `start` time NOT NULL,
   `end` time NOT NULL,
   PRIMARY KEY (`course_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +38,7 @@ CREATE TABLE `course` (
 
 LOCK TABLES `course` WRITE;
 /*!40000 ALTER TABLE `course` DISABLE KEYS */;
-INSERT INTO `course` VALUES (1,'Fatburn','Shahl','17:00:00','20:00:00'),(2,'Joga','Ali','15:00:00','19:00:00'),(3,'Cycle','Schmidt','18:00:00','21:00:00');
+INSERT INTO `course` VALUES (1,'Fatburn','Shahl','17:00:00','20:00:00'),(2,'Joga','Ali','15:00:00','19:00:00'),(3,'Cycle','Schmidt','18:00:00','21:00:00'),(4,'sdjkf','skdfjhsdk','13:23:00','14:22:00'),(5,'Ploetz','Tester','12:00:00','21:00:00');
 /*!40000 ALTER TABLE `course` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -64,7 +62,7 @@ CREATE TABLE `customer` (
   `end_time` date NOT NULL,
   `customer_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`customer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,7 +71,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES ('Peter','Yermash','1993-09-04 00:00:00','peter.yermash@fh-dortmund.de','',44227,'Dortmund','Am Gardenkamp 45','2017-04-24','2018-04-02',1),('Anil Can','Afak','1993-02-19 00:00:00','can.afak@fh-dortmund.de','',44135,'Dortmund','Königswall 15','2017-04-24','2018-04-02',11),('Michael','Tjupalow','1990-12-12 00:00:00','typalow.michael@fh-dortmund.de','',44135,'Dortmund','irgendwo 1','2017-04-25','2018-04-03',13),('Max','Mustermann','2012-12-12 00:00:00','','',12345,'Dreamland','Wallstreet 1','2017-04-26','2018-04-04',14);
+INSERT INTO `customer` VALUES ('Peter','Yermash','1993-09-04 00:00:00','peter.yermash@fh-dortmund.de','',44227,'Dortmund','Am Gardenkamp 45','2017-04-24','2018-04-02',1),('Anil Can','Afak','1993-02-19 00:00:00','can.afak@fh-dortmund.de','',44135,'Dortmund','Königswall 15','2017-04-24','2018-04-02',11),('Michael','Tjupalow','1990-12-12 00:00:00','typalow.michael@fh-dortmund.de','',44135,'Dortmund','irgendwo 1','2017-04-25','2018-04-03',13),('Max','Mustermann','2012-12-12 00:00:00','','',12345,'Dreamland','Wallstreet 1','2017-04-26','2018-04-04',14),('asdf','sadf','2017-05-09 00:00:00','asdf','asdf',23212,'dsf','sdf','2017-05-09','2017-11-04',15);
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,11 +83,11 @@ DROP TABLE IF EXISTS `customer_course`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `customer_course` (
-  `id` int(11) unsigned NOT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `customer_id` int(11) DEFAULT NULL,
   `course_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,6 +96,7 @@ CREATE TABLE `customer_course` (
 
 LOCK TABLES `customer_course` WRITE;
 /*!40000 ALTER TABLE `customer_course` DISABLE KEYS */;
+INSERT INTO `customer_course` VALUES (1,11,2),(2,11,1),(3,11,3),(4,11,4),(5,11,5);
 /*!40000 ALTER TABLE `customer_course` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -115,7 +114,7 @@ CREATE TABLE `video_course` (
   `link` varchar(100) COLLATE latin1_german1_ci NOT NULL,
   `remark` text COLLATE latin1_german1_ci,
   PRIMARY KEY (`videoID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,7 +123,7 @@ CREATE TABLE `video_course` (
 
 LOCK TABLES `video_course` WRITE;
 /*!40000 ALTER TABLE `video_course` DISABLE KEYS */;
-INSERT INTO `video_course` VALUES (1,'Joga für anfänger','Ali','jogahome.example/video=12345',''),(2,'Joga für profi','Ali','jogahome.example/video=54321','Hallo\n\nich teste \n\nwie weit es\n\ngehen kann');
+INSERT INTO `video_course` VALUES (1,'Joga für anfänger','Ali','jogahome.example/video=12345',''),(2,'Joga für profi','Ali','jogahome.example/video=54321','Hallo\n\nich teste \n\nwie weit es\n\ngehen kann'),(4,'sadf','asdf','asdf','sadf');
 /*!40000 ALTER TABLE `video_course` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -137,4 +136,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-09  0:33:31
+-- Dump completed on 2017-05-09 14:12:37
