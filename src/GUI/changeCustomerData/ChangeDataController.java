@@ -29,7 +29,7 @@ import java.util.ResourceBundle;
 public class ChangeDataController implements Initializable {
     @FXML
     private TextField changeFirstName, changeLastName, changeMail, changePhonenummer, changeCity, changeStreet, customerTXT, customerID;
-    @FXML // fx:id="courses"
+    @FXML
     private ComboBox<String> courses;
     @FXML
     private TextField changeZipcode;
@@ -100,11 +100,12 @@ public class ChangeDataController implements Initializable {
 
     private void fillChangeTabble(Customer customer) {
         changePhonenummer.clear();
+        changeMail.clear();
 
-        if (!customer.getMail().isEmpty())
+        if (customer.getMail() != null || !customer.getMail().isEmpty())
             changeMail.setText(customer.getMail());
 
-        if (!customer.getMobilephone().isEmpty())
+        if (customer.getMobilephone() != null || !customer.getMobilephone().isEmpty())
             changePhonenummer.setText(customer.getMobilephone());
 
         customerID.setText(customer.getCustomerID() + "");
@@ -222,5 +223,18 @@ public class ChangeDataController implements Initializable {
         }
 
         return row;
+    }
+
+    @FXML
+    private void removeCourse() {
+        if (customerCourseTable.getSelectionModel().getSelectedItem() != null) {
+            int courseID = customerCourseTable.getSelectionModel().getSelectedItem().getCourse_id();
+            try {
+                DBController.removeCourse(customerID.getText(), courseID);
+                fillChangeTabble(customerTable.getSelectionModel().getSelectedItem());
+            } catch (SQLException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

@@ -160,6 +160,13 @@ public class DBController {
         preparedStatement.executeUpdate();
     }
 
+    public static void removeCourse(String customerID, int courseID) throws SQLException, ClassNotFoundException {
+        PreparedStatement preparedStatement = getConnection().prepareStatement("DELETE customer_course FROM course INNER JOIN customer_course WHERE customer_course.customer_id=? AND customer_course.course_id=?");
+        preparedStatement.setString(1, customerID);
+        preparedStatement.setInt(2, courseID);
+        preparedStatement.executeLargeUpdate();
+    }
+
     // Video
 
     public static void addVideoCourse(String courseName, String trainer, String link, String remark) throws SQLException, ClassNotFoundException {
