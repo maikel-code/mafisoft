@@ -1,9 +1,4 @@
+.gitignore
 .idea/
-out/production/mafisoft/DBHelper/
-out/production/mafisoft/GUI/MaFiSoftHomepage/HomePageController.class
-out/production/mafisoft/GUI/addCourse/AddCourseController.class
-out/production/mafisoft/GUI/addCustomer/AddCustomerController.class
-out/production/mafisoft/GUI/changeCourseList/CourseListController.class
-out/production/mafisoft/GUI/changeCustomerData/ChangeDataController.class
-out/production/mafisoft/Main.class
-out/production/mafisoft/catalouge/
+out
+mysql-connector-java-5.1.41
