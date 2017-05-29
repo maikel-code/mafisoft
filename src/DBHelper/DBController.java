@@ -10,7 +10,7 @@ public class DBController {
     private DBController() {
     }
 
-    private static Connection getConnection() throws SQLException, ClassNotFoundException {
+    private static synchronized Connection getConnection() throws SQLException, ClassNotFoundException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             if (connection != null) {
