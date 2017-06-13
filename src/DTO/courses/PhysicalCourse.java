@@ -1,5 +1,7 @@
 package DTO.courses;
 
+import javafx.beans.property.*;
+
 import java.sql.Time;
 
 public class PhysicalCourse extends Course {

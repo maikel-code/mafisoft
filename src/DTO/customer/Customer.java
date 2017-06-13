@@ -1,5 +1,7 @@
 package DTO.customer;
 
+import javafx.beans.property.*;
+
 import java.sql.Date;
 
 public class Customer {
