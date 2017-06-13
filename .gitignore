@@ -1,7 +1,3 @@
 .idea/
-DAO
-DBHelper
-DTO
-gui
-logic
-logicInterface
+mafisoft.iml
+MaFiSoftUML.uml
