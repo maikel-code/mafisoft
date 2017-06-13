@@ -1,10 +1,5 @@
 package logic;
 
-import java.net.URL;
-import java.sql.SQLException;
-import java.sql.Time;
-import java.util.ResourceBundle;
-
 import DBHelper.DBController;
 import DTO.courses.PhysicalCourse;
 import javafx.event.ActionEvent;
@@ -16,6 +11,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import logicInterface.Controller;
 
+import java.net.URL;
+import java.sql.SQLException;
+import java.sql.Time;
+import java.util.ResourceBundle;
+
 public class AddCourse implements Initializable, Controller {
 
     @FXML
@@ -25,7 +25,7 @@ public class AddCourse implements Initializable, Controller {
     @FXML
     private TextField courseName, trainer, startTime, endTime;
     private String pathToMainWindow = "gui/Homepage.fxml";
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -33,7 +33,7 @@ public class AddCourse implements Initializable, Controller {
 
     // Course
     @SuppressWarnings("deprecation")
-	public void addCourseButton(ActionEvent actionEvent) {
+    public void addCourseButton(ActionEvent actionEvent) {
         PhysicalCourse course = new PhysicalCourse();
         course.setCourse_name(courseName.getText());
         course.setTrainer_name(trainer.getText());
@@ -91,13 +91,13 @@ public class AddCourse implements Initializable, Controller {
     }
 
     @FXML
-    private void goToMainWindow(ActionEvent actionEvent){
-    	goToMainWindow(actionEvent, pathToMainWindow);
-    }    
-    
-	@Override
-	public void cleanAll() {
-	
-	}
+    private void goToMainWindow(ActionEvent actionEvent) {
+        goToMainWindow(actionEvent, pathToMainWindow);
+    }
+
+    @Override
+    public void cleanAll() {
+
+    }
 
 }

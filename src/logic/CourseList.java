@@ -1,12 +1,5 @@
 package logic;
 
-import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Time;
-import java.text.SimpleDateFormat;
-import java.util.ResourceBundle;
-
 import DBHelper.DBController;
 import DTO.courses.Course;
 import DTO.courses.PhysicalCourse;
@@ -16,19 +9,22 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import logicInterface.Controller;
 
+import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.util.ResourceBundle;
+
 
 public class CourseList implements Initializable, Controller {
     @SuppressWarnings("rawtypes")
-	@FXML
+    @FXML
     private TableView courseTable;
     @FXML
     private TableView<VideoCourse> vCourseTable;
@@ -73,7 +69,7 @@ public class CourseList implements Initializable, Controller {
     // Course list prepeid
 
     @SuppressWarnings("unchecked")
-	public void fillTable() {
+    public void fillTable() {
         try {
             id.setCellValueFactory(new PropertyValueFactory<>("course_id"));
             courseName.setCellValueFactory(new PropertyValueFactory<>("course_name"));
@@ -129,7 +125,7 @@ public class CourseList implements Initializable, Controller {
                 rs = DBController.searchCourse("ID", search);
             } else {
                 rs = DBController.searchCourse("name", search);
-            }	
+            }
 
             if (rs != null && rs.next()) {
                 fillChangeTabble(fillCourse(rs));
@@ -143,7 +139,7 @@ public class CourseList implements Initializable, Controller {
     }
 
     @SuppressWarnings("deprecation")
-	private void changeCourse() {
+    private void changeCourse() {
         course.setCourse_name(coursename.getText());
         course.setTrainer_name(trainer.getText());
         int timeHH = Integer.parseInt(startTime.getText().split("\\p{Punct}")[0]);
@@ -175,7 +171,7 @@ public class CourseList implements Initializable, Controller {
 
     @FXML
     private void goToMainWindow(ActionEvent actionEvent) {
-    	goToMainWindow(actionEvent, pathToMainWindow);
+        goToMainWindow(actionEvent, pathToMainWindow);
     }
 
     @Override
@@ -224,7 +220,7 @@ public class CourseList implements Initializable, Controller {
     }
 
     private void fillVideoCourseChange(VideoCourse videoCourse) {
-    	tab = 2;
+        tab = 2;
         cleanAll();
 
         vCourseIDChanged.setText(videoCourse.getCourse_id() + "");
@@ -282,7 +278,7 @@ public class CourseList implements Initializable, Controller {
     public void videoChangeButtonPressed() {
         changeVideoCourse();
         try {
-            DBController.updateVideoCourse(videoCourse.getCourse_id(), videoCourse.getCourse_name(),videoCourse.getTrainer_name(),videoCourse.getvLink(),videoCourse.getvRemark());
+            DBController.updateVideoCourse(videoCourse.getCourse_id(), videoCourse.getCourse_name(), videoCourse.getTrainer_name(), videoCourse.getvLink(), videoCourse.getvRemark());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -295,11 +291,11 @@ public class CourseList implements Initializable, Controller {
         }
     }
 
-	
+
     @Override
-	public boolean check(int tab) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    public boolean check(int tab) {
+        // TODO Auto-generated method stub
+        return false;
+    }
 
 }

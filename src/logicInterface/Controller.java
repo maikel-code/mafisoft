@@ -1,7 +1,5 @@
 package logicInterface;
 
-import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -9,9 +7,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public interface Controller {
-	
-	default void goToMainWindow(ActionEvent actionEvent, String path) {
+
+    default void goToMainWindow(ActionEvent actionEvent, String path) {
         try {
             Parent home_page_parent = FXMLLoader.load(getClass().getClassLoader().getResource(path));
             Scene home_page_scene = new Scene(home_page_parent);
@@ -22,9 +22,9 @@ public interface Controller {
             e.printStackTrace();
         }
     }
-	
-	void cleanAll();
-	
-	boolean check(int tab);
-	
+
+    void cleanAll();
+
+    boolean check(int tab);
+
 }

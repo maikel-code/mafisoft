@@ -1,24 +1,19 @@
 package logic;
 
-import java.net.URL;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.ResourceBundle;
-
 import DBHelper.DBController;
 import DTO.customer.Customer;
 import DTO.zipCode.NumberTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import logicInterface.Controller;
+
+import java.net.URL;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.ResourceBundle;
 
 public class AddCustomer implements Initializable, Controller {
     @FXML
@@ -66,7 +61,7 @@ public class AddCustomer implements Initializable, Controller {
     }
 
     @SuppressWarnings("deprecation")
-	private void setCustomer() {
+    private void setCustomer() {
         if (check(0)) {
             Calendar calendarEndCalendar = Calendar.getInstance();
             calendarEndCalendar.set(Calendar.MONTH, (currentDate.getMonth() + Integer.parseInt(String.valueOf(period.getSelectionModel().getSelectedItem()))));
@@ -82,7 +77,7 @@ public class AddCustomer implements Initializable, Controller {
             customer.setStreet(streetTXT.getText());
         }
     }
-    
+
     @Override
     public boolean check(int tab) {
         boolean check = false;
@@ -123,10 +118,10 @@ public class AddCustomer implements Initializable, Controller {
     }
 
     @FXML
-    private void goToMainWindow(ActionEvent actionEvent){
-    	goToMainWindow(actionEvent, pathToMainWindow);
+    private void goToMainWindow(ActionEvent actionEvent) {
+        goToMainWindow(actionEvent, pathToMainWindow);
     }
-    
+
     @FXML
     public void cleanAll() {
         firstNameTXT.clear();
@@ -140,7 +135,7 @@ public class AddCustomer implements Initializable, Controller {
     }
 
     @SuppressWarnings("deprecation")
-	@FXML
+    @FXML
     private void isChecked() {
         if (now_checkBox.isSelected()) {
             orderDate.setVisible(false);
@@ -156,7 +151,7 @@ public class AddCustomer implements Initializable, Controller {
 
 
     @SuppressWarnings("deprecation")
-	public java.sql.Date getDate() {
+    public java.sql.Date getDate() {
         return new java.sql.Date(birthdayTXT.getValue().getYear() - defaultYear, birthdayTXT.getValue().getMonth().getValue() - 1, birthdayTXT.getValue().getDayOfMonth());
     }
 

@@ -18,7 +18,7 @@ public interface DAOCourse_I {
 
     Course searchCourse();
 
-    ObservableList<Course> getAllCourse() ;
+    ObservableList<Course> getAllCourse();
 
     ObservableList<Course> getAllAvailabileCourse();
 
