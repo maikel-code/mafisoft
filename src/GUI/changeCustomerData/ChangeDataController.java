@@ -3,8 +3,8 @@ package GUI.changeCustomerData;
 
 import DBHelper.DBController;
 import GUI.changeCourseList.CourseListController;
-import catalouge.courses.Course;
-import catalouge.customer.Customer;
+import DTO.courses.Course;
+import DTO.customer.Customer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

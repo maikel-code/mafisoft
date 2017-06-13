@@ -1,4 +1,4 @@
-package catalouge.customer;
+package DTO.customer;
 
 import javafx.beans.property.*;
 

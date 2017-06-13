@@ -1,8 +1,8 @@
 package GUI.addCustomer;
 
 import DBHelper.DBController;
-import catalouge.customer.Customer;
-import catalouge.zipCode.NumberTextField;
+import DTO.customer.Customer;
+import DTO.zipCode.NumberTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

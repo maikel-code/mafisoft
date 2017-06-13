@@ -1,9 +1,9 @@
 package GUI.changeCourseList;
 
 import DBHelper.DBController;
-import catalouge.courses.Course;
-import catalouge.courses.PhysicalCourse;
-import catalouge.courses.VideoCourse;
+import DTO.courses.Course;
+import DTO.courses.PhysicalCourse;
+import DTO.courses.VideoCourse;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

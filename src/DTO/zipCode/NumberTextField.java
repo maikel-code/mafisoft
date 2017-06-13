@@ -1,4 +1,4 @@
-package catalouge.zipCode;
+package DTO.zipCode;
 
 import javafx.scene.control.TextField;
 

@@ -1,4 +1,4 @@
-package catalouge.courses;
+package DTO.courses;
 
 
 import javafx.beans.property.IntegerProperty;
