@@ -8,7 +8,11 @@ import javafx.collections.ObservableList;
 /**
  * Created by maikel on 13.06.17.
  */
-public interface DAOCourse_I {
+public interface DAOCourse_i {
+
+
+
+
 
     ObservableList<Course> getAllCourseByCustomer(Customer dtoCustomer);
 
