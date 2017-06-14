@@ -25,50 +25,58 @@ import java.util.ResourceBundle;
 public class CourseList implements Initializable, Controller {
     @SuppressWarnings("rawtypes")
     @FXML
-    private TableView courseTable;
+    private TableView                               courseTable;
     @FXML
-    private TableView<VideoCourse> vCourseTable;
+    private TableView<VideoCourse>                  vCourseTable;
     @FXML
-    private TableColumn<PhysicalCourse, Integer> id;
+    private TableColumn<PhysicalCourse, Integer>    id;
     @FXML
-    private TableColumn<PhysicalCourse, String> courseName;
+    private TableColumn<PhysicalCourse, String>     courseName;
     @FXML
-    private TableColumn<PhysicalCourse, String> trainerName;
+    private TableColumn<PhysicalCourse, String>     trainerName;
     @FXML
-    private TableColumn<PhysicalCourse, Time> timeBegin;
+    private TableColumn<PhysicalCourse, Time>       timeBegin;
     @FXML
-    private TableColumn<PhysicalCourse, Time> timeEnd;
+    private TableColumn<PhysicalCourse, Time>       timeEnd;
     @FXML
-    private TextField courseTXT, coursename, trainer, courseID, startTime, endTime;
+    private TextField                               courseTXT,
+                                                    coursename,
+                                                    trainer,
+                                                    courseID,
+                                                    startTime,
+                                                    endTime;
 
     @FXML
-    private TableColumn<VideoCourse, Integer> vID;
+    private TableColumn<VideoCourse, Integer>       vID;
     @FXML
-    private TableColumn<VideoCourse, String> vCourseName;
+    private TableColumn<VideoCourse, String>        vCourseName;
     @FXML
-    private TableColumn<VideoCourse, String> vTrainerName;
+    private TableColumn<VideoCourse, String>        vTrainerName;
     @FXML
-    private TableColumn<VideoCourse, String> vURL;
+    private TableColumn<VideoCourse, String>        vURL;
     @FXML
-    private TableColumn<VideoCourse, String> vRemark;
+    private TableColumn<VideoCourse, String>        vRemark;
     @FXML
-    private TextField vSearch, vCourseIDChanged, vCourseNameChanged, vTrainerChanged, vURLChanged;
+    private TextField                               vSearch,
+                                                    vCourseIDChanged,
+                                                    vCourseNameChanged,
+                                                    vTrainerChanged,
+                                                    vURLChanged;
     @FXML
-    private TextArea vRemarkChanged;
-    private String pathToMainWindow = "gui/Homepage.fxml";
-    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
-    private PhysicalCourse course;
-    private VideoCourse videoCourse;
-    private int tab = 1;
+    private TextArea                                vRemarkChanged;
+    private String                                  pathToMainWindow        =       "gui/Homepage.fxml";
+    private SimpleDateFormat                        simpleDateFormat        =       new SimpleDateFormat("HH:mm");
+    private PhysicalCourse                          course;
+    private VideoCourse                             videoCourse;
+    private int                                     tab                     =       1;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         fillTable();
     }
 
-    // Course list prepeid
+    // Course list prepaid
 
-    @SuppressWarnings("unchecked")
     public void fillTable() {
         try {
             id.setCellValueFactory(new PropertyValueFactory<>("course_id"));
@@ -93,7 +101,7 @@ public class CourseList implements Initializable, Controller {
         return row;
     }
 
-    private void fillChangeTabble(PhysicalCourse course) {
+    private void fillChangeTable(PhysicalCourse course) {
         tab = 1;
         cleanAll();
         courseID.setText(course.getCourse_id() + "");
@@ -128,7 +136,7 @@ public class CourseList implements Initializable, Controller {
             }
 
             if (rs != null && rs.next()) {
-                fillChangeTabble(fillCourse(rs));
+                fillChangeTable(fillCourse(rs));
             }
 
         } catch (Exception e) {
@@ -138,7 +146,6 @@ public class CourseList implements Initializable, Controller {
         }
     }
 
-    @SuppressWarnings("deprecation")
     private void changeCourse() {
         course.setCourse_name(coursename.getText());
         course.setTrainer_name(trainer.getText());
@@ -163,11 +170,11 @@ public class CourseList implements Initializable, Controller {
     public void mouseOnClick(MouseEvent mouseEvent) {
         if (mouseEvent.getClickCount() == 2) {
             course = (PhysicalCourse) courseTable.getSelectionModel().getSelectedItem();
-            fillChangeTabble(course);
+            fillChangeTable(course);
         }
     }
 
-    // Course and Videocourse udes same methoden
+    // Course and VideoCourse use same method
 
     @FXML
     private void goToMainWindow(ActionEvent actionEvent) {
@@ -290,7 +297,6 @@ public class CourseList implements Initializable, Controller {
             fillVideoCourseChange(videoCourse);
         }
     }
-
 
     @Override
     public boolean check(int tab) {

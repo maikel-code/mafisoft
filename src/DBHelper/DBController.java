@@ -5,7 +5,7 @@ import javafx.scene.control.Alert;
 import java.sql.*;
 
 public class DBController {
-    private static Connection connection;
+    private static Connection           connection;
 
     private DBController() {
     }

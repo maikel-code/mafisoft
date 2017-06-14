@@ -21,34 +21,40 @@ import java.util.ResourceBundle;
 
 public class ChangeCustomerData implements Initializable, Controller {
     @FXML
-    private TextField changeFirstName, changeLastName, changeMail, changePhonenummer, changeCity, changeStreet,
-            customerTXT, customerID;
+    private TextField                               changeFirstName,
+                                                    changeLastName,
+                                                    changeMail,
+                                                    changePhonenummer,
+                                                    changeCity,
+                                                    changeStreet,
+                                                    customerTXT,
+                                                    customerID;
     @FXML
-    private ComboBox<String> courses;
+    private ComboBox<String>                        courses;
     @FXML
-    private TextField changeZipcode;
+    private TextField                               changeZipcode;
     @FXML
-    private TableView<Customer> customerTable;
+    private TableView<Customer>                     customerTable;
     @FXML
-    private TableView<Course> customerCourseTable;
+    private TableView<Course>                       customerCourseTable;
     @FXML
-    private TableColumn<Customer, Integer> id;
+    private TableColumn<Customer, Integer>          id;
     @FXML
-    private TableColumn<Customer, String> firstName;
+    private TableColumn<Customer, String>           firstName;
     @FXML
-    private TableColumn<Customer, String> lastName;
+    private TableColumn<Customer, String>           lastName;
     @FXML
-    private TableColumn<Customer, Date> birthday;
+    private TableColumn<Customer, Date>             birthday;
     @FXML
-    private TableColumn<Customer, String> mail;
+    private TableColumn<Customer, String>           mail;
     @FXML
-    private TableColumn<Customer, String> phonenummer;
+    private TableColumn<Customer, String>           phonenummer;
     @FXML
-    private TableColumn<Customer, String> address;
+    private TableColumn<Customer, String>           address;
     @FXML
-    private TableColumn<Course, String> customerCourseList;
-    private ObservableList<Course> allCourses;
-    private String pathToMainWindow = "gui/Homepage.fxml";
+    private TableColumn<Course, String>             customerCourseList;
+    private ObservableList<Course>                  allCourses;
+    private String                                  pathToMainWindow            =            "gui/Homepage.fxml";
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

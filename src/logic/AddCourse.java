@@ -19,12 +19,17 @@ import java.util.ResourceBundle;
 public class AddCourse implements Initializable, Controller {
 
     @FXML
-    private TextField vCourseName, vTrainerName, vLink;
+    private TextField               vCourseName,
+                                    vTrainerName,
+                                    vLink;
     @FXML
-    private TextArea vRemark;
+    private TextArea                vRemark;
     @FXML
-    private TextField courseName, trainer, startTime, endTime;
-    private String pathToMainWindow = "gui/Homepage.fxml";
+    private TextField               courseName,
+                                    trainer,
+                                    startTime,
+                                    endTime;
+    private String                  pathToMainWindow        =       "gui/Homepage.fxml";
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

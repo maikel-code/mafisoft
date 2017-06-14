@@ -17,25 +17,30 @@ import java.util.ResourceBundle;
 
 public class AddCustomer implements Initializable, Controller {
     @FXML
-    private TextField firstNameTXT, lastNameTXT, mailTXT, phoneNumberTXT, streetTXT, city;
+    private TextField                   firstNameTXT,
+                                        lastNameTXT,
+                                        mailTXT,
+                                        phoneNumberTXT,
+                                        streetTXT,
+                                        city;
     @FXML
-    private DatePicker birthdayTXT;
+    private DatePicker                  birthdayTXT;
     @FXML
-    private NumberTextField zipCode;
+    private NumberTextField             zipCode;
     @FXML
-    private ComboBox<String> period;
+    private ComboBox<String>            period;
     @FXML
-    private CheckBox now_checkBox;
+    private CheckBox                    now_checkBox;
     @FXML
-    private DatePicker newDate;
+    private DatePicker                  newDate;
     @FXML
-    private Label orderDate;
+    private Label                       orderDate;
 
-    private java.sql.Date currentDate;
-    private int defaultYear = 1900;
-    private Customer customer;
-    private java.sql.Date calendarEnd;
-    private String pathToMainWindow = "gui/Homepage.fxml";
+    private java.sql.Date               currentDate;
+    private int                         defaultYear             =           1900;
+    private Customer                    customer;
+    private java.sql.Date               calendarEnd;
+    private String                      pathToMainWindow        =           "gui/Homepage.fxml";
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

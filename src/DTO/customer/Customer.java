@@ -5,15 +5,15 @@ import javafx.beans.property.*;
 import java.sql.Date;
 
 public class Customer {
-    private IntegerProperty customerID;
-    private StringProperty customer_firstname;
-    private StringProperty customer_lastname;
-    private SimpleObjectProperty<Date> birthday;
-    private StringProperty mail;
-    private StringProperty mobilephone;
-    private IntegerProperty zipCode;
-    private StringProperty city;
-    private StringProperty street;
+    private IntegerProperty                             customerID;
+    private StringProperty                              customer_firstname;
+    private StringProperty                              customer_lastname;
+    private SimpleObjectProperty<Date>                  birthday;
+    private StringProperty                              mail;
+    private StringProperty                              mobilephone;
+    private IntegerProperty                             zipCode;
+    private StringProperty                              city;
+    private StringProperty                              street;
 
     public Customer() {
         this.customerID = new SimpleIntegerProperty();

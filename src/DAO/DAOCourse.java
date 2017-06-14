@@ -35,7 +35,7 @@ public class DAOCourse implements DAOCourse_I {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             PreparedStatement preparedStatement = DBController.getConnection().prepareStatement(
-                    "UPDATE course SET course_name=?, trainer_name=?, start=?, [end]=? WHERE course_id=?");
+                    "UPDATE course SET course_name=?, trainer_name=?, start=?, end=? WHERE course_id=?");
             preparedStatement.setInt(5, dtoPhysicalCourse.getCourse_id());
             preparedStatement.setString(1, dtoPhysicalCourse.getCourse_name());
             preparedStatement.setString(2, dtoPhysicalCourse.getTrainer_name());

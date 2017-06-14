@@ -19,19 +19,19 @@ public class HomePage implements Initializable, MainWindow {
 
     @FXML
     private void buttonPressed(ActionEvent actionEvent) {
-        String button = ((Button) actionEvent.getSource()).getText();
+        String button = ((Button) actionEvent.getSource()).getId();
 
         switch (button) {
-            case "Kurse anlegen":
+            case "newCourse":
                 path = "gui/AddCourse.fxml";
                 break;
-            case "Neue Kunde anlegen":
-                path = "gui/AddCustomer.fxml";
-                break;
-            case "Alle Kurse anzeigen":
+            case "allCourse":
                 path = "gui/CourseList.fxml";
                 break;
-            default:
+            case "newCustomer":
+                path = "gui/AddCustomer.fxml";
+                break;
+            case "allCustomer":
                 path = "gui/ChangeCustomerData.fxml";
                 break;
         }

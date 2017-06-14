@@ -7,8 +7,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class VideoCourse extends Course {
-    private StringProperty vLink;
-    private StringProperty vRemark;
+    private StringProperty              vLink;
+    private StringProperty              vRemark;
 
     public VideoCourse() {
         this.course_id = new SimpleIntegerProperty();

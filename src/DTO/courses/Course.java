@@ -7,9 +7,9 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public abstract class Course {
-    protected IntegerProperty course_id;
-    protected StringProperty trainer_name;
-    protected StringProperty course_name;
+    protected IntegerProperty               course_id;
+    protected StringProperty                trainer_name;
+    protected StringProperty                course_name;
 
 
     public Course() {
