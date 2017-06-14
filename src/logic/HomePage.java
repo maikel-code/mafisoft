@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import logicInterface.MainWindow;
+import logic.logicInterface.MainWindow;
 
 import java.net.URL;
 import java.util.ResourceBundle;

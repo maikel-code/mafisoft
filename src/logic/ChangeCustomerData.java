@@ -11,7 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import logicInterface.Controller;
+import logic.logicInterface.Controller;
 
 import java.net.URL;
 import java.sql.Date;

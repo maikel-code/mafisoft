@@ -1,4 +1,4 @@
-package logicInterface;
+package logic.logicInterface;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;

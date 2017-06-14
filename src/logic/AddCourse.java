@@ -9,7 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import logicInterface.Controller;
+import logic.logicInterface.Controller;
 
 import java.net.URL;
 import java.sql.SQLException;
