@@ -1,8 +1,8 @@
-package DAO;
+package dao;
 
 
-import DTO.courses.Course;
-import DTO.customer.Customer;
+import dto.courses.Course;
+import dto.customer.Customer;
 import javafx.collections.ObservableList;
 
 /**
@@ -12,7 +12,7 @@ public interface DAOCourse_I {
 
     ObservableList<Course> getAllCourseByCustomer(Customer dtoCustomer);
 
-    void addCourse();
+    void addCourse(Course course);
 
     void updateCourse();
 

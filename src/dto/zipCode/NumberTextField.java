@@ -1,4 +1,4 @@
-package DTO.zipCode;
+package dto.zipCode;
 
 import javafx.scene.control.TextField;
 

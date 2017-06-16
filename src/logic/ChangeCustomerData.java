@@ -1,8 +1,8 @@
 package logic;
 
-import DBHelper.DBController;
-import DTO.courses.Course;
-import DTO.customer.Customer;
+import DBHelper.DBHelper;
+import dto.courses.Course;
+import dto.customer.Customer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -11,7 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import logic.logicInterface.Controller;
+import logic.logicInterface.Navigable;
 
 import java.net.URL;
 import java.sql.Date;
@@ -19,7 +19,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class ChangeCustomerData implements Initializable, Controller {
+public class ChangeCustomerData implements Initializable, Navigable {
     @FXML
     private TextField                               changeFirstName,
                                                     changeLastName,
@@ -54,7 +54,8 @@ public class ChangeCustomerData implements Initializable, Controller {
     @FXML
     private TableColumn<Course, String>             customerCourseList;
     private ObservableList<Course>                  allCourses;
-    private String                                  pathToMainWindow            =            "gui/Homepage.fxml";
+    private String                                  pathToMainWindow            =               "gui/Homepage.fxml";
+    private DBHelper                                dbHelper                    =               DBHelper.getInstance();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -82,7 +83,7 @@ public class ChangeCustomerData implements Initializable, Controller {
     private ObservableList<Course> getCourseList(int customer_id) throws SQLException, ClassNotFoundException {
         CourseList courseListController = new CourseList();
 
-        ResultSet rs = DBController.getAllAvailabileCourse(customer_id);
+        ResultSet rs = dbHelper.getAllAvailabileCourse(customer_id);
         ObservableList<Course> row = FXCollections.observableArrayList();
         while (rs.next()) {
             row.add(courseListController.fillCourse(rs));
@@ -91,7 +92,7 @@ public class ChangeCustomerData implements Initializable, Controller {
     }
 
     private ObservableList<Customer> getCustomerList() throws SQLException, ClassNotFoundException {
-        ResultSet rs = DBController.getAllCustomer();
+        ResultSet rs = dbHelper.getAllCustomer();
         ObservableList<Customer> row = FXCollections.observableArrayList();
 
         while (rs.next()) {
@@ -128,7 +129,7 @@ public class ChangeCustomerData implements Initializable, Controller {
         courses.getItems().clear();
 
         for (Course oneCourse : allCourses) {
-            courses.getItems().add(oneCourse.getCourse_name() + " ID:" + oneCourse.getCourse_id());
+            courses.getItems().add(oneCourse.getCourse_name() + " ID:" + oneCourse.getId());
         }
 
     }
@@ -142,7 +143,7 @@ public class ChangeCustomerData implements Initializable, Controller {
     public void changeButton() {
         // TODO Create Customer and send it to DB
         try {
-            DBController.updateCustomer(Integer.parseInt(customerID.getText()), changeFirstName.getText(),
+            dbHelper.updateCustomer(Integer.parseInt(customerID.getText()), changeFirstName.getText(),
                     changeLastName.getText(), changeMail.getText(), changePhonenummer.getText(),
                     Integer.parseInt(changeZipcode.getText()), changeCity.getText(), changeStreet.getText());
             fillTale();
@@ -157,7 +158,7 @@ public class ChangeCustomerData implements Initializable, Controller {
                 return;
             }
             String[] parts = courses.getValue().split("ID:");
-            DBController.addCourseToCustomer(Integer.parseInt(customerID.getText()), Integer.parseInt(parts[1]));
+            dbHelper.addCourseToCustomer(Integer.parseInt(customerID.getText()), Integer.parseInt(parts[1]));
             fillChangeTabble(customerTable.getSelectionModel().getSelectedItem());
         } catch (Exception e) {
             e.printStackTrace();
@@ -170,9 +171,9 @@ public class ChangeCustomerData implements Initializable, Controller {
         String search = customerTXT.getText();
         try {
             if (search.matches("\\b\\d+\\b")) {
-                rs = DBController.searchCustomer("ID", search);
+                rs = dbHelper.searchCustomer("ID", search);
             } else {
-                rs = DBController.searchCustomer("name", search);
+                rs = dbHelper.searchCustomer("name", search);
             }
 
             if (rs != null && rs.next()) {
@@ -204,11 +205,11 @@ public class ChangeCustomerData implements Initializable, Controller {
 
     @FXML
     private void goToMainWindow(ActionEvent actionEvent) {
-        goToMainWindow(actionEvent, pathToMainWindow);
+        goToScene(actionEvent, pathToMainWindow);
     }
 
     private ObservableList<Course> getAllCustomerCourse(Customer customer) throws SQLException, ClassNotFoundException {
-        ResultSet rs = DBController.getAllCourseByCustomer(customer.getCustomerID());
+        ResultSet rs = dbHelper.getAllCourseByCustomer(customer.getCustomerID());
         ObservableList<Course> row = FXCollections.observableArrayList();
         CourseList courseListController = new CourseList();
 
@@ -222,9 +223,9 @@ public class ChangeCustomerData implements Initializable, Controller {
     @FXML
     private void removeCourse() {
         if (customerCourseTable.getSelectionModel().getSelectedItem() != null) {
-            int courseID = customerCourseTable.getSelectionModel().getSelectedItem().getCourse_id();
+            int courseID = customerCourseTable.getSelectionModel().getSelectedItem().getId();
             try {
-                DBController.removeCourse(customerID.getText(), courseID);
+                dbHelper.removeCourse(customerID.getText(), courseID);
                 fillChangeTabble(customerTable.getSelectionModel().getSelectedItem());
             } catch (SQLException | ClassNotFoundException e) {
                 e.printStackTrace();
@@ -232,7 +233,6 @@ public class ChangeCustomerData implements Initializable, Controller {
         }
     }
 
-    @Override
     public void cleanAll() {
         changeFirstName.clear();
         changeLastName.clear();
@@ -244,8 +244,4 @@ public class ChangeCustomerData implements Initializable, Controller {
         customerID.clear();
     }
 
-    @Override
-    public boolean check(int tab) {
-        return false;
-    }
 }

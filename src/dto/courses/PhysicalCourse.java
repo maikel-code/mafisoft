@@ -1,4 +1,4 @@
-package DTO.courses;
+package dto.courses;
 
 import javafx.beans.property.*;
 
@@ -9,23 +9,23 @@ public class PhysicalCourse extends Course {
     private SimpleObjectProperty<Time>              endTime;
 
     public PhysicalCourse() {
-        this.course_id = new SimpleIntegerProperty();
+        this.id = new SimpleIntegerProperty();
         this.course_name = new SimpleStringProperty();
         this.trainer_name = new SimpleStringProperty();
         this.startTime = new SimpleObjectProperty<>();
         this.endTime = new SimpleObjectProperty<>();
     }
 
-    public int getCourse_id() {
-        return course_id.get();
+    public int getId() {
+        return id.get();
     }
 
-    public void setCourse_id(int course_id) {
-        this.course_id.set(course_id);
+    public void setId(int id) {
+        this.id.set(id);
     }
 
-    public IntegerProperty course_idProperty() {
-        return course_id;
+    public IntegerProperty idProperty() {
+        return id;
     }
 
     public String getCourse_name() {

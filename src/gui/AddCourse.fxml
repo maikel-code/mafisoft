@@ -42,7 +42,7 @@
                                 <HBox minHeight="-Infinity" BorderPane.alignment="CENTER">
                                     <children>
                                         <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
-                                                onAction="#addCourseButton" text="Add" HBox.hgrow="ALWAYS"/>
+                                                onAction="#addButtonPressed" text="Add" HBox.hgrow="ALWAYS"/>
                                         <Region prefWidth="200.0"/>
                                         <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
                                                 onAction="#goToMainWindow" text="Zum Hauptfenster"/>
@@ -103,7 +103,7 @@
                                 <HBox minHeight="-Infinity" BorderPane.alignment="CENTER">
                                     <children>
                                         <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
-                                                onAction="#addVideoButton" text="Add" HBox.hgrow="ALWAYS"/>
+                                                onAction="#addButtonPressed" text="Add" HBox.hgrow="ALWAYS"/>
                                         <Region prefWidth="200.0"/>
                                         <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
                                                 onAction="#goToMainWindow" text="Zum Hauptfenster"/>

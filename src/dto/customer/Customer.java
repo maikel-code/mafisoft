@@ -1,4 +1,4 @@
-package DTO.customer;
+package dto.customer;
 
 import javafx.beans.property.*;
 
