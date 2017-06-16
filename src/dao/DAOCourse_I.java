@@ -16,7 +16,7 @@ public interface DAOCourse_I {
 
     void updateCourse(PhysicalCourse dtoPhysicalCourse) throws SQLException, ClassNotFoundException;
 
-    PhysicalCourse searchCourse(String searchConfig, String search) throws SQLException, ClassNotFoundException;
+    ObservableList<PhysicalCourse> searchCourse(String searchConfig, String search) throws SQLException, ClassNotFoundException;
 
     ObservableList<PhysicalCourse> getAllCourse() throws SQLException, ClassNotFoundException ;
 

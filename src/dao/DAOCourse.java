@@ -56,7 +56,7 @@ public class DAOCourse implements DAOCourse_I {
         preparedStatement.executeUpdate();
     }
 
-    public PhysicalCourse searchCourse(String searchConfig, String search) throws SQLException, ClassNotFoundException {
+    public  ObservableList<PhysicalCourse> searchCourse(String searchConfig, String search) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
         ResultSet rs;
         PreparedStatement preparedStatement;
@@ -72,11 +72,17 @@ public class DAOCourse implements DAOCourse_I {
             case "Trainer":
             default:
                 preparedStatement = dbHelper.getConnection()
-                        .prepareStatement("SELECT * FROM course WHERE trainer_name=?");
-                preparedStatement.setString(1, search);
+                        .prepareStatement("SELECT * FROM course WHERE trainer_name LIKE ?");
+                preparedStatement.setString(1, search + "%");
                 rs = preparedStatement.executeQuery();
         }
-        return this.createPhysicalCourseFromRow(rs);
+        ObservableList<PhysicalCourse> row = FXCollections.observableArrayList();
+
+        while (rs.next()) {
+            row.add(this.createPhysicalCourseFromRow(rs));
+        }
+        return row;
+
     }
 
     public ObservableList<PhysicalCourse> getAllCourse() throws SQLException, ClassNotFoundException {
@@ -164,9 +170,9 @@ public class DAOCourse implements DAOCourse_I {
                 break;
             default:
                 preparedStatement = dbHelper.getConnection()
-                        .prepareStatement("SELECT * FROM video_course WHERE courseName LIKE ? OR trainerName=?");
-                preparedStatement.setString(1, search.split("\\p{Punct}")[0]);
-                preparedStatement.setString(1, search.split("\\p{Punct}")[1]);
+                        .prepareStatement("SELECT * FROM video_course WHERE courseName LIKE ? OR trainerName LIKE ?");
+                preparedStatement.setString(1, search.split("\\p{Punct}")[0] + "%");
+                preparedStatement.setString(1, search.split("\\p{Punct}")[1] + "%");
         }
 
         ResultSet rs = preparedStatement.executeQuery();
