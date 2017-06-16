@@ -1,16 +1,15 @@
-package DAO;
+package dao;
+
+import DBHelper.DBController;
+import dto.courses.PhysicalCourse;
+import dto.courses.VideoCourse;
+import dto.customer.Customer;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import DBHelper.DBController;
-import DTO.courses.Course;
-import DTO.courses.PhysicalCourse;
-import DTO.courses.VideoCourse;
-import DTO.customer.Customer;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 public class DAOCourse implements DAOCourse_I {
 

@@ -1,8 +1,8 @@
 package GUI.addCustomer;
 
 import DBHelper.DBController;
-import DTO.customer.Customer;
-import DTO.zipCode.NumberTextField;
+import dto.customer.Customer;
+import dto.zipCode.NumberTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

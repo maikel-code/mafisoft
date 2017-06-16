@@ -1,46 +1,47 @@
 package logic;
 
+import DBHelper.DBHelper;
+import dto.customer.Customer;
+import dto.zipCode.NumberTextField;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
+import logic.logicInterface.AddCustomer_I;
+
 import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-import DBHelper.DBController;
-import DTO.customer.Customer;
-import DTO.zipCode.NumberTextField;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
-import logicInterface.Controller;
+public class AddCustomer implements Initializable, AddCustomer_I {
+    @FXML
+    private TextField                   firstNameTXT,
+                                        lastNameTXT,
+                                        mailTXT,
+                                        phoneNumberTXT,
+                                        streetTXT,
+                                        city;
+    @FXML
+    private DatePicker                  birthdayTXT;
+    @FXML
+    private NumberTextField             zipCode;
+    @FXML
+    private ComboBox<String>            period;
+    @FXML
+    private CheckBox                    now_checkBox;
+    @FXML
+    private DatePicker                  newDate;
+    @FXML
+    private Label                       orderDate;
 
-public class AddCustomer implements Initializable, Controller {
-    @FXML
-    private TextField firstNameTXT, lastNameTXT, mailTXT, phoneNumberTXT, streetTXT, city;
-    @FXML
-    private DatePicker birthdayTXT;
-    @FXML
-    private NumberTextField zipCode;
-    @FXML
-    private ComboBox<String> period;
-    @FXML
-    private CheckBox now_checkBox;
-    @FXML
-    private DatePicker newDate;
-    @FXML
-    private Label orderDate;
-
-    private java.sql.Date currentDate;
-    private int defaultYear = 1900;
-    private Customer customer;
-    private java.sql.Date calendarEnd;
-    private String pathToMainWindow = "gui/Homepage.fxml";
+    private java.sql.Date               currentDate;
+    private int                         defaultYear             =           1900;
+    private Customer                    customer;
+    private java.sql.Date               calendarEnd;
+    private String                      pathToMainWindow        =           "gui/Homepage.fxml";
+    private DBHelper                    dbHelper                =       DBHelper.getInstance();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -52,11 +53,11 @@ public class AddCustomer implements Initializable, Controller {
         setCustomer();
         try {
             if (check(0)) {
-                DBController.addCustomer(customer.getCustomer_firstname(), customer.getCustomer_lastname(), customer.getBirthday(),
+                dbHelper.addCustomer(customer.getCustomer_firstname(), customer.getCustomer_lastname(), customer.getBirthday(),
                         customer.getMail(), customer.getMobilephone(), customer.getZipCode(),
                         customer.getCity(), customer.getStreet(), currentDate, calendarEnd);
 
-                goToMainWindow(actionEvent, pathToMainWindow);
+                goToMainWindow(actionEvent);
             }
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Fehler");
@@ -65,8 +66,8 @@ public class AddCustomer implements Initializable, Controller {
         }
     }
 
-    @SuppressWarnings("deprecation")
-	private void setCustomer() {
+    @Override
+    public void setCustomer() {
         if (check(0)) {
             Calendar calendarEndCalendar = Calendar.getInstance();
             calendarEndCalendar.set(Calendar.MONTH, (currentDate.getMonth() + Integer.parseInt(String.valueOf(period.getSelectionModel().getSelectedItem()))));
@@ -82,7 +83,7 @@ public class AddCustomer implements Initializable, Controller {
             customer.setStreet(streetTXT.getText());
         }
     }
-    
+
     @Override
     public boolean check(int tab) {
         boolean check = false;
@@ -123,11 +124,11 @@ public class AddCustomer implements Initializable, Controller {
     }
 
     @FXML
-    private void goToMainWindow(ActionEvent actionEvent){
-    	goToMainWindow(actionEvent, pathToMainWindow);
+    private void goToMainWindow(ActionEvent actionEvent) {
+        goToScene(actionEvent, pathToMainWindow);
     }
-    
-    @FXML
+
+    @Override
     public void cleanAll() {
         firstNameTXT.clear();
         lastNameTXT.clear();
@@ -139,9 +140,8 @@ public class AddCustomer implements Initializable, Controller {
         streetTXT.clear();
     }
 
-    @SuppressWarnings("deprecation")
-	@FXML
-    private void isChecked() {
+    @Override
+    public void isChecked() {
         if (now_checkBox.isSelected()) {
             orderDate.setVisible(false);
             newDate.setVisible(false);
@@ -154,12 +154,11 @@ public class AddCustomer implements Initializable, Controller {
         }
     }
 
-
-    @SuppressWarnings("deprecation")
-	public java.sql.Date getDate() {
+    private java.sql.Date getDate() {
         return new java.sql.Date(birthdayTXT.getValue().getYear() - defaultYear, birthdayTXT.getValue().getMonth().getValue() - 1, birthdayTXT.getValue().getDayOfMonth());
     }
 
+    @Override
     public void checkZipLength(KeyEvent actionEvent) {
         if (zipCode.getText().length() >= 5) {
             zipCode.setText(zipCode.getText().substring(0, 5));

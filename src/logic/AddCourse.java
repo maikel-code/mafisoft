@@ -1,63 +1,38 @@
 package logic;
 
-import java.net.URL;
-import java.sql.SQLException;
-import java.sql.Time;
-import java.util.ResourceBundle;
-
-import DBHelper.DBController;
-import DTO.courses.PhysicalCourse;
+import dao.DAOCourse;
+import dto.courses.PhysicalCourse;
+import dto.courses.VideoCourse;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import logicInterface.Controller;
+import logic.logicInterface.Appendable;
 
-public class AddCourse implements Initializable, Controller {
+import java.net.URL;
+import java.sql.Time;
+import java.util.ResourceBundle;
+
+public class AddCourse implements Initializable, Appendable {
 
     @FXML
-    private TextField vCourseName, vTrainerName, vLink;
+    private TextField               vCourseName,
+                                    vTrainerName,
+                                    vLink;
     @FXML
-    private TextArea vRemark;
+    private TextArea                vRemark;
     @FXML
-    private TextField courseName, trainer, startTime, endTime;
-    private String pathToMainWindow = "gui/Homepage.fxml";
-    
+    private TextField               courseName,
+                                    trainer,
+                                    startTime,
+                                    endTime;
+    private String                  pathToMainWindow        =       "gui/Homepage.fxml";
+    private DAOCourse               daoCourse                =       new DAOCourse();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-    }
-
-    // Course
-    @SuppressWarnings("deprecation")
-	public void addCourseButton(ActionEvent actionEvent) {
-        PhysicalCourse course = new PhysicalCourse();
-        course.setCourse_name(courseName.getText());
-        course.setTrainer_name(trainer.getText());
-        int timeHH = Integer.parseInt(startTime.getText().split("\\p{Punct}")[0]);
-        int timeMM = Integer.parseInt(startTime.getText().split("\\p{Punct}")[1]);
-        course.setStartTime(new Time(timeHH, timeMM, 0));
-        timeHH = Integer.parseInt(endTime.getText().split("\\p{Punct}")[0]);
-        timeMM = Integer.parseInt(endTime.getText().split("\\p{Punct}")[1]);
-        course.setEndTime(new Time(timeHH, timeMM, 0));
-        fillCourseInDB(course, actionEvent);
-    }
-
-    private void fillCourseInDB(PhysicalCourse course, ActionEvent actionEvent) {
-        if (check(1)) {
-            try {
-                DBController.addCourse(course.getCourse_name(), course.getTrainer_name(), course.getStartTime(), course.getEndTime());
-                Alert alert = new Alert(Alert.AlertType.INFORMATION, "Kunde wurde hingefügt", ButtonType.OK);
-                alert.setHeaderText(null);
-                alert.show();
-                goToMainWindow(actionEvent, pathToMainWindow);
-            } catch (SQLException | ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     // Course and Videocourse udes same methoden
@@ -78,26 +53,31 @@ public class AddCourse implements Initializable, Controller {
         return false;
     }
 
-    // VideoCourse
-    public void addVideoButton(ActionEvent actionEvent) {
-        if (check(2)) {
-            try {
-                DBController.addVideoCourse(vCourseName.getText(), vTrainerName.getText(), vLink.getText(), vRemark.getText());
-                goToMainWindow(actionEvent, pathToMainWindow);
-            } catch (SQLException | ClassNotFoundException e) {
-                e.printStackTrace();
-            }
+    @Override
+    public void addButtonPressed(ActionEvent actionEvent) {
+        if(check(1)) {
+            PhysicalCourse physicalCourse = new PhysicalCourse();
+            physicalCourse.setCourse_name(courseName.getText());
+            physicalCourse.setTrainer_name(trainer.getText());
+            int timeHH = Integer.parseInt(startTime.getText().split("\\p{Punct}")[0]);
+            int timeMM = Integer.parseInt(startTime.getText().split("\\p{Punct}")[1]);
+            physicalCourse.setStartTime(new Time(timeHH, timeMM, 0));
+            timeHH = Integer.parseInt(endTime.getText().split("\\p{Punct}")[0]);
+            timeMM = Integer.parseInt(endTime.getText().split("\\p{Punct}")[1]);
+            physicalCourse.setEndTime(new Time(timeHH, timeMM, 0));
+            daoCourse.addCourse(physicalCourse);
+        } else if(check(2)){
+            VideoCourse videoCourse = new VideoCourse();
+            videoCourse.setCourse_name(vCourseName.getText());
+            videoCourse.setTrainer_name(vTrainerName.getText());
+            videoCourse.setvLink(vLink.getText());
+            videoCourse.setvRemark(vRemark.getText());
+            daoCourse.addCourse(videoCourse);
         }
     }
 
     @FXML
-    private void goToMainWindow(ActionEvent actionEvent){
-    	goToMainWindow(actionEvent, pathToMainWindow);
-    }    
-    
-	@Override
-	public void cleanAll() {
-	
-	}
-
+    private void goToMainWindow(ActionEvent actionEvent) {
+        goToScene(actionEvent, pathToMainWindow);
+    }
 }
