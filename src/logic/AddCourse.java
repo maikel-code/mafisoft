@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import logic.logicInterface.Appendable;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ResourceBundle;
 
@@ -65,14 +66,26 @@ public class AddCourse implements Initializable, Appendable {
             timeHH = Integer.parseInt(endTime.getText().split("\\p{Punct}")[0]);
             timeMM = Integer.parseInt(endTime.getText().split("\\p{Punct}")[1]);
             physicalCourse.setEndTime(new Time(timeHH, timeMM, 0));
-            daoCourse.addCourse(physicalCourse);
+            try {
+                daoCourse.addCourse(physicalCourse);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
         } else if(check(2)){
             VideoCourse videoCourse = new VideoCourse();
             videoCourse.setCourse_name(vCourseName.getText());
             videoCourse.setTrainer_name(vTrainerName.getText());
             videoCourse.setvLink(vLink.getText());
             videoCourse.setvRemark(vRemark.getText());
-            daoCourse.addCourse(videoCourse);
+            try {
+                daoCourse.addVideoCourse(videoCourse);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
         }
     }
 

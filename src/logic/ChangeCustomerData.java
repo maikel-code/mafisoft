@@ -1,9 +1,8 @@
 package logic;
 
-import DBHelper.DBHelper;
+import dao.DAOCustomer;
 import dto.courses.Course;
 import dto.customer.Customer;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import logic.logicInterface.Navigable;
+import logic.logicInterface.ChangeCustomerData_I;
 
 import java.net.URL;
 import java.sql.Date;
@@ -19,7 +18,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class ChangeCustomerData implements Initializable, Navigable {
+public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
     @FXML
     private TextField                               changeFirstName,
                                                     changeLastName,
@@ -55,61 +54,36 @@ public class ChangeCustomerData implements Initializable, Navigable {
     private TableColumn<Course, String>             customerCourseList;
     private ObservableList<Course>                  allCourses;
     private String                                  pathToMainWindow            =               "gui/Homepage.fxml";
-    private DBHelper                                dbHelper                    =               DBHelper.getInstance();
+    private DAOCustomer                             daoCustomer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        fillTale();
+        fillTable();
     }
 
-    private void fillTale() {
+    @Override
+    public void fillTable() {
+        id.setCellValueFactory(new PropertyValueFactory<>("customerID"));
+        firstName.setCellValueFactory(new PropertyValueFactory<>("customer_firstname"));
+        lastName.setCellValueFactory(new PropertyValueFactory<>("customer_lastname"));
+        birthday.setCellValueFactory(new PropertyValueFactory<>("birthday"));
+        mail.setCellValueFactory(new PropertyValueFactory<>("mail"));
+        phonenummer.setCellValueFactory(new PropertyValueFactory<>("mobilephone"));
+        address.setCellValueFactory(new PropertyValueFactory<>("zipCode"));
+        address.setCellValueFactory(new PropertyValueFactory<>("city"));
+        address.setCellValueFactory(new PropertyValueFactory<>("street"));
         try {
-            id.setCellValueFactory(new PropertyValueFactory<>("customerID"));
-            firstName.setCellValueFactory(new PropertyValueFactory<>("customer_firstname"));
-            lastName.setCellValueFactory(new PropertyValueFactory<>("customer_lastname"));
-            birthday.setCellValueFactory(new PropertyValueFactory<>("birthday"));
-            mail.setCellValueFactory(new PropertyValueFactory<>("mail"));
-            phonenummer.setCellValueFactory(new PropertyValueFactory<>("mobilephone"));
-            address.setCellValueFactory(new PropertyValueFactory<>("zipCode"));
-            address.setCellValueFactory(new PropertyValueFactory<>("city"));
-            address.setCellValueFactory(new PropertyValueFactory<>("street"));
-            customerTable.setItems(getCustomerList());
-
+            customerTable.setItems(daoCustomer.getCustomerList());
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    private ObservableList<Course> getCourseList(int customer_id) throws SQLException, ClassNotFoundException {
-        CourseList courseListController = new CourseList();
+    @Override
+    public void fillChangeTable(Object o) {
+        cleanAll(1);
 
-        ResultSet rs = dbHelper.getAllAvailabileCourse(customer_id);
-        ObservableList<Course> row = FXCollections.observableArrayList();
-        while (rs.next()) {
-            row.add(courseListController.fillCourse(rs));
-        }
-        return row;
-    }
-
-    private ObservableList<Customer> getCustomerList() throws SQLException, ClassNotFoundException {
-        ResultSet rs = dbHelper.getAllCustomer();
-        ObservableList<Customer> row = FXCollections.observableArrayList();
-
-        while (rs.next()) {
-            row.add(fillCustomer(rs));
-        }
-
-        return row;
-    }
-
-    private void fillChangeTabble(Customer customer) {
-        cleanAll();
-
-        if (customer.getMail() != null || !customer.getMail().isEmpty())
-            changeMail.setText(customer.getMail());
-
-        if (customer.getMobilephone() != null || !customer.getMobilephone().isEmpty())
-            changePhonenummer.setText(customer.getMobilephone());
+        Customer customer = (Customer) o;
 
         customerID.setText(customer.getCustomerID() + "");
         changeFirstName.setText(customer.getCustomer_firstname());
@@ -119,7 +93,7 @@ public class ChangeCustomerData implements Initializable, Navigable {
         changeStreet.setText(customer.getStreet());
 
         try {
-            allCourses = getCourseList(customer.getCustomerID());
+            allCourses = daoCustomer.getCourseList(customer.getCustomerID());
             customerCourseTable.setItems(getAllCustomerCourse(customer));
             customerCourseList.setCellValueFactory(new PropertyValueFactory<>("course_name"));
         } catch (SQLException | ClassNotFoundException e) {
@@ -131,47 +105,38 @@ public class ChangeCustomerData implements Initializable, Navigable {
         for (Course oneCourse : allCourses) {
             courses.getItems().add(oneCourse.getCourse_name() + " ID:" + oneCourse.getId());
         }
-
     }
 
-    public void mouseOnClick(MouseEvent mouseEvent) {
-        if (mouseEvent.getClickCount() == 2) {
-            fillChangeTabble(customerTable.getSelectionModel().getSelectedItem());
-        }
+    @Override
+    public boolean check(int tab) {
+        return false;
     }
 
-    public void changeButton() {
-        // TODO Create Customer and send it to DB
-        try {
-            dbHelper.updateCustomer(Integer.parseInt(customerID.getText()), changeFirstName.getText(),
-                    changeLastName.getText(), changeMail.getText(), changePhonenummer.getText(),
-                    Integer.parseInt(changeZipcode.getText()), changeCity.getText(), changeStreet.getText());
-            fillTale();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+    // Buttons
 
-    public void addCourse() {
+    @Override
+    public void addButtonPressed(ActionEvent actionEvent){
         try {
             if (courses.getValue() == null) {
                 return;
             }
             String[] parts = courses.getValue().split("ID:");
-            dbHelper.addCourseToCustomer(Integer.parseInt(customerID.getText()), Integer.parseInt(parts[1]));
-            fillChangeTabble(customerTable.getSelectionModel().getSelectedItem());
+            daoCustomer.addCourseToCustomer(Integer.parseInt(customerID.getText()), Integer.parseInt(parts[1]));
+            fillChangeTable(customerTable.getSelectionModel().getSelectedItem());
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    @Override
     public void searchButton() {
         ResultSet rs;
 
         String search = customerTXT.getText();
+
         try {
             if (search.matches("\\b\\d+\\b")) {
-                rs = dbHelper.searchCustomer("ID", search);
+                rs = daoCustomer.searchCustomer("ID", search);
             } else {
                 rs = dbHelper.searchCustomer("name", search);
             }
@@ -187,53 +152,15 @@ public class ChangeCustomerData implements Initializable, Navigable {
         }
     }
 
-    private Customer fillCustomer(ResultSet rs) throws SQLException {
-        Customer customer = new Customer();
+    @Override
+    public void changeButtonPressed(ActionEvent actionEvent, int tab) {
 
-        customer.setCustomerID(rs.getInt("customer_id"));
-        customer.setCustomer_firstname(rs.getString("customer_firstname"));
-        customer.setCustomer_lastname(rs.getString("customer_lastname"));
-        customer.setBirthday(rs.getDate("birthday"));
-        customer.setMail(rs.getString("email"));
-        customer.setMobilephone(rs.getString("mobilephone"));
-        customer.setZipCode(rs.getInt("zipCode"));
-        customer.setCity(rs.getString("city"));
-        customer.setStreet(rs.getString("street"));
-
-        return customer;
     }
 
-    @FXML
-    private void goToMainWindow(ActionEvent actionEvent) {
-        goToScene(actionEvent, pathToMainWindow);
-    }
+    //
 
-    private ObservableList<Course> getAllCustomerCourse(Customer customer) throws SQLException, ClassNotFoundException {
-        ResultSet rs = dbHelper.getAllCourseByCustomer(customer.getCustomerID());
-        ObservableList<Course> row = FXCollections.observableArrayList();
-        CourseList courseListController = new CourseList();
-
-        while (rs.next()) {
-            row.add(courseListController.fillCourse(rs));
-        }
-
-        return row;
-    }
-
-    @FXML
-    private void removeCourse() {
-        if (customerCourseTable.getSelectionModel().getSelectedItem() != null) {
-            int courseID = customerCourseTable.getSelectionModel().getSelectedItem().getId();
-            try {
-                dbHelper.removeCourse(customerID.getText(), courseID);
-                fillChangeTabble(customerTable.getSelectionModel().getSelectedItem());
-            } catch (SQLException | ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void cleanAll() {
+    @Override
+    public void cleanAll(int tab) {
         changeFirstName.clear();
         changeLastName.clear();
         changeMail.clear();
@@ -242,6 +169,18 @@ public class ChangeCustomerData implements Initializable, Navigable {
         changeStreet.clear();
         customerTXT.clear();
         customerID.clear();
+    }
+
+    @Override
+    public void mouseOnClick(MouseEvent mouseEvent, int tab) {
+            if (mouseEvent.getClickCount() == 2) {
+                fillChangeTable(customerTable.getSelectionModel().getSelectedItem());
+        }
+    }
+
+    @FXML
+    private void goToMainWindow(ActionEvent actionEvent) {
+        goToScene(actionEvent, pathToMainWindow);
     }
 
 }

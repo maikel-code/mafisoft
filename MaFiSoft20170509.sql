@@ -23,12 +23,12 @@ DROP TABLE IF EXISTS `course`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `course` (
-  `course_id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `course_name` varchar(40) COLLATE latin1_german1_ci NOT NULL,
   `trainer_name` varchar(45) COLLATE latin1_german1_ci NOT NULL,
   `start` time NOT NULL,
   `end` time NOT NULL,
-  PRIMARY KEY (`course_id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -85,7 +85,7 @@ DROP TABLE IF EXISTS `customer_course`;
 CREATE TABLE `customer_course` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `customer_id` int(11) DEFAULT NULL,
-  `course_id` int(11) DEFAULT NULL,
+  `id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;

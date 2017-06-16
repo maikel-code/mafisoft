@@ -7,27 +7,27 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public abstract class Course {
-    protected IntegerProperty               course_id;
+    protected IntegerProperty id;
     protected StringProperty                trainer_name;
     protected StringProperty                course_name;
 
 
     public Course() {
-        this.course_id = new SimpleIntegerProperty();
+        this.id = new SimpleIntegerProperty();
         this.course_name = new SimpleStringProperty();
         this.trainer_name = new SimpleStringProperty();
     }
 
-    public int getCourse_id() {
-        return course_id.get();
+    public int getId() {
+        return id.get();
     }
 
-    public void setCourse_id(int course_id) {
-        this.course_id.set(course_id);
+    public void setId(int id) {
+        this.id.set(id);
     }
 
-    public IntegerProperty course_idProperty() {
-        return course_id;
+    public IntegerProperty idProperty() {
+        return id;
     }
 
     public String getTrainer_name() {

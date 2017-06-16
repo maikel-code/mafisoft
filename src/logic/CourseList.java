@@ -1,7 +1,6 @@
 package logic;
 
-import DBHelper.DBHelper;
-import dao.DAOCourse;
+import dto.courses.Course;
 import dto.courses.PhysicalCourse;
 import dto.courses.VideoCourse;
 import javafx.collections.FXCollections;
@@ -12,7 +11,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import logic.logicInterface.Navigable;
 
 import java.net.URL;
 import java.sql.ResultSet;
@@ -22,7 +20,7 @@ import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 
 
-public class CourseList implements Initializable, Navigable {
+public class CourseList implements Initializable {
     @SuppressWarnings("rawtypes")
     @FXML
     private TableView                               courseTable;
@@ -64,10 +62,11 @@ public class CourseList implements Initializable, Navigable {
                                                     vURLChanged;
     @FXML
     private TextArea                                vRemarkChanged;
-    private int                                     tab                     =       1;
     private String                                  pathToMainWindow        =       "gui/Homepage.fxml";
     private SimpleDateFormat                        simpleDateFormat        =       new SimpleDateFormat("HH:mm");
-    private DAOCourse                               course                  =       new DAOCourse();
+    private PhysicalCourse                          course;
+    private VideoCourse                             videoCourse;
+    private int                                     tab                     =       1;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -77,18 +76,33 @@ public class CourseList implements Initializable, Navigable {
     // Course list prepaid
 
     public void fillTable() {
-        id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        courseName.setCellValueFactory(new PropertyValueFactory<>("course_name"));
-        trainerName.setCellValueFactory(new PropertyValueFactory<>("trainer_name"));
-        timeBegin.setCellValueFactory(new PropertyValueFactory<>("startTime"));
-        timeEnd.setCellValueFactory(new PropertyValueFactory<>("endTime"));
-        courseTable.setItems(course.getAllCourse());
+        try {
+            id.setCellValueFactory(new PropertyValueFactory<>("course_id"));
+            courseName.setCellValueFactory(new PropertyValueFactory<>("course_name"));
+            trainerName.setCellValueFactory(new PropertyValueFactory<>("trainer_name"));
+            timeBegin.setCellValueFactory(new PropertyValueFactory<>("startTime"));
+            timeEnd.setCellValueFactory(new PropertyValueFactory<>("endTime"));
+            courseTable.setItems(getCourseList());
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private ObservableList<Course> getCourseList() throws SQLException, ClassNotFoundException {
+        ResultSet rs = DBController.getAllCourse();
+        ObservableList<Course> row = FXCollections.observableArrayList();
+
+        while (rs.next()) {
+            row.add(fillCourse(rs));
+        }
+
+        return row;
     }
 
     private void fillChangeTable(PhysicalCourse course) {
         tab = 1;
         cleanAll();
-        courseID.setText(course.getId() + "");
+        courseID.setText(course.getCourse_id() + "");
         coursename.setText(course.getCourse_name());
         trainer.setText(course.getTrainer_name());
         startTime.setText(simpleDateFormat.format(course.getStartTime()));
@@ -99,7 +113,7 @@ public class CourseList implements Initializable, Navigable {
     public PhysicalCourse fillCourse(ResultSet rs) throws SQLException {
         PhysicalCourse course = new PhysicalCourse();
 
-        course.setId(rs.getInt("id"));
+        course.setCourse_id(rs.getInt("course_id"));
         course.setCourse_name(rs.getString("course_name"));
         course.setTrainer_name(rs.getString("trainer_name"));
         course.setStartTime(rs.getTime("start"));
@@ -109,7 +123,25 @@ public class CourseList implements Initializable, Navigable {
     }
 
     public void searchButton() {
-        course.searchCourse();
+        ResultSet rs;
+
+        String search = courseTXT.getText();
+        try {
+            if (search.matches("\\b\\d+\\b")) {
+                rs = DBController.searchCourse("ID", search);
+            } else {
+                rs = DBController.searchCourse("name", search);
+            }
+
+            if (rs != null && rs.next()) {
+                fillChangeTable(fillCourse(rs));
+            }
+
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Kurs " + search + " nicht gefunden");
+            alert.setHeaderText(null);
+            alert.show();
+        }
     }
 
     private void changeCourse() {
@@ -126,7 +158,7 @@ public class CourseList implements Initializable, Navigable {
     public void changeButtonPressed() {
         try {
             changeCourse();
-            course.updateCourse(course.getCourse_id(), course.getCourse_name(), course.getTrainer_name(), course.getStartTime(), course.getEndTime());
+            DBController.updateCourse(course.getCourse_id(), course.getCourse_name(), course.getTrainer_name(), course.getStartTime(), course.getEndTime());
             fillTable();
         } catch (Exception e) {
             e.printStackTrace();
@@ -144,9 +176,10 @@ public class CourseList implements Initializable, Navigable {
 
     @FXML
     private void goToMainWindow(ActionEvent actionEvent) {
-        goToScene(actionEvent, pathToMainWindow);
+        goToMainWindow(actionEvent, pathToMainWindow);
     }
 
+    @Override
     public void cleanAll() {
         switch (tab) {
             case 1:
@@ -169,7 +202,7 @@ public class CourseList implements Initializable, Navigable {
 
     public void fillVideoTable() {
         try {
-            vID.setCellValueFactory(new PropertyValueFactory<>("id"));
+            vID.setCellValueFactory(new PropertyValueFactory<>("course_id"));
             vCourseName.setCellValueFactory(new PropertyValueFactory<>("course_name"));
             vTrainerName.setCellValueFactory(new PropertyValueFactory<>("trainer_name"));
             vURL.setCellValueFactory(new PropertyValueFactory<>("vLink"));
@@ -181,7 +214,7 @@ public class CourseList implements Initializable, Navigable {
     }
 
     private ObservableList<VideoCourse> getVideoCourseList() throws SQLException, ClassNotFoundException {
-        ResultSet rs = DBHelper.DBHelper.DBHelper.getAllVideoCourse();
+        ResultSet rs = DBController.getAllVideoCourse();
         ObservableList<VideoCourse> row = FXCollections.observableArrayList();
 
         while (rs.next()) {
@@ -195,7 +228,7 @@ public class CourseList implements Initializable, Navigable {
         tab = 2;
         cleanAll();
 
-        vCourseIDChanged.setText(videoCourse.getId() + "");
+        vCourseIDChanged.setText(videoCourse.getCourse_id() + "");
         vCourseNameChanged.setText(videoCourse.getCourse_name());
         vTrainerChanged.setText(videoCourse.getTrainer_name());
         vURLChanged.setText(videoCourse.getvLink());
@@ -206,7 +239,7 @@ public class CourseList implements Initializable, Navigable {
         VideoCourse videoCourse = new VideoCourse();
 
         try {
-            videoCourse.setId(rs.getInt("videoID"));
+            videoCourse.setCourse_id(rs.getInt("videoID"));
             videoCourse.setCourse_name(rs.getString("courseName"));
             videoCourse.setTrainer_name(rs.getString("trainerName"));
             videoCourse.setvLink(rs.getString("link"));
@@ -224,9 +257,9 @@ public class CourseList implements Initializable, Navigable {
         String search = vSearch.getText();
         try {
             if (search.matches("\\b\\d+\\b")) {
-                rs = course.searchVideoCourse("ID", search);
+                rs = DBController.searchVideoCourse("ID", search);
             } else {
-                rs = course.searchVideoCourse("other", search);
+                rs = DBController.searchVideoCourse("other", search);
             }
 
             if (rs.next()) {
@@ -250,7 +283,7 @@ public class CourseList implements Initializable, Navigable {
     public void videoChangeButtonPressed() {
         changeVideoCourse();
         try {
-            course.updateVideoCourse(videoCourse.getCourse_id(), videoCourse.getCourse_name(), videoCourse.getTrainer_name(), videoCourse.getvLink(), videoCourse.getvRemark());
+            DBController.updateVideoCourse(videoCourse.getCourse_id(), videoCourse.getCourse_name(), videoCourse.getTrainer_name(), videoCourse.getvLink(), videoCourse.getvRemark());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -263,21 +296,10 @@ public class CourseList implements Initializable, Navigable {
         }
     }
 
+    @Override
+    public boolean check(int tab) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
 }
-
-
-/*
-
-    GUI
-
-        Interface
-
-            Fachlogic
-
-                DB
-
-                    dto
-
-                        dao
-
- */

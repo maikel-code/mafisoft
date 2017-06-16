@@ -48,7 +48,7 @@ public class DAOCourse implements DAOCourse_I {
         Class.forName("com.mysql.jdbc.Driver");
         PreparedStatement preparedStatement = dbHelper.getConnection().prepareStatement(
                 "UPDATE course SET course_name=?, trainer_name=?, start=?, end=? WHERE course_id=?");
-        preparedStatement.setInt(5, dtoPhysicalCourse.getCourse_id());
+        preparedStatement.setInt(5, dtoPhysicalCourse.getId());
         preparedStatement.setString(1, dtoPhysicalCourse.getCourse_name());
         preparedStatement.setString(2, dtoPhysicalCourse.getTrainer_name());
         preparedStatement.setTime(3, dtoPhysicalCourse.getStartTime());
@@ -113,7 +113,7 @@ public class DAOCourse implements DAOCourse_I {
         PreparedStatement preparedStatement = dbHelper.getConnection()
                 .prepareStatement("INSERT INTO customer_course(customer_id, course_id) VALUE (?, ?)");
         preparedStatement.setInt(1, dtoCustomer.getCustomerID());
-        preparedStatement.setInt(2, dtoCourse.getCourse_id());
+        preparedStatement.setInt(2, dtoCourse.getId());
         preparedStatement.executeUpdate();
     }
 
@@ -121,7 +121,7 @@ public class DAOCourse implements DAOCourse_I {
         PreparedStatement preparedStatement = dbHelper.getConnection().prepareStatement(
                 "DELETE customer_course FROM course INNER JOIN customer_course WHERE customer_course.customer_id=? AND customer_course.course_id=?");
         preparedStatement.setInt(1, dtoCustomer.getCustomerID());
-        preparedStatement.setInt(2, dtoCourse.getCourse_id());
+        preparedStatement.setInt(2, dtoCourse.getId());
         preparedStatement.executeLargeUpdate();
     }
 
@@ -142,7 +142,7 @@ public class DAOCourse implements DAOCourse_I {
         Class.forName("com.mysql.jdbc.Driver");
         PreparedStatement preparedStatement = dbHelper.getConnection().prepareStatement(
                 "UPDATE video_course SET courseName=?, trainerName=?, link=?, remark=? WHERE videoID=?");
-        preparedStatement.setInt(5, dtoVideoCourse.getCourse_id());
+        preparedStatement.setInt(5, dtoVideoCourse.getId());
         preparedStatement.setString(1, dtoVideoCourse.getCourse_name());
         preparedStatement.setString(2, dtoVideoCourse.getTrainer_name());
         preparedStatement.setString(3, dtoVideoCourse.getvLink());
@@ -194,7 +194,7 @@ public class DAOCourse implements DAOCourse_I {
     private VideoCourse createVideoCourseFromRow(ResultSet rs) throws SQLException {
         VideoCourse dtoVideoCourse = new VideoCourse();
 
-        dtoVideoCourse.setCourse_id(rs.getInt("videoID"));
+        dtoVideoCourse.setId(rs.getInt("videoID"));
         dtoVideoCourse.setCourse_name(rs.getString("courseName"));
         dtoVideoCourse.setTrainer_name(rs.getString("trainerName"));
         dtoVideoCourse.setvLink(rs.getString("link"));
@@ -206,7 +206,7 @@ public class DAOCourse implements DAOCourse_I {
     private PhysicalCourse createPhysicalCourseFromRow(ResultSet rs) throws SQLException {
         PhysicalCourse dtoCourse = new PhysicalCourse();
 
-        dtoCourse.setCourse_id(rs.getInt("course_id"));
+        dtoCourse.setId(rs.getInt("id"));
         dtoCourse.setCourse_name(rs.getString("course_name"));
         dtoCourse.setTrainer_name(rs.getString("trainer_name"));
         dtoCourse.setStartTime(rs.getTime("start"));

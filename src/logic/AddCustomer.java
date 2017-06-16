@@ -1,6 +1,6 @@
 package logic;
 
-import DBHelper.DBHelper;
+import dao.DAOCustomer;
 import dto.customer.Customer;
 import dto.zipCode.NumberTextField;
 import javafx.event.ActionEvent;
@@ -38,10 +38,9 @@ public class AddCustomer implements Initializable, AddCustomer_I {
 
     private java.sql.Date               currentDate;
     private int                         defaultYear             =           1900;
-    private Customer                    customer;
     private java.sql.Date               calendarEnd;
     private String                      pathToMainWindow        =           "gui/Homepage.fxml";
-    private DBHelper                    dbHelper                =       DBHelper.getInstance();
+    private DAOCustomer                 daoCustomer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
