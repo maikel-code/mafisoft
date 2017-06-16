@@ -1,5 +1,5 @@
 package dao;
 
-public interface DAOCustomer_I {
+public interface DAOCustomer_i {
 
 }
