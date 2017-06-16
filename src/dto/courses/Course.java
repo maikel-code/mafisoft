@@ -1,4 +1,4 @@
-package DTO.courses;
+package dto.courses;
 
 
 import javafx.beans.property.IntegerProperty;
