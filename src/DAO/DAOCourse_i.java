@@ -2,31 +2,44 @@ package DAO;
 
 
 import DTO.courses.Course;
+import DTO.courses.PhysicalCourse;
+import DTO.courses.VideoCourse;
 import DTO.customer.Customer;
 import javafx.collections.ObservableList;
+
+import java.sql.SQLException;
 
 /**
  * Created by maikel on 13.06.17.
  */
-public interface DAOCourse_i {
+public interface DAOCourse_I {
 
 
 
 
 
-    ObservableList<Course> getAllCourseByCustomer(Customer dtoCustomer);
+    ObservableList<PhysicalCourse> getAllCourseByCustomer(Customer dtoCustomer) throws SQLException, ClassNotFoundException;
 
-    void addCourse();
+    void addCourse(PhysicalCourse dtoPhysicalCourse) throws SQLException, ClassNotFoundException;
 
-    void updateCourse();
+    void updateCourse(PhysicalCourse dtoPhysicalCourse) throws SQLException, ClassNotFoundException;
 
-    Course searchCourse();
+    PhysicalCourse searchCourse(String searchConfig, String search) throws SQLException, ClassNotFoundException;
 
-    ObservableList<Course> getAllCourse() ;
+    ObservableList<PhysicalCourse> getAllCourse() throws SQLException, ClassNotFoundException ;
 
-    ObservableList<Course> getAllAvailabileCourse();
+    ObservableList<PhysicalCourse> getAllAvailabileCourse(Customer dtoCustomer) throws SQLException, ClassNotFoundException;
 
-    void addCourseToCustomer();
+    void addCourseToCustomer(Customer dtoCustomer, PhysicalCourse dtoCourse) throws SQLException, ClassNotFoundException;
 
-    void removeCourse();
+    void removeCourse(Customer dtoCustomer, PhysicalCourse dtoCourse) throws SQLException, ClassNotFoundException;
+
+    void addVideoCourse(VideoCourse dtoVideoCourse) throws SQLException, ClassNotFoundException;
+
+    void updateVideoCourse(VideoCourse dtoVideoCourse) throws SQLException, ClassNotFoundException;
+
+    ObservableList<VideoCourse> searchVideoCourse(String searchConfig, String search) throws SQLException, ClassNotFoundException;
+
+    ObservableList<VideoCourse> getAllVideoCourse() throws SQLException, ClassNotFoundException;
+
 }
