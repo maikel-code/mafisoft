@@ -7,9 +7,6 @@ import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
 
-/**
- * Created by maikel on 17.06.17.
- */
 public interface DBHelper_I {
 
     ObservableList<PhysicalCourse> getAllCourseByCustomer(Customer dtoCustomer) throws SQLException, ClassNotFoundException;
