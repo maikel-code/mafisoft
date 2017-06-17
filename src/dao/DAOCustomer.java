@@ -64,7 +64,7 @@ public class DAOCustomer implements DAOCustomer_I {
                 preparedStatement.setString(1, search + "%");
                 preparedStatement.setString(2, search +  "%");
                 rs = preparedStatement.executeQuery();
-            break;
+                break;
             case "id":
             case "ID":
             default:
@@ -80,7 +80,7 @@ public class DAOCustomer implements DAOCustomer_I {
         return row;
     }
 
-    public  ObservableList<Customer> getAllCustomer() throws SQLException, ClassNotFoundException {
+    public ObservableList<Customer> getAllCustomer() throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
         PreparedStatement preparedStatement = dbHelper.getConnection().prepareStatement("SELECT * FROM customer");
 
@@ -109,8 +109,5 @@ public class DAOCustomer implements DAOCustomer_I {
 
         return customer;
     }
-
-
-
 
 }

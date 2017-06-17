@@ -12,11 +12,11 @@ public interface DAOCourse_I {
 
     ObservableList<PhysicalCourse> getAllCourseByCustomer(Customer dtoCustomer) throws SQLException, ClassNotFoundException;
 
-    int addCourse(PhysicalCourse dtoPhysicalCourse) throws SQLException, ClassNotFoundException;
+    int addPhysicalCourse(PhysicalCourse dtoPhysicalCourse) throws SQLException, ClassNotFoundException;
 
-    void updateCourse(PhysicalCourse dtoPhysicalCourse) throws SQLException, ClassNotFoundException;
+    void updatePhysicalCourse(PhysicalCourse dtoPhysicalCourse) throws SQLException, ClassNotFoundException;
 
-    ObservableList<PhysicalCourse> searchCourse(String searchConfig, String search) throws SQLException, ClassNotFoundException;
+    ObservableList<PhysicalCourse> searchPhysicalCourse(String searchConfig, String search) throws SQLException, ClassNotFoundException;
 
     ObservableList<PhysicalCourse> getAllCourse() throws SQLException, ClassNotFoundException ;
 

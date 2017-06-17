@@ -33,7 +33,7 @@ public class DAOCourse implements DAOCourse_I {
 
     // Course
 
-    public int addCourse(PhysicalCourse dtoPhysicalCourse) throws SQLException, ClassNotFoundException {
+    public int addPhysicalCourse(PhysicalCourse dtoPhysicalCourse) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
         PreparedStatement preparedStatement = dbHelper.getConnection()
                 .prepareStatement("INSERT INTO course(course_name, trainer_name, start, end) VALUE (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
@@ -51,7 +51,7 @@ public class DAOCourse implements DAOCourse_I {
         return id;
     }
 
-    public void updateCourse(PhysicalCourse dtoPhysicalCourse) throws SQLException, ClassNotFoundException {
+    public void updatePhysicalCourse(PhysicalCourse dtoPhysicalCourse) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
         PreparedStatement preparedStatement = dbHelper.getConnection().prepareStatement(
                 "UPDATE course SET course_name=?, trainer_name=?, start=?, end=? WHERE course_id=?");
@@ -63,7 +63,7 @@ public class DAOCourse implements DAOCourse_I {
         preparedStatement.executeUpdate();
     }
 
-    public ObservableList<PhysicalCourse> searchCourse(String searchConfig, String search) throws SQLException, ClassNotFoundException {
+    public ObservableList<PhysicalCourse> searchPhysicalCourse(String searchConfig, String search) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
         ResultSet rs;
         PreparedStatement preparedStatement;
