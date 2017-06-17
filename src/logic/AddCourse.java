@@ -1,6 +1,6 @@
 package logic;
 
-import dao.DAOCourse;
+import DBHelper.DBHelper;
 import dto.courses.PhysicalCourse;
 import dto.courses.VideoCourse;
 import javafx.event.ActionEvent;
@@ -29,14 +29,13 @@ public class AddCourse implements Initializable, Appendable {
                                     startTime,
                                     endTime;
     private String                  pathToMainWindow        =       "gui/Homepage.fxml";
-    private DAOCourse               daoCourse                =       new DAOCourse();
+    private DBHelper                dbHelper                =        DBHelper.getInstance();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
-    // Course and Videocourse udes same methoden
     @Override
     public boolean check(int tab) {
         switch (tab) {
@@ -67,10 +66,8 @@ public class AddCourse implements Initializable, Appendable {
             timeMM = Integer.parseInt(endTime.getText().split("\\p{Punct}")[1]);
             physicalCourse.setEndTime(new Time(timeHH, timeMM, 0));
             try {
-                daoCourse.addCourse(physicalCourse);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            } catch (ClassNotFoundException e) {
+                dbHelper.addPhysicalCourse(physicalCourse);
+            } catch (SQLException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
         } else if(check(2)){
@@ -80,10 +77,8 @@ public class AddCourse implements Initializable, Appendable {
             videoCourse.setvLink(vLink.getText());
             videoCourse.setvRemark(vRemark.getText());
             try {
-                daoCourse.addVideoCourse(videoCourse);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            } catch (ClassNotFoundException e) {
+                dbHelper.addVideoCourse(videoCourse);
+            } catch (SQLException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
         }
@@ -93,4 +88,5 @@ public class AddCourse implements Initializable, Appendable {
     private void goToMainWindow(ActionEvent actionEvent) {
         goToScene(actionEvent, pathToMainWindow);
     }
+
 }

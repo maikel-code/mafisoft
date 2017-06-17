@@ -1,5 +1,6 @@
 package logic;
 
+import DBHelper.DBHelper;
 import dto.courses.Course;
 import dto.courses.PhysicalCourse;
 import dto.courses.VideoCourse;
@@ -11,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import logic.logicInterface.CourseList_I;
 
 import java.net.URL;
 import java.sql.ResultSet;
@@ -20,121 +22,143 @@ import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 
 
-public class CourseList implements Initializable {
-    @SuppressWarnings("rawtypes")
+public class CourseList implements Initializable, CourseList_I {
     @FXML
-    private TableView                               courseTable;
+    private TableView courseTable;
     @FXML
-    private TableView<VideoCourse>                  vCourseTable;
+    private TableView<VideoCourse> vCourseTable;
     @FXML
-    private TableColumn<PhysicalCourse, Integer>    id;
+    private TableColumn<PhysicalCourse, Integer> id;
     @FXML
-    private TableColumn<PhysicalCourse, String>     courseName;
+    private TableColumn<PhysicalCourse, String> courseName;
     @FXML
-    private TableColumn<PhysicalCourse, String>     trainerName;
+    private TableColumn<PhysicalCourse, String> trainerName;
     @FXML
-    private TableColumn<PhysicalCourse, Time>       timeBegin;
+    private TableColumn<PhysicalCourse, Time> timeBegin;
     @FXML
-    private TableColumn<PhysicalCourse, Time>       timeEnd;
+    private TableColumn<PhysicalCourse, Time> timeEnd;
     @FXML
-    private TextField                               courseTXT,
-                                                    coursename,
-                                                    trainer,
-                                                    courseID,
-                                                    startTime,
-                                                    endTime;
+    private TextField pSearch,
+            coursename,
+            trainer,
+            courseID,
+            startTime,
+            endTime;
 
     @FXML
-    private TableColumn<VideoCourse, Integer>       vID;
+    private TableColumn<VideoCourse, Integer> vID;
     @FXML
-    private TableColumn<VideoCourse, String>        vCourseName;
+    private TableColumn<VideoCourse, String> vCourseName;
     @FXML
-    private TableColumn<VideoCourse, String>        vTrainerName;
+    private TableColumn<VideoCourse, String> vTrainerName;
     @FXML
-    private TableColumn<VideoCourse, String>        vURL;
+    private TableColumn<VideoCourse, String> vURL;
     @FXML
-    private TableColumn<VideoCourse, String>        vRemark;
+    private TableColumn<VideoCourse, String> vRemark;
     @FXML
-    private TextField                               vSearch,
-                                                    vCourseIDChanged,
-                                                    vCourseNameChanged,
-                                                    vTrainerChanged,
-                                                    vURLChanged;
+    private TextField vSearch,
+            vCourseIDChanged,
+            vCourseNameChanged,
+            vTrainerChanged,
+            vURLChanged;
     @FXML
-    private TextArea                                vRemarkChanged;
-    private String                                  pathToMainWindow        =       "gui/Homepage.fxml";
-    private SimpleDateFormat                        simpleDateFormat        =       new SimpleDateFormat("HH:mm");
-    private PhysicalCourse                          course;
-    private VideoCourse                             videoCourse;
-    private int                                     tab                     =       1;
+    private TextArea vRemarkChanged;
+    private String pathToMainWindow = "gui/Homepage.fxml";
+    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
+    private PhysicalCourse physicalCourse = new PhysicalCourse();
+    private VideoCourse videoCourse = new VideoCourse();
+    private DBHelper dbHelper = DBHelper.getInstance();
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        fillTable();
+        fillPhysicalTable();
     }
 
-    // Course list prepaid
+    // Physical
 
-    public void fillTable() {
+    @Override
+    public void fillPhysicalTable() {
         try {
             id.setCellValueFactory(new PropertyValueFactory<>("course_id"));
             courseName.setCellValueFactory(new PropertyValueFactory<>("course_name"));
             trainerName.setCellValueFactory(new PropertyValueFactory<>("trainer_name"));
             timeBegin.setCellValueFactory(new PropertyValueFactory<>("startTime"));
             timeEnd.setCellValueFactory(new PropertyValueFactory<>("endTime"));
-            courseTable.setItems(getCourseList());
-        } catch (SQLException | ClassNotFoundException e) {
+            courseTable.setItems(getPhysicalCourseList());
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    private ObservableList<Course> getCourseList() throws SQLException, ClassNotFoundException {
-        ResultSet rs = DBController.getAllCourse();
+    @Override
+    public ObservableList<Course> getPhysicalCourseList() throws SQLException {
+        ResultSet rs = dbHelper.getAllCourse();
         ObservableList<Course> row = FXCollections.observableArrayList();
 
         while (rs.next()) {
-            row.add(fillCourse(rs));
+            row.add(fillPhysicalCourse(rs));
         }
 
         return row;
     }
 
-    private void fillChangeTable(PhysicalCourse course) {
-        tab = 1;
-        cleanAll();
-        courseID.setText(course.getCourse_id() + "");
-        coursename.setText(course.getCourse_name());
-        trainer.setText(course.getTrainer_name());
-        startTime.setText(simpleDateFormat.format(course.getStartTime()));
-        endTime.setText(simpleDateFormat.format(course.getEndTime()));
+    @Override
+    public PhysicalCourse fillPhysicalCourse(ResultSet rs) throws SQLException {
+        PhysicalCourse physicalCourse = new PhysicalCourse();
 
+        physicalCourse.setId(rs.getInt("course_id"));
+        physicalCourse.setCourse_name(rs.getString("course_name"));
+        physicalCourse.setTrainer_name(rs.getString("trainer_name"));
+        physicalCourse.setStartTime(rs.getTime("start"));
+        physicalCourse.setEndTime(rs.getTime("end"));
+
+        return physicalCourse;
     }
 
-    public PhysicalCourse fillCourse(ResultSet rs) throws SQLException {
-        PhysicalCourse course = new PhysicalCourse();
-
-        course.setCourse_id(rs.getInt("course_id"));
-        course.setCourse_name(rs.getString("course_name"));
-        course.setTrainer_name(rs.getString("trainer_name"));
-        course.setStartTime(rs.getTime("start"));
-        course.setEndTime(rs.getTime("end"));
-
-        return course;
+    @Override
+    public void changePhysicalCourse() {
+        physicalCourse.setCourse_name(coursename.getText());
+        physicalCourse.setTrainer_name(trainer.getText());
+        int timeHH = Integer.parseInt(startTime.getText().split("\\p{Punct}")[0]);
+        int timeMM = Integer.parseInt(startTime.getText().split("\\p{Punct}")[1]);
+        physicalCourse.setStartTime(new Time(timeHH, timeMM, 0));
+        timeHH = Integer.parseInt(endTime.getText().split("\\p{Punct}")[0]);
+        timeMM = Integer.parseInt(endTime.getText().split("\\p{Punct}")[1]);
+        physicalCourse.setEndTime(new Time(timeHH, timeMM, 0));
     }
 
-    public void searchButton() {
+    // Used both
+
+    @Override
+    public void searchButton(ActionEvent actionEvent) {
         ResultSet rs;
+        String buttonsID = ((Button) actionEvent.getSource()).getId();
+        String search = null;
 
-        String search = courseTXT.getText();
         try {
-            if (search.matches("\\b\\d+\\b")) {
-                rs = DBController.searchCourse("ID", search);
-            } else {
-                rs = DBController.searchCourse("name", search);
-            }
+            if (buttonsID.equals("physical")) {
+                search = pSearch.getText();
+                if (search.matches("\\b\\d+\\b")) {
+                    rs = dbHelper.searchPhysicalCourse("ID", search);
+                } else {
+                    rs = dbHelper.searchPhysicalCourse("name", search);
+                }
 
-            if (rs != null && rs.next()) {
-                fillChangeTable(fillCourse(rs));
+                if (rs != null && rs.next()) {
+                    fillChangedTable(fillPhysicalCourse(rs));
+                }
+            } else if (buttonsID.equals("video")) {
+                search = vSearch.getText();
+                if (search.matches("\\b\\d+\\b")) {
+                    rs = dbHelper.searchVideoCourse("ID", search);
+                } else {
+                    rs = dbHelper.searchVideoCourse("other", search);
+                }
+
+                if (rs.next()) {
+                    fillChangedTable(fillVideoCurse(rs));
+                }
             }
 
         } catch (Exception e) {
@@ -142,45 +166,38 @@ public class CourseList implements Initializable {
             alert.setHeaderText(null);
             alert.show();
         }
+
+
     }
 
-    private void changeCourse() {
-        course.setCourse_name(coursename.getText());
-        course.setTrainer_name(trainer.getText());
-        int timeHH = Integer.parseInt(startTime.getText().split("\\p{Punct}")[0]);
-        int timeMM = Integer.parseInt(startTime.getText().split("\\p{Punct}")[1]);
-        course.setStartTime(new Time(timeHH, timeMM, 0));
-        timeHH = Integer.parseInt(endTime.getText().split("\\p{Punct}")[0]);
-        timeMM = Integer.parseInt(endTime.getText().split("\\p{Punct}")[1]);
-        course.setEndTime(new Time(timeHH, timeMM, 0));
-    }
 
-    public void changeButtonPressed() {
-        try {
-            changeCourse();
-            DBController.updateCourse(course.getCourse_id(), course.getCourse_name(), course.getTrainer_name(), course.getStartTime(), course.getEndTime());
-            fillTable();
-        } catch (Exception e) {
-            e.printStackTrace();
+    @Override
+    public void changeButtonPressed(ActionEvent actionEvent) {
+        String buttonsID = ((Button) actionEvent.getSource()).getId();
+
+        if (buttonsID.equals("physical")) {
+            dbHelper.updatePhysicalCourse(physicalCourse);
+        } else if (buttonsID.equals("video")) {
+            dbHelper.updateVideoCourse(videoCourse);
         }
-    }
-
-    public void mouseOnClick(MouseEvent mouseEvent) {
-        if (mouseEvent.getClickCount() == 2) {
-            course = (PhysicalCourse) courseTable.getSelectionModel().getSelectedItem();
-            fillChangeTable(course);
-        }
-    }
-
-    // Course and VideoCourse use same method
-
-    @FXML
-    private void goToMainWindow(ActionEvent actionEvent) {
-        goToMainWindow(actionEvent, pathToMainWindow);
     }
 
     @Override
-    public void cleanAll() {
+    public void mouseOnClick(MouseEvent mouseEvent) {
+        String buttonID = ((Button) mouseEvent.getSource()).getId();
+        if (mouseEvent.getClickCount() == 2) {
+            if (buttonID.equals("physical")) {
+                physicalCourse = (PhysicalCourse) courseTable.getSelectionModel().getSelectedItem();
+                fillChangedTable(physicalCourse);
+            } else if (buttonID.equals("video")) {
+                videoCourse = vCourseTable.getSelectionModel().getSelectedItem();
+                fillChangedTable(videoCourse);
+            }
+        }
+    }
+
+    @Override
+    public void cleanAll(int tab) {
         switch (tab) {
             case 1:
                 coursename.clear();
@@ -198,8 +215,28 @@ public class CourseList implements Initializable {
         }
     }
 
-    // Video course list prepaid
+    @Override
+    public void fillChangedTable(Course course) {
+        if (course instanceof PhysicalCourse) {
+            cleanAll(1);
+            courseID.setText(course.getId() + "");
+            coursename.setText(course.getCourse_name());
+            trainer.setText(course.getTrainer_name());
+            startTime.setText(simpleDateFormat.format(((PhysicalCourse) course).getStartTime()));
+            endTime.setText(simpleDateFormat.format(((PhysicalCourse) course).getEndTime()));
+        } else if (course instanceof VideoCourse) {
+            cleanAll(2);
+            vCourseIDChanged.setText(videoCourse.getId() + "");
+            vCourseNameChanged.setText(videoCourse.getCourse_name());
+            vTrainerChanged.setText(videoCourse.getTrainer_name());
+            vURLChanged.setText(videoCourse.getvLink());
+            vRemarkChanged.setText(videoCourse.getvRemark());
+        }
+    }
 
+    // Video
+
+    @Override
     public void fillVideoTable() {
         try {
             vID.setCellValueFactory(new PropertyValueFactory<>("course_id"));
@@ -208,38 +245,17 @@ public class CourseList implements Initializable {
             vURL.setCellValueFactory(new PropertyValueFactory<>("vLink"));
             vRemark.setCellValueFactory(new PropertyValueFactory<>("vRemark"));
             vCourseTable.setItems(getVideoCourseList());
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    private ObservableList<VideoCourse> getVideoCourseList() throws SQLException, ClassNotFoundException {
-        ResultSet rs = DBController.getAllVideoCourse();
-        ObservableList<VideoCourse> row = FXCollections.observableArrayList();
-
-        while (rs.next()) {
-            row.add(fillVideoCurse(rs));
-        }
-
-        return row;
-    }
-
-    private void fillVideoCourseChange(VideoCourse videoCourse) {
-        tab = 2;
-        cleanAll();
-
-        vCourseIDChanged.setText(videoCourse.getCourse_id() + "");
-        vCourseNameChanged.setText(videoCourse.getCourse_name());
-        vTrainerChanged.setText(videoCourse.getTrainer_name());
-        vURLChanged.setText(videoCourse.getvLink());
-        vRemarkChanged.setText(videoCourse.getvRemark());
-    }
-
-    private VideoCourse fillVideoCurse(ResultSet rs) {
+    @Override
+    public VideoCourse fillVideoCurse(ResultSet rs) {
         VideoCourse videoCourse = new VideoCourse();
 
         try {
-            videoCourse.setCourse_id(rs.getInt("videoID"));
+            videoCourse.setId(rs.getInt("videoID"));
             videoCourse.setCourse_name(rs.getString("courseName"));
             videoCourse.setTrainer_name(rs.getString("trainerName"));
             videoCourse.setvLink(rs.getString("link"));
@@ -251,55 +267,29 @@ public class CourseList implements Initializable {
         return videoCourse;
     }
 
-    public void searchButtonVideo() {
-        ResultSet rs;
+    @Override
+    public ObservableList<VideoCourse> getVideoCourseList() throws SQLException {
+        ResultSet rs = dbHelper.getAllVideoCourse();
+        ObservableList<VideoCourse> row = FXCollections.observableArrayList();
 
-        String search = vSearch.getText();
-        try {
-            if (search.matches("\\b\\d+\\b")) {
-                rs = DBController.searchVideoCourse("ID", search);
-            } else {
-                rs = DBController.searchVideoCourse("other", search);
-            }
-
-            if (rs.next()) {
-                fillVideoCourseChange(fillVideoCurse(rs));
-            }
-
-        } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Kurs " + search + " nicht gefunden");
-            alert.setHeaderText(null);
-            alert.show();
+        while (rs.next()) {
+            row.add(fillVideoCurse(rs));
         }
+
+        return row;
     }
 
-    private void changeVideoCourse() {
+    @Override
+    public void changeVideoCourse() {
         videoCourse.setCourse_name(vCourseNameChanged.getText());
         videoCourse.setTrainer_name(vTrainerChanged.getText());
         videoCourse.setvLink(vURLChanged.getText());
         videoCourse.setvRemark(vRemarkChanged.getText());
     }
 
-    public void videoChangeButtonPressed() {
-        changeVideoCourse();
-        try {
-            DBController.updateVideoCourse(videoCourse.getCourse_id(), videoCourse.getCourse_name(), videoCourse.getTrainer_name(), videoCourse.getvLink(), videoCourse.getvRemark());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void mouseOnClickVideoCourse(MouseEvent mouseEvent) {
-        if (mouseEvent.getClickCount() == 2) {
-            videoCourse = vCourseTable.getSelectionModel().getSelectedItem();
-            fillVideoCourseChange(videoCourse);
-        }
-    }
-
-    @Override
-    public boolean check(int tab) {
-        // TODO Auto-generated method stub
-        return false;
+    @FXML
+    private void goToMainWindow(ActionEvent actionEvent) {
+        goToScene(actionEvent, pathToMainWindow);
     }
 
 }

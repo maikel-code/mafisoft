@@ -12,7 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DAOCourse implements DAOCourse_I {
-    private static DBHelper dbHelper = DBHelper.getInstance();
+    private DBHelper dbHelper = DBHelper.getInstance();
 
     public ObservableList<PhysicalCourse> getAllCourseByCustomer(Customer dtoCustomer) throws SQLException, ClassNotFoundException {
         ObservableList<PhysicalCourse> row = FXCollections.observableArrayList();
@@ -56,7 +56,7 @@ public class DAOCourse implements DAOCourse_I {
         preparedStatement.executeUpdate();
     }
 
-    public  ObservableList<PhysicalCourse> searchCourse(String searchConfig, String search) throws SQLException, ClassNotFoundException {
+    public ObservableList<PhysicalCourse> searchCourse(String searchConfig, String search) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
         ResultSet rs;
         PreparedStatement preparedStatement;

@@ -1,14 +1,23 @@
 package DBHelper;
 
+import dao.DAOCourse;
+import dao.DAOCustomer;
+import dto.courses.PhysicalCourse;
+import dto.courses.VideoCourse;
 import javafx.scene.control.Alert;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DBHelper {
     private static DBHelper         instance        =       null;
     private Connection              connection;
+    private DAOCourse               daoCourse       =       new DAOCourse();
+    private DAOCustomer             daoCustomer     =       new DAOCustomer();
+    private ResultSet allCourse;
+    private ResultSet allVideoCourse;
 
     private DBHelper() {
     }
@@ -41,4 +50,36 @@ public class DBHelper {
         return connection;
     }
 
+    // Course
+
+    public void addPhysicalCourse(PhysicalCourse physicalCourse) throws SQLException, ClassNotFoundException {
+        daoCourse.addCourse(physicalCourse);
+    }
+
+    public void addVideoCourse(VideoCourse videoCourse) throws SQLException, ClassNotFoundException {
+        daoCourse.addVideoCourse(videoCourse);
+    }
+
+
+    public ResultSet getAllCourse() {
+        return allCourse;
+    }
+
+    public ResultSet searchPhysicalCourse(String name, String search) {
+        return null;
+    }
+
+    public ResultSet searchVideoCourse(String id, String search) {
+        return null;
+    }
+
+    public void updatePhysicalCourse(PhysicalCourse physicalCourse) {
+    }
+
+    public void updateVideoCourse(VideoCourse videoCourse) {
+    }
+
+    public ResultSet getAllVideoCourse() {
+        return allVideoCourse;
+    }
 }
