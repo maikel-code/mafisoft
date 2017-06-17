@@ -2,10 +2,9 @@ package DBHelper;
 
 import dao.DAOCourse;
 import dao.DAOCustomer;
-import dto.customer.Customer;
-import javafx.collections.ObservableList;
 import dto.courses.PhysicalCourse;
 import dto.courses.VideoCourse;
+import dto.customer.Customer;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 
@@ -82,8 +81,8 @@ public class DBHelper implements DBHelper_I {
         return daoCourse.getAllCourse();
     }
 
-    public ObservableList<PhysicalCourse> searchPhysicalCourse(String name, String search) throws SQLException, ClassNotFoundException {
-        return daoCourse.searchCourse(name,search);
+    public ObservableList<PhysicalCourse> searchPhysicalCourse(String searchConfig, String search) throws SQLException, ClassNotFoundException {
+        return daoCourse.searchCourse(searchConfig,search);
     }
 
     public ObservableList<PhysicalCourse> getAllCourseByCustomer(Customer dtoCustomer) throws SQLException, ClassNotFoundException {
@@ -94,8 +93,8 @@ public class DBHelper implements DBHelper_I {
         return daoCourse.getAllAvailabileCourse(dtoCustomer);
     }
 
-    public ObservableList<VideoCourse> searchVideoCourse(String id, String search) throws SQLException, ClassNotFoundException {
-        return daoCourse.searchVideoCourse(id, search);
+    public ObservableList<VideoCourse> searchVideoCourse(String searchConfig, String search) throws SQLException, ClassNotFoundException {
+        return daoCourse.searchVideoCourse(searchConfig, search);
     }
 
     public int addCourseToCustomer(Customer dtoCustomer, PhysicalCourse physicalCourse) throws SQLException, ClassNotFoundException {
