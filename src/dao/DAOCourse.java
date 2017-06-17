@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class DAOCourse implements DAOCourse_I {
     private static DBHelper dbHelper = DBHelper.getInstance();
@@ -35,12 +36,19 @@ public class DAOCourse implements DAOCourse_I {
     public int addCourse(PhysicalCourse dtoPhysicalCourse) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
         PreparedStatement preparedStatement = dbHelper.getConnection()
-                .prepareStatement("INSERT INTO course(course_name, trainer_name, start, end) VALUE (?, ?, ?, ?)");
+                .prepareStatement("INSERT INTO course(course_name, trainer_name, start, end) VALUE (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
         preparedStatement.setString(1, dtoPhysicalCourse.getCourse_name());
         preparedStatement.setString(2, dtoPhysicalCourse.getTrainer_name());
         preparedStatement.setTime(3, dtoPhysicalCourse.getStartTime());
         preparedStatement.setTime(4, dtoPhysicalCourse.getEndTime());
-        return preparedStatement.executeUpdate();
+        preparedStatement.executeUpdate();
+
+        ResultSet rs = preparedStatement.getGeneratedKeys();
+        Integer id = 0;
+        if (rs.next()){
+            id =  rs.getInt(1);
+        }
+        return id;
     }
 
     public void updateCourse(PhysicalCourse dtoPhysicalCourse) throws SQLException, ClassNotFoundException {
@@ -71,8 +79,9 @@ public class DAOCourse implements DAOCourse_I {
             case "Trainer":
             default:
                 preparedStatement = dbHelper.getConnection()
-                        .prepareStatement("SELECT * FROM course WHERE trainer_name LIKE ?");
+                        .prepareStatement("SELECT * FROM course WHERE trainer_name LIKE ? OR course_name LIKE ?");
                 preparedStatement.setString(1, search + "%");
+                preparedStatement.setString(2, search + "%");
                 rs = preparedStatement.executeQuery();
         }
         ObservableList<PhysicalCourse> row = FXCollections.observableArrayList();
@@ -116,10 +125,16 @@ public class DAOCourse implements DAOCourse_I {
 
     public int addCourseToCustomer(Customer dtoCustomer, PhysicalCourse dtoCourse) throws SQLException, ClassNotFoundException {
         PreparedStatement preparedStatement = dbHelper.getConnection()
-                .prepareStatement("INSERT INTO customer_course(customer_id, course_id) VALUE (?, ?)");
+                .prepareStatement("INSERT INTO customer_course(customer_id, course_id) VALUE (?, ?)", Statement.RETURN_GENERATED_KEYS);
         preparedStatement.setInt(1, dtoCustomer.getCustomerID());
         preparedStatement.setInt(2, dtoCourse.getId());
-        return preparedStatement.executeUpdate();
+        preparedStatement.executeUpdate();
+        ResultSet rs = preparedStatement.getGeneratedKeys();
+        Integer id = 0;
+        if (rs.next()){
+            id =  rs.getInt(1);
+        }
+        return id;
     }
 
     public void removeCourse(Customer dtoCustomer, PhysicalCourse dtoCourse) throws SQLException, ClassNotFoundException {
@@ -134,12 +149,19 @@ public class DAOCourse implements DAOCourse_I {
     public int addVideoCourse(VideoCourse dtoVideoCourse)
             throws SQLException, ClassNotFoundException {
         PreparedStatement preparedStatement = dbHelper.getConnection()
-                .prepareStatement("INSERT INTO video_course(courseName, trainerName, link, remark) VALUE (?, ?, ?, ?)");
+                .prepareStatement("INSERT INTO video_course(courseName, trainerName, link, remark) VALUE (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
         preparedStatement.setString(1, dtoVideoCourse.getCourse_name());
         preparedStatement.setString(2, dtoVideoCourse.getTrainer_name());
         preparedStatement.setString(3, dtoVideoCourse.getvLink());
         preparedStatement.setString(4, dtoVideoCourse.getvRemark());
-        return preparedStatement.executeUpdate();
+        preparedStatement.executeUpdate();
+
+        ResultSet rs = preparedStatement.getGeneratedKeys();
+        Integer id = 0;
+        if (rs.next()){
+            id =  rs.getInt(1);
+        }
+        return id;
     }
 
     public void updateVideoCourse(VideoCourse dtoVideoCourse)
@@ -170,8 +192,8 @@ public class DAOCourse implements DAOCourse_I {
             default:
                 preparedStatement = dbHelper.getConnection()
                         .prepareStatement("SELECT * FROM video_course WHERE courseName LIKE ? OR trainerName LIKE ?");
-                preparedStatement.setString(1, search.split("\\p{Punct}")[0] + "%");
-                preparedStatement.setString(1, search.split("\\p{Punct}")[1] + "%");
+                preparedStatement.setString(1, search + "%");
+                preparedStatement.setString(2, search + "%");
         }
 
         ResultSet rs = preparedStatement.executeQuery();

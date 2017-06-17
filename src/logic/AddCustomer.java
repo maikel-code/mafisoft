@@ -38,7 +38,6 @@ public class AddCustomer implements Initializable, AddCustomer_I {
 
     private java.sql.Date               currentDate;
     private int                         defaultYear             =           1900;
-    private java.sql.Date               calendarEnd;
     private String                      pathToMainWindow        =           "gui/Homepage.fxml";
     private Customer                    customer;
     private static DBHelper                    dbHelper                =       DBHelper.getInstance();
@@ -55,11 +54,25 @@ public class AddCustomer implements Initializable, AddCustomer_I {
                // dbHelper.testAddCusotmer(customer.getCustomer_firstname(), customer.getCustomer_lastname(), customer.getBirthday(),
                  //       customer.getMail(), customer.getMobilephone(), customer.getZipCode(),
                    //     customer.getCity(), customer.getStreet(), currentDate, calendarEnd);
-                dbHelper.addCustomer(this.customer);
-                goToMainWindow(actionEvent);
+                Integer genID = dbHelper.addCustomer(this.customer);
+                if(genID > 0) {
+                    firstNameTXT.setText("");
+                    lastNameTXT.setText("");
+                    birthdayTXT.setValue(null);
+                    mailTXT.setText("");
+                    phoneNumberTXT.setText("");
+                    streetTXT.setText("");
+                    city.setText("");
+                    zipCode.setText("");
+                    period.setValue(null);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION, "Video Kurs wurde angelegt");
+                    alert.setHeaderText(null);
+                    alert.show();
+                }
+                //goToMainWindow(actionEvent);
             }
         } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Fehler");
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Fehler");
             alert.setHeaderText(null);
             alert.show();
         }
@@ -69,7 +82,7 @@ public class AddCustomer implements Initializable, AddCustomer_I {
         if (check(0)) {
             Calendar calendarEndCalendar = Calendar.getInstance();
             calendarEndCalendar.set(Calendar.MONTH, (currentDate.getMonth() + Integer.parseInt(String.valueOf(period.getSelectionModel().getSelectedItem()))));
-            calendarEnd = new java.sql.Date(calendarEndCalendar.getTime().getYear(), calendarEndCalendar.getTime().getMonth(), calendarEndCalendar.getTime().getDay());
+            java.sql.Date calendarEnd = new java.sql.Date(calendarEndCalendar.getTime().getYear(), calendarEndCalendar.getTime().getMonth(), calendarEndCalendar.getTime().getDay());
             customer = new Customer();
             customer.setCustomer_firstname(firstNameTXT.getText());
             customer.setCustomer_lastname(lastNameTXT.getText());
@@ -79,6 +92,7 @@ public class AddCustomer implements Initializable, AddCustomer_I {
             customer.setZipCode(Integer.parseInt(zipCode.getText()));
             customer.setCity(city.getText());
             customer.setStreet(streetTXT.getText());
+            customer.setEndDate(calendarEnd);
         }
     }
 

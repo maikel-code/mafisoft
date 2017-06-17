@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.KeyEvent;
 import logic.logicInterface.CourseList_I;
 
 import java.net.URL;
@@ -76,7 +77,7 @@ public class CourseList implements Initializable, CourseList_I {
 
     public void fillPhysicalTable() {
         try {
-            id.setCellValueFactory(new PropertyValueFactory<>("course_id"));
+            id.setCellValueFactory(new PropertyValueFactory<>("id"));
             courseName.setCellValueFactory(new PropertyValueFactory<>("course_name"));
             trainerName.setCellValueFactory(new PropertyValueFactory<>("trainer_name"));
             timeBegin.setCellValueFactory(new PropertyValueFactory<>("startTime"));
@@ -100,8 +101,8 @@ public class CourseList implements Initializable, CourseList_I {
 
     // Used both
 
-    public void searchButton(ActionEvent actionEvent) {
-        String buttonsID = ((Button) actionEvent.getSource()).getId();
+    public void searchButton(KeyEvent actionEvent) {
+        String buttonsID = ((TextField) actionEvent.getSource()).getId();
         String search = null;
 
         if (buttonsID.equals("physical")) {
@@ -122,7 +123,7 @@ public class CourseList implements Initializable, CourseList_I {
                 courseTable.setItems(filteredCourse);
             } else if (buttonsID.equals("video")) {
                 ObservableList<VideoCourse> filteredCourse = dbHelper.searchVideoCourse(searchConfig, search);
-                courseTable.setItems(filteredCourse);
+                vCourseTable.setItems(filteredCourse);
             }
 
         } catch (Exception e) {
@@ -131,6 +132,22 @@ public class CourseList implements Initializable, CourseList_I {
             alert.show();
         }
 
+    }
+
+
+    public void deleteSearchButton(ActionEvent actionEvent) {
+        try {
+            String buttonsID = ((Button) actionEvent.getSource()).getId();
+            if (buttonsID.equals("physical")) {
+                courseTable.setItems(dbHelper.getAllCourse());
+                search.setText("");
+            } else if (buttonsID.equals("video")) {
+                vCourseTable.setItems(dbHelper.getAllVideoCourse());
+                vSearch.setText("");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -150,8 +167,8 @@ public class CourseList implements Initializable, CourseList_I {
     }
 
     public void mouseOnClick(MouseEvent mouseEvent) {
-        String buttonID = ((Button) mouseEvent.getSource()).getId();
-        if (mouseEvent.getClickCount() == 2) {
+        String buttonID = ((TableView) mouseEvent.getSource()).getId();
+        if (mouseEvent.getClickCount() == 1) {
             if (buttonID.equals("physical")) {
                 physicalCourse = (PhysicalCourse) courseTable.getSelectionModel().getSelectedItem();
                 fillChangedTable(physicalCourse);
@@ -202,7 +219,7 @@ public class CourseList implements Initializable, CourseList_I {
 
     public void fillVideoTable() {
         try {
-            vID.setCellValueFactory(new PropertyValueFactory<>("course_id"));
+            vID.setCellValueFactory(new PropertyValueFactory<>("id"));
             vCourseName.setCellValueFactory(new PropertyValueFactory<>("course_name"));
             vTrainerName.setCellValueFactory(new PropertyValueFactory<>("trainer_name"));
             vURL.setCellValueFactory(new PropertyValueFactory<>("vLink"));

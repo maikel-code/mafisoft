@@ -6,11 +6,13 @@ import dto.courses.VideoCourse;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import logic.logicInterface.Appendable;
 
 import java.net.URL;
+import java.sql.Array;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ResourceBundle;
@@ -59,14 +61,32 @@ public class AddCourse implements Initializable, Appendable {
             PhysicalCourse physicalCourse = new PhysicalCourse();
             physicalCourse.setCourse_name(courseName.getText());
             physicalCourse.setTrainer_name(trainer.getText());
-            int timeHH = Integer.parseInt(startTime.getText().split("\\p{Punct}")[0]);
-            int timeMM = Integer.parseInt(startTime.getText().split("\\p{Punct}")[1]);
-            physicalCourse.setStartTime(new Time(timeHH, timeMM, 0));
-            timeHH = Integer.parseInt(endTime.getText().split("\\p{Punct}")[0]);
-            timeMM = Integer.parseInt(endTime.getText().split("\\p{Punct}")[1]);
-            physicalCourse.setEndTime(new Time(timeHH, timeMM, 0));
+            String[] startSplitted = startTime.getText().split("\\p{Punct}");
+            String[] endSplitted = endTime.getText().split("\\p{Punct}");
+            if(startSplitted.length <= 1 ||  endSplitted.length <= 1) {
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Fehlerhafte startzeit angegeben");
+                alert.setHeaderText(null);
+                alert.show();
+            } else {
+                int timeHH = Integer.parseInt(startSplitted[0]);
+                int timeMM = Integer.parseInt(startSplitted[1]);
+                physicalCourse.setStartTime(new Time(timeHH, timeMM, 0));
+
+                timeHH = Integer.parseInt(endSplitted[0]);
+                timeMM = Integer.parseInt(endSplitted[1]);
+                physicalCourse.setEndTime(new Time(timeHH, timeMM, 0));
+            }
             try {
-                dbHelper.addPhysicalCourse(physicalCourse);
+                Integer genID = dbHelper.addPhysicalCourse(physicalCourse);
+                if(genID > 0) {
+                    courseName.setText("");
+                    trainer.setText("");
+                    startTime.setText("");
+                    endTime.setText("");
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION, "Kurs wurde angelegt");
+                    alert.setHeaderText(null);
+                    alert.show();
+                }
             } catch (SQLException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
@@ -77,7 +97,16 @@ public class AddCourse implements Initializable, Appendable {
             videoCourse.setvLink(vLink.getText());
             videoCourse.setvRemark(vRemark.getText());
             try {
-                dbHelper.addVideoCourse(videoCourse);
+                Integer genID = dbHelper.addVideoCourse(videoCourse);
+                if(genID > 0) {
+                    vCourseName.setText("");
+                    vTrainerName.setText("");
+                    vLink.setText("");
+                    vRemark.setText("");
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION, "Video Kurs wurde angelegt");
+                    alert.setHeaderText(null);
+                    alert.show();
+                }
             } catch (SQLException | ClassNotFoundException e) {
                 e.printStackTrace();
             }

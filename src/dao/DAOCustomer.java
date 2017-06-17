@@ -16,8 +16,8 @@ public class DAOCustomer implements DAOCustomer_I {
 
     public int addCustomer(Customer customer) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
-        PreparedStatement preparedStatement = dbHelper.getConnection().prepareStatement("INSERT INTO customer(customer_firstname, customer_lastname, birthday, email, mobilephone, zipCode, city, street, create_time, end_time)" +
-                " VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        PreparedStatement preparedStatement = dbHelper.getConnection().prepareStatement("INSERT INTO customer(customer_firstname, customer_lastname, birthday, email, mobilephone, zipCode, city, street, end_time, create_time)" +
+                " VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())", Statement.RETURN_GENERATED_KEYS);
         preparedStatement.setString(1, customer.getCustomer_firstname());
         preparedStatement.setString(2, customer.getCustomer_lastname());
         preparedStatement.setDate(3, customer.getBirthday());
@@ -26,7 +26,15 @@ public class DAOCustomer implements DAOCustomer_I {
         preparedStatement.setInt(6, customer.getZipCode());
         preparedStatement.setString(7, customer.getCity());
         preparedStatement.setString(8, customer.getStreet());
-        return preparedStatement.executeUpdate(null, Statement.RETURN_GENERATED_KEYS);
+        preparedStatement.setDate(9, customer.getEndDate());
+        preparedStatement.executeUpdate();
+
+        ResultSet rs = preparedStatement.getGeneratedKeys();
+        Integer id = 0;
+        if (rs.next()){
+            id =  rs.getInt(1);
+        }
+        return id;
     }
 
     public void updateCustomer(Customer customer) throws SQLException, ClassNotFoundException {
@@ -53,8 +61,8 @@ public class DAOCustomer implements DAOCustomer_I {
             case "name":
             case "Name":
                 preparedStatement = dbHelper.getConnection().prepareStatement("SELECT * FROM customer WHERE customer_firstname LIKE ? OR customer_lastname LIKE ?");
-                preparedStatement.setString(1, search.split("\\p{Punct} ")[0] + "%");
-                preparedStatement.setString(2, search.split("\\p{Punct} ")[1] + "%");
+                preparedStatement.setString(1, search + "%");
+                preparedStatement.setString(2, search +  "%");
                 rs = preparedStatement.executeQuery();
             break;
             case "id":

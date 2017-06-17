@@ -14,6 +14,7 @@ public class Customer {
     private IntegerProperty                             zipCode;
     private StringProperty                              city;
     private StringProperty                              street;
+    private SimpleObjectProperty<Date>                  endDate;
 
     public Customer() {
         this.customerID = new SimpleIntegerProperty();
@@ -25,6 +26,7 @@ public class Customer {
         this.zipCode = new SimpleIntegerProperty();
         this.city = new SimpleStringProperty();
         this.street = new SimpleStringProperty();
+        this.endDate = new SimpleObjectProperty<>();
 
     }
 
@@ -82,6 +84,14 @@ public class Customer {
 
     public void setBirthday(Date birthday) {
         this.birthday.set(birthday);
+    }
+
+    public Date getEndDate() {
+        return endDate.get();
+    }
+
+    public void setEndDate(Date date) {
+        this.endDate.set(date);
     }
 
     public SimpleObjectProperty<Date> birthdayProperty() {

@@ -2,6 +2,7 @@ package logic.logicInterface;
 
 import dto.courses.Course;
 import javafx.event.ActionEvent;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 public interface CourseList_I extends Navigable {
@@ -15,7 +16,7 @@ public interface CourseList_I extends Navigable {
 
     // Used both
 
-    void searchButton(ActionEvent actionEvent);
+    void searchButton(KeyEvent actionEvent);
 
     void changeButtonPressed(ActionEvent actionEvent);
 

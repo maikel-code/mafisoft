@@ -189,6 +189,15 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         }
     }
 
+    public void deleteSearchButton() {
+        try {
+            customerTable.setItems(dbHelper.getAllCustomer());
+            customerTXT.setText("");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void changeButtonPressed(ActionEvent actionEvent) {
         try {
             Customer dtoCustomer = new Customer();
@@ -224,7 +233,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
 
 
     public void mouseOnClick(MouseEvent mouseEvent) {
-            if (mouseEvent.getClickCount() == 2) {
+            if (mouseEvent.getClickCount() == 1) {
                 editingCustomer = customerTable.getSelectionModel().getSelectedItem();
                 fillEditingFormular(editingCustomer);
         }
