@@ -4,7 +4,6 @@ import DBHelper.DBHelper;
 import dto.courses.Course;
 import dto.courses.PhysicalCourse;
 import dto.courses.VideoCourse;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -38,7 +37,7 @@ public class CourseList implements Initializable, CourseList_I {
     @FXML
     private TableColumn<PhysicalCourse, Time> timeEnd;
     @FXML
-    private TextField pSearch,
+    private TextField search,
             coursename,
             trainer,
             courseID,
@@ -85,22 +84,10 @@ public class CourseList implements Initializable, CourseList_I {
             trainerName.setCellValueFactory(new PropertyValueFactory<>("trainer_name"));
             timeBegin.setCellValueFactory(new PropertyValueFactory<>("startTime"));
             timeEnd.setCellValueFactory(new PropertyValueFactory<>("endTime"));
-            courseTable.setItems(getPhysicalCourseList());
-        } catch (SQLException e) {
+            courseTable.setItems(dbHelper.getAllCourse());
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public ObservableList<Course> getPhysicalCourseList() throws SQLException {
-        ResultSet rs = dbHelper.getAllCourse();
-        ObservableList<Course> row = FXCollections.observableArrayList();
-
-        while (rs.next()) {
-            row.add(fillPhysicalCourse(rs));
-        }
-
-        return row;
     }
 
     @Override
@@ -132,33 +119,28 @@ public class CourseList implements Initializable, CourseList_I {
 
     @Override
     public void searchButton(ActionEvent actionEvent) {
-        ResultSet rs;
         String buttonsID = ((Button) actionEvent.getSource()).getId();
         String search = null;
 
+        if (buttonsID.equals("physical")) {
+            search = this.search.getText();
+        } else if (buttonsID.equals("video")) {
+            search = vSearch.getText();
+        }
+
         try {
+            String searchConfig = "name";
+
+            if (search.matches("\\b\\d+\\b")) {
+                searchConfig = "ID";
+            }
+
             if (buttonsID.equals("physical")) {
-                search = pSearch.getText();
-                if (search.matches("\\b\\d+\\b")) {
-                    rs = dbHelper.searchPhysicalCourse("ID", search);
-                } else {
-                    rs = dbHelper.searchPhysicalCourse("name", search);
-                }
-
-                if (rs != null && rs.next()) {
-                    fillChangedTable(fillPhysicalCourse(rs));
-                }
+                ObservableList<PhysicalCourse> filteredCourse = dbHelper.searchPhysicalCourse(searchConfig, search);
+                courseTable.setItems(filteredCourse);
             } else if (buttonsID.equals("video")) {
-                search = vSearch.getText();
-                if (search.matches("\\b\\d+\\b")) {
-                    rs = dbHelper.searchVideoCourse("ID", search);
-                } else {
-                    rs = dbHelper.searchVideoCourse("other", search);
-                }
-
-                if (rs.next()) {
-                    fillChangedTable(fillVideoCurse(rs));
-                }
+                ObservableList<VideoCourse> filteredCourse = dbHelper.searchVideoCourse(searchConfig, search);
+                courseTable.setItems(filteredCourse);
             }
 
         } catch (Exception e) {
@@ -167,18 +149,20 @@ public class CourseList implements Initializable, CourseList_I {
             alert.show();
         }
 
-
     }
 
 
     @Override
     public void changeButtonPressed(ActionEvent actionEvent) {
         String buttonsID = ((Button) actionEvent.getSource()).getId();
-
-        if (buttonsID.equals("physical")) {
-            dbHelper.updatePhysicalCourse(physicalCourse);
-        } else if (buttonsID.equals("video")) {
-            dbHelper.updateVideoCourse(videoCourse);
+        try {
+            if (buttonsID.equals("physical")) {
+                dbHelper.updatePhysicalCourse(physicalCourse);
+            } else if (buttonsID.equals("video")) {
+                dbHelper.updateVideoCourse(videoCourse);
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
@@ -244,8 +228,8 @@ public class CourseList implements Initializable, CourseList_I {
             vTrainerName.setCellValueFactory(new PropertyValueFactory<>("trainer_name"));
             vURL.setCellValueFactory(new PropertyValueFactory<>("vLink"));
             vRemark.setCellValueFactory(new PropertyValueFactory<>("vRemark"));
-            vCourseTable.setItems(getVideoCourseList());
-        } catch (SQLException e) {
+            vCourseTable.setItems(dbHelper.getAllVideoCourse());
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -265,18 +249,6 @@ public class CourseList implements Initializable, CourseList_I {
         }
 
         return videoCourse;
-    }
-
-    @Override
-    public ObservableList<VideoCourse> getVideoCourseList() throws SQLException {
-        ResultSet rs = dbHelper.getAllVideoCourse();
-        ObservableList<VideoCourse> row = FXCollections.observableArrayList();
-
-        while (rs.next()) {
-            row.add(fillVideoCurse(rs));
-        }
-
-        return row;
     }
 
     @Override

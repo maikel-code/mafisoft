@@ -3,7 +3,6 @@ package logic.logicInterface;
 import dto.courses.Course;
 import dto.courses.PhysicalCourse;
 import dto.courses.VideoCourse;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
 
@@ -15,8 +14,6 @@ public interface CourseList_I extends Navigable {
     // Physical
 
     void fillPhysicalTable();
-
-    ObservableList<Course> getPhysicalCourseList() throws SQLException;
 
     PhysicalCourse fillPhysicalCourse(ResultSet rs) throws SQLException;
 
@@ -41,8 +38,6 @@ public interface CourseList_I extends Navigable {
     void fillVideoTable();
 
     VideoCourse fillVideoCurse(ResultSet rs);
-
-    ObservableList<VideoCourse> getVideoCourseList() throws SQLException;
 
     void changeVideoCourse();
 }

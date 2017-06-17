@@ -31,7 +31,7 @@
                         <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity"
                               minWidth="-Infinity" BorderPane.alignment="CENTER">
                             <children>
-                                <TextField fx:id="pSearch" prefWidth="200" promptText="KurseID/Kursename"/>
+                                <TextField fx:id="search" prefWidth="200" promptText="KurseID/Kursename"/>
                                 <Button id="physical" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
                                         onAction="#searchButton" text="Suche">
                                     <HBox.margin>
@@ -122,7 +122,7 @@
                                 <TextField fx:id="vURLChanged" promptText="https://www.youtube.com/"/>
                                 <TextArea fx:id="vRemarkChanged" prefHeight="200.0" prefWidth="200.0"
                                           promptText="Bemerkung"/>
-                                <Button mnemonicParsing="false" onAction="#videoChangeButtonPressed"
+                                <Button mnemonicParsing="false" onAction="#changeButtonPressed"
                                         text="Videokurs ändern">
                                     <VBox.margin>
                                         <Insets bottom="5.0"/>
