@@ -52,8 +52,45 @@ public class MafisoftTest {
     public void testAddPhysicalCourse() throws SQLException, ClassNotFoundException {
         physicalCourse.setCourse_name("Best training");
         physicalCourse.setTrainer_name("John Cena");
-        physicalCourse.setStartTime(new Time(14,0,0));
-        physicalCourse.setEndTime(new Time(16,0,0));
+        physicalCourse.setStartTime(new Time(14, 0, 0));
+        physicalCourse.setEndTime(new Time(16, 0, 0));
+
+        String id = dbHelper.addPhysicalCourse(physicalCourse) + "";
+
+        PhysicalCourse testCourse = dbHelper.searchPhysicalCourse("id", id).get(0);
+
+        Assert.assertSame(physicalCourse, testCourse);
+    }
+
+    @Test
+    public void testAddVideoCourse() throws SQLException, ClassNotFoundException {
+        videoCourse.setCourse_name("Best video training");
+        videoCourse.setTrainer_name("Undertaker");
+        videoCourse.setvLink("youtube.com");
+        videoCourse.setvRemark("The best video course ever\n" + "Undertaker as most popular WWE master");
+
+        String id = dbHelper.addVideoCourse(videoCourse) + "";
+
+        VideoCourse testCourse = dbHelper.searchVideoCourse("id", id).get(0);
+
+        Assert.assertSame(videoCourse, testCourse);
+    }
+
+    @Test
+    public void testRemovePCourseFromCustomer() throws SQLException, ClassNotFoundException {
+        customer = dbHelper.getAllCustomer().get(0);
+        physicalCourse = dbHelper.getAllCourse().get(0);
+        dbHelper.addCourseToCustomer(customer, physicalCourse);
+
+        int size = dbHelper.getAllCourseByCustomer(customer).size();
+
+        Assert.assertNotNull(size);
+
+        dbHelper.removeCourse(customer, physicalCourse);
+
+        int sizeAfterRemove = dbHelper.getAllCourseByCustomer(customer).size();
+
+        Assert.assertNotEquals(size, sizeAfterRemove);
 
     }
 }
