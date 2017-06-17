@@ -1,7 +1,9 @@
 package DBHelper;
 
 import dao.DAOCourse;
+import dao.DAOCourse_I;
 import dao.DAOCustomer;
+import dao.DAOCustomer_I;
 import dto.courses.PhysicalCourse;
 import dto.courses.VideoCourse;
 import dto.customer.Customer;
@@ -12,7 +14,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBHelper implements DBHelper_I {
+public class DBHelper implements DAOCustomer_I, DAOCourse_I {
     private static DBHelper         instance;
     private Connection              connection;
     private DAOCourse               daoCourse       =       new DAOCourse();
@@ -70,7 +72,7 @@ public class DBHelper implements DBHelper_I {
     // Course
 
     public int addPhysicalCourse(PhysicalCourse physicalCourse) throws SQLException, ClassNotFoundException {
-        return daoCourse.addCourse(physicalCourse);
+        return daoCourse.addPhysicalCourse(physicalCourse);
     }
 
     public int addVideoCourse(VideoCourse videoCourse) throws SQLException, ClassNotFoundException {
@@ -82,7 +84,7 @@ public class DBHelper implements DBHelper_I {
     }
 
     public ObservableList<PhysicalCourse> searchPhysicalCourse(String searchConfig, String search) throws SQLException, ClassNotFoundException {
-        return daoCourse.searchCourse(searchConfig,search);
+        return daoCourse.searchPhysicalCourse(searchConfig,search);
     }
 
     public ObservableList<PhysicalCourse> getAllCourseByCustomer(Customer dtoCustomer) throws SQLException, ClassNotFoundException {
@@ -106,7 +108,7 @@ public class DBHelper implements DBHelper_I {
     }
 
     public void updatePhysicalCourse(PhysicalCourse physicalCourse) throws SQLException, ClassNotFoundException {
-        daoCourse.updateCourse(physicalCourse);
+        daoCourse.updatePhysicalCourse(physicalCourse);
     }
 
     public void updateVideoCourse(VideoCourse videoCourse) throws SQLException, ClassNotFoundException {
@@ -116,8 +118,5 @@ public class DBHelper implements DBHelper_I {
     public ObservableList<VideoCourse> getAllVideoCourse() throws SQLException, ClassNotFoundException {
         return daoCourse.getAllVideoCourse();
     }
-
-
-
 
 }
