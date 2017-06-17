@@ -63,7 +63,7 @@
                 </ComboBox>
                 <HBox spacing="30.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#addCourse" text="Add"/>
+                        <Button mnemonicParsing="false" onAction="#addButtonPressed" text="Add"/>
                         <Button mnemonicParsing="false" onAction="#removeCourse" text="Remove"/>
                     </children>
                     <VBox.margin>

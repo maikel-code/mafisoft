@@ -2,9 +2,10 @@ package DBHelper;
 
 import dao.DAOCourse;
 import dao.DAOCustomer;
+import dto.customer.Customer;
+import javafx.collections.ObservableList;
 import dto.courses.PhysicalCourse;
 import dto.courses.VideoCourse;
-import dto.customer.Customer;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 
@@ -22,7 +23,6 @@ public class DBHelper implements DBHelper_I {
     }
 
     public synchronized static DBHelper getInstance() {
-
         if (instance == null) {
             instance = new DBHelper();
         }

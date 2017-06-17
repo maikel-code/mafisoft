@@ -41,7 +41,7 @@ public class AddCustomer implements Initializable, AddCustomer_I {
     private java.sql.Date               calendarEnd;
     private String                      pathToMainWindow        =           "gui/Homepage.fxml";
     private Customer                    customer;
-    private DBHelper                    dbHelper                =       DBHelper.getInstance();
+    private static DBHelper                    dbHelper                =       DBHelper.getInstance();
 
     public void initialize(URL location, ResourceBundle resources) {
         isChecked();

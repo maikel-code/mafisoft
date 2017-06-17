@@ -65,7 +65,7 @@ public class CourseList implements Initializable, CourseList_I {
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
     private PhysicalCourse physicalCourse = new PhysicalCourse();
     private VideoCourse videoCourse = new VideoCourse();
-    private DBHelper dbHelper = DBHelper.getInstance();
+    private static DBHelper dbHelper = DBHelper.getInstance();
 
 
     public void initialize(URL location, ResourceBundle resources) {
