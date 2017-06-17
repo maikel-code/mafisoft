@@ -29,7 +29,7 @@ public class AddCourse implements Initializable, Appendable {
                                     startTime,
                                     endTime;
     private String                  pathToMainWindow        =       "gui/Homepage.fxml";
-    private DBHelper                dbHelper                =        DBHelper.getInstance();
+    private static DBHelper                dbHelper                =        DBHelper.getInstance();
 
 
     public void initialize(URL location, ResourceBundle resources) {

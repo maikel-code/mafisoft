@@ -14,7 +14,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBHelper implements DBHelper_I {
-    private static DBHelper         instance = null;
+    private static DBHelper         instance;
     private Connection              connection;
     private DAOCourse               daoCourse       =       new DAOCourse();
     private DAOCustomer             daoCustomer     =       new DAOCustomer();
@@ -22,7 +22,7 @@ public class DBHelper implements DBHelper_I {
     private DBHelper() {
     }
 
-    public static synchronized DBHelper getInstance() {
+    public  synchronized static DBHelper getInstance() {
         if (instance == null) {
             instance = new DBHelper();
         }

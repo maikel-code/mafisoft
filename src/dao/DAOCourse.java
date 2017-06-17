@@ -12,7 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DAOCourse implements DAOCourse_I {
-    private DBHelper dbHelper = DBHelper.getInstance();
+    private static DBHelper dbHelper = DBHelper.getInstance();
 
     public ObservableList<PhysicalCourse> getAllCourseByCustomer(Customer dtoCustomer) throws SQLException, ClassNotFoundException {
         ObservableList<PhysicalCourse> row = FXCollections.observableArrayList();

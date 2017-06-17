@@ -29,7 +29,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
                                                     customerTXT,
                                                     customerID;
     @FXML
-    private ComboBox<Course>                        coursesCombobox;
+    private ComboBox<PhysicalCourse>                coursesCombobox;
     @FXML
     private TextField                               changeZipcode;
     @FXML
@@ -54,7 +54,8 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
     private TableColumn<Course, String>             customerCourseList;
     private ObservableList<PhysicalCourse>                  allCourses;
     private String                                  pathToMainWindow            =               "gui/Homepage.fxml";
-    private DBHelper                                dbHelper                =       DBHelper.getInstance();
+    private static DBHelper                                dbHelper                =       DBHelper.getInstance();
+    private Customer                                editingCustomer = null;
 
 
     public void initialize(URL location, ResourceBundle resources) {
@@ -102,7 +103,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
 
         coursesCombobox.getItems().clear();
 
-        for (Course oneCourse : allCourses) {
+        for (PhysicalCourse oneCourse : allCourses) {
             coursesCombobox.getItems().add(oneCourse);
             //coursesCombobox.getItems().add(oneCourse.getCourse_name() + " ID:" + oneCourse.getId());
         }
@@ -119,12 +120,25 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
             if (coursesCombobox.getValue() == null) {
                 return;
             }
-            String[] parts = coursesCombobox.getValue().split("ID:");
+            //String[] parts = coursesCombobox.getValue().split("ID:");
             // TODO: Add provide Objects not strings
-            dbHelper.addCourseToCustomer(Integer.parseInt(customerID.getText()), Integer.parseInt(parts[1]));
+            dbHelper.addCourseToCustomer(editingCustomer, coursesCombobox.getValue());
             fillEditingFormular(customerTable.getSelectionModel().getSelectedItem());
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void removeCourse() {
+        if (customerCourseTable.getSelectionModel().getSelectedItem() != null) {
+            PhysicalCourse course = customerCourseTable.getSelectionModel().getSelectedItem();
+            try {
+                dbHelper.removeCourse(editingCustomer, course);
+                fillEditingFormular(customerTable.getSelectionModel().getSelectedItem());
+            } catch (SQLException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -188,7 +202,8 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
 
     public void mouseOnClick(MouseEvent mouseEvent) {
             if (mouseEvent.getClickCount() == 2) {
-                fillEditingFormular(customerTable.getSelectionModel().getSelectedItem());
+                editingCustomer = customerTable.getSelectionModel().getSelectedItem();
+                fillEditingFormular(editingCustomer);
         }
     }
 
