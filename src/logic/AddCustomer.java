@@ -41,7 +41,7 @@ public class AddCustomer implements Initializable, AddCustomer_I {
     private java.sql.Date               calendarEnd;
     private String                      pathToMainWindow        =           "gui/Homepage.fxml";
     private Customer                    customer;
-    private DBHelper                    dbHelper;
+    private DBHelper                    dbHelper                =       DBHelper.getInstance();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -56,7 +56,7 @@ public class AddCustomer implements Initializable, AddCustomer_I {
                // dbHelper.addCustomer(customer.getCustomer_firstname(), customer.getCustomer_lastname(), customer.getBirthday(),
                  //       customer.getMail(), customer.getMobilephone(), customer.getZipCode(),
                    //     customer.getCity(), customer.getStreet(), currentDate, calendarEnd);
-
+                dbHelper.addCustomer(this.customer);
                 goToMainWindow(actionEvent);
             }
         } catch (Exception e) {

@@ -2,6 +2,8 @@ package DBHelper;
 
 import dao.DAOCourse;
 import dao.DAOCustomer;
+import dto.customer.Customer;
+import javafx.collections.ObservableList;
 import dto.courses.PhysicalCourse;
 import dto.courses.VideoCourse;
 import javafx.collections.ObservableList;
@@ -11,8 +13,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBHelper {
-    private static DBHelper         instance        =       null;
+public class DBHelper implements DBHelper_I {
+    private static DBHelper         instance = null;
     private Connection              connection;
     private DAOCourse               daoCourse       =       new DAOCourse();
     private DAOCustomer             daoCustomer     =       new DAOCustomer();
@@ -34,7 +36,9 @@ public class DBHelper {
             if (connection != null) {
                 return connection;
             } else {
-                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mafisoftBD?autoReconnect=true&useSSL=false", "root", "mafisoft");
+                String dbPassword = "mafisoft";
+                String dbUser = "root";
+                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mafisoftBD?autoReconnect=true&useSSL=false", dbUser, dbPassword);
             }
         } catch (SQLException sql) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Datenank existiert nicht oder wird nicht gefunden");
@@ -47,6 +51,22 @@ public class DBHelper {
         }
         return connection;
     }
+
+
+    // Customer
+    public void addCustomer(Customer dtoCustomer) throws SQLException, ClassNotFoundException  {
+        daoCustomer.addCustomer(dtoCustomer);
+    }
+    public void updateCustomer(Customer dtoCustomer) throws SQLException, ClassNotFoundException  {
+        daoCustomer.updateCustomer(dtoCustomer);
+    }
+    public ObservableList<Customer> searchCustomer(String config, String searchText) throws SQLException, ClassNotFoundException  {
+        return daoCustomer.searchCustomer(config, searchText);
+    }
+    public ObservableList<Customer> getAllCustomer() throws SQLException, ClassNotFoundException  {
+        return daoCustomer.getAllCustomer();
+    }
+
 
     // Course
 
@@ -66,8 +86,24 @@ public class DBHelper {
         return daoCourse.searchCourse(name,search);
     }
 
+    public ObservableList<PhysicalCourse> getAllCourseByCustomer(Customer dtoCustomer) throws SQLException, ClassNotFoundException {
+        return daoCourse.getAllCourseByCustomer(dtoCustomer);
+    }
+
+    public ObservableList<PhysicalCourse> getAllAvailabileCourse(Customer dtoCustomer) throws SQLException, ClassNotFoundException {
+        return daoCourse.getAllAvailabileCourse(dtoCustomer);
+    }
+
     public ObservableList<VideoCourse> searchVideoCourse(String id, String search) throws SQLException, ClassNotFoundException {
         return daoCourse.searchVideoCourse(id, search);
+    }
+
+    public void addCourseToCustomer(Customer dtoCustomer, PhysicalCourse physicalCourse) throws SQLException, ClassNotFoundException {
+        daoCourse.addCourseToCustomer(dtoCustomer, physicalCourse);
+    }
+
+    public void removeCourse(Customer dtoCustomer, PhysicalCourse physicalCourse) throws SQLException, ClassNotFoundException {
+        daoCourse.removeCourse(dtoCustomer, physicalCourse);
     }
 
     public void updatePhysicalCourse(PhysicalCourse physicalCourse) throws SQLException, ClassNotFoundException {
@@ -81,5 +117,8 @@ public class DBHelper {
     public ObservableList<VideoCourse> getAllVideoCourse() throws SQLException, ClassNotFoundException {
         return daoCourse.getAllVideoCourse();
     }
+
+
+
 
 }

@@ -1,7 +1,9 @@
 package logic;
 
+import DBHelper.DBHelper;
 import dao.DAOCustomer;
 import dto.courses.Course;
+import dto.courses.PhysicalCourse;
 import dto.customer.Customer;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -29,13 +31,13 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
                                                     customerTXT,
                                                     customerID;
     @FXML
-    private ComboBox<String>                        courses;
+    private ComboBox<Course>                        coursesCombobox;
     @FXML
     private TextField                               changeZipcode;
     @FXML
     private TableView<Customer>                     customerTable;
     @FXML
-    private TableView<Course>                       customerCourseTable;
+    private TableView<PhysicalCourse>                       customerCourseTable;
     @FXML
     private TableColumn<Customer, Integer>          id;
     @FXML
@@ -52,9 +54,9 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
     private TableColumn<Customer, String>           address;
     @FXML
     private TableColumn<Course, String>             customerCourseList;
-    private ObservableList<Course>                  allCourses;
+    private ObservableList<PhysicalCourse>                  allCourses;
     private String                                  pathToMainWindow            =               "gui/Homepage.fxml";
-    private DAOCustomer                             daoCustomer;
+    private DBHelper                                dbHelper                =       DBHelper.getInstance();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -73,14 +75,14 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         address.setCellValueFactory(new PropertyValueFactory<>("city"));
         address.setCellValueFactory(new PropertyValueFactory<>("street"));
         try {
-            customerTable.setItems(daoCustomer.getCustomerList());
+            customerTable.setItems(dbHelper.getAllCustomer());
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public void fillChangeTable(Object o) {
+    public void fillEditingFormular(Object o) {
         cleanAll(1);
 
         Customer customer = (Customer) o;
@@ -93,17 +95,18 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         changeStreet.setText(customer.getStreet());
 
         try {
-            allCourses = daoCustomer.getCourseList(customer.getCustomerID());
-            customerCourseTable.setItems(getAllCustomerCourse(customer));
+            allCourses = dbHelper.getAllAvailabileCourse(customer);
+            customerCourseTable.setItems(dbHelper.getAllCourseByCustomer(customer));
             customerCourseList.setCellValueFactory(new PropertyValueFactory<>("course_name"));
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
 
-        courses.getItems().clear();
+        coursesCombobox.getItems().clear();
 
         for (Course oneCourse : allCourses) {
-            courses.getItems().add(oneCourse.getCourse_name() + " ID:" + oneCourse.getId());
+            coursesCombobox.getItems().add(oneCourse);
+            //coursesCombobox.getItems().add(oneCourse.getCourse_name() + " ID:" + oneCourse.getId());
         }
     }
 
@@ -117,12 +120,13 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
     @Override
     public void addButtonPressed(ActionEvent actionEvent){
         try {
-            if (courses.getValue() == null) {
+            if (coursesCombobox.getValue() == null) {
                 return;
             }
-            String[] parts = courses.getValue().split("ID:");
-            daoCustomer.addCourseToCustomer(Integer.parseInt(customerID.getText()), Integer.parseInt(parts[1]));
-            fillChangeTable(customerTable.getSelectionModel().getSelectedItem());
+            String[] parts = coursesCombobox.getValue().split("ID:");
+            // TODO: Add provide Objects not strings
+            dbHelper.addCourseToCustomer(Integer.parseInt(customerID.getText()), Integer.parseInt(parts[1]));
+            fillEditingFormular(customerTable.getSelectionModel().getSelectedItem());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -130,20 +134,20 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
 
     @Override
     public void searchButton() {
-        ResultSet rs;
 
         String search = customerTXT.getText();
-
         try {
-            if (search.matches("\\b\\d+\\b")) {
-                rs = daoCustomer.searchCustomer("ID", search);
-            } else {
-                rs = dbHelper.searchCustomer("name", search);
-            }
+            ObservableList<Customer> filteredCustomerList;
 
-            if (rs != null && rs.next()) {
-                fillChangeTabble(fillCustomer(rs));
+            if (search.matches("\\b\\d+\\b")) {
+                filteredCustomerList = dbHelper.searchCustomer("ID", search);
+            } else {
+                filteredCustomerList = dbHelper.searchCustomer("name", search);
             }
+            customerTable.setItems(filteredCustomerList);
+            /*if (rs != null && rs.next()) {
+                fillEditingFormular(fillCustomer(rs));
+            }*/
 
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Kunde " + search + " nicht gefunden");
@@ -152,9 +156,23 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         }
     }
 
-    @Override
-    public void changeButtonPressed(ActionEvent actionEvent, int tab) {
+    public void changeButtonPressed(ActionEvent actionEvent) {
+        try {
+            Customer dtoCustomer = new Customer();
+            dtoCustomer.setCustomerID(Integer.parseInt(customerID.getText()));
+            dtoCustomer.setCustomer_firstname(changeFirstName.getText());
+            dtoCustomer.setCustomer_lastname(changeLastName.getText());
+            dtoCustomer.setMail(changeMail.getText());
+            dtoCustomer.setMobilephone(changePhonenummer.getText());
+            dtoCustomer.setZipCode(Integer.parseInt(changeZipcode.getText()));
+            dtoCustomer.setCity(changeCity.getText());
+            dtoCustomer.setStreet(changeCity.getText());
 
+            dbHelper.updateCustomer(dtoCustomer);
+            fillTable();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     //
@@ -171,10 +189,10 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         customerID.clear();
     }
 
-    @Override
-    public void mouseOnClick(MouseEvent mouseEvent, int tab) {
+
+    public void mouseOnClick(MouseEvent mouseEvent) {
             if (mouseEvent.getClickCount() == 2) {
-                fillChangeTable(customerTable.getSelectionModel().getSelectedItem());
+                fillEditingFormular(customerTable.getSelectionModel().getSelectedItem());
         }
     }
 

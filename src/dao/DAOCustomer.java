@@ -9,8 +9,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DAOCustomer {
-    private DBHelper dbHelper = DBHelper.getInstance();
+public class DAOCustomer implements DAOCustomer_I {
+    private static DBHelper dbHelper = DBHelper.getInstance();
+
 
     public void addCustomer(Customer customer) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
@@ -70,7 +71,7 @@ public class DAOCustomer {
         return row;
     }
 
-    public ObservableList<Customer> getAllCustomer() throws SQLException, ClassNotFoundException {
+    public  ObservableList<Customer> getAllCustomer() throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
         PreparedStatement preparedStatement = dbHelper.getConnection().prepareStatement("SELECT * FROM customer");
 
@@ -99,5 +100,8 @@ public class DAOCustomer {
 
         return customer;
     }
+
+
+
 
 }

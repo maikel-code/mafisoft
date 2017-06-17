@@ -1,6 +1,7 @@
 package logic;
 
 import DBHelper.DBHelper;
+import dao.DAOCourse;
 import dto.courses.PhysicalCourse;
 import dto.courses.VideoCourse;
 import javafx.event.ActionEvent;

@@ -51,7 +51,7 @@
                 <NumberTextField fx:id="changeZipcode" promptText="PLZ"/>
                 <TextField fx:id="changeCity" promptText="Stadt"/>
                 <TextField fx:id="changeStreet" promptText="Straße Hausnummer"/>
-                <Button mnemonicParsing="false" onAction="#changeButton" text="Kunndendaten ändern">
+                <Button mnemonicParsing="false" onAction="#changeButtonPressed" text="Kunndendaten ändern">
                     <VBox.margin>
                         <Insets left="5.0" right="5.0"/>
                     </VBox.margin>
