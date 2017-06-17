@@ -2,10 +2,9 @@ package DBHelper;
 
 import dao.DAOCourse;
 import dao.DAOCustomer;
-import dto.customer.Customer;
-import javafx.collections.ObservableList;
 import dto.courses.PhysicalCourse;
 import dto.courses.VideoCourse;
+import dto.customer.Customer;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 
@@ -14,7 +13,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBHelper implements DBHelper_I {
-    private static DBHelper         instance = null;
+    private static DBHelper         instance;
     private Connection              connection;
     private DAOCourse               daoCourse       =       new DAOCourse();
     private DAOCustomer             daoCustomer     =       new DAOCustomer();
@@ -22,7 +21,8 @@ public class DBHelper implements DBHelper_I {
     private DBHelper() {
     }
 
-    public static synchronized DBHelper getInstance() {
+    public synchronized static DBHelper getInstance() {
+
         if (instance == null) {
             instance = new DBHelper();
         }
@@ -54,8 +54,8 @@ public class DBHelper implements DBHelper_I {
 
 
     // Customer
-    public void addCustomer(Customer dtoCustomer) throws SQLException, ClassNotFoundException  {
-        daoCustomer.addCustomer(dtoCustomer);
+    public int addCustomer(Customer dtoCustomer) throws SQLException, ClassNotFoundException  {
+       return daoCustomer.addCustomer(dtoCustomer);
     }
     public void updateCustomer(Customer dtoCustomer) throws SQLException, ClassNotFoundException  {
         daoCustomer.updateCustomer(dtoCustomer);
@@ -70,12 +70,12 @@ public class DBHelper implements DBHelper_I {
 
     // Course
 
-    public void addPhysicalCourse(PhysicalCourse physicalCourse) throws SQLException, ClassNotFoundException {
-        daoCourse.addCourse(physicalCourse);
+    public int addPhysicalCourse(PhysicalCourse physicalCourse) throws SQLException, ClassNotFoundException {
+        return daoCourse.addCourse(physicalCourse);
     }
 
-    public void addVideoCourse(VideoCourse videoCourse) throws SQLException, ClassNotFoundException {
-        daoCourse.addVideoCourse(videoCourse);
+    public int addVideoCourse(VideoCourse videoCourse) throws SQLException, ClassNotFoundException {
+        return daoCourse.addVideoCourse(videoCourse);
     }
 
     public ObservableList<PhysicalCourse> getAllCourse() throws SQLException, ClassNotFoundException {
@@ -98,8 +98,8 @@ public class DBHelper implements DBHelper_I {
         return daoCourse.searchVideoCourse(id, search);
     }
 
-    public void addCourseToCustomer(Customer dtoCustomer, PhysicalCourse physicalCourse) throws SQLException, ClassNotFoundException {
-        daoCourse.addCourseToCustomer(dtoCustomer, physicalCourse);
+    public int addCourseToCustomer(Customer dtoCustomer, PhysicalCourse physicalCourse) throws SQLException, ClassNotFoundException {
+        return daoCourse.addCourseToCustomer(dtoCustomer, physicalCourse);
     }
 
     public void removeCourse(Customer dtoCustomer, PhysicalCourse physicalCourse) throws SQLException, ClassNotFoundException {

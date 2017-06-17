@@ -52,7 +52,7 @@ public class AddCustomer implements Initializable, AddCustomer_I {
         setCustomer();
         try {
             if (check(0)) {
-               // dbHelper.addCustomer(customer.getCustomer_firstname(), customer.getCustomer_lastname(), customer.getBirthday(),
+               // dbHelper.testAddCusotmer(customer.getCustomer_firstname(), customer.getCustomer_lastname(), customer.getBirthday(),
                  //       customer.getMail(), customer.getMobilephone(), customer.getZipCode(),
                    //     customer.getCity(), customer.getStreet(), currentDate, calendarEnd);
                 dbHelper.addCustomer(this.customer);

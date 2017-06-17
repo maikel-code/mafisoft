@@ -119,9 +119,9 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
             if (coursesCombobox.getValue() == null) {
                 return;
             }
-            String[] parts = coursesCombobox.getValue().split("ID:");
+          //  String[] parts = coursesCombobox.getValue().split("ID:");
             // TODO: Add provide Objects not strings
-            dbHelper.addCourseToCustomer(Integer.parseInt(customerID.getText()), Integer.parseInt(parts[1]));
+            //dbHelper.addCourseToCustomer(Integer.parseInt(customerID.getText()), Integer.parseInt(parts[1]));
             fillEditingFormular(customerTable.getSelectionModel().getSelectedItem());
         } catch (Exception e) {
             e.printStackTrace();
