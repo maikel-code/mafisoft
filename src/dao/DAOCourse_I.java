@@ -12,7 +12,7 @@ public interface DAOCourse_I {
 
     ObservableList<PhysicalCourse> getAllCourseByCustomer(Customer dtoCustomer) throws SQLException, ClassNotFoundException;
 
-    void addCourse(PhysicalCourse dtoPhysicalCourse) throws SQLException, ClassNotFoundException;
+    int addCourse(PhysicalCourse dtoPhysicalCourse) throws SQLException, ClassNotFoundException;
 
     void updateCourse(PhysicalCourse dtoPhysicalCourse) throws SQLException, ClassNotFoundException;
 
@@ -22,11 +22,11 @@ public interface DAOCourse_I {
 
     ObservableList<PhysicalCourse> getAllAvailabileCourse(Customer dtoCustomer) throws SQLException, ClassNotFoundException;
 
-    void addCourseToCustomer(Customer dtoCustomer, PhysicalCourse dtoCourse) throws SQLException, ClassNotFoundException;
+    int addCourseToCustomer(Customer dtoCustomer, PhysicalCourse dtoCourse) throws SQLException, ClassNotFoundException;
 
     void removeCourse(Customer dtoCustomer, PhysicalCourse dtoCourse) throws SQLException, ClassNotFoundException;
 
-    void addVideoCourse(VideoCourse dtoVideoCourse) throws SQLException, ClassNotFoundException;
+    int addVideoCourse(VideoCourse dtoVideoCourse) throws SQLException, ClassNotFoundException;
 
     void updateVideoCourse(VideoCourse dtoVideoCourse) throws SQLException, ClassNotFoundException;
 

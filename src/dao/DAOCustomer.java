@@ -8,12 +8,13 @@ import javafx.collections.ObservableList;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class DAOCustomer implements DAOCustomer_I {
     private static DBHelper dbHelper = DBHelper.getInstance();
 
 
-    public void addCustomer(Customer customer) throws SQLException, ClassNotFoundException {
+    public int addCustomer(Customer customer) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
         PreparedStatement preparedStatement = dbHelper.getConnection().prepareStatement("INSERT INTO customer(customer_firstname, customer_lastname, birthday, email, mobilephone, zipCode, city, street, create_time, end_time)" +
                 " VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -25,7 +26,7 @@ public class DAOCustomer implements DAOCustomer_I {
         preparedStatement.setInt(6, customer.getZipCode());
         preparedStatement.setString(7, customer.getCity());
         preparedStatement.setString(8, customer.getStreet());
-        preparedStatement.executeUpdate();
+        return preparedStatement.executeUpdate(null, Statement.RETURN_GENERATED_KEYS);
     }
 
     public void updateCustomer(Customer customer) throws SQLException, ClassNotFoundException {

@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public interface DAOCustomer_I {
 
-    void addCustomer(Customer customer) throws SQLException, ClassNotFoundException;
+    int addCustomer(Customer customer) throws SQLException, ClassNotFoundException;
     void updateCustomer(Customer updateCustomer) throws SQLException, ClassNotFoundException;
 
     ObservableList<Customer> searchCustomer(String searchConfig, String search) throws SQLException, ClassNotFoundException;

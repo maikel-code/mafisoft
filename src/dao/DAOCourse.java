@@ -32,7 +32,7 @@ public class DAOCourse implements DAOCourse_I {
 
     // Course
 
-    public void addCourse(PhysicalCourse dtoPhysicalCourse) throws SQLException, ClassNotFoundException {
+    public int addCourse(PhysicalCourse dtoPhysicalCourse) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
         PreparedStatement preparedStatement = dbHelper.getConnection()
                 .prepareStatement("INSERT INTO course(course_name, trainer_name, start, end) VALUE (?, ?, ?, ?)");
@@ -40,8 +40,7 @@ public class DAOCourse implements DAOCourse_I {
         preparedStatement.setString(2, dtoPhysicalCourse.getTrainer_name());
         preparedStatement.setTime(3, dtoPhysicalCourse.getStartTime());
         preparedStatement.setTime(4, dtoPhysicalCourse.getEndTime());
-        preparedStatement.executeUpdate();
-
+        return preparedStatement.executeUpdate();
     }
 
     public void updateCourse(PhysicalCourse dtoPhysicalCourse) throws SQLException, ClassNotFoundException {
@@ -115,12 +114,12 @@ public class DAOCourse implements DAOCourse_I {
         return row;
     }
 
-    public void addCourseToCustomer(Customer dtoCustomer, PhysicalCourse dtoCourse) throws SQLException, ClassNotFoundException {
+    public int addCourseToCustomer(Customer dtoCustomer, PhysicalCourse dtoCourse) throws SQLException, ClassNotFoundException {
         PreparedStatement preparedStatement = dbHelper.getConnection()
                 .prepareStatement("INSERT INTO customer_course(customer_id, course_id) VALUE (?, ?)");
         preparedStatement.setInt(1, dtoCustomer.getCustomerID());
         preparedStatement.setInt(2, dtoCourse.getId());
-        preparedStatement.executeUpdate();
+        return preparedStatement.executeUpdate();
     }
 
     public void removeCourse(Customer dtoCustomer, PhysicalCourse dtoCourse) throws SQLException, ClassNotFoundException {
@@ -132,7 +131,7 @@ public class DAOCourse implements DAOCourse_I {
     }
 
     // VIDEO COURSES
-    public void addVideoCourse(VideoCourse dtoVideoCourse)
+    public int addVideoCourse(VideoCourse dtoVideoCourse)
             throws SQLException, ClassNotFoundException {
         PreparedStatement preparedStatement = dbHelper.getConnection()
                 .prepareStatement("INSERT INTO video_course(courseName, trainerName, link, remark) VALUE (?, ?, ?, ?)");
@@ -140,7 +139,7 @@ public class DAOCourse implements DAOCourse_I {
         preparedStatement.setString(2, dtoVideoCourse.getTrainer_name());
         preparedStatement.setString(3, dtoVideoCourse.getvLink());
         preparedStatement.setString(4, dtoVideoCourse.getvRemark());
-        preparedStatement.executeUpdate();
+        return preparedStatement.executeUpdate();
     }
 
     public void updateVideoCourse(VideoCourse dtoVideoCourse)
@@ -219,7 +218,7 @@ public class DAOCourse implements DAOCourse_I {
         dtoCourse.setEndTime(rs.getTime("end"));
 
         return dtoCourse;
-         
+
     }
 
 }
