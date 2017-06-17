@@ -1,6 +1,6 @@
 package logic;
 
-import dao.DAOCustomer;
+import DBHelper.DBHelper;
 import dto.customer.Customer;
 import dto.zipCode.NumberTextField;
 import javafx.event.ActionEvent;
@@ -40,7 +40,8 @@ public class AddCustomer implements Initializable, AddCustomer_I {
     private int                         defaultYear             =           1900;
     private java.sql.Date               calendarEnd;
     private String                      pathToMainWindow        =           "gui/Homepage.fxml";
-    private DAOCustomer                 daoCustomer;
+    private Customer                    customer;
+    private DBHelper                    dbHelper;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -52,9 +53,9 @@ public class AddCustomer implements Initializable, AddCustomer_I {
         setCustomer();
         try {
             if (check(0)) {
-                dbHelper.addCustomer(customer.getCustomer_firstname(), customer.getCustomer_lastname(), customer.getBirthday(),
-                        customer.getMail(), customer.getMobilephone(), customer.getZipCode(),
-                        customer.getCity(), customer.getStreet(), currentDate, calendarEnd);
+               // dbHelper.addCustomer(customer.getCustomer_firstname(), customer.getCustomer_lastname(), customer.getBirthday(),
+                 //       customer.getMail(), customer.getMobilephone(), customer.getZipCode(),
+                   //     customer.getCity(), customer.getStreet(), currentDate, calendarEnd);
 
                 goToMainWindow(actionEvent);
             }

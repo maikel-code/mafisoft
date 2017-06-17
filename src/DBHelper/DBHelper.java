@@ -2,10 +2,12 @@ package DBHelper;
 
 import javafx.scene.control.Alert;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class DBHelper {
-    private static DBHelper         instance = null;
+    private static DBHelper         instance        =       null;
     private Connection              connection;
 
     private DBHelper() {
@@ -18,7 +20,6 @@ public class DBHelper {
 
         return instance;
     }
-
 
     public synchronized Connection getConnection() {
         try {
@@ -39,9 +40,5 @@ public class DBHelper {
         }
         return connection;
     }
-
-    // Customer
-
-
 
 }

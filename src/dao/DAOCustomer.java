@@ -5,43 +5,41 @@ import dto.customer.Customer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DAOCustomer {
     private DBHelper dbHelper = DBHelper.getInstance();
 
-
-    public void addCustomer(String firstName, String lastName, java.sql.Date birthday, String email, String phone, int zipCode, String city, String street, java.sql.Date beginnDate, java.sql.Date endDate) throws SQLException, ClassNotFoundException {
+    public void addCustomer(Customer customer) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
-        PreparedStatement preparedStatement = getConnection().prepareStatement("INSERT INTO customer(customer_firstname, customer_lastname, birthday, email, mobilephone, zipCode, city, street, create_time, end_time)" +
+        PreparedStatement preparedStatement = dbHelper.getConnection().prepareStatement("INSERT INTO customer(customer_firstname, customer_lastname, birthday, email, mobilephone, zipCode, city, street, create_time, end_time)" +
                 " VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        preparedStatement.setString(1, firstName);
-        preparedStatement.setString(2, lastName);
-        preparedStatement.setDate(3, birthday);
-        preparedStatement.setString(4, email);
-        preparedStatement.setString(5, phone);
-        preparedStatement.setInt(6, zipCode);
-        preparedStatement.setString(7, city);
-        preparedStatement.setString(8, street);
-        preparedStatement.setDate(9, beginnDate);
-        preparedStatement.setDate(10, endDate);
+        preparedStatement.setString(1, customer.getCustomer_firstname());
+        preparedStatement.setString(2, customer.getCustomer_lastname());
+        preparedStatement.setDate(3, customer.getBirthday());
+        preparedStatement.setString(4, customer.getMail());
+        preparedStatement.setString(5, customer.getMobilephone());
+        preparedStatement.setInt(6, customer.getZipCode());
+        preparedStatement.setString(7, customer.getCity());
+        preparedStatement.setString(8, customer.getStreet());
         preparedStatement.executeUpdate();
     }
 
-    public void updateCustomer(int id, String firstName, String lastName, String email, String phone, int zipCode, String city, String street) throws SQLException, ClassNotFoundException {
+    public void updateCustomer(Customer customer) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
-        PreparedStatement preparedStatement = getConnection().prepareStatement("UPDATE customer SET customer_firstname=?, customer_lastname=?, email=?, mobilephone=?, zipCode=?, city=?, street=? " +
+        PreparedStatement preparedStatement = dbHelper.getConnection().prepareStatement("UPDATE customer SET customer_firstname=?, customer_lastname=?, email=?, mobilephone=?, zipCode=?, city=?, street=? " +
                 "WHERE customer_id=?");
 
-        preparedStatement.setInt(8, id);
-        preparedStatement.setString(1, firstName);
-        preparedStatement.setString(2, lastName);
-        preparedStatement.setString(3, email);
-        preparedStatement.setString(4, phone);
-        preparedStatement.setInt(5, zipCode);
-        preparedStatement.setString(6, city);
-        preparedStatement.setString(7, street);
+        preparedStatement.setInt(8, customer.getCustomerID());
+        preparedStatement.setString(1, customer.getCustomer_firstname());
+        preparedStatement.setString(2, customer.getCustomer_lastname());
+        preparedStatement.setString(3, customer.getMail());
+        preparedStatement.setString(4, customer.getMobilephone());
+        preparedStatement.setInt(5, customer.getZipCode());
+        preparedStatement.setString(6, customer.getCity());
+        preparedStatement.setString(7, customer.getStreet());
         preparedStatement.executeUpdate();
     }
 
@@ -52,7 +50,7 @@ public class DAOCustomer {
         switch (searchConfig) {
             case "name":
             case "Name":
-                preparedStatement = getConnection().prepareStatement("SELECT * FROM customer WHERE customer_firstname LIKE ? OR customer_lastname LIKE ?");
+                preparedStatement = dbHelper.getConnection().prepareStatement("SELECT * FROM customer WHERE customer_firstname LIKE ? OR customer_lastname LIKE ?");
                 preparedStatement.setString(1, search.split("\\p{Punct} ")[0] + "%");
                 preparedStatement.setString(2, search.split("\\p{Punct} ")[1] + "%");
                 rs = preparedStatement.executeQuery();
@@ -60,7 +58,7 @@ public class DAOCustomer {
             case "id":
             case "ID":
             default:
-                preparedStatement = getConnection().prepareStatement("SELECT * FROM customer WHERE customer_id=?");
+                preparedStatement = dbHelper.getConnection().prepareStatement("SELECT * FROM customer WHERE customer_id=?");
                 preparedStatement.setString(1, search);
                 rs = preparedStatement.executeQuery();
         }
@@ -74,7 +72,7 @@ public class DAOCustomer {
 
     public ObservableList<Customer> getAllCustomer() throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
-        PreparedStatement preparedStatement = getConnection().prepareStatement("SELECT * FROM customer");
+        PreparedStatement preparedStatement = dbHelper.getConnection().prepareStatement("SELECT * FROM customer");
 
         ResultSet rs = preparedStatement.executeQuery();
         ObservableList<Customer> row = FXCollections.observableArrayList();
@@ -101,8 +99,5 @@ public class DAOCustomer {
 
         return customer;
     }
-
-
-
 
 }
