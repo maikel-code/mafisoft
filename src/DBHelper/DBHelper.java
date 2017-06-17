@@ -4,11 +4,11 @@ import dao.DAOCourse;
 import dao.DAOCustomer;
 import dto.courses.PhysicalCourse;
 import dto.courses.VideoCourse;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DBHelper {
@@ -16,8 +16,6 @@ public class DBHelper {
     private Connection              connection;
     private DAOCourse               daoCourse       =       new DAOCourse();
     private DAOCustomer             daoCustomer     =       new DAOCustomer();
-    private ResultSet allCourse;
-    private ResultSet allVideoCourse;
 
     private DBHelper() {
     }
@@ -60,26 +58,28 @@ public class DBHelper {
         daoCourse.addVideoCourse(videoCourse);
     }
 
-
-    public ResultSet getAllCourse() {
-        return allCourse;
+    public ObservableList<PhysicalCourse> getAllCourse() throws SQLException, ClassNotFoundException {
+        return daoCourse.getAllCourse();
     }
 
-    public ResultSet searchPhysicalCourse(String name, String search) {
-        return null;
+    public ObservableList<PhysicalCourse> searchPhysicalCourse(String name, String search) throws SQLException, ClassNotFoundException {
+        return daoCourse.searchCourse(name,search);
     }
 
-    public ResultSet searchVideoCourse(String id, String search) {
-        return null;
+    public ObservableList<VideoCourse> searchVideoCourse(String id, String search) throws SQLException, ClassNotFoundException {
+        return daoCourse.searchVideoCourse(id, search);
     }
 
-    public void updatePhysicalCourse(PhysicalCourse physicalCourse) {
+    public void updatePhysicalCourse(PhysicalCourse physicalCourse) throws SQLException, ClassNotFoundException {
+        daoCourse.updateCourse(physicalCourse);
     }
 
-    public void updateVideoCourse(VideoCourse videoCourse) {
+    public void updateVideoCourse(VideoCourse videoCourse) throws SQLException, ClassNotFoundException {
+        daoCourse.updateVideoCourse(videoCourse);
     }
 
-    public ResultSet getAllVideoCourse() {
-        return allVideoCourse;
+    public ObservableList<VideoCourse> getAllVideoCourse() throws SQLException, ClassNotFoundException {
+        return daoCourse.getAllVideoCourse();
     }
+
 }
