@@ -212,7 +212,7 @@ public class DAOCourse implements DAOCourse_I {
     private PhysicalCourse createPhysicalCourseFromRow(ResultSet rs) throws SQLException {
         PhysicalCourse dtoCourse = new PhysicalCourse();
 
-        dtoCourse.setId(rs.getInt("id"));
+        dtoCourse.setId(rs.getInt("course_id"));
         dtoCourse.setCourse_name(rs.getString("course_name"));
         dtoCourse.setTrainer_name(rs.getString("trainer_name"));
         dtoCourse.setStartTime(rs.getTime("start"));

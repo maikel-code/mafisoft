@@ -4,13 +4,16 @@ import DBHelper.DBHelper;
 import dto.courses.Course;
 import dto.courses.PhysicalCourse;
 import dto.customer.Customer;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Callback;
 import logic.logicInterface.ChangeCustomerData_I;
 
 import java.net.URL;
@@ -60,6 +63,25 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
 
     public void initialize(URL location, ResourceBundle resources) {
         fillTable();
+
+
+        coursesCombobox.setCellFactory(new Callback<ListView<PhysicalCourse>, ListCell<PhysicalCourse>>() {
+            @Override
+            public ListCell<PhysicalCourse> call(ListView<PhysicalCourse> param) {
+
+                return new ListCell<PhysicalCourse>(){
+                    @Override
+                    public void updateItem(PhysicalCourse oneCourse, boolean empty){
+                        super.updateItem(oneCourse, empty);
+                        if(!empty) {
+                            setText(oneCourse.getCourse_name() + " ID:" + oneCourse.getId());
+                            setGraphic(null);
+                        }
+                    }
+                };
+            }
+        });
+
     }
 
 
@@ -101,11 +123,12 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
             e.printStackTrace();
         }
 
-        coursesCombobox.getItems().clear();
+        if(coursesCombobox != null) {
+            coursesCombobox.getItems().clear();
 
-        for (PhysicalCourse oneCourse : allCourses) {
-            coursesCombobox.getItems().add(oneCourse);
-            //coursesCombobox.getItems().add(oneCourse.getCourse_name() + " ID:" + oneCourse.getId());
+            for (PhysicalCourse oneCourse : allCourses) {
+                coursesCombobox.getItems().add(oneCourse);
+            }
         }
     }
 

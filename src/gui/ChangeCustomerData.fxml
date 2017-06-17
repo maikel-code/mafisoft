@@ -3,7 +3,10 @@
 <?import dto.zipCode.NumberTextField?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="600.0"
             minWidth="800.0" xmlns="http://javafx.com/javafx/8"
             fx:controller="logic.ChangeCustomerData">
@@ -56,7 +59,7 @@
                         <Insets left="5.0" right="5.0"/>
                     </VBox.margin>
                 </Button>
-                <ComboBox fx:id="courses" promptText="Alle Kurse">
+                <ComboBox fx:id="coursesCombobox" promptText="Alle Kurse">
                     <VBox.margin>
                         <Insets left="25.0" right="10.0"/>
                     </VBox.margin>
