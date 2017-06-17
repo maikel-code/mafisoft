@@ -14,7 +14,6 @@ import javafx.scene.input.MouseEvent;
 import logic.logicInterface.CourseList_I;
 
 import java.net.URL;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
@@ -91,19 +90,6 @@ public class CourseList implements Initializable, CourseList_I {
     }
 
     @Override
-    public PhysicalCourse fillPhysicalCourse(ResultSet rs) throws SQLException {
-        PhysicalCourse physicalCourse = new PhysicalCourse();
-
-        physicalCourse.setId(rs.getInt("course_id"));
-        physicalCourse.setCourse_name(rs.getString("course_name"));
-        physicalCourse.setTrainer_name(rs.getString("trainer_name"));
-        physicalCourse.setStartTime(rs.getTime("start"));
-        physicalCourse.setEndTime(rs.getTime("end"));
-
-        return physicalCourse;
-    }
-
-    @Override
     public void changePhysicalCourse() {
         physicalCourse.setCourse_name(coursename.getText());
         physicalCourse.setTrainer_name(trainer.getText());
@@ -157,8 +143,10 @@ public class CourseList implements Initializable, CourseList_I {
         String buttonsID = ((Button) actionEvent.getSource()).getId();
         try {
             if (buttonsID.equals("physical")) {
+                changePhysicalCourse();
                 dbHelper.updatePhysicalCourse(physicalCourse);
             } else if (buttonsID.equals("video")) {
+                changeVideoCourse();
                 dbHelper.updateVideoCourse(videoCourse);
             }
         } catch (SQLException | ClassNotFoundException e) {
@@ -234,22 +222,6 @@ public class CourseList implements Initializable, CourseList_I {
         }
     }
 
-    @Override
-    public VideoCourse fillVideoCurse(ResultSet rs) {
-        VideoCourse videoCourse = new VideoCourse();
-
-        try {
-            videoCourse.setId(rs.getInt("videoID"));
-            videoCourse.setCourse_name(rs.getString("courseName"));
-            videoCourse.setTrainer_name(rs.getString("trainerName"));
-            videoCourse.setvLink(rs.getString("link"));
-            videoCourse.setvRemark(rs.getString("remark"));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return videoCourse;
-    }
 
     @Override
     public void changeVideoCourse() {
