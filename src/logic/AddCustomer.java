@@ -43,7 +43,6 @@ public class AddCustomer implements Initializable, AddCustomer_I {
     private Customer                    customer;
     private DBHelper                    dbHelper                =       DBHelper.getInstance();
 
-    @Override
     public void initialize(URL location, ResourceBundle resources) {
         isChecked();
     }
@@ -66,7 +65,6 @@ public class AddCustomer implements Initializable, AddCustomer_I {
         }
     }
 
-    @Override
     public void setCustomer() {
         if (check(0)) {
             Calendar calendarEndCalendar = Calendar.getInstance();
@@ -84,7 +82,6 @@ public class AddCustomer implements Initializable, AddCustomer_I {
         }
     }
 
-    @Override
     public boolean check(int tab) {
         boolean check = false;
         String fillText = "";
@@ -128,7 +125,6 @@ public class AddCustomer implements Initializable, AddCustomer_I {
         goToScene(actionEvent, pathToMainWindow);
     }
 
-    @Override
     public void cleanAll() {
         firstNameTXT.clear();
         lastNameTXT.clear();
@@ -140,7 +136,6 @@ public class AddCustomer implements Initializable, AddCustomer_I {
         streetTXT.clear();
     }
 
-    @Override
     public void isChecked() {
         if (now_checkBox.isSelected()) {
             orderDate.setVisible(false);
@@ -158,7 +153,6 @@ public class AddCustomer implements Initializable, AddCustomer_I {
         return new java.sql.Date(birthdayTXT.getValue().getYear() - defaultYear, birthdayTXT.getValue().getMonth().getValue() - 1, birthdayTXT.getValue().getDayOfMonth());
     }
 
-    @Override
     public void checkZipLength(KeyEvent actionEvent) {
         if (zipCode.getText().length() >= 5) {
             zipCode.setText(zipCode.getText().substring(0, 5));

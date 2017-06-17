@@ -1,7 +1,6 @@
 package logic;
 
 import DBHelper.DBHelper;
-import dao.DAOCustomer;
 import dto.courses.Course;
 import dto.courses.PhysicalCourse;
 import dto.customer.Customer;
@@ -16,7 +15,6 @@ import logic.logicInterface.ChangeCustomerData_I;
 
 import java.net.URL;
 import java.sql.Date;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -58,12 +56,12 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
     private String                                  pathToMainWindow            =               "gui/Homepage.fxml";
     private DBHelper                                dbHelper                =       DBHelper.getInstance();
 
-    @Override
+
     public void initialize(URL location, ResourceBundle resources) {
         fillTable();
     }
 
-    @Override
+
     public void fillTable() {
         id.setCellValueFactory(new PropertyValueFactory<>("customerID"));
         firstName.setCellValueFactory(new PropertyValueFactory<>("customer_firstname"));
@@ -81,7 +79,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         }
     }
 
-    @Override
+
     public void fillEditingFormular(Object o) {
         cleanAll(1);
 
@@ -110,14 +108,12 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         }
     }
 
-    @Override
     public boolean check(int tab) {
         return false;
     }
 
     // Buttons
 
-    @Override
     public void addButtonPressed(ActionEvent actionEvent){
         try {
             if (coursesCombobox.getValue() == null) {
@@ -132,7 +128,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         }
     }
 
-    @Override
+
     public void searchButton() {
 
         String search = customerTXT.getText();
@@ -177,7 +173,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
 
     //
 
-    @Override
+
     public void cleanAll(int tab) {
         changeFirstName.clear();
         changeLastName.clear();

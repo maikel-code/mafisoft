@@ -68,14 +68,12 @@ public class CourseList implements Initializable, CourseList_I {
     private DBHelper dbHelper = DBHelper.getInstance();
 
 
-    @Override
     public void initialize(URL location, ResourceBundle resources) {
         fillPhysicalTable();
     }
 
     // Physical
 
-    @Override
     public void fillPhysicalTable() {
         try {
             id.setCellValueFactory(new PropertyValueFactory<>("course_id"));
@@ -89,7 +87,6 @@ public class CourseList implements Initializable, CourseList_I {
         }
     }
 
-    @Override
     public void changePhysicalCourse() {
         physicalCourse.setCourse_name(coursename.getText());
         physicalCourse.setTrainer_name(trainer.getText());
@@ -103,7 +100,6 @@ public class CourseList implements Initializable, CourseList_I {
 
     // Used both
 
-    @Override
     public void searchButton(ActionEvent actionEvent) {
         String buttonsID = ((Button) actionEvent.getSource()).getId();
         String search = null;
@@ -138,7 +134,6 @@ public class CourseList implements Initializable, CourseList_I {
     }
 
 
-    @Override
     public void changeButtonPressed(ActionEvent actionEvent) {
         String buttonsID = ((Button) actionEvent.getSource()).getId();
         try {
@@ -154,7 +149,6 @@ public class CourseList implements Initializable, CourseList_I {
         }
     }
 
-    @Override
     public void mouseOnClick(MouseEvent mouseEvent) {
         String buttonID = ((Button) mouseEvent.getSource()).getId();
         if (mouseEvent.getClickCount() == 2) {
@@ -168,7 +162,6 @@ public class CourseList implements Initializable, CourseList_I {
         }
     }
 
-    @Override
     public void cleanAll(int tab) {
         switch (tab) {
             case 1:
@@ -187,7 +180,6 @@ public class CourseList implements Initializable, CourseList_I {
         }
     }
 
-    @Override
     public void fillChangedTable(Course course) {
         if (course instanceof PhysicalCourse) {
             cleanAll(1);
@@ -208,7 +200,6 @@ public class CourseList implements Initializable, CourseList_I {
 
     // Video
 
-    @Override
     public void fillVideoTable() {
         try {
             vID.setCellValueFactory(new PropertyValueFactory<>("course_id"));
@@ -223,7 +214,6 @@ public class CourseList implements Initializable, CourseList_I {
     }
 
 
-    @Override
     public void changeVideoCourse() {
         videoCourse.setCourse_name(vCourseNameChanged.getText());
         videoCourse.setTrainer_name(vTrainerChanged.getText());

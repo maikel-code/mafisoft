@@ -1,7 +1,6 @@
 package logic;
 
 import DBHelper.DBHelper;
-import dao.DAOCourse;
 import dto.courses.PhysicalCourse;
 import dto.courses.VideoCourse;
 import javafx.event.ActionEvent;
@@ -32,12 +31,12 @@ public class AddCourse implements Initializable, Appendable {
     private String                  pathToMainWindow        =       "gui/Homepage.fxml";
     private DBHelper                dbHelper                =        DBHelper.getInstance();
 
-    @Override
+
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
-    @Override
+
     public boolean check(int tab) {
         switch (tab) {
             case 1:
@@ -54,7 +53,7 @@ public class AddCourse implements Initializable, Appendable {
         return false;
     }
 
-    @Override
+
     public void addButtonPressed(ActionEvent actionEvent) {
         if(check(1)) {
             PhysicalCourse physicalCourse = new PhysicalCourse();
