@@ -1,4 +1,4 @@
-package logic.logicInterface;
+package logic;
 
 import dto.courses.Course;
 import javafx.event.ActionEvent;

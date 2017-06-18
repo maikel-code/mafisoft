@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
-import logic.logicInterface.AddCustomer_I;
 
 import java.net.URL;
 import java.util.Calendar;

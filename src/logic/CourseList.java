@@ -12,7 +12,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.KeyEvent;
-import logic.logicInterface.CourseList_I;
 
 import java.net.URL;
 import java.sql.SQLException;

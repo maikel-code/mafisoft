@@ -1,9 +1,9 @@
-package logic.logicInterface;
+package logic;
 
 import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
 
-public interface ChangeCustomerData_I extends Navigable, Appendable {
+public interface ChangeCustomerData_I extends Navigable {
 
     void changeButtonPressed(ActionEvent actionEvent);
 
@@ -14,4 +14,8 @@ public interface ChangeCustomerData_I extends Navigable, Appendable {
     void cleanAll(int tab);
 
     void searchButton();
+    void deleteSearchButton();
+    boolean check(int tab);
+
+    void addButtonPressed(ActionEvent actionEvent);
 }

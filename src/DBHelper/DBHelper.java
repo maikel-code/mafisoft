@@ -17,10 +17,11 @@ import java.sql.SQLException;
 public class DBHelper implements DAOCustomer_I, DAOCourse_I {
     private static DBHelper         instance;
     private Connection              connection;
-    private DAOCourse               daoCourse       =       new DAOCourse();
-    private DAOCustomer             daoCustomer     =       new DAOCustomer();
+    private DAOCourse_I               daoCourse_i       =       new DAOCourse();
+    private DAOCustomer_I             daoCustomer_i     =       new DAOCustomer();
 
     private DBHelper() {
+              // Exists only to defeat instantiation.
     }
 
     public synchronized static DBHelper getInstance() {
@@ -56,67 +57,67 @@ public class DBHelper implements DAOCustomer_I, DAOCourse_I {
 
     // Customer
     public int addCustomer(Customer dtoCustomer) throws SQLException, ClassNotFoundException  {
-       return daoCustomer.addCustomer(dtoCustomer);
+       return daoCustomer_i.addCustomer(dtoCustomer);
     }
     public void updateCustomer(Customer dtoCustomer) throws SQLException, ClassNotFoundException  {
-        daoCustomer.updateCustomer(dtoCustomer);
+        daoCustomer_i.updateCustomer(dtoCustomer);
     }
     public ObservableList<Customer> searchCustomer(String config, String searchText) throws SQLException, ClassNotFoundException  {
-        return daoCustomer.searchCustomer(config, searchText);
+        return daoCustomer_i.searchCustomer(config, searchText);
     }
     public ObservableList<Customer> getAllCustomer() throws SQLException, ClassNotFoundException  {
-        return daoCustomer.getAllCustomer();
+        return daoCustomer_i.getAllCustomer();
     }
 
 
     // Course
 
     public int addPhysicalCourse(PhysicalCourse physicalCourse) throws SQLException, ClassNotFoundException {
-        return daoCourse.addPhysicalCourse(physicalCourse);
+        return daoCourse_i.addPhysicalCourse(physicalCourse);
     }
 
     public int addVideoCourse(VideoCourse videoCourse) throws SQLException, ClassNotFoundException {
-        return daoCourse.addVideoCourse(videoCourse);
+        return daoCourse_i.addVideoCourse(videoCourse);
     }
 
     public ObservableList<PhysicalCourse> getAllCourse() throws SQLException, ClassNotFoundException {
-        return daoCourse.getAllCourse();
+        return daoCourse_i.getAllCourse();
     }
 
     public ObservableList<PhysicalCourse> searchPhysicalCourse(String searchConfig, String search) throws SQLException, ClassNotFoundException {
-        return daoCourse.searchPhysicalCourse(searchConfig,search);
+        return daoCourse_i.searchPhysicalCourse(searchConfig,search);
     }
 
     public ObservableList<PhysicalCourse> getAllCourseByCustomer(Customer dtoCustomer) throws SQLException, ClassNotFoundException {
-        return daoCourse.getAllCourseByCustomer(dtoCustomer);
+        return daoCourse_i.getAllCourseByCustomer(dtoCustomer);
     }
 
     public ObservableList<PhysicalCourse> getAllAvailabileCourse(Customer dtoCustomer) throws SQLException, ClassNotFoundException {
-        return daoCourse.getAllAvailabileCourse(dtoCustomer);
+        return daoCourse_i.getAllAvailabileCourse(dtoCustomer);
     }
 
     public ObservableList<VideoCourse> searchVideoCourse(String searchConfig, String search) throws SQLException, ClassNotFoundException {
-        return daoCourse.searchVideoCourse(searchConfig, search);
+        return daoCourse_i.searchVideoCourse(searchConfig, search);
     }
 
     public int addCourseToCustomer(Customer dtoCustomer, PhysicalCourse physicalCourse) throws SQLException, ClassNotFoundException {
-        return daoCourse.addCourseToCustomer(dtoCustomer, physicalCourse);
+        return daoCourse_i.addCourseToCustomer(dtoCustomer, physicalCourse);
     }
 
     public void removeCourse(Customer dtoCustomer, PhysicalCourse physicalCourse) throws SQLException, ClassNotFoundException {
-        daoCourse.removeCourse(dtoCustomer, physicalCourse);
+        daoCourse_i.removeCourse(dtoCustomer, physicalCourse);
     }
 
     public void updatePhysicalCourse(PhysicalCourse physicalCourse) throws SQLException, ClassNotFoundException {
-        daoCourse.updatePhysicalCourse(physicalCourse);
+        daoCourse_i.updatePhysicalCourse(physicalCourse);
     }
 
     public void updateVideoCourse(VideoCourse videoCourse) throws SQLException, ClassNotFoundException {
-        daoCourse.updateVideoCourse(videoCourse);
+        daoCourse_i.updateVideoCourse(videoCourse);
     }
 
     public ObservableList<VideoCourse> getAllVideoCourse() throws SQLException, ClassNotFoundException {
-        return daoCourse.getAllVideoCourse();
+        return daoCourse_i.getAllVideoCourse();
     }
 
 }
