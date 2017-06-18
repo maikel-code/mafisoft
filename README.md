@@ -1,5 +1,19 @@
 # MaFiSoft
 
+## Setup
+
+    IDE used: IntelliJ IDEA
+    - Project export to eclipse is added in ".project" & ".classpath" & "mafisoft4.eml" & "mafisoft4.userlibraries"
+    - Java Version 1.8 
+
+    Setup MySql DB with sql Dump. And change DB credentials in DBHelper class
+    Database should be named "mafisoftBD",  but can be changed in DBHelper as well.
+    
+    Make sure the mysql connector is included as a library (version 5.1.40 worked)
+     
+    For running JUnit test the Library´s "Hamcrest" and "junit" should be added
+
+## Description for "SWT2 Praktikum" 
 
 * Logic: 
     1. AddCourse:
