@@ -10,8 +10,6 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Time;
 
-import static com.sun.xml.internal.ws.dump.LoggingDumpTube.Position.Before;
-
 
 public class MafisoftTest {
     private Customer customer;
@@ -47,10 +45,10 @@ public class MafisoftTest {
 
         Customer testCustomer = dbHelper.searchCustomer("ID", id).get(0);
 
-        Assert.assertEquals("max.m@gmail.com", testCustomer.getMail());
-        Assert.assertEquals(12345, testCustomer.getZipCode());
-        Assert.assertEquals("Max", testCustomer.getCustomer_firstname());
-        Assert.assertEquals("Mustermann", testCustomer.getCustomer_lastname());
+        Assert.assertEquals(customer.getMail(), testCustomer.getMail());
+        Assert.assertEquals(customer.getZipCode(), testCustomer.getZipCode());
+        Assert.assertEquals(customer.getCustomer_firstname(), testCustomer.getCustomer_firstname());
+        Assert.assertEquals(customer.getCustomer_lastname(), testCustomer.getCustomer_lastname());
         Assert.assertEquals(new Date(90, 12, 1), testCustomer.getBirthday());
     }
 
@@ -65,8 +63,8 @@ public class MafisoftTest {
 
         PhysicalCourse testCourse = dbHelper.searchPhysicalCourse("id", id).get(0);
 
-        Assert.assertEquals("Best training", testCourse.getCourse_name());
-        Assert.assertEquals("John Cena", testCourse.getTrainer_name());
+        Assert.assertEquals(physicalCourse.getCourse_name(), testCourse.getCourse_name());
+        Assert.assertEquals(physicalCourse.getTrainer_name(), testCourse.getTrainer_name());
         Assert.assertEquals(new Time(14, 0, 0), testCourse.getStartTime());
     }
 
@@ -81,10 +79,10 @@ public class MafisoftTest {
 
         VideoCourse testCourse = dbHelper.searchVideoCourse("id", id).get(0);
 
-        Assert.assertEquals("Best video training", testCourse.getCourse_name());
-        Assert.assertEquals("Undertaker", testCourse.getTrainer_name());
-        Assert.assertEquals("youtube.com", testCourse.getvLink());
-        Assert.assertEquals("The best video course ever\n" + "Undertaker as most popular WWE master", testCourse.getvRemark());
+        Assert.assertEquals(videoCourse.getCourse_name(), testCourse.getCourse_name());
+        Assert.assertEquals(videoCourse.getTrainer_name(), testCourse.getTrainer_name());
+        Assert.assertEquals(videoCourse.getvLink(), testCourse.getvLink());
+        Assert.assertEquals(videoCourse.getvRemark(), testCourse.getvRemark());
     }
 
     @Test
