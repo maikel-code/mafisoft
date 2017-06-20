@@ -11,7 +11,7 @@ public interface ChangeCustomerData_I extends Navigable {
 
     void fillTable();
     void fillEditingFormular(Object o);
-    void cleanAll(int tab);
+    void cleanAll();
 
     void searchButton();
     void deleteSearchButton();

@@ -10,8 +10,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -61,11 +61,11 @@ public class CourseList implements Initializable, CourseList_I {
             vURLChanged;
     @FXML
     private TextArea vRemarkChanged;
-    private String pathToMainWindow = "gui/Homepage.fxml";
-    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
-    private PhysicalCourse physicalCourse = new PhysicalCourse();
-    private VideoCourse videoCourse = new VideoCourse();
-    private static DBHelper dbHelper = DBHelper.getInstance();
+    private String pathToMainWindow                     =       "gui/Homepage.fxml";
+    private SimpleDateFormat simpleDateFormat           =       new SimpleDateFormat("HH:mm");
+    private PhysicalCourse physicalCourse               =       new PhysicalCourse();
+    private VideoCourse videoCourse                     =       new VideoCourse();
+    private static DBHelper dbHelper                    =       DBHelper.getInstance();
 
 
     public void initialize(URL location, ResourceBundle resources) {

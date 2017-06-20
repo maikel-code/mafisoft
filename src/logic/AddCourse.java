@@ -1,7 +1,6 @@
 package logic;
 
 import DBHelper.DBHelper;
-import dao.DAOCourse_I;
 import dto.courses.PhysicalCourse;
 import dto.courses.VideoCourse;
 import javafx.event.ActionEvent;
@@ -30,7 +29,7 @@ public class AddCourse implements Initializable, AddCourse_I {
                                     startTime,
                                     endTime;
     private String                  pathToMainWindow        =       "gui/Homepage.fxml";
-    private static DBHelper                dbHelper                =        DBHelper.getInstance();
+    private static DBHelper         dbHelper                =        DBHelper.getInstance();
 
 
     public void initialize(URL location, ResourceBundle resources) {

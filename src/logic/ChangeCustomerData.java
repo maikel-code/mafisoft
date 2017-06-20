@@ -9,7 +9,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
@@ -102,7 +101,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
 
 
     public void fillEditingFormular(Object o) {
-        cleanAll(1);
+        cleanAll();
 
         Customer customer = (Customer) o;
 
@@ -218,7 +217,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
     //
 
 
-    public void cleanAll(int tab) {
+    public void cleanAll() {
         changeFirstName.clear();
         changeLastName.clear();
         changeMail.clear();

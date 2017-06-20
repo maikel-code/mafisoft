@@ -36,10 +36,10 @@ public class AddCustomer implements Initializable, AddCustomer_I {
     private Label                       orderDate;
 
     private java.sql.Date               currentDate;
+    private Customer                    customer;
     private int                         defaultYear             =           1900;
     private String                      pathToMainWindow        =           "gui/Homepage.fxml";
-    private Customer                    customer;
-    private static DBHelper                    dbHelper                =       DBHelper.getInstance();
+    private static DBHelper             dbHelper                =       DBHelper.getInstance();
 
     public void initialize(URL location, ResourceBundle resources) {
         isChecked();
@@ -50,9 +50,6 @@ public class AddCustomer implements Initializable, AddCustomer_I {
         setCustomer();
         try {
             if (check(0)) {
-               // dbHelper.testAddCusotmer(customer.getCustomer_firstname(), customer.getCustomer_lastname(), customer.getBirthday(),
-                 //       customer.getMail(), customer.getMobilephone(), customer.getZipCode(),
-                   //     customer.getCity(), customer.getStreet(), currentDate, calendarEnd);
                 Integer genID = dbHelper.addCustomer(this.customer);
                 if(genID > 0) {
                     firstNameTXT.setText("");
