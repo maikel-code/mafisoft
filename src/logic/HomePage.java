@@ -1,10 +1,10 @@
-package gui;
+package logic;
 
+import config.R;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import logic.Navigable;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,16 +23,16 @@ public class HomePage implements Initializable, Navigable {
 
         switch (button) {
             case "newCourse":
-                path = "gui/AddCourse.fxml";
+                path = R.Pages.PATH_TO_ADD_COURSE_WINDOW;
                 break;
             case "allCourse":
-                path = "gui/CourseList.fxml";
+                path = R.Pages.PATH_TO_CHANGE_COURSE_WINDOW;
                 break;
             case "newCustomer":
-                path = "gui/AddCustomer.fxml";
+                path = R.Pages.PATH_TO_ADD_CUSTOMER_WINDOW;
                 break;
             case "allCustomer":
-                path = "gui/ChangeCustomerData.fxml";
+                path = R.Pages.PATH_TO_CHANGE_CUSTOMER_WINDOW;
                 break;
         }
 
