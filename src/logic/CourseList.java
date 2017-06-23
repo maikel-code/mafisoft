@@ -1,6 +1,6 @@
 package logic;
 
-import DBHelper.DBHelper;
+import config.R;
 import dto.courses.Course;
 import dto.courses.PhysicalCourse;
 import dto.courses.VideoCourse;
@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import service.CourseService;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -61,11 +62,10 @@ public class CourseList implements Initializable, CourseList_I {
             vURLChanged;
     @FXML
     private TextArea vRemarkChanged;
-    private String pathToMainWindow                     =       "gui/Homepage.fxml";
-    private SimpleDateFormat simpleDateFormat           =       new SimpleDateFormat("HH:mm");
-    private PhysicalCourse physicalCourse               =       new PhysicalCourse();
-    private VideoCourse videoCourse                     =       new VideoCourse();
-    private static DBHelper dbHelper                    =       DBHelper.getInstance();
+    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
+    private PhysicalCourse physicalCourse = new PhysicalCourse();
+    private VideoCourse videoCourse = new VideoCourse();
+    private static CourseService courseService = new CourseService();
 
 
     public void initialize(URL location, ResourceBundle resources) {
@@ -81,8 +81,8 @@ public class CourseList implements Initializable, CourseList_I {
             trainerName.setCellValueFactory(new PropertyValueFactory<>("trainer_name"));
             timeBegin.setCellValueFactory(new PropertyValueFactory<>("startTime"));
             timeEnd.setCellValueFactory(new PropertyValueFactory<>("endTime"));
-            courseTable.setItems(dbHelper.getAllCourse());
-        } catch (SQLException | ClassNotFoundException e) {
+            courseTable.setItems(courseService.getAllCourse());
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -118,10 +118,10 @@ public class CourseList implements Initializable, CourseList_I {
             }
 
             if (buttonsID.equals("physical")) {
-                ObservableList<PhysicalCourse> filteredCourse = dbHelper.searchPhysicalCourse(searchConfig, search);
+                ObservableList<PhysicalCourse> filteredCourse = courseService.searchPhysicalCourse(searchConfig, search);
                 courseTable.setItems(filteredCourse);
             } else if (buttonsID.equals("video")) {
-                ObservableList<VideoCourse> filteredCourse = dbHelper.searchVideoCourse(searchConfig, search);
+                ObservableList<VideoCourse> filteredCourse = courseService.searchVideoCourse(searchConfig, search);
                 vCourseTable.setItems(filteredCourse);
             }
 
@@ -138,10 +138,10 @@ public class CourseList implements Initializable, CourseList_I {
         try {
             String buttonsID = ((Button) actionEvent.getSource()).getId();
             if (buttonsID.equals("physical")) {
-                courseTable.setItems(dbHelper.getAllCourse());
+                courseTable.setItems(courseService.getAllCourse());
                 search.setText("");
             } else if (buttonsID.equals("video")) {
-                vCourseTable.setItems(dbHelper.getAllVideoCourse());
+                vCourseTable.setItems(courseService.getAllVideoCourse());
                 vSearch.setText("");
             }
         } catch (Exception e) {
@@ -155,12 +155,12 @@ public class CourseList implements Initializable, CourseList_I {
         try {
             if (buttonsID.equals("physical")) {
                 changePhysicalCourse();
-                dbHelper.updatePhysicalCourse(physicalCourse);
+                courseService.updatePhysicalCourse(physicalCourse);
             } else if (buttonsID.equals("video")) {
                 changeVideoCourse();
-                dbHelper.updateVideoCourse(videoCourse);
+                courseService.updateVideoCourse(videoCourse);
             }
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -223,8 +223,8 @@ public class CourseList implements Initializable, CourseList_I {
             vTrainerName.setCellValueFactory(new PropertyValueFactory<>("trainer_name"));
             vURL.setCellValueFactory(new PropertyValueFactory<>("vLink"));
             vRemark.setCellValueFactory(new PropertyValueFactory<>("vRemark"));
-            vCourseTable.setItems(dbHelper.getAllVideoCourse());
-        } catch (SQLException | ClassNotFoundException e) {
+            vCourseTable.setItems(courseService.getAllVideoCourse());
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -239,7 +239,7 @@ public class CourseList implements Initializable, CourseList_I {
 
     @FXML
     private void goToMainWindow(ActionEvent actionEvent) {
-        goToScene(actionEvent, pathToMainWindow);
+        goToScene(actionEvent, R.Home.PATH_TO_MAINWINDOW);
     }
 
 }

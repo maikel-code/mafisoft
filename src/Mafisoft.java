@@ -1,3 +1,4 @@
+import config.R;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,7 +13,7 @@ public class Mafisoft extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("gui/Homepage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource(R.Home.PATH_TO_MAINWINDOW));
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }

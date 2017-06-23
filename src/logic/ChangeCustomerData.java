@@ -1,6 +1,6 @@
 package logic;
 
-import DBHelper.DBHelper;
+import config.R;
 import dto.courses.Course;
 import dto.courses.PhysicalCourse;
 import dto.customer.Customer;
@@ -12,6 +12,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
+import service.CourseService;
+import service.CustomerService;
 
 import java.net.URL;
 import java.sql.Date;
@@ -20,42 +22,41 @@ import java.util.ResourceBundle;
 
 public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
     @FXML
-    private TextField                               changeFirstName,
-                                                    changeLastName,
-                                                    changeMail,
-                                                    changePhonenummer,
-                                                    changeCity,
-                                                    changeStreet,
-                                                    customerTXT,
-                                                    customerID;
+    private TextField changeFirstName,
+            changeLastName,
+            changeMail,
+            changePhonenummer,
+            changeCity,
+            changeStreet,
+            customerTXT,
+            customerID;
     @FXML
-    private ComboBox<PhysicalCourse>                coursesCombobox;
+    private ComboBox<PhysicalCourse> coursesCombobox;
     @FXML
-    private TextField                               changeZipcode;
+    private TextField changeZipcode;
     @FXML
-    private TableView<Customer>                     customerTable;
+    private TableView<Customer> customerTable;
     @FXML
-    private TableView<PhysicalCourse>                       customerCourseTable;
+    private TableView<PhysicalCourse> customerCourseTable;
     @FXML
-    private TableColumn<Customer, Integer>          id;
+    private TableColumn<Customer, Integer> id;
     @FXML
-    private TableColumn<Customer, String>           firstName;
+    private TableColumn<Customer, String> firstName;
     @FXML
-    private TableColumn<Customer, String>           lastName;
+    private TableColumn<Customer, String> lastName;
     @FXML
-    private TableColumn<Customer, Date>             birthday;
+    private TableColumn<Customer, Date> birthday;
     @FXML
-    private TableColumn<Customer, String>           mail;
+    private TableColumn<Customer, String> mail;
     @FXML
-    private TableColumn<Customer, String>           phonenummer;
+    private TableColumn<Customer, String> phonenummer;
     @FXML
-    private TableColumn<Customer, String>           address;
+    private TableColumn<Customer, String> address;
     @FXML
-    private TableColumn<Course, String>             customerCourseList;
-    private ObservableList<PhysicalCourse>                  allCourses;
-    private String                                  pathToMainWindow            =               "gui/Homepage.fxml";
-    private static DBHelper                                dbHelper                =       DBHelper.getInstance();
-    private Customer                                editingCustomer = null;
+    private TableColumn<Course, String> customerCourseList;
+    private static CustomerService customerService = new CustomerService();
+    private static CourseService courseService = new CourseService();
+    private Customer editingCustomer = null;
 
 
     public void initialize(URL location, ResourceBundle resources) {
@@ -66,11 +67,11 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
             @Override
             public ListCell<PhysicalCourse> call(ListView<PhysicalCourse> param) {
 
-                return new ListCell<PhysicalCourse>(){
+                return new ListCell<PhysicalCourse>() {
                     @Override
-                    public void updateItem(PhysicalCourse oneCourse, boolean empty){
+                    public void updateItem(PhysicalCourse oneCourse, boolean empty) {
                         super.updateItem(oneCourse, empty);
-                        if(!empty) {
+                        if (!empty) {
                             setText(oneCourse.getCourse_name() + " ID:" + oneCourse.getId());
                             setGraphic(null);
                         }
@@ -93,8 +94,8 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         address.setCellValueFactory(new PropertyValueFactory<>("city"));
         address.setCellValueFactory(new PropertyValueFactory<>("street"));
         try {
-            customerTable.setItems(dbHelper.getAllCustomer());
-        } catch (SQLException | ClassNotFoundException e) {
+            customerTable.setItems(customerService.getAllCustomer());
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -112,20 +113,22 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         changeCity.setText(customer.getCity());
         changeStreet.setText(customer.getStreet());
 
+        ObservableList<PhysicalCourse> allCourses;
         try {
-            allCourses = dbHelper.getAllAvailabileCourse(customer);
-            customerCourseTable.setItems(dbHelper.getAllCourseByCustomer(customer));
+            allCourses = courseService.getAllAvailabileCourse(customer);
+            customerCourseTable.setItems(courseService.getAllCourseByCustomer(customer));
             customerCourseList.setCellValueFactory(new PropertyValueFactory<>("course_name"));
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
 
-        if(coursesCombobox != null) {
-            coursesCombobox.getItems().clear();
 
-            for (PhysicalCourse oneCourse : allCourses) {
-                coursesCombobox.getItems().add(oneCourse);
+            if (coursesCombobox != null) {
+                coursesCombobox.getItems().clear();
+
+                for (PhysicalCourse oneCourse : allCourses) {
+                    coursesCombobox.getItems().add(oneCourse);
+                }
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
@@ -135,14 +138,14 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
 
     // Buttons
 
-    public void addButtonPressed(ActionEvent actionEvent){
+    public void addButtonPressed(ActionEvent actionEvent) {
         try {
             if (coursesCombobox.getValue() == null) {
                 return;
             }
             //String[] parts = coursesCombobox.getValue().split("ID:");
             // TODO: Add provide Objects not strings
-            dbHelper.addCourseToCustomer(editingCustomer, coursesCombobox.getValue());
+            courseService.addCourseToCustomer(editingCustomer, coursesCombobox.getValue());
             fillEditingFormular(customerTable.getSelectionModel().getSelectedItem());
         } catch (Exception e) {
             e.printStackTrace();
@@ -154,9 +157,9 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         if (customerCourseTable.getSelectionModel().getSelectedItem() != null) {
             PhysicalCourse course = customerCourseTable.getSelectionModel().getSelectedItem();
             try {
-                dbHelper.removeCourse(editingCustomer, course);
+                courseService.removeCourse(editingCustomer, course);
                 fillEditingFormular(customerTable.getSelectionModel().getSelectedItem());
-            } catch (SQLException | ClassNotFoundException e) {
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
@@ -170,9 +173,9 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
             ObservableList<Customer> filteredCustomerList;
 
             if (search.matches("\\b\\d+\\b")) {
-                filteredCustomerList = dbHelper.searchCustomer("ID", search);
+                filteredCustomerList = customerService.searchCustomer("ID", search);
             } else {
-                filteredCustomerList = dbHelper.searchCustomer("name", search);
+                filteredCustomerList = customerService.searchCustomer("name", search);
             }
             customerTable.setItems(filteredCustomerList);
             /*if (rs != null && rs.next()) {
@@ -188,7 +191,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
 
     public void deleteSearchButton() {
         try {
-            customerTable.setItems(dbHelper.getAllCustomer());
+            customerTable.setItems(customerService.getAllCustomer());
             customerTXT.setText("");
         } catch (Exception e) {
             e.printStackTrace();
@@ -207,7 +210,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
             dtoCustomer.setCity(changeCity.getText());
             dtoCustomer.setStreet(changeCity.getText());
 
-            dbHelper.updateCustomer(dtoCustomer);
+            customerService.updateCustomer(dtoCustomer);
             fillTable();
         } catch (Exception e) {
             e.printStackTrace();
@@ -230,15 +233,15 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
 
 
     public void mouseOnClick(MouseEvent mouseEvent) {
-            if (mouseEvent.getClickCount() == 1) {
-                editingCustomer = customerTable.getSelectionModel().getSelectedItem();
-                fillEditingFormular(editingCustomer);
+        if (mouseEvent.getClickCount() == 1) {
+            editingCustomer = customerTable.getSelectionModel().getSelectedItem();
+            fillEditingFormular(editingCustomer);
         }
     }
 
     @FXML
     private void goToMainWindow(ActionEvent actionEvent) {
-        goToScene(actionEvent, pathToMainWindow);
+        goToScene(actionEvent, R.Home.PATH_TO_MAINWINDOW);
     }
 
 }

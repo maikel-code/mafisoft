@@ -1,10 +1,13 @@
-import DBHelper.DBHelper;
+package tests;
+
 import dto.courses.PhysicalCourse;
 import dto.courses.VideoCourse;
 import dto.customer.Customer;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import service.CourseService;
+import service.CustomerService;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -15,7 +18,8 @@ public class MafisoftTest {
     private Customer customer;
     private PhysicalCourse physicalCourse;
     private VideoCourse videoCourse;
-    private DBHelper dbHelper;
+    private CourseService courseService;
+    private CustomerService customerService;
 
     public MafisoftTest() {
     }
@@ -23,9 +27,10 @@ public class MafisoftTest {
     @Before
     public void initialize() {
         customer = new Customer();
-        dbHelper = DBHelper.getInstance();
         videoCourse = new VideoCourse();
         physicalCourse = new PhysicalCourse();
+        courseService = new CourseService();
+        customerService = new CustomerService();
     }
 
     @Test
@@ -41,9 +46,9 @@ public class MafisoftTest {
         customer.setStreet("BestStreet 1");
         customer.setEndDate(new Date(118, 9, 1));
 
-        String id = dbHelper.addCustomer(customer) + "";
+        String id = customerService.addCustomer(customer) + "";
 
-        Customer testCustomer = dbHelper.searchCustomer("ID", id).get(0);
+        Customer testCustomer = customerService.searchCustomer("ID", id).get(0);
 
         Assert.assertEquals(customer.getMail(), testCustomer.getMail());
         Assert.assertEquals(customer.getZipCode(), testCustomer.getZipCode());
@@ -59,13 +64,13 @@ public class MafisoftTest {
         physicalCourse.setStartTime(new Time(14, 0, 0));
         physicalCourse.setEndTime(new Time(16, 0, 0));
 
-        String id = dbHelper.addPhysicalCourse(physicalCourse) + "";
+        String id = courseService.addPhysicalCourse(physicalCourse) + "";
 
-        PhysicalCourse testCourse = dbHelper.searchPhysicalCourse("id", id).get(0);
+        PhysicalCourse testCourse = courseService.searchPhysicalCourse("id", id).get(0);
 
         Assert.assertEquals(physicalCourse.getCourse_name(), testCourse.getCourse_name());
         Assert.assertEquals(physicalCourse.getTrainer_name(), testCourse.getTrainer_name());
-        Assert.assertEquals(new Time(14, 0, 0), testCourse.getStartTime());
+        Assert.assertEquals(physicalCourse.getStartTime(), testCourse.getStartTime());
     }
 
     @Test
@@ -75,9 +80,9 @@ public class MafisoftTest {
         videoCourse.setvLink("youtube.com");
         videoCourse.setvRemark("The best video course ever\n" + "Undertaker as most popular WWE master");
 
-        String id = dbHelper.addVideoCourse(videoCourse) + "";
+        String id = courseService.addVideoCourse(videoCourse) + "";
 
-        VideoCourse testCourse = dbHelper.searchVideoCourse("id", id).get(0);
+        VideoCourse testCourse = courseService.searchVideoCourse("id", id).get(0);
 
         Assert.assertEquals(videoCourse.getCourse_name(), testCourse.getCourse_name());
         Assert.assertEquals(videoCourse.getTrainer_name(), testCourse.getTrainer_name());
@@ -87,17 +92,17 @@ public class MafisoftTest {
 
     @Test
     public void testRemovePCourseFromCustomer() throws SQLException, ClassNotFoundException {
-        customer = dbHelper.getAllCustomer().get(0);
-        physicalCourse = dbHelper.getAllCourse().get(0);
-        dbHelper.addCourseToCustomer(customer, physicalCourse);
+        customer = customerService.getAllCustomer().get(0);
+        physicalCourse = courseService.getAllCourse().get(0);
+        courseService.addCourseToCustomer(customer, physicalCourse);
 
-        int size = dbHelper.getAllCourseByCustomer(customer).size();
+        int size = courseService.getAllCourseByCustomer(customer).size();
 
         Assert.assertNotNull(size);
 
-        dbHelper.removeCourse(customer, physicalCourse);
+        courseService.removeCourse(customer, physicalCourse);
 
-        int sizeAfterRemove = dbHelper.getAllCourseByCustomer(customer).size();
+        int sizeAfterRemove = courseService.getAllCourseByCustomer(customer).size();
 
         Assert.assertNotEquals(size, sizeAfterRemove);
 

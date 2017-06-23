@@ -1,6 +1,6 @@
 package logic;
 
-import DBHelper.DBHelper;
+import config.R;
 import dto.customer.Customer;
 import dto.zipCode.NumberTextField;
 import javafx.event.ActionEvent;
@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
+import service.CustomerService;
 
 import java.net.URL;
 import java.util.Calendar;
@@ -16,30 +17,29 @@ import java.util.ResourceBundle;
 
 public class AddCustomer implements Initializable, AddCustomer_I {
     @FXML
-    private TextField                   firstNameTXT,
-                                        lastNameTXT,
-                                        mailTXT,
-                                        phoneNumberTXT,
-                                        streetTXT,
-                                        city;
+    private TextField firstNameTXT,
+            lastNameTXT,
+            mailTXT,
+            phoneNumberTXT,
+            streetTXT,
+            city;
     @FXML
-    private DatePicker                  birthdayTXT;
+    private DatePicker birthdayTXT;
     @FXML
-    private NumberTextField             zipCode;
+    private NumberTextField zipCode;
     @FXML
-    private ComboBox<String>            period;
+    private ComboBox<String> period;
     @FXML
-    private CheckBox                    now_checkBox;
+    private CheckBox now_checkBox;
     @FXML
-    private DatePicker                  newDate;
+    private DatePicker newDate;
     @FXML
-    private Label                       orderDate;
+    private Label orderDate;
 
-    private java.sql.Date               currentDate;
-    private Customer                    customer;
-    private int                         defaultYear             =           1900;
-    private String                      pathToMainWindow        =           "gui/Homepage.fxml";
-    private static DBHelper             dbHelper                =       DBHelper.getInstance();
+    private java.sql.Date currentDate;
+    private Customer customer;
+    private int defaultYear = 1900;
+    private static CustomerService customerService = new CustomerService();
 
     public void initialize(URL location, ResourceBundle resources) {
         isChecked();
@@ -50,8 +50,8 @@ public class AddCustomer implements Initializable, AddCustomer_I {
         setCustomer();
         try {
             if (check(0)) {
-                Integer genID = dbHelper.addCustomer(this.customer);
-                if(genID > 0) {
+                Integer genID = customerService.addCustomer(this.customer);
+                if (genID > 0) {
                     firstNameTXT.setText("");
                     lastNameTXT.setText("");
                     birthdayTXT.setValue(null);
@@ -132,7 +132,7 @@ public class AddCustomer implements Initializable, AddCustomer_I {
 
     @FXML
     private void goToMainWindow(ActionEvent actionEvent) {
-        goToScene(actionEvent, pathToMainWindow);
+        goToScene(actionEvent, R.Home.PATH_TO_MAINWINDOW);
     }
 
     public void cleanAll() {

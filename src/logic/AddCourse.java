@@ -1,6 +1,6 @@
 package logic;
 
-import DBHelper.DBHelper;
+import config.R;
 import dto.courses.PhysicalCourse;
 import dto.courses.VideoCourse;
 import javafx.event.ActionEvent;
@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import service.CourseService;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -18,18 +19,17 @@ import java.util.ResourceBundle;
 public class AddCourse implements Initializable, AddCourse_I {
 
     @FXML
-    private TextField               vCourseName,
-                                    vTrainerName,
-                                    vLink;
+    private TextField vCourseName,
+            vTrainerName,
+            vLink;
     @FXML
-    private TextArea                vRemark;
+    private TextArea vRemark;
     @FXML
-    private TextField               courseName,
-                                    trainer,
-                                    startTime,
-                                    endTime;
-    private String                  pathToMainWindow        =       "gui/Homepage.fxml";
-    private static DBHelper         dbHelper                =        DBHelper.getInstance();
+    private TextField courseName,
+            trainer,
+            startTime,
+            endTime;
+    private static CourseService courseService = new CourseService();
 
 
     public void initialize(URL location, ResourceBundle resources) {
@@ -55,13 +55,13 @@ public class AddCourse implements Initializable, AddCourse_I {
 
 
     public void addButtonPressed(ActionEvent actionEvent) {
-        if(check(1)) {
+        if (check(1)) {
             PhysicalCourse physicalCourse = new PhysicalCourse();
             physicalCourse.setCourse_name(courseName.getText());
             physicalCourse.setTrainer_name(trainer.getText());
             String[] startSplitted = startTime.getText().split("\\p{Punct}");
             String[] endSplitted = endTime.getText().split("\\p{Punct}");
-            if(startSplitted.length <= 1 ||  endSplitted.length <= 1) {
+            if (startSplitted.length <= 1 || endSplitted.length <= 1) {
                 Alert alert = new Alert(Alert.AlertType.ERROR, "Fehlerhafte startzeit angegeben");
                 alert.setHeaderText(null);
                 alert.show();
@@ -75,8 +75,8 @@ public class AddCourse implements Initializable, AddCourse_I {
                 physicalCourse.setEndTime(new Time(timeHH, timeMM, 0));
             }
             try {
-                Integer genID = dbHelper.addPhysicalCourse(physicalCourse);
-                if(genID > 0) {
+                Integer genID = courseService.addPhysicalCourse(physicalCourse);
+                if (genID > 0) {
                     courseName.setText("");
                     trainer.setText("");
                     startTime.setText("");
@@ -85,18 +85,18 @@ public class AddCourse implements Initializable, AddCourse_I {
                     alert.setHeaderText(null);
                     alert.show();
                 }
-            } catch (SQLException | ClassNotFoundException e) {
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
-        } else if(check(2)){
+        } else if (check(2)) {
             VideoCourse videoCourse = new VideoCourse();
             videoCourse.setCourse_name(vCourseName.getText());
             videoCourse.setTrainer_name(vTrainerName.getText());
             videoCourse.setvLink(vLink.getText());
             videoCourse.setvRemark(vRemark.getText());
             try {
-                Integer genID = dbHelper.addVideoCourse(videoCourse);
-                if(genID > 0) {
+                Integer genID = courseService.addVideoCourse(videoCourse);
+                if (genID > 0) {
                     vCourseName.setText("");
                     vTrainerName.setText("");
                     vLink.setText("");
@@ -105,7 +105,7 @@ public class AddCourse implements Initializable, AddCourse_I {
                     alert.setHeaderText(null);
                     alert.show();
                 }
-            } catch (SQLException | ClassNotFoundException e) {
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
@@ -113,7 +113,7 @@ public class AddCourse implements Initializable, AddCourse_I {
 
     @FXML
     private void goToMainWindow(ActionEvent actionEvent) {
-        goToScene(actionEvent, pathToMainWindow);
+        goToScene(actionEvent, R.Home.PATH_TO_MAINWINDOW);
     }
 
 }
