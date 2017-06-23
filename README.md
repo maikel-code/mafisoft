@@ -48,7 +48,7 @@
         
 * JUnit Test
    
-        Located in "src/MafisoftTest", Following is tested
+        Located in "src/tests.MafisoftTest", Following is tested
         - Add Customer and check if stored in Database
         - Add Physical Course and check if stored in Database
         - Add Video Course and check if stored in Database
