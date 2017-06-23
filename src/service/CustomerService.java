@@ -39,13 +39,6 @@ public class CustomerService implements CustomerDAO {
             }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-        } finally {
-            if (preparedStatement != null) {
-                preparedStatement.close();
-            }
-            if (connection != null) {
-                connection.close();
-            }
         }
         return id;
     }
@@ -71,14 +64,6 @@ public class CustomerService implements CustomerDAO {
             preparedStatement.executeUpdate();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-        } finally {
-            if (preparedStatement != null) {
-                preparedStatement.close();
-            }
-
-            if (connection != null) {
-                connection.close();
-            }
         }
     }
 
@@ -111,14 +96,6 @@ public class CustomerService implements CustomerDAO {
             }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-        } finally {
-            if (preparedStatement != null) {
-                preparedStatement.close();
-            }
-
-            if (connection != null) {
-                connection.close();
-            }
         }
         return row;
     }
@@ -141,14 +118,6 @@ public class CustomerService implements CustomerDAO {
             }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-        } finally {
-            if (preparedStatement != null) {
-                preparedStatement.close();
-            }
-
-            if (connection != null) {
-                connection.close();
-            }
         }
 
         return row;

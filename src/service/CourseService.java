@@ -33,13 +33,6 @@ public class CourseService implements CourseDAO {
             }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-        } finally {
-            if (preparedStatement != null) {
-                preparedStatement.close();
-            }
-            if (connection != null) {
-                connection.close();
-            }
         }
         return row;
     }
@@ -71,14 +64,6 @@ public class CourseService implements CourseDAO {
             }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-        } finally {
-            if (preparedStatement != null) {
-                preparedStatement.close();
-            }
-
-            if (connection != null) {
-                connection.close();
-            }
         }
         return id;
     }
@@ -99,14 +84,6 @@ public class CourseService implements CourseDAO {
             preparedStatement.executeUpdate();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-        } finally {
-            if (preparedStatement != null) {
-                preparedStatement.close();
-            }
-
-            if (connection != null) {
-                connection.close();
-            }
         }
     }
 
@@ -140,14 +117,6 @@ public class CourseService implements CourseDAO {
             }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-        } finally {
-            if (preparedStatement != null) {
-                preparedStatement.close();
-            }
-
-            if (connection != null) {
-                connection.close();
-            }
         }
         return row;
 
@@ -168,14 +137,6 @@ public class CourseService implements CourseDAO {
             }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-        } finally {
-            if (preparedStatement != null) {
-                preparedStatement.close();
-            }
-
-            if (connection != null) {
-                connection.close();
-            }
         }
         return row;
     }
@@ -198,14 +159,6 @@ public class CourseService implements CourseDAO {
             }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-        } finally {
-            if (preparedStatement != null) {
-                preparedStatement.close();
-            }
-
-            if (connection != null) {
-                connection.close();
-            }
         }
 
         return row;
@@ -229,14 +182,6 @@ public class CourseService implements CourseDAO {
             }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-        } finally {
-            if (preparedStatement != null) {
-                preparedStatement.close();
-            }
-
-            if (connection != null) {
-                connection.close();
-            }
         }
         return id;
     }
@@ -254,14 +199,6 @@ public class CourseService implements CourseDAO {
             preparedStatement.executeLargeUpdate();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-        } finally {
-            if (preparedStatement != null) {
-                preparedStatement.close();
-            }
-
-            if (connection != null) {
-                connection.close();
-            }
         }
     }
 
@@ -287,14 +224,6 @@ public class CourseService implements CourseDAO {
             }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-        } finally {
-            if (preparedStatement != null) {
-                preparedStatement.close();
-            }
-
-            if (connection != null) {
-                connection.close();
-            }
         }
         return id;
     }
@@ -315,14 +244,6 @@ public class CourseService implements CourseDAO {
             preparedStatement.executeUpdate();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-        } finally {
-            if (preparedStatement != null) {
-                preparedStatement.close();
-            }
-
-            if (connection != null) {
-                connection.close();
-            }
         }
 
     }
@@ -355,14 +276,6 @@ public class CourseService implements CourseDAO {
             }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-        } finally {
-            if (preparedStatement != null) {
-                preparedStatement.close();
-            }
-
-            if (connection != null) {
-                connection.close();
-            }
         }
         return videoCourseList;
     }
@@ -384,16 +297,7 @@ public class CourseService implements CourseDAO {
             }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-        } finally {
-            if (preparedStatement != null) {
-                preparedStatement.close();
-            }
-
-            if (connection != null) {
-                connection.close();
-            }
         }
-
         return videoCourseList;
     }
 
