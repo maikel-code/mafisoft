@@ -13,7 +13,7 @@ public class Mafisoft extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource(R.Home.PATH_TO_MAINWINDOW));
+        Parent root = FXMLLoader.load(getClass().getResource(R.Pages.PATH_TO_MAIN_WINDOW));
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }

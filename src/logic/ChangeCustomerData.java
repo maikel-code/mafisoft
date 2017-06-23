@@ -241,7 +241,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
 
     @FXML
     private void goToMainWindow(ActionEvent actionEvent) {
-        goToScene(actionEvent, R.Home.PATH_TO_MAINWINDOW);
+        goToScene(actionEvent, R.Pages.PATH_TO_MAIN_WINDOW);
     }
 
 }
