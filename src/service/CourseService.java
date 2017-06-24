@@ -318,8 +318,8 @@ public class CourseService implements CourseDAO {
         PhysicalCourse dtoCourse = new PhysicalCourse();
 
         dtoCourse.setId(rs.getInt("course_id"));
-        dtoCourse.setCourseName(rs.getString("courseName"));
-        dtoCourse.setTrainerName(rs.getString("trainerName"));
+        dtoCourse.setCourseName(rs.getString("course_name"));
+        dtoCourse.setTrainerName(rs.getString("trainer_name"));
         dtoCourse.setStartTime(rs.getTime("start"));
         dtoCourse.setEndTime(rs.getTime("end"));
 
