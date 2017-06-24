@@ -56,9 +56,9 @@
          
 * DAO / DTO Pattern
 
-        Located in package "dao"
-        DAOCourse -> All related Course DB operations
-        DAOCustomer -> All related Customer DB operations
+        Located in package "dao", "service"
+        CourseDAO -> All related Course DB operations
+        CustomerDAO -> All related Customer DB operations
         
         
 * Singleton pattern
