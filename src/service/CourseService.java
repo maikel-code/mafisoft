@@ -94,6 +94,7 @@ public class CourseService implements CourseDAO {
         ResultSet rs;
         try {
             Class.forName(R.DB.DB_DRIVER);
+            connection = dbHelper.getConnection();
             switch (searchConfig) {
                 case "id":
                 case "ID":
