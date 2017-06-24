@@ -107,7 +107,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
 
         Customer customer = (Customer) o;
 
-        columnId.setText(customer.getId() + "");
+        id.setText(customer.getId() + "");
         firstName.setText(customer.getFirstname());
         lastName.setText(customer.getLastname());
         changeZipcode.setText(customer.getZipCode() + "");
