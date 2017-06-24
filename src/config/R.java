@@ -6,7 +6,7 @@ package config;
 
 public class R {
     public static class Log {
-        public static final String LOG_PROPERTIES_FILE = "logs/log.properties";
+        public static final String LOG_PROPERTIES_FILE = "log/log.properties";
     }
 
     public static class DB {
