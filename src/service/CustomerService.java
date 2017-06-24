@@ -6,11 +6,13 @@ import dao.CustomerDAO;
 import dto.customer.Customer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
 
 public class CustomerService implements CustomerDAO {
     private static DBHelper dbHelper = DBHelper.getInstance();
+    private Logger log = Logger.getLogger(this.getClass());
 
     public int addCustomer(Customer customer) throws SQLException {
         PreparedStatement preparedStatement = null;
@@ -38,7 +40,7 @@ public class CustomerService implements CustomerDAO {
                 id = rs.getInt(1);
             }
         } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
+            log.error(e.getLocalizedMessage());
         }
         return id;
     }
@@ -63,7 +65,7 @@ public class CustomerService implements CustomerDAO {
             preparedStatement.setString(7, customer.getStreet());
             preparedStatement.executeUpdate();
         } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
+            log.error(e.getLocalizedMessage());
         }
     }
 
@@ -95,9 +97,24 @@ public class CustomerService implements CustomerDAO {
                 row.add(this.createCustomerFromRow(rs));
             }
         } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
+            log.error(e.getLocalizedMessage());
         }
         return row;
+    }
+
+    public void removeCustomerById(int id) {
+        PreparedStatement preparedStatement = null;
+        Connection connection = null;
+        try {
+            Class.forName(R.DB.DB_DRIVER);
+            connection = dbHelper.getConnection();
+            preparedStatement = connection.prepareStatement("SELECT customer.* FROM customer WHERE customer_id=?");
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException | ClassNotFoundException e) {
+            log.error(e.getLocalizedMessage());
+        }
+
     }
 
     public ObservableList<Customer> getAllCustomer() throws SQLException {
@@ -117,7 +134,7 @@ public class CustomerService implements CustomerDAO {
                 row.add(this.createCustomerFromRow(rs));
             }
         } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
+            log.error(e.getLocalizedMessage());
         }
 
         return row;

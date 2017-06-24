@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import org.apache.log4j.Logger;
 import service.CourseService;
 
 import java.net.URL;
@@ -30,7 +31,7 @@ public class AddCourse implements Initializable, AddCourse_I {
             startTime,
             endTime;
     private static CourseService courseService = new CourseService();
-
+    private Logger log = Logger.getLogger(this.getClass());
 
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -86,7 +87,7 @@ public class AddCourse implements Initializable, AddCourse_I {
                     alert.show();
                 }
             } catch (SQLException e) {
-                e.printStackTrace();
+                log.error(e.getLocalizedMessage());
             }
         } else if (check(2)) {
             VideoCourse videoCourse = new VideoCourse();
@@ -106,7 +107,7 @@ public class AddCourse implements Initializable, AddCourse_I {
                     alert.show();
                 }
             } catch (SQLException e) {
-                e.printStackTrace();
+                log.error(e.getLocalizedMessage());
             }
         }
     }

@@ -5,8 +5,8 @@ import javafx.beans.property.*;
 import java.sql.Time;
 
 public class PhysicalCourse extends Course {
-    private SimpleObjectProperty<Time>              startTime;
-    private SimpleObjectProperty<Time>              endTime;
+    private SimpleObjectProperty<Time> startTime;
+    private SimpleObjectProperty<Time> endTime;
 
     public PhysicalCourse() {
         this.id = new SimpleIntegerProperty();

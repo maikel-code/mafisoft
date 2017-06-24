@@ -22,9 +22,9 @@ public interface CourseDAO {
 
     ObservableList<PhysicalCourse> getAllAvailabileCourse(Customer dtoCustomer) throws SQLException;
 
-    int addCourseToCustomer(Customer dtoCustomer, PhysicalCourse dtoCourse) throws SQLException;
+    void addCourseToCustomer(Customer dtoCustomer, PhysicalCourse dtoCourse) throws SQLException;
 
-    void removeCourse(Customer dtoCustomer, PhysicalCourse dtoCourse) throws SQLException;
+    void removeCourseByCustomer(Customer dtoCustomer, PhysicalCourse dtoCourse) throws SQLException;
 
     int addVideoCourse(VideoCourse dtoVideoCourse) throws SQLException;
 

@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
+import org.apache.log4j.Logger;
 import service.CustomerService;
 
 import java.net.URL;
@@ -40,6 +41,7 @@ public class AddCustomer implements Initializable, AddCustomer_I {
     private Customer customer;
     private int defaultYear = 1900;
     private static CustomerService customerService = new CustomerService();
+    private Logger log = Logger.getLogger(this.getClass());
 
     public void initialize(URL location, ResourceBundle resources) {
         isChecked();
@@ -71,6 +73,7 @@ public class AddCustomer implements Initializable, AddCustomer_I {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Fehler");
             alert.setHeaderText(null);
             alert.show();
+            log.error(e.getLocalizedMessage());
         }
     }
 

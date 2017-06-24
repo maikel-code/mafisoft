@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import org.apache.log4j.Logger;
 import service.CourseService;
 
 import java.net.URL;
@@ -66,6 +67,7 @@ public class CourseList implements Initializable, CourseList_I {
     private PhysicalCourse physicalCourse = new PhysicalCourse();
     private VideoCourse videoCourse = new VideoCourse();
     private static CourseService courseService = new CourseService();
+    private Logger log = Logger.getLogger(this.getClass());
 
 
     public void initialize(URL location, ResourceBundle resources) {
@@ -76,14 +78,14 @@ public class CourseList implements Initializable, CourseList_I {
 
     public void fillPhysicalTable() {
         try {
-            columnId.setCellValueFactory(new PropertyValueFactory<>("columnId"));
-            columnCourseName.setCellValueFactory(new PropertyValueFactory<>("columnCourseName"));
-            columnTrainerName.setCellValueFactory(new PropertyValueFactory<>("columnTrainerName"));
+            columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
+            columnCourseName.setCellValueFactory(new PropertyValueFactory<>("courseName"));
+            columnTrainerName.setCellValueFactory(new PropertyValueFactory<>("trainerName"));
             columnTimeBegin.setCellValueFactory(new PropertyValueFactory<>("startTime"));
             columnTimeEnd.setCellValueFactory(new PropertyValueFactory<>("endTime"));
             courseTable.setItems(courseService.getAllCourse());
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error(e.getLocalizedMessage());
         }
     }
 
@@ -129,6 +131,7 @@ public class CourseList implements Initializable, CourseList_I {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Kurs " + search + " nicht gefunden");
             alert.setHeaderText(null);
             alert.show();
+            log.error(e.getLocalizedMessage());
         }
 
     }
@@ -145,7 +148,7 @@ public class CourseList implements Initializable, CourseList_I {
                 vSearch.setText("");
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e.getLocalizedMessage());
         }
     }
 
@@ -161,7 +164,7 @@ public class CourseList implements Initializable, CourseList_I {
                 courseService.updateVideoCourse(videoCourse);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error(e.getLocalizedMessage());
         }
     }
 
@@ -218,14 +221,14 @@ public class CourseList implements Initializable, CourseList_I {
 
     public void fillVideoTable() {
         try {
-            vID.setCellValueFactory(new PropertyValueFactory<>("columnId"));
-            vCourseName.setCellValueFactory(new PropertyValueFactory<>("columnCourseName"));
-            vTrainerName.setCellValueFactory(new PropertyValueFactory<>("columnTrainerName"));
-            vURL.setCellValueFactory(new PropertyValueFactory<>("vLink"));
-            vRemark.setCellValueFactory(new PropertyValueFactory<>("vRemark"));
+            vID.setCellValueFactory(new PropertyValueFactory<>("id"));
+            vCourseName.setCellValueFactory(new PropertyValueFactory<>("courseName"));
+            vTrainerName.setCellValueFactory(new PropertyValueFactory<>("trainerName"));
+            vURL.setCellValueFactory(new PropertyValueFactory<>("link"));
+            vRemark.setCellValueFactory(new PropertyValueFactory<>("remark"));
             vCourseTable.setItems(courseService.getAllVideoCourse());
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error(e.getLocalizedMessage());
         }
     }
 

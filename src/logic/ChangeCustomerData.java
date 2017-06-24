@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
+import org.apache.log4j.Logger;
 import service.CourseService;
 import service.CustomerService;
 
@@ -57,7 +58,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
     private static CustomerService customerService = new CustomerService();
     private static CourseService courseService = new CourseService();
     private Customer editingCustomer = null;
-
+    private Logger log = Logger.getLogger(this.getClass());
 
     public void initialize(URL location, ResourceBundle resources) {
         fillTable();
@@ -84,11 +85,11 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
 
 
     public void fillTable() {
-        columnId.setCellValueFactory(new PropertyValueFactory<>("columnId"));
-        columnFirstName.setCellValueFactory(new PropertyValueFactory<>("customer_firstname"));
-        columnLastName.setCellValueFactory(new PropertyValueFactory<>("customer_lastname"));
-        columnBirthday.setCellValueFactory(new PropertyValueFactory<>("columnBirthday"));
-        columnMail.setCellValueFactory(new PropertyValueFactory<>("columnMail"));
+        columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        columnFirstName.setCellValueFactory(new PropertyValueFactory<>("firstname"));
+        columnLastName.setCellValueFactory(new PropertyValueFactory<>("lastname"));
+        columnBirthday.setCellValueFactory(new PropertyValueFactory<>("birthday"));
+        columnMail.setCellValueFactory(new PropertyValueFactory<>("mail"));
         columnMobile.setCellValueFactory(new PropertyValueFactory<>("mobilephone"));
         columnAddress.setCellValueFactory(new PropertyValueFactory<>("zipCode"));
         columnAddress.setCellValueFactory(new PropertyValueFactory<>("city"));
@@ -96,7 +97,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         try {
             customerTable.setItems(customerService.getAllCustomer());
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error(e.getLocalizedMessage());
         }
     }
 
@@ -128,7 +129,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error(e.getLocalizedMessage());
         }
     }
 
@@ -148,7 +149,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
             courseService.addCourseToCustomer(editingCustomer, coursesCombobox.getValue());
             fillEditingFormular(customerTable.getSelectionModel().getSelectedItem());
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e.getLocalizedMessage());
         }
     }
 
@@ -157,10 +158,10 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         if (customerCourseTable.getSelectionModel().getSelectedItem() != null) {
             PhysicalCourse course = customerCourseTable.getSelectionModel().getSelectedItem();
             try {
-                courseService.removeCourse(editingCustomer, course);
+                courseService.removeCourseByCustomer(editingCustomer, course);
                 fillEditingFormular(customerTable.getSelectionModel().getSelectedItem());
             } catch (SQLException e) {
-                e.printStackTrace();
+                log.error(e.getLocalizedMessage());
             }
         }
     }
@@ -186,6 +187,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Kunde " + search + " nicht gefunden");
             alert.setHeaderText(null);
             alert.show();
+            log.error(e.getLocalizedMessage());
         }
     }
 
@@ -194,7 +196,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
             customerTable.setItems(customerService.getAllCustomer());
             searchCustomer.setText("");
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e.getLocalizedMessage());
         }
     }
 
@@ -213,7 +215,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
             customerService.updateCustomer(dtoCustomer);
             fillTable();
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e.getLocalizedMessage());
         }
     }
 

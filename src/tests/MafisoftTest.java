@@ -4,7 +4,6 @@ import dto.courses.PhysicalCourse;
 import dto.courses.VideoCourse;
 import dto.customer.Customer;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import service.CourseService;
 import service.CustomerService;
@@ -15,22 +14,13 @@ import java.sql.Time;
 
 
 public class MafisoftTest {
-    private Customer customer;
-    private PhysicalCourse physicalCourse;
-    private VideoCourse videoCourse;
-    private CourseService courseService;
-    private CustomerService customerService;
+    private static Customer customer = new Customer();
+    private static PhysicalCourse physicalCourse = new PhysicalCourse();
+    private static VideoCourse videoCourse = new VideoCourse();
+    private static CourseService courseService = new CourseService();
+    private static CustomerService customerService = new CustomerService();
 
     public MafisoftTest() {
-    }
-
-    @Before
-    public void initialize() {
-        customer = new Customer();
-        videoCourse = new VideoCourse();
-        physicalCourse = new PhysicalCourse();
-        courseService = new CourseService();
-        customerService = new CustomerService();
     }
 
     @Test
@@ -100,11 +90,11 @@ public class MafisoftTest {
 
         Assert.assertNotNull(size);
 
-        courseService.removeCourse(customer, physicalCourse);
+        courseService.removeCourseByCustomer(customer, physicalCourse);
 
         int sizeAfterRemove = courseService.getAllCourseByCustomer(customer).size();
 
         Assert.assertNotEquals(size, sizeAfterRemove);
-
     }
+
 }
