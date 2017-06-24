@@ -17,11 +17,11 @@ import java.util.ResourceBundle;
 
 public class AddCustomer implements Initializable, AddCustomer_I {
     @FXML
-    private TextField firstNameTXT,
-            lastNameTXT,
-            mailTXT,
-            phoneNumberTXT,
-            streetTXT,
+    private TextField firstName,
+            lastName,
+            mail,
+            mobile,
+            street,
             city;
     @FXML
     private DatePicker birthdayTXT;
@@ -30,7 +30,7 @@ public class AddCustomer implements Initializable, AddCustomer_I {
     @FXML
     private ComboBox<String> period;
     @FXML
-    private CheckBox now_checkBox;
+    private CheckBox releaseDate;
     @FXML
     private DatePicker newDate;
     @FXML
@@ -52,12 +52,12 @@ public class AddCustomer implements Initializable, AddCustomer_I {
             if (check(0)) {
                 Integer genID = customerService.addCustomer(this.customer);
                 if (genID > 0) {
-                    firstNameTXT.setText("");
-                    lastNameTXT.setText("");
+                    firstName.setText("");
+                    lastName.setText("");
                     birthdayTXT.setValue(null);
-                    mailTXT.setText("");
-                    phoneNumberTXT.setText("");
-                    streetTXT.setText("");
+                    mail.setText("");
+                    mobile.setText("");
+                    street.setText("");
                     city.setText("");
                     zipCode.setText("");
                     period.setValue(null);
@@ -80,14 +80,14 @@ public class AddCustomer implements Initializable, AddCustomer_I {
             calendarEndCalendar.set(Calendar.MONTH, (currentDate.getMonth() + Integer.parseInt(String.valueOf(period.getSelectionModel().getSelectedItem()))));
             java.sql.Date calendarEnd = new java.sql.Date(calendarEndCalendar.getTime().getYear(), calendarEndCalendar.getTime().getMonth(), calendarEndCalendar.getTime().getDay());
             customer = new Customer();
-            customer.setCustomer_firstname(firstNameTXT.getText());
-            customer.setCustomer_lastname(lastNameTXT.getText());
+            customer.setFirstname(firstName.getText());
+            customer.setLastname(lastName.getText());
             customer.setBirthday(getDate());
-            customer.setMail(mailTXT.getText());
-            customer.setMobilephone(phoneNumberTXT.getText());
+            customer.setMail(mail.getText());
+            customer.setMobilephone(mobile.getText());
             customer.setZipCode(Integer.parseInt(zipCode.getText()));
             customer.setCity(city.getText());
-            customer.setStreet(streetTXT.getText());
+            customer.setStreet(street.getText());
             customer.setEndDate(calendarEnd);
         }
     }
@@ -96,10 +96,10 @@ public class AddCustomer implements Initializable, AddCustomer_I {
         boolean check = false;
         String fillText = "";
 
-        if (firstNameTXT.getText() == null || firstNameTXT.getText().isEmpty()) {
+        if (firstName.getText() == null || firstName.getText().isEmpty()) {
             check = true;
             fillText += "Vorname ";
-        } else if (lastNameTXT.getText() == null || lastNameTXT.getText().isEmpty()) {
+        } else if (lastName.getText() == null || lastName.getText().isEmpty()) {
             check = true;
             fillText += " ";
         } else if (period.getSelectionModel() == null || period.getSelectionModel().isEmpty()) {
@@ -114,10 +114,10 @@ public class AddCustomer implements Initializable, AddCustomer_I {
         } else if (city.getText() == null || city.getText().isEmpty()) {
             check = true;
             fillText += " ";
-        } else if (streetTXT.getText() == null || streetTXT.getText().isEmpty()) {
+        } else if (street.getText() == null || street.getText().isEmpty()) {
             check = true;
             fillText += " ";
-        } else if (now_checkBox.isSelected() && !newDate.getEditor().getText().isEmpty()) {
+        } else if (releaseDate.isSelected() && !newDate.getEditor().getText().isEmpty()) {
             check = true;
         }
 
@@ -136,18 +136,18 @@ public class AddCustomer implements Initializable, AddCustomer_I {
     }
 
     public void cleanAll() {
-        firstNameTXT.clear();
-        lastNameTXT.clear();
+        firstName.clear();
+        lastName.clear();
         birthdayTXT.getEditor().clear();
-        mailTXT.clear();
-        phoneNumberTXT.clear();
+        mail.clear();
+        mobile.clear();
         zipCode.clear();
         city.clear();
-        streetTXT.clear();
+        street.clear();
     }
 
     public void isChecked() {
-        if (now_checkBox.isSelected()) {
+        if (releaseDate.isSelected()) {
             orderDate.setVisible(false);
             newDate.setVisible(false);
             currentDate = new java.sql.Date(new Date().getTime());

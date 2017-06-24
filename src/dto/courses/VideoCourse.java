@@ -7,40 +7,40 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class VideoCourse extends Course {
-    private StringProperty              vLink;
-    private StringProperty              vRemark;
+    private StringProperty link;
+    private StringProperty remark;
 
     public VideoCourse() {
         this.id = new SimpleIntegerProperty();
-        this.course_name = new SimpleStringProperty();
-        this.trainer_name = new SimpleStringProperty();
-        this.vLink = new SimpleStringProperty();
-        this.vRemark = new SimpleStringProperty();
+        this.courseName = new SimpleStringProperty();
+        this.trainerName = new SimpleStringProperty();
+        this.link = new SimpleStringProperty();
+        this.remark = new SimpleStringProperty();
 
     }
 
-    public String getvLink() {
-        return vLink.get();
+    public String getLink() {
+        return link.get();
     }
 
-    public void setvLink(String vLink) {
-        this.vLink.set(vLink);
+    public void setLink(String link) {
+        this.link.set(link);
     }
 
-    public StringProperty vLinkProperty() {
-        return vLink;
+    public StringProperty linkProperty() {
+        return link;
     }
 
-    public String getvRemark() {
-        return vRemark.get();
+    public String getRemark() {
+        return remark.get();
     }
 
-    public void setvRemark(String vRemark) {
-        this.vRemark.set(vRemark);
+    public void setRemark(String remark) {
+        this.remark.set(remark);
     }
 
-    public StringProperty vRemarkProperty() {
-        return vRemark;
+    public StringProperty remarkProperty() {
+        return remark;
     }
 
     public int getId() {
@@ -55,28 +55,28 @@ public class VideoCourse extends Course {
         return id;
     }
 
-    public String getCourse_name() {
-        return course_name.get();
+    public String getCourseName() {
+        return courseName.get();
     }
 
-    public void setCourse_name(String course_name) {
-        this.course_name.set(course_name);
+    public void setCourseName(String courseName) {
+        this.courseName.set(courseName);
     }
 
-    public StringProperty course_nameProperty() {
-        return course_name;
+    public StringProperty courseNameProperty() {
+        return courseName;
     }
 
-    public String getTrainer_name() {
-        return trainer_name.get();
+    public String getTrainerName() {
+        return trainerName.get();
     }
 
-    public void setTrainer_name(String trainer_name) {
-        this.trainer_name.set(trainer_name);
+    public void setTrainerName(String trainerName) {
+        this.trainerName.set(trainerName);
     }
 
-    public StringProperty trainer_nameProperty() {
-        return trainer_name;
+    public StringProperty trainerNameProperty() {
+        return trainerName;
     }
 
 }

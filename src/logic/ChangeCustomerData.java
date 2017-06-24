@@ -22,14 +22,14 @@ import java.util.ResourceBundle;
 
 public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
     @FXML
-    private TextField changeFirstName,
-            changeLastName,
-            changeMail,
-            changePhonenummer,
-            changeCity,
-            changeStreet,
-            customerTXT,
-            customerID;
+    private TextField firstName,
+            lastName,
+            mail,
+            mobile,
+            city,
+            street,
+            id,
+            searchCustomer;
     @FXML
     private ComboBox<PhysicalCourse> coursesCombobox;
     @FXML
@@ -39,19 +39,19 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
     @FXML
     private TableView<PhysicalCourse> customerCourseTable;
     @FXML
-    private TableColumn<Customer, Integer> id;
+    private TableColumn<Customer, Integer> columnId;
     @FXML
-    private TableColumn<Customer, String> firstName;
+    private TableColumn<Customer, String> columnFirstName;
     @FXML
-    private TableColumn<Customer, String> lastName;
+    private TableColumn<Customer, String> columnLastName;
     @FXML
-    private TableColumn<Customer, Date> birthday;
+    private TableColumn<Customer, Date> columnBirthday;
     @FXML
-    private TableColumn<Customer, String> mail;
+    private TableColumn<Customer, String> columnMail;
     @FXML
-    private TableColumn<Customer, String> phonenummer;
+    private TableColumn<Customer, String> columnMobile;
     @FXML
-    private TableColumn<Customer, String> address;
+    private TableColumn<Customer, String> columnAddress;
     @FXML
     private TableColumn<Course, String> customerCourseList;
     private static CustomerService customerService = new CustomerService();
@@ -72,7 +72,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
                     public void updateItem(PhysicalCourse oneCourse, boolean empty) {
                         super.updateItem(oneCourse, empty);
                         if (!empty) {
-                            setText(oneCourse.getCourse_name() + " ID:" + oneCourse.getId());
+                            setText(oneCourse.getCourseName() + " ID:" + oneCourse.getId());
                             setGraphic(null);
                         }
                     }
@@ -84,15 +84,15 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
 
 
     public void fillTable() {
-        id.setCellValueFactory(new PropertyValueFactory<>("customerID"));
-        firstName.setCellValueFactory(new PropertyValueFactory<>("customer_firstname"));
-        lastName.setCellValueFactory(new PropertyValueFactory<>("customer_lastname"));
-        birthday.setCellValueFactory(new PropertyValueFactory<>("birthday"));
-        mail.setCellValueFactory(new PropertyValueFactory<>("mail"));
-        phonenummer.setCellValueFactory(new PropertyValueFactory<>("mobilephone"));
-        address.setCellValueFactory(new PropertyValueFactory<>("zipCode"));
-        address.setCellValueFactory(new PropertyValueFactory<>("city"));
-        address.setCellValueFactory(new PropertyValueFactory<>("street"));
+        columnId.setCellValueFactory(new PropertyValueFactory<>("columnId"));
+        columnFirstName.setCellValueFactory(new PropertyValueFactory<>("customer_firstname"));
+        columnLastName.setCellValueFactory(new PropertyValueFactory<>("customer_lastname"));
+        columnBirthday.setCellValueFactory(new PropertyValueFactory<>("columnBirthday"));
+        columnMail.setCellValueFactory(new PropertyValueFactory<>("columnMail"));
+        columnMobile.setCellValueFactory(new PropertyValueFactory<>("mobilephone"));
+        columnAddress.setCellValueFactory(new PropertyValueFactory<>("zipCode"));
+        columnAddress.setCellValueFactory(new PropertyValueFactory<>("city"));
+        columnAddress.setCellValueFactory(new PropertyValueFactory<>("street"));
         try {
             customerTable.setItems(customerService.getAllCustomer());
         } catch (SQLException e) {
@@ -106,18 +106,18 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
 
         Customer customer = (Customer) o;
 
-        customerID.setText(customer.getCustomerID() + "");
-        changeFirstName.setText(customer.getCustomer_firstname());
-        changeLastName.setText(customer.getCustomer_lastname());
+        columnId.setText(customer.getId() + "");
+        firstName.setText(customer.getFirstname());
+        lastName.setText(customer.getLastname());
         changeZipcode.setText(customer.getZipCode() + "");
-        changeCity.setText(customer.getCity());
-        changeStreet.setText(customer.getStreet());
+        city.setText(customer.getCity());
+        street.setText(customer.getStreet());
 
         ObservableList<PhysicalCourse> allCourses;
         try {
             allCourses = courseService.getAllAvailabileCourse(customer);
             customerCourseTable.setItems(courseService.getAllCourseByCustomer(customer));
-            customerCourseList.setCellValueFactory(new PropertyValueFactory<>("course_name"));
+            customerCourseList.setCellValueFactory(new PropertyValueFactory<>("courseName"));
 
 
             if (coursesCombobox != null) {
@@ -168,7 +168,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
 
     public void searchButton() {
 
-        String search = customerTXT.getText();
+        String search = searchCustomer.getText();
         try {
             ObservableList<Customer> filteredCustomerList;
 
@@ -192,7 +192,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
     public void deleteSearchButton() {
         try {
             customerTable.setItems(customerService.getAllCustomer());
-            customerTXT.setText("");
+            searchCustomer.setText("");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -201,14 +201,14 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
     public void changeButtonPressed(ActionEvent actionEvent) {
         try {
             Customer dtoCustomer = new Customer();
-            dtoCustomer.setCustomerID(Integer.parseInt(customerID.getText()));
-            dtoCustomer.setCustomer_firstname(changeFirstName.getText());
-            dtoCustomer.setCustomer_lastname(changeLastName.getText());
-            dtoCustomer.setMail(changeMail.getText());
-            dtoCustomer.setMobilephone(changePhonenummer.getText());
+            dtoCustomer.setId(Integer.parseInt(columnId.getText()));
+            dtoCustomer.setFirstname(firstName.getText());
+            dtoCustomer.setLastname(lastName.getText());
+            dtoCustomer.setMail(mail.getText());
+            dtoCustomer.setMobilephone(mobile.getText());
             dtoCustomer.setZipCode(Integer.parseInt(changeZipcode.getText()));
-            dtoCustomer.setCity(changeCity.getText());
-            dtoCustomer.setStreet(changeCity.getText());
+            dtoCustomer.setCity(city.getText());
+            dtoCustomer.setStreet(city.getText());
 
             customerService.updateCustomer(dtoCustomer);
             fillTable();
@@ -221,14 +221,14 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
 
 
     public void cleanAll() {
-        changeFirstName.clear();
-        changeLastName.clear();
-        changeMail.clear();
-        changePhonenummer.clear();
-        changeCity.clear();
-        changeStreet.clear();
-        customerTXT.clear();
-        customerID.clear();
+        firstName.clear();
+        lastName.clear();
+        mail.clear();
+        mobile.clear();
+        city.clear();
+        street.clear();
+        searchCustomer.clear();
+        id.clear();
     }
 
 

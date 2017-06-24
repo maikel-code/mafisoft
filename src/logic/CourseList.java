@@ -27,15 +27,15 @@ public class CourseList implements Initializable, CourseList_I {
     @FXML
     private TableView<VideoCourse> vCourseTable;
     @FXML
-    private TableColumn<PhysicalCourse, Integer> id;
+    private TableColumn<PhysicalCourse, Integer> columnId;
     @FXML
-    private TableColumn<PhysicalCourse, String> courseName;
+    private TableColumn<PhysicalCourse, String> columnCourseName;
     @FXML
-    private TableColumn<PhysicalCourse, String> trainerName;
+    private TableColumn<PhysicalCourse, String> columnTrainerName;
     @FXML
-    private TableColumn<PhysicalCourse, Time> timeBegin;
+    private TableColumn<PhysicalCourse, Time> columnTimeBegin;
     @FXML
-    private TableColumn<PhysicalCourse, Time> timeEnd;
+    private TableColumn<PhysicalCourse, Time> columnTimeEnd;
     @FXML
     private TextField search,
             coursename,
@@ -76,11 +76,11 @@ public class CourseList implements Initializable, CourseList_I {
 
     public void fillPhysicalTable() {
         try {
-            id.setCellValueFactory(new PropertyValueFactory<>("id"));
-            courseName.setCellValueFactory(new PropertyValueFactory<>("course_name"));
-            trainerName.setCellValueFactory(new PropertyValueFactory<>("trainer_name"));
-            timeBegin.setCellValueFactory(new PropertyValueFactory<>("startTime"));
-            timeEnd.setCellValueFactory(new PropertyValueFactory<>("endTime"));
+            columnId.setCellValueFactory(new PropertyValueFactory<>("columnId"));
+            columnCourseName.setCellValueFactory(new PropertyValueFactory<>("columnCourseName"));
+            columnTrainerName.setCellValueFactory(new PropertyValueFactory<>("columnTrainerName"));
+            columnTimeBegin.setCellValueFactory(new PropertyValueFactory<>("startTime"));
+            columnTimeEnd.setCellValueFactory(new PropertyValueFactory<>("endTime"));
             courseTable.setItems(courseService.getAllCourse());
         } catch (SQLException e) {
             e.printStackTrace();
@@ -88,8 +88,8 @@ public class CourseList implements Initializable, CourseList_I {
     }
 
     public void changePhysicalCourse() {
-        physicalCourse.setCourse_name(coursename.getText());
-        physicalCourse.setTrainer_name(trainer.getText());
+        physicalCourse.setCourseName(coursename.getText());
+        physicalCourse.setTrainerName(trainer.getText());
         int timeHH = Integer.parseInt(startTime.getText().split("\\p{Punct}")[0]);
         int timeMM = Integer.parseInt(startTime.getText().split("\\p{Punct}")[1]);
         physicalCourse.setStartTime(new Time(timeHH, timeMM, 0));
@@ -200,17 +200,17 @@ public class CourseList implements Initializable, CourseList_I {
         if (course instanceof PhysicalCourse) {
             cleanAll(1);
             courseID.setText(course.getId() + "");
-            coursename.setText(course.getCourse_name());
-            trainer.setText(course.getTrainer_name());
+            coursename.setText(course.getCourseName());
+            trainer.setText(course.getTrainerName());
             startTime.setText(simpleDateFormat.format(((PhysicalCourse) course).getStartTime()));
             endTime.setText(simpleDateFormat.format(((PhysicalCourse) course).getEndTime()));
         } else if (course instanceof VideoCourse) {
             cleanAll(2);
             vCourseIDChanged.setText(videoCourse.getId() + "");
-            vCourseNameChanged.setText(videoCourse.getCourse_name());
-            vTrainerChanged.setText(videoCourse.getTrainer_name());
-            vURLChanged.setText(videoCourse.getvLink());
-            vRemarkChanged.setText(videoCourse.getvRemark());
+            vCourseNameChanged.setText(videoCourse.getCourseName());
+            vTrainerChanged.setText(videoCourse.getTrainerName());
+            vURLChanged.setText(videoCourse.getLink());
+            vRemarkChanged.setText(videoCourse.getRemark());
         }
     }
 
@@ -218,9 +218,9 @@ public class CourseList implements Initializable, CourseList_I {
 
     public void fillVideoTable() {
         try {
-            vID.setCellValueFactory(new PropertyValueFactory<>("id"));
-            vCourseName.setCellValueFactory(new PropertyValueFactory<>("course_name"));
-            vTrainerName.setCellValueFactory(new PropertyValueFactory<>("trainer_name"));
+            vID.setCellValueFactory(new PropertyValueFactory<>("columnId"));
+            vCourseName.setCellValueFactory(new PropertyValueFactory<>("columnCourseName"));
+            vTrainerName.setCellValueFactory(new PropertyValueFactory<>("columnTrainerName"));
             vURL.setCellValueFactory(new PropertyValueFactory<>("vLink"));
             vRemark.setCellValueFactory(new PropertyValueFactory<>("vRemark"));
             vCourseTable.setItems(courseService.getAllVideoCourse());
@@ -231,10 +231,10 @@ public class CourseList implements Initializable, CourseList_I {
 
 
     public void changeVideoCourse() {
-        videoCourse.setCourse_name(vCourseNameChanged.getText());
-        videoCourse.setTrainer_name(vTrainerChanged.getText());
-        videoCourse.setvLink(vURLChanged.getText());
-        videoCourse.setvRemark(vRemarkChanged.getText());
+        videoCourse.setCourseName(vCourseNameChanged.getText());
+        videoCourse.setTrainerName(vTrainerChanged.getText());
+        videoCourse.setLink(vURLChanged.getText());
+        videoCourse.setRemark(vRemarkChanged.getText());
     }
 
     @FXML

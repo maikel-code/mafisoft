@@ -22,8 +22,8 @@ public class CustomerService implements CustomerDAO {
             connection = dbHelper.getConnection();
             preparedStatement = connection.prepareStatement("INSERT INTO customer(customer_firstname, customer_lastname, birthday, email, mobilephone, zipCode, city, street, end_time, create_time)" +
                     " VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())", Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setString(1, customer.getCustomer_firstname());
-            preparedStatement.setString(2, customer.getCustomer_lastname());
+            preparedStatement.setString(1, customer.getFirstname());
+            preparedStatement.setString(2, customer.getLastname());
             preparedStatement.setDate(3, customer.getBirthday());
             preparedStatement.setString(4, customer.getMail());
             preparedStatement.setString(5, customer.getMobilephone());
@@ -53,9 +53,9 @@ public class CustomerService implements CustomerDAO {
             preparedStatement = connection.prepareStatement("UPDATE customer SET customer_firstname=?, customer_lastname=?, email=?, mobilephone=?, zipCode=?, city=?, street=? " +
                     "WHERE customer_id=?");
 
-            preparedStatement.setInt(8, customer.getCustomerID());
-            preparedStatement.setString(1, customer.getCustomer_firstname());
-            preparedStatement.setString(2, customer.getCustomer_lastname());
+            preparedStatement.setInt(8, customer.getId());
+            preparedStatement.setString(1, customer.getFirstname());
+            preparedStatement.setString(2, customer.getLastname());
             preparedStatement.setString(3, customer.getMail());
             preparedStatement.setString(4, customer.getMobilephone());
             preparedStatement.setInt(5, customer.getZipCode());
@@ -127,9 +127,9 @@ public class CustomerService implements CustomerDAO {
     private Customer createCustomerFromRow(ResultSet rs) throws SQLException {
         Customer customer = new Customer();
 
-        customer.setCustomerID(rs.getInt("customer_id"));
-        customer.setCustomer_firstname(rs.getString("customer_firstname"));
-        customer.setCustomer_lastname(rs.getString("customer_lastname"));
+        customer.setId(rs.getInt("customer_id"));
+        customer.setFirstname(rs.getString("customer_firstname"));
+        customer.setLastname(rs.getString("customer_lastname"));
         customer.setBirthday(rs.getDate("birthday"));
         customer.setMail(rs.getString("email"));
         customer.setMobilephone(rs.getString("mobilephone"));

@@ -5,21 +5,21 @@ import javafx.beans.property.*;
 import java.sql.Date;
 
 public class Customer {
-    private IntegerProperty                             customerID;
-    private StringProperty                              customer_firstname;
-    private StringProperty                              customer_lastname;
-    private SimpleObjectProperty<Date>                  birthday;
-    private StringProperty                              mail;
-    private StringProperty                              mobilephone;
-    private IntegerProperty                             zipCode;
-    private StringProperty                              city;
-    private StringProperty                              street;
-    private SimpleObjectProperty<Date>                  endDate;
+    private IntegerProperty id;
+    private StringProperty firstname;
+    private StringProperty lastname;
+    private SimpleObjectProperty<Date> birthday;
+    private StringProperty mail;
+    private StringProperty mobilephone;
+    private IntegerProperty zipCode;
+    private StringProperty city;
+    private StringProperty street;
+    private SimpleObjectProperty<Date> endDate;
 
     public Customer() {
-        this.customerID = new SimpleIntegerProperty();
-        this.customer_firstname = new SimpleStringProperty();
-        this.customer_lastname = new SimpleStringProperty();
+        this.id = new SimpleIntegerProperty();
+        this.firstname = new SimpleStringProperty();
+        this.lastname = new SimpleStringProperty();
         this.birthday = new SimpleObjectProperty<>();
         this.mail = new SimpleStringProperty();
         this.mobilephone = new SimpleStringProperty();
@@ -30,40 +30,40 @@ public class Customer {
 
     }
 
-    public int getCustomerID() {
-        return customerID.get();
+    public int getId() {
+        return id.get();
     }
 
-    public void setCustomerID(int customerID) {
-        this.customerID.set(customerID);
+    public void setId(int id) {
+        this.id.set(id);
     }
 
-    public IntegerProperty customerIDProperty() {
-        return customerID;
+    public IntegerProperty idProperty() {
+        return id;
     }
 
-    public String getCustomer_firstname() {
-        return customer_firstname.get();
+    public String getFirstname() {
+        return firstname.get();
     }
 
-    public void setCustomer_firstname(String customer_firstname) {
-        this.customer_firstname.set(customer_firstname);
+    public void setFirstname(String firstname) {
+        this.firstname.set(firstname);
     }
 
-    public StringProperty customer_firstnameProperty() {
-        return customer_firstname;
+    public StringProperty firstnameProperty() {
+        return firstname;
     }
 
-    public String getCustomer_lastname() {
-        return customer_lastname.get();
+    public String getLastname() {
+        return lastname.get();
     }
 
-    public void setCustomer_lastname(String customer_lastname) {
-        this.customer_lastname.set(customer_lastname);
+    public void setLastname(String lastname) {
+        this.lastname.set(lastname);
     }
 
-    public StringProperty customer_lastnameProperty() {
-        return customer_lastname;
+    public StringProperty lastnameProperty() {
+        return lastname;
     }
 
     public String getMail() {

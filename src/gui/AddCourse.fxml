@@ -89,7 +89,7 @@
                                 <VBox nodeOrientation="LEFT_TO_RIGHT" spacing="38.0" BorderPane.alignment="CENTER">
                                     <children>
                                         <TextField fx:id="vCourseName" promptText="Joga"/>
-                                        <TextField fx:id="vTrainerName" promptText="Mustermann"/>
+                                        <TextField fx:id="vTrainer" promptText="Mustermann"/>
                                         <TextField fx:id="vLink" promptText="joga.example/video"/>
                                         <TextArea fx:id="vRemark" prefHeight="200.0" prefWidth="200.0"
                                                   promptText="Bemerkung"/>

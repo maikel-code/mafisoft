@@ -10,7 +10,6 @@ import service.CourseService;
 import service.CustomerService;
 
 import java.sql.Date;
-import java.sql.SQLException;
 import java.sql.Time;
 
 
@@ -34,10 +33,10 @@ public class MafisoftTest {
     }
 
     @Test
-    public void testAddCustomer() throws SQLException, ClassNotFoundException {
+    public void testAddCustomer()  {
 
-        customer.setCustomer_firstname("Max");
-        customer.setCustomer_lastname("Mustermann");
+        customer.setFirstname("Max");
+        customer.setLastname("Mustermann");
         customer.setBirthday(new Date(90, 12, 1));
         customer.setMail("max.m@gmail.com");
         customer.setMobilephone("+4901234567890");
@@ -52,15 +51,15 @@ public class MafisoftTest {
 
         Assert.assertEquals(customer.getMail(), testCustomer.getMail());
         Assert.assertEquals(customer.getZipCode(), testCustomer.getZipCode());
-        Assert.assertEquals(customer.getCustomer_firstname(), testCustomer.getCustomer_firstname());
-        Assert.assertEquals(customer.getCustomer_lastname(), testCustomer.getCustomer_lastname());
+        Assert.assertEquals(customer.getFirstname(), testCustomer.getFirstname());
+        Assert.assertEquals(customer.getLastname(), testCustomer.getLastname());
         Assert.assertEquals(new Date(90, 12, 1), testCustomer.getBirthday());
     }
 
     @Test
-    public void testAddPhysicalCourse() throws SQLException, ClassNotFoundException {
-        physicalCourse.setCourse_name("Best training");
-        physicalCourse.setTrainer_name("John Cena");
+    public void testAddPhysicalCourse()  {
+        physicalCourse.setCourseName("Best training");
+        physicalCourse.setTrainerName("John Cena");
         physicalCourse.setStartTime(new Time(14, 0, 0));
         physicalCourse.setEndTime(new Time(16, 0, 0));
 
@@ -68,30 +67,30 @@ public class MafisoftTest {
 
         PhysicalCourse testCourse = courseService.searchPhysicalCourse("id", id).get(0);
 
-        Assert.assertEquals(physicalCourse.getCourse_name(), testCourse.getCourse_name());
-        Assert.assertEquals(physicalCourse.getTrainer_name(), testCourse.getTrainer_name());
+        Assert.assertEquals(physicalCourse.getCourseName(), testCourse.getCourseName());
+        Assert.assertEquals(physicalCourse.getTrainerName(), testCourse.getTrainerName());
         Assert.assertEquals(physicalCourse.getStartTime(), testCourse.getStartTime());
     }
 
     @Test
-    public void testAddVideoCourse() throws SQLException, ClassNotFoundException {
-        videoCourse.setCourse_name("Best video training");
-        videoCourse.setTrainer_name("Undertaker");
-        videoCourse.setvLink("youtube.com");
-        videoCourse.setvRemark("The best video course ever\n" + "Undertaker as most popular WWE master");
+    public void testAddVideoCourse()  {
+        videoCourse.setCourseName("Best video training");
+        videoCourse.setTrainerName("Undertaker");
+        videoCourse.setLink("youtube.com");
+        videoCourse.setRemark("The best video course ever\n" + "Undertaker as most popular WWE master");
 
         String id = courseService.addVideoCourse(videoCourse) + "";
 
         VideoCourse testCourse = courseService.searchVideoCourse("id", id).get(0);
 
-        Assert.assertEquals(videoCourse.getCourse_name(), testCourse.getCourse_name());
-        Assert.assertEquals(videoCourse.getTrainer_name(), testCourse.getTrainer_name());
-        Assert.assertEquals(videoCourse.getvLink(), testCourse.getvLink());
-        Assert.assertEquals(videoCourse.getvRemark(), testCourse.getvRemark());
+        Assert.assertEquals(videoCourse.getCourseName(), testCourse.getCourseName());
+        Assert.assertEquals(videoCourse.getTrainerName(), testCourse.getTrainerName());
+        Assert.assertEquals(videoCourse.getLink(), testCourse.getLink());
+        Assert.assertEquals(videoCourse.getRemark(), testCourse.getRemark());
     }
 
     @Test
-    public void testRemovePCourseFromCustomer() throws SQLException, ClassNotFoundException {
+    public void testRemovePCourseFromCustomer()  {
         customer = customerService.getAllCustomer().get(0);
         physicalCourse = courseService.getAllCourse().get(0);
         courseService.addCourseToCustomer(customer, physicalCourse);

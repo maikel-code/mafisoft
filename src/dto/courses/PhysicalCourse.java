@@ -10,8 +10,8 @@ public class PhysicalCourse extends Course {
 
     public PhysicalCourse() {
         this.id = new SimpleIntegerProperty();
-        this.course_name = new SimpleStringProperty();
-        this.trainer_name = new SimpleStringProperty();
+        this.courseName = new SimpleStringProperty();
+        this.trainerName = new SimpleStringProperty();
         this.startTime = new SimpleObjectProperty<>();
         this.endTime = new SimpleObjectProperty<>();
     }
@@ -28,28 +28,28 @@ public class PhysicalCourse extends Course {
         return id;
     }
 
-    public String getCourse_name() {
-        return course_name.get();
+    public String getCourseName() {
+        return courseName.get();
     }
 
-    public void setCourse_name(String course_name) {
-        this.course_name.set(course_name);
+    public void setCourseName(String courseName) {
+        this.courseName.set(courseName);
     }
 
-    public StringProperty course_nameProperty() {
-        return course_name;
+    public StringProperty courseNameProperty() {
+        return courseName;
     }
 
-    public String getTrainer_name() {
-        return trainer_name.get();
+    public String getTrainerName() {
+        return trainerName.get();
     }
 
-    public void setTrainer_name(String trainer_name) {
-        this.trainer_name.set(trainer_name);
+    public void setTrainerName(String trainerName) {
+        this.trainerName.set(trainerName);
     }
 
-    public StringProperty trainer_nameProperty() {
-        return trainer_name;
+    public StringProperty trainerNameProperty() {
+        return trainerName;
     }
 
     public Time getStartTime() {

@@ -20,7 +20,7 @@ public class AddCourse implements Initializable, AddCourse_I {
 
     @FXML
     private TextField vCourseName,
-            vTrainerName,
+            vTrainer,
             vLink;
     @FXML
     private TextArea vRemark;
@@ -46,7 +46,7 @@ public class AddCourse implements Initializable, AddCourse_I {
                         endTime.getText().isEmpty());
             case 2:
                 return !(vCourseName.getText().isEmpty() &&
-                        vTrainerName.getText().isEmpty() &&
+                        vTrainer.getText().isEmpty() &&
                         vLink.getText().isEmpty());
         }
 
@@ -57,8 +57,8 @@ public class AddCourse implements Initializable, AddCourse_I {
     public void addButtonPressed(ActionEvent actionEvent) {
         if (check(1)) {
             PhysicalCourse physicalCourse = new PhysicalCourse();
-            physicalCourse.setCourse_name(courseName.getText());
-            physicalCourse.setTrainer_name(trainer.getText());
+            physicalCourse.setCourseName(courseName.getText());
+            physicalCourse.setTrainerName(trainer.getText());
             String[] startSplitted = startTime.getText().split("\\p{Punct}");
             String[] endSplitted = endTime.getText().split("\\p{Punct}");
             if (startSplitted.length <= 1 || endSplitted.length <= 1) {
@@ -90,15 +90,15 @@ public class AddCourse implements Initializable, AddCourse_I {
             }
         } else if (check(2)) {
             VideoCourse videoCourse = new VideoCourse();
-            videoCourse.setCourse_name(vCourseName.getText());
-            videoCourse.setTrainer_name(vTrainerName.getText());
-            videoCourse.setvLink(vLink.getText());
-            videoCourse.setvRemark(vRemark.getText());
+            videoCourse.setCourseName(vCourseName.getText());
+            videoCourse.setTrainerName(vTrainer.getText());
+            videoCourse.setLink(vLink.getText());
+            videoCourse.setRemark(vRemark.getText());
             try {
                 Integer genID = courseService.addVideoCourse(videoCourse);
                 if (genID > 0) {
                     vCourseName.setText("");
-                    vTrainerName.setText("");
+                    vTrainer.setText("");
                     vLink.setText("");
                     vRemark.setText("");
                     Alert alert = new Alert(Alert.AlertType.INFORMATION, "Video Kurs wurde angelegt");

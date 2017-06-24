@@ -24,7 +24,7 @@ public class CourseService implements CourseDAO {
             connection = dbHelper.getConnection();
             preparedStatement = connection.prepareStatement(
                     "SELECT course.* FROM course JOIN customer_course cc ON cc.course_id = course.course_id  WHERE cc.customer_id = ?");
-            preparedStatement.setInt(1, dtoCustomer.getCustomerID());
+            preparedStatement.setInt(1, dtoCustomer.getId());
 
             ResultSet rs = preparedStatement.executeQuery();
 
@@ -52,8 +52,8 @@ public class CourseService implements CourseDAO {
             connection = dbHelper.getConnection();
             preparedStatement = connection
                     .prepareStatement("INSERT INTO course(course_name, trainer_name, start, end) VALUE (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setString(1, dtoPhysicalCourse.getCourse_name());
-            preparedStatement.setString(2, dtoPhysicalCourse.getTrainer_name());
+            preparedStatement.setString(1, dtoPhysicalCourse.getCourseName());
+            preparedStatement.setString(2, dtoPhysicalCourse.getTrainerName());
             preparedStatement.setTime(3, dtoPhysicalCourse.getStartTime());
             preparedStatement.setTime(4, dtoPhysicalCourse.getEndTime());
             preparedStatement.executeUpdate();
@@ -77,8 +77,8 @@ public class CourseService implements CourseDAO {
             preparedStatement = connection.prepareStatement(
                     "UPDATE course SET course_name=?, trainer_name=?, start=?, end=? WHERE course_id=?");
             preparedStatement.setInt(5, dtoPhysicalCourse.getId());
-            preparedStatement.setString(1, dtoPhysicalCourse.getCourse_name());
-            preparedStatement.setString(2, dtoPhysicalCourse.getTrainer_name());
+            preparedStatement.setString(1, dtoPhysicalCourse.getCourseName());
+            preparedStatement.setString(2, dtoPhysicalCourse.getTrainerName());
             preparedStatement.setTime(3, dtoPhysicalCourse.getStartTime());
             preparedStatement.setTime(4, dtoPhysicalCourse.getEndTime());
             preparedStatement.executeUpdate();
@@ -151,7 +151,7 @@ public class CourseService implements CourseDAO {
             connection = dbHelper.getConnection();
             preparedStatement = connection.prepareStatement(
                     "SELECT course.* FROM course WHERE course_id NOT IN (SELECT cc.course_id FROM customer_course cc  WHERE cc.customer_id = ? )");
-            preparedStatement.setInt(1, dtoCustomer.getCustomerID());
+            preparedStatement.setInt(1, dtoCustomer.getId());
 
             ResultSet rs = preparedStatement.executeQuery();
 
@@ -174,7 +174,7 @@ public class CourseService implements CourseDAO {
             connection = dbHelper.getConnection();
             preparedStatement = connection
                     .prepareStatement("INSERT INTO customer_course(customer_id, course_id) VALUE (?, ?)", Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setInt(1, dtoCustomer.getCustomerID());
+            preparedStatement.setInt(1, dtoCustomer.getId());
             preparedStatement.setInt(2, dtoCourse.getId());
             preparedStatement.executeUpdate();
             ResultSet rs = preparedStatement.getGeneratedKeys();
@@ -195,7 +195,7 @@ public class CourseService implements CourseDAO {
             connection = dbHelper.getConnection();
             preparedStatement = connection.prepareStatement(
                     "DELETE customer_course FROM course INNER JOIN customer_course WHERE customer_course.customer_id=? AND customer_course.course_id=?");
-            preparedStatement.setInt(1, dtoCustomer.getCustomerID());
+            preparedStatement.setInt(1, dtoCustomer.getId());
             preparedStatement.setInt(2, dtoCourse.getId());
             preparedStatement.executeLargeUpdate();
         } catch (SQLException | ClassNotFoundException e) {
@@ -213,10 +213,10 @@ public class CourseService implements CourseDAO {
             connection = dbHelper.getConnection();
             preparedStatement = connection
                     .prepareStatement("INSERT INTO video_course(courseName, trainerName, link, remark) VALUE (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setString(1, dtoVideoCourse.getCourse_name());
-            preparedStatement.setString(2, dtoVideoCourse.getTrainer_name());
-            preparedStatement.setString(3, dtoVideoCourse.getvLink());
-            preparedStatement.setString(4, dtoVideoCourse.getvRemark());
+            preparedStatement.setString(1, dtoVideoCourse.getCourseName());
+            preparedStatement.setString(2, dtoVideoCourse.getTrainerName());
+            preparedStatement.setString(3, dtoVideoCourse.getLink());
+            preparedStatement.setString(4, dtoVideoCourse.getRemark());
             preparedStatement.executeUpdate();
 
             ResultSet rs = preparedStatement.getGeneratedKeys();
@@ -238,10 +238,10 @@ public class CourseService implements CourseDAO {
             preparedStatement = connection.prepareStatement(
                     "UPDATE video_course SET courseName=?, trainerName=?, link=?, remark=? WHERE videoID=?");
             preparedStatement.setInt(5, dtoVideoCourse.getId());
-            preparedStatement.setString(1, dtoVideoCourse.getCourse_name());
-            preparedStatement.setString(2, dtoVideoCourse.getTrainer_name());
-            preparedStatement.setString(3, dtoVideoCourse.getvLink());
-            preparedStatement.setString(4, dtoVideoCourse.getvRemark());
+            preparedStatement.setString(1, dtoVideoCourse.getCourseName());
+            preparedStatement.setString(2, dtoVideoCourse.getTrainerName());
+            preparedStatement.setString(3, dtoVideoCourse.getLink());
+            preparedStatement.setString(4, dtoVideoCourse.getRemark());
             preparedStatement.executeUpdate();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -306,10 +306,10 @@ public class CourseService implements CourseDAO {
         VideoCourse dtoVideoCourse = new VideoCourse();
 
         dtoVideoCourse.setId(rs.getInt("videoID"));
-        dtoVideoCourse.setCourse_name(rs.getString("courseName"));
-        dtoVideoCourse.setTrainer_name(rs.getString("trainerName"));
-        dtoVideoCourse.setvLink(rs.getString("link"));
-        dtoVideoCourse.setvRemark(rs.getString("remark"));
+        dtoVideoCourse.setCourseName(rs.getString("courseName"));
+        dtoVideoCourse.setTrainerName(rs.getString("trainerName"));
+        dtoVideoCourse.setLink(rs.getString("link"));
+        dtoVideoCourse.setRemark(rs.getString("remark"));
 
         return dtoVideoCourse;
     }
@@ -318,8 +318,8 @@ public class CourseService implements CourseDAO {
         PhysicalCourse dtoCourse = new PhysicalCourse();
 
         dtoCourse.setId(rs.getInt("course_id"));
-        dtoCourse.setCourse_name(rs.getString("course_name"));
-        dtoCourse.setTrainer_name(rs.getString("trainer_name"));
+        dtoCourse.setCourseName(rs.getString("courseName"));
+        dtoCourse.setTrainerName(rs.getString("trainerName"));
         dtoCourse.setStartTime(rs.getTime("start"));
         dtoCourse.setEndTime(rs.getTime("end"));
 

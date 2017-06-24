@@ -32,11 +32,11 @@
             <right>
                 <VBox spacing="12.0" BorderPane.alignment="CENTER">
                     <children>
-                        <TextField fx:id="firstNameTXT" promptText="Max" />
-                        <TextField fx:id="lastNameTXT" promptText="Mustermann" />
+                        <TextField fx:id="firstName" promptText="Max" />
+                        <TextField fx:id="lastName" promptText="Mustermann" />
                         <DatePicker fx:id="birthdayTXT" promptText="12.12.2012" />
-                        <TextField fx:id="mailTXT" promptText="mustermann@example.com" />
-                        <TextField fx:id="phoneNumberTXT" promptText="+4912345678901" />
+                        <TextField fx:id="mail" promptText="mustermann@example.com" />
+                        <TextField fx:id="mobile" promptText="+4912345678901" />
                         <ComboBox fx:id="period" prefWidth="150.0" promptText="Monat(e)">
                             <items>
                                 <FXCollections fx:factory="observableArrayList">
@@ -48,8 +48,8 @@
                         </ComboBox>
                         <NumberTextField fx:id="zipCode" onKeyReleased="#checkZipLength" promptText="12345" />
                         <TextField fx:id="city" promptText="Dreamland" />
-                        <TextField fx:id="streetTXT" promptText="Wallstreet 1" />
-                        <CheckBox fx:id="now_checkBox" mnemonicParsing="false" onAction="#isChecked" selected="true" text="Ab Sofort">
+                        <TextField fx:id="street" promptText="Wallstreet 1" />
+                        <CheckBox fx:id="releaseDate" mnemonicParsing="false" onAction="#isChecked" selected="true" text="Ab Sofort">
                             <VBox.margin>
                                 <Insets bottom="5.0" top="5.0" />
                             </VBox.margin>
