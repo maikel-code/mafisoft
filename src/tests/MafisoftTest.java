@@ -10,6 +10,7 @@ import service.CourseService;
 import service.CustomerService;
 
 import java.sql.Date;
+import java.sql.SQLException;
 import java.sql.Time;
 
 
@@ -33,7 +34,7 @@ public class MafisoftTest {
     }
 
     @Test
-    public void testAddCustomer()  {
+    public void testAddCustomer() throws SQLException {
 
         customer.setFirstname("Max");
         customer.setLastname("Mustermann");
@@ -57,7 +58,7 @@ public class MafisoftTest {
     }
 
     @Test
-    public void testAddPhysicalCourse()  {
+    public void testAddPhysicalCourse() throws SQLException {
         physicalCourse.setCourseName("Best training");
         physicalCourse.setTrainerName("John Cena");
         physicalCourse.setStartTime(new Time(14, 0, 0));
@@ -73,7 +74,7 @@ public class MafisoftTest {
     }
 
     @Test
-    public void testAddVideoCourse()  {
+    public void testAddVideoCourse() throws SQLException {
         videoCourse.setCourseName("Best video training");
         videoCourse.setTrainerName("Undertaker");
         videoCourse.setLink("youtube.com");
@@ -90,7 +91,7 @@ public class MafisoftTest {
     }
 
     @Test
-    public void testRemovePCourseFromCustomer()  {
+    public void testRemovePCourseFromCustomer() throws SQLException {
         customer = customerService.getAllCustomer().get(0);
         physicalCourse = courseService.getAllCourse().get(0);
         courseService.addCourseToCustomer(customer, physicalCourse);
