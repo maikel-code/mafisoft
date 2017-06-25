@@ -42,7 +42,7 @@ public class R {
                             .append(new SimpleDateFormat("dd.MM.yyyy").format(new Date(record.getMillis())))
                             .append("\n")
                             .append("Time: ")
-                            .append(new Time(System.currentTimeMillis()).toString())
+                            .append(new SimpleDateFormat("HH:MM").format(new Time(System.currentTimeMillis())))
                             .append("\n")
                             .append("Level: ")
                             .append(record.getLevel().getLocalizedName())
