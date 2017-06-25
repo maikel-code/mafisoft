@@ -5,16 +5,13 @@ package config;
  */
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.text.MessageFormat;
+import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.*;
 
 public class R {
-    public static class Log {
-        public static final String LOG_PROPERTIES_FILE = "config/logger.properties";
-    }
+    private static Handler fileHandler = LogConfig.HandlerSingleton.getInstance().getFileHandler();
 
     public static class DB {
         public static final String DB_DRIVER = "com.mysql.jdbc.Driver";
@@ -26,103 +23,77 @@ public class R {
         public static final String PATH_TO_CHANGE_COURSE_WINDOW = "gui/CourseList.fxml";
         public static final String PATH_TO_ADD_CUSTOMER_WINDOW = "gui/AddCustomer.fxml";
         public static final String PATH_TO_CHANGE_CUSTOMER_WINDOW = "gui/ChangeCustomerData.fxml";
+
     }
 
-    /*
-
-    "/" the local pathname separator
-
-    "%t" the system temporary directory
-
-    "%h" the value of the "user.home" system property
-
-    "%g" the generation number to distinguish rotated logs
-
-    "%u" a unique number to resolve conflicts
-
-    "%%" translates to a single percent sign "%"
-
-     */
-
     public static class LogConfig {
+
         public static Logger getLogger(Class clazz) {
-            Logger logger = null;
-            Handler fileHandler;
-            try {
-                logger = Logger.getLogger(clazz.getName());
-                logger.setLevel(Level.FINE);
-                fileHandler = new FileHandler("./logs/logging%u.log");
-                fileHandler.setFormatter(new Formatter() {
-                    Date dat = new Date();
-                    private final static String format = "{0,date} {0,time}";
-                    private MessageFormat formatter;
-                    private Object args[] = new Object[1];
-                    private String lineSeparator = "\n";
+            Logger logger = Logger.getLogger(clazz.getName());
 
-                    @Override
-                    public synchronized String format(LogRecord record) {
+            logger.setLevel(Level.FINE);
+            logger.addHandler(fileHandler);
+            fileHandler.setFormatter(new Formatter() {
+                @Override
+                public String format(LogRecord record) {
+                    StringBuilder sb = new StringBuilder();
 
-                        StringBuilder sb = new StringBuilder();
+                    sb.append("Date: ")
+                            .append(new SimpleDateFormat("dd.MM.yyyy").format(new Date(record.getMillis())))
+                            .append("\n")
+                            .append("Time: ")
+                            .append(new Time(System.currentTimeMillis()).toString())
+                            .append("\n")
+                            .append("Level: ")
+                            .append(record.getLevel().getLocalizedName())
+                            .append("\n")
+                            .append("Class: ")
+                            .append(clazz.getName())
+                            .append("\n");
 
-                        dat.setTime(record.getMillis());
-                        args[0] = dat;
-
-                        StringBuffer text = new StringBuffer();
-                        if (formatter == null) {
-                            formatter = new MessageFormat(format);
-                        }
-                        formatter.format(args, text, null);
-                        sb.append(text);
-                        sb.append(" ");
-
-
-                        if (record.getSourceClassName() != null) {
-                            sb.append(record.getSourceClassName());
-                        } else {
-                            sb.append(record.getLoggerName());
-                        }
-
-                        if (record.getSourceMethodName() != null) {
-                            sb.append(" ");
-                            sb.append(record.getSourceMethodName());
-                        }
-                        sb.append(" - ");
-
-
-                        String message = formatMessage(record);
-
-                        sb.append(record.getLevel().getLocalizedName());
-                        sb.append(": ");
-
-                        int iOffset = (1000 - record.getLevel().intValue()) / 100;
-                        for (int i = 0; i < iOffset; i++) {
-                            sb.append(" ");
-                        }
-
-                        sb.append(message);
-                        sb.append(lineSeparator);
-                        if (record.getThrown() != null) {
-                            try {
-                                StringWriter sw = new StringWriter();
-                                PrintWriter pw = new PrintWriter(sw);
-                                record.getThrown().printStackTrace(pw);
-                                pw.close();
-                                sb.append(sw.toString());
-                            } catch (Exception ignored) {
-                            }
-                        }
-                        return sb.toString();
+                    if (record.getThrown() != null) {
+                        sb.append("Method: ")
+                                .append(record.getSourceMethodName())
+                                .append("\n")
+                                .append("Cause: ")
+                                .append(record.getThrown().toString())
+                                .append("\n")
+                                .append("-----------------------------------------------------------------------------------")
+                                .append("\n");
                     }
-                });
-                logger.addHandler(fileHandler);
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            logger.setLevel(Level.ALL);
+                    return sb.toString();
+                }
+            });
 
             return logger;
         }
+
+        private static class HandlerSingleton {
+            private static HandlerSingleton instance;
+
+            private HandlerSingleton() {
+
+            }
+
+            private synchronized static HandlerSingleton getInstance() {
+                if (instance == null) {
+                    instance = new HandlerSingleton();
+                }
+
+                return instance;
+            }
+
+            private synchronized FileHandler getFileHandler() {
+                try {
+                    return new FileHandler("./logs/logging.%u.%g.log", 10_485_760, 50, true);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        }
+
     }
+
 }
