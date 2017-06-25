@@ -1,0 +1,7 @@
+Date: 25.06.2017
+Time: 14:14:20
+Level: SEVERE
+Class: logic.ChangeCustomerData
+Method: getConnection
+Cause: java.lang.ClassNotFoundException: com.mysql.jdbc.Driver21
+-----------------------------------------------------------------------------------
