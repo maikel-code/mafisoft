@@ -28,7 +28,7 @@ public class DBHelper {
 
     public synchronized Connection getConnection() {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName(R.DB.DB_DRIVER);
             if (connection != null) {
                 return connection;
             } else {
