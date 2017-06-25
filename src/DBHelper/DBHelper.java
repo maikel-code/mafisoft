@@ -1,16 +1,18 @@
 package DBHelper;
 
+import config.R;
 import javafx.scene.control.Alert;
-import org.apache.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DBHelper {
     private static DBHelper instance;
     private Connection connection;
-    private Logger log = Logger.getLogger(this.getClass());
+    private static final Logger LOGGER = R.LogConfig.getLogger(DBHelper.class);
 
     private DBHelper() {
         // Exists only to defeat instantiation.
@@ -38,12 +40,12 @@ public class DBHelper {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Datenank existiert nicht oder wird nicht gefunden");
             alert.setHeaderText(null);
             alert.showAndWait();
-            log.error(sql.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, sql.getLocalizedMessage(), sql);
         } catch (ClassNotFoundException cnfe) {
             Alert alert = new Alert(Alert.AlertType.ERROR, cnfe.getLocalizedMessage());
             alert.setHeaderText(null);
             alert.showAndWait();
-            log.error(cnfe.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, cnfe.getLocalizedMessage(), cnfe);
         }
         return connection;
     }

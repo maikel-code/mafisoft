@@ -8,13 +8,14 @@ import dto.courses.VideoCourse;
 import dto.customer.Customer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import org.apache.log4j.Logger;
 
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class CourseService implements CourseDAO {
     private static DBHelper dbHelper = DBHelper.getInstance();
-    private Logger log = Logger.getLogger(this.getClass());
+    private static final Logger LOGGER = R.LogConfig.getLogger(CourseService.class);
 
     public ObservableList<PhysicalCourse> getAllCourseByCustomer(Customer dtoCustomer) throws SQLException {
         ObservableList<PhysicalCourse> row = FXCollections.observableArrayList();
@@ -34,7 +35,7 @@ public class CourseService implements CourseDAO {
                 row.add(this.createPhysicalCourseFromRow(rs));
             }
         } catch (SQLException | ClassNotFoundException e) {
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
         return row;
     }
@@ -65,7 +66,7 @@ public class CourseService implements CourseDAO {
                 id = rs.getInt(1);
             }
         } catch (SQLException | ClassNotFoundException e) {
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
         return id;
     }
@@ -85,7 +86,7 @@ public class CourseService implements CourseDAO {
             preparedStatement.setTime(4, dtoPhysicalCourse.getEndTime());
             preparedStatement.executeUpdate();
         } catch (SQLException | ClassNotFoundException e) {
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
     }
 
@@ -119,7 +120,7 @@ public class CourseService implements CourseDAO {
                 row.add(this.createPhysicalCourseFromRow(rs));
             }
         } catch (SQLException | ClassNotFoundException e) {
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
         return row;
 
@@ -139,7 +140,7 @@ public class CourseService implements CourseDAO {
                 row.add(this.createPhysicalCourseFromRow(rs));
             }
         } catch (SQLException | ClassNotFoundException e) {
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
         return row;
     }
@@ -161,7 +162,7 @@ public class CourseService implements CourseDAO {
                 row.add(this.createPhysicalCourseFromRow(rs));
             }
         } catch (SQLException | ClassNotFoundException e) {
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
 
         return row;
@@ -184,7 +185,7 @@ public class CourseService implements CourseDAO {
                 id = rs.getInt(1);
             }
         } catch (SQLException | ClassNotFoundException e) {
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
     }
 
@@ -200,7 +201,7 @@ public class CourseService implements CourseDAO {
             preparedStatement.setInt(2, dtoCourse.getId());
             preparedStatement.executeLargeUpdate();
         } catch (SQLException | ClassNotFoundException e) {
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
     }
 
@@ -225,7 +226,7 @@ public class CourseService implements CourseDAO {
                 id = rs.getInt(1);
             }
         } catch (SQLException | ClassNotFoundException e) {
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
         return id;
     }
@@ -245,7 +246,7 @@ public class CourseService implements CourseDAO {
             preparedStatement.setString(4, dtoVideoCourse.getRemark());
             preparedStatement.executeUpdate();
         } catch (SQLException | ClassNotFoundException e) {
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
 
     }
@@ -277,7 +278,7 @@ public class CourseService implements CourseDAO {
                 videoCourseList.add(this.createVideoCourseFromRow(rs));
             }
         } catch (SQLException | ClassNotFoundException e) {
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
         return videoCourseList;
     }
@@ -298,7 +299,7 @@ public class CourseService implements CourseDAO {
                 videoCourseList.add(this.createVideoCourseFromRow(rs));
             }
         } catch (SQLException | ClassNotFoundException e) {
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
         return videoCourseList;
     }

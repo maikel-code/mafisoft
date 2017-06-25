@@ -12,7 +12,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
-import org.apache.log4j.Logger;
 import service.CourseService;
 import service.CustomerService;
 
@@ -20,6 +19,8 @@ import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
     @FXML
@@ -58,7 +59,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
     private static CustomerService customerService = new CustomerService();
     private static CourseService courseService = new CourseService();
     private Customer editingCustomer = null;
-    private Logger log = Logger.getLogger(this.getClass());
+    private static final Logger LOGGER = R.LogConfig.getLogger(ChangeCustomerData.class);
 
     public void initialize(URL location, ResourceBundle resources) {
         fillTable();
@@ -97,7 +98,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         try {
             customerTable.setItems(customerService.getAllCustomer());
         } catch (SQLException e) {
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
     }
 
@@ -129,7 +130,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
                 }
             }
         } catch (SQLException e) {
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
     }
 
@@ -149,7 +150,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
             courseService.addCourseToCustomer(editingCustomer, coursesCombobox.getValue());
             fillEditingFormular(customerTable.getSelectionModel().getSelectedItem());
         } catch (Exception e) {
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
     }
 
@@ -161,7 +162,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
                 courseService.removeCourseByCustomer(editingCustomer, course);
                 fillEditingFormular(customerTable.getSelectionModel().getSelectedItem());
             } catch (SQLException e) {
-                log.error(e.getLocalizedMessage());
+                LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
             }
         }
     }
@@ -187,7 +188,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Kunde " + search + " nicht gefunden");
             alert.setHeaderText(null);
             alert.show();
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
     }
 
@@ -196,7 +197,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
             customerTable.setItems(customerService.getAllCustomer());
             searchCustomer.setText("");
         } catch (Exception e) {
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
     }
 
@@ -215,7 +216,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
             customerService.updateCustomer(dtoCustomer);
             fillTable();
         } catch (Exception e) {
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
     }
 

@@ -8,13 +8,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
-import org.apache.log4j.Logger;
 import service.CustomerService;
 
 import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class AddCustomer implements Initializable, AddCustomer_I {
     @FXML
@@ -41,7 +42,7 @@ public class AddCustomer implements Initializable, AddCustomer_I {
     private Customer customer;
     private int defaultYear = 1900;
     private static CustomerService customerService = new CustomerService();
-    private Logger log = Logger.getLogger(this.getClass());
+    private static final Logger LOGGER = R.LogConfig.getLogger(AddCustomer.class);
 
     public void initialize(URL location, ResourceBundle resources) {
         isChecked();
@@ -73,7 +74,7 @@ public class AddCustomer implements Initializable, AddCustomer_I {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Fehler");
             alert.setHeaderText(null);
             alert.show();
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
     }
 

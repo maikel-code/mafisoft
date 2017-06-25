@@ -6,13 +6,14 @@ import dao.CustomerDAO;
 import dto.customer.Customer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import org.apache.log4j.Logger;
 
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class CustomerService implements CustomerDAO {
     private static DBHelper dbHelper = DBHelper.getInstance();
-    private Logger log = Logger.getLogger(this.getClass());
+    private static final Logger LOGGER = R.LogConfig.getLogger(CustomerService.class);
 
     public int addCustomer(Customer customer) throws SQLException {
         PreparedStatement preparedStatement = null;
@@ -40,7 +41,7 @@ public class CustomerService implements CustomerDAO {
                 id = rs.getInt(1);
             }
         } catch (SQLException | ClassNotFoundException e) {
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
         return id;
     }
@@ -65,7 +66,7 @@ public class CustomerService implements CustomerDAO {
             preparedStatement.setString(7, customer.getStreet());
             preparedStatement.executeUpdate();
         } catch (SQLException | ClassNotFoundException e) {
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
     }
 
@@ -97,7 +98,7 @@ public class CustomerService implements CustomerDAO {
                 row.add(this.createCustomerFromRow(rs));
             }
         } catch (SQLException | ClassNotFoundException e) {
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
         return row;
     }
@@ -112,7 +113,7 @@ public class CustomerService implements CustomerDAO {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
         } catch (SQLException | ClassNotFoundException e) {
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
 
     }
@@ -134,7 +135,7 @@ public class CustomerService implements CustomerDAO {
                 row.add(this.createCustomerFromRow(rs));
             }
         } catch (SQLException | ClassNotFoundException e) {
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
 
         return row;

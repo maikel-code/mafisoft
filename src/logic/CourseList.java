@@ -12,7 +12,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import org.apache.log4j.Logger;
 import service.CourseService;
 
 import java.net.URL;
@@ -20,6 +19,8 @@ import java.sql.SQLException;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class CourseList implements Initializable, CourseList_I {
@@ -67,8 +68,7 @@ public class CourseList implements Initializable, CourseList_I {
     private PhysicalCourse physicalCourse = new PhysicalCourse();
     private VideoCourse videoCourse = new VideoCourse();
     private static CourseService courseService = new CourseService();
-    private Logger log = Logger.getLogger(this.getClass());
-
+    private static final Logger LOGGER = R.LogConfig.getLogger(CourseList.class);
 
     public void initialize(URL location, ResourceBundle resources) {
         fillPhysicalTable();
@@ -85,7 +85,7 @@ public class CourseList implements Initializable, CourseList_I {
             columnTimeEnd.setCellValueFactory(new PropertyValueFactory<>("endTime"));
             courseTable.setItems(courseService.getAllCourse());
         } catch (SQLException e) {
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
     }
 
@@ -104,7 +104,7 @@ public class CourseList implements Initializable, CourseList_I {
 
     public void searchButton(KeyEvent actionEvent) {
         String buttonsID = ((TextField) actionEvent.getSource()).getId();
-        String search = null;
+        String search = "";
 
         if (buttonsID.equals("physical")) {
             search = this.search.getText();
@@ -131,7 +131,7 @@ public class CourseList implements Initializable, CourseList_I {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Kurs " + search + " nicht gefunden");
             alert.setHeaderText(null);
             alert.show();
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
 
     }
@@ -148,7 +148,7 @@ public class CourseList implements Initializable, CourseList_I {
                 vSearch.setText("");
             }
         } catch (Exception e) {
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
     }
 
@@ -164,7 +164,7 @@ public class CourseList implements Initializable, CourseList_I {
                 courseService.updateVideoCourse(videoCourse);
             }
         } catch (SQLException e) {
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
     }
 
@@ -228,7 +228,7 @@ public class CourseList implements Initializable, CourseList_I {
             vRemark.setCellValueFactory(new PropertyValueFactory<>("remark"));
             vCourseTable.setItems(courseService.getAllVideoCourse());
         } catch (SQLException e) {
-            log.error(e.getLocalizedMessage());
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
     }
 
