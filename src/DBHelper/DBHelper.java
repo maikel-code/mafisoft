@@ -2,6 +2,7 @@ package DBHelper;
 
 import config.R;
 import javafx.scene.control.Alert;
+import logger.Log;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,7 +13,7 @@ import java.util.logging.Logger;
 public class DBHelper {
     private static DBHelper instance;
     private Connection connection;
-    private static final Logger LOGGER = R.LogConfig.getLogger(DBHelper.class);
+    private static final Logger LOGGER = Log.getLogger(DBHelper.class);
 
     private DBHelper() {
         // Exists only to defeat instantiation.

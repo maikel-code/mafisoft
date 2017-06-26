@@ -6,6 +6,7 @@ import dao.CustomerDAO;
 import dto.customer.Customer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import logger.Log;
 
 import java.sql.*;
 import java.util.logging.Level;
@@ -13,7 +14,7 @@ import java.util.logging.Logger;
 
 public class CustomerService implements CustomerDAO {
     private static DBHelper dbHelper = DBHelper.getInstance();
-    private static final Logger LOGGER = R.LogConfig.getLogger(CustomerService.class);
+    private static final Logger LOGGER = Log.getLogger(CustomerService.class);
 
     public int addCustomer(Customer customer) throws SQLException {
         PreparedStatement preparedStatement = null;

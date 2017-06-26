@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import logger.Log;
 import service.CourseService;
 
 import java.net.URL;
@@ -68,7 +69,7 @@ public class CourseList implements Initializable, CourseList_I {
     private PhysicalCourse physicalCourse = new PhysicalCourse();
     private VideoCourse videoCourse = new VideoCourse();
     private static CourseService courseService = new CourseService();
-    private static final Logger LOGGER = R.LogConfig.getLogger(CourseList.class);
+    private static final Logger LOGGER = Log.getLogger(CourseList.class);
 
     public void initialize(URL location, ResourceBundle resources) {
         fillPhysicalTable();

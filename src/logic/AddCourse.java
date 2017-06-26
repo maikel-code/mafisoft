@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import logger.Log;
 import service.CourseService;
 
 import java.net.URL;
@@ -32,7 +33,7 @@ public class AddCourse implements Initializable, AddCourse_I {
             startTime,
             endTime;
     private static CourseService courseService = new CourseService();
-    private static final Logger LOGGER = R.LogConfig.getLogger(AddCourse.class);
+    private static final Logger LOGGER = Log.getLogger(AddCourse.class);
 
     public void initialize(URL location, ResourceBundle resources) {
 

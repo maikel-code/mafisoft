@@ -8,6 +8,7 @@ import dto.courses.VideoCourse;
 import dto.customer.Customer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import logger.Log;
 
 import java.sql.*;
 import java.util.logging.Level;
@@ -15,7 +16,7 @@ import java.util.logging.Logger;
 
 public class CourseService implements CourseDAO {
     private static DBHelper dbHelper = DBHelper.getInstance();
-    private static final Logger LOGGER = R.LogConfig.getLogger(CourseService.class);
+    private static final Logger LOGGER = Log.getLogger(CourseService.class);
 
     public ObservableList<PhysicalCourse> getAllCourseByCustomer(Customer dtoCustomer) throws SQLException {
         ObservableList<PhysicalCourse> row = FXCollections.observableArrayList();

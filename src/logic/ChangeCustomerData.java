@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
+import logger.Log;
 import service.CourseService;
 import service.CustomerService;
 
@@ -59,7 +60,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
     private static CustomerService customerService = new CustomerService();
     private static CourseService courseService = new CourseService();
     private Customer editingCustomer = null;
-    private static final Logger LOGGER = R.LogConfig.getLogger(ChangeCustomerData.class);
+    private static final Logger LOGGER = Log.getLogger(ChangeCustomerData.class);
 
     public void initialize(URL location, ResourceBundle resources) {
         fillTable();
