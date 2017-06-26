@@ -31,7 +31,7 @@ public class R {
         public static Logger getLogger(Class clazz) {
             Logger logger = Logger.getLogger(clazz.getName());
 
-            logger.setLevel(Level.FINE);
+            logger.setLevel(Level.ALL);
             logger.addHandler(fileHandler);
             fileHandler.setFormatter(new Formatter() {
                 @Override
