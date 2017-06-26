@@ -19,7 +19,7 @@ public class LogFormatter extends java.util.logging.Formatter {
                 .append(new SimpleDateFormat("dd.MM.yyyy").format(new Date(record.getMillis())))
                 .append("\n")
                 .append("Time: ")
-                .append(new SimpleDateFormat("HH:MM").format(new Time(System.currentTimeMillis())))
+                .append(new SimpleDateFormat("HH:MM").format(new Time(record.getMillis())))
                 .append("\n")
                 .append("Level: ")
                 .append(record.getLevel().getLocalizedName())
