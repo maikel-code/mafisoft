@@ -1,7 +1,21 @@
 Date: 25.06.2017
-Time: 14:14:20
+Time: 14:14
 Level: SEVERE
 Class: logic.ChangeCustomerData
 Method: getConnection
 Cause: java.lang.ClassNotFoundException: com.mysql.jdbc.Driver21
+-----------------------------------------------------------------------------------
+Date: 26.06.2017
+Time: 10:06
+Level: SEVERE
+Class: DBHelper.DBHelper
+Method: getConnection
+Cause: java.lang.ClassNotFoundException: com.mysql.jdbc.Driver21
+-----------------------------------------------------------------------------------
+Date: 26.06.2017
+Time: 10:06
+Level: SEVERE
+Class: logic.CourseList
+Method: initialize
+Cause: java.lang.IllegalAccessException
 -----------------------------------------------------------------------------------
