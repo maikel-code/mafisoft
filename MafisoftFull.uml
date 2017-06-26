@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>Mafisoft</OriginalElement>
+  <nodes>
+    <node x="1447.50380952381" y="1322.0">service.CustomerService</node>
+    <node x="2331.6346577380946" y="1377.5">logic.HomePage</node>
+    <node x="19.0" y="1377.5">dto.zipCode.NumberTextField</node>
+    <node x="2904.2596577380946" y="0.0">dto.courses.Course</node>
+    <node x="2887.2596577380946" y="1234.0">service.CourseService</node>
+    <node x="949.0" y="2907.0">config.R.LogConfig</node>
+    <node x="1030.5" y="2784.0">config.R</node>
+    <node x="1188.0" y="2907.0">config.R.DB</node>
+    <node x="1650.0" y="2784.0">logger.LogFormatter</node>
+    <node x="0.0" y="2784.0">javafx.application.Application</node>
+    <node x="3377.7596577380946" y="501.0">dao.CourseDAO</node>
+    <node x="4166.245238095238" y="1389.0">logic.AddCourse_I</node>
+    <node x="0.0" y="1972.0">logic.AddCustomer</node>
+    <node x="2091.757326388888" y="566.0">DBHelper.DBHelper</node>
+    <node x="1458.382326388888" y="578.0">dao.CustomerDAO</node>
+    <node x="4693.859523809524" y="1312.0">logic.CourseList_I</node>
+    <node x="1830.6346577380943" y="1312.0">logic.ChangeCustomerData_I</node>
+    <node x="1411.0" y="2784.0">logger.Log</node>
+    <node x="278.25" y="3218.5">Mafisoft</node>
+    <node x="4131.359657738094" y="489.0">dto.courses.VideoCourse</node>
+    <node x="578.0" y="2863.0">config.R.Pages</node>
+    <node x="1166.4181448412705" y="1862.0">logic.ChangeCustomerData</node>
+    <node x="277.0" y="1345.0">logic.AddCustomer_I</node>
+    <node x="47.25" y="3196.0">javafx.application.Application.Parameters</node>
+    <node x="2492.7596577380946" y="622.5">logic.Navigable</node>
+    <node x="3304.62880952381" y="2104.0">logic.AddCourse</node>
+    <node x="2809.7596577380946" y="489.0">dto.courses.PhysicalCourse</node>
+    <node x="2360.5514781746037" y="2147.5">tests.MafisoftTest</node>
+    <node x="679.382326388888" y="302.0">dto.customer.Customer</node>
+    <node x="4410.331086309523" y="1807.0">logic.CourseList</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="logic.CourseList_I" target="logic.Navigable">
+      <point x="0.0" y="-113.5" />
+      <point x="4876.359523809524" y="1054.0" />
+      <point x="2760.0596577380948" y="1054.0" />
+      <point x="118.80000000000018" y="25.5" />
+    </edge>
+    <edge source="logic.ChangeCustomerData" target="service.CustomerService">
+      <point x="0.0" y="-411.0" />
+      <point x="1609.9181448412705" y="1787.0" />
+      <point x="1637.6704761904768" y="1787.0" />
+      <point x="27.166666666666742" y="103.5" />
+    </edge>
+    <edge source="tests.MafisoftTest" target="dto.courses.PhysicalCourse">
+      <point x="-18.5" y="-125.5" />
+      <point x="2527.0514781746037" y="1697.0" />
+      <point x="2576.182326388888" y="1697.0" />
+      <point x="2576.182326388888" y="1174.0" />
+      <point x="2927.188229166666" y="1174.0" />
+      <point x="-156.57142857142844" y="159.0" />
+    </edge>
+    <edge source="javafx.application.Application.Parameters" target="javafx.application.Application">
+      <point x="0.0" y="-59.0" />
+      <point x="152.75" y="3171.0" />
+      <point x="133.25" y="3171.0" />
+      <point x="-133.25" y="181.0" />
+    </edge>
+    <edge source="logic.AddCustomer" target="logic.AddCustomer_I">
+      <point x="57.25" y="-301.0" />
+      <point x="400.75" y="1787.0" />
+      <point x="420.5" y="1787.0" />
+      <point x="0.0" y="80.5" />
+    </edge>
+    <edge source="logic.ChangeCustomerData" target="logic.ChangeCustomerData_I">
+      <point x="98.55555555555566" y="-411.0" />
+      <point x="1708.4737003968262" y="1677.0" />
+      <point x="2070.6346577380946" y="1677.0" />
+      <point x="0.0" y="113.5" />
+    </edge>
+    <edge source="config.R.LogConfig" target="config.R">
+      <point x="0.0" y="-25.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="logic.ChangeCustomerData_I" target="logic.Navigable">
+      <point x="0.0" y="-113.5" />
+      <point x="2070.6346577380946" y="1144.0" />
+      <point x="2581.859657738094" y="1144.0" />
+      <point x="-59.40000000000009" y="25.5" />
+    </edge>
+    <edge source="dto.courses.PhysicalCourse" target="dto.courses.Course">
+      <point x="0.0" y="-159.0" />
+      <point x="0.0" y="126.0" />
+    </edge>
+    <edge source="logic.ChangeCustomerData" target="dto.customer.Customer">
+      <point x="-197.11111111111086" y="-411.0" />
+      <point x="1412.8070337301597" y="1737.0" />
+      <point x="1015.4679910714278" y="1737.0" />
+      <point x="1015.4679910714278" y="1124.0" />
+      <point x="1058.882326388888" y="1124.0" />
+      <point x="0.0" y="346.0" />
+    </edge>
+    <edge source="dto.courses.VideoCourse" target="dto.courses.Course">
+      <point x="0.0" y="-159.0" />
+      <point x="4342.859657738094" y="277.0" />
+      <point x="3203.4263244047606" y="277.0" />
+      <point x="119.66666666666652" y="126.0" />
+    </edge>
+    <edge source="tests.MafisoftTest" target="dto.courses.VideoCourse">
+      <point x="55.5" y="-125.5" />
+      <point x="2601.0514781746037" y="1707.0" />
+      <point x="2876.7596577380946" y="1707.0" />
+      <point x="2876.7596577380946" y="1194.0" />
+      <point x="4166.609657738094" y="1194.0" />
+      <point x="-176.25" y="159.0" />
+    </edge>
+    <edge source="config.R.DB" target="config.R">
+      <point x="0.0" y="-25.5" />
+      <point x="1277.0" y="2838.0" />
+      <point x="1077.1666666666667" y="2838.0" />
+      <point x="18.666666666666742" y="14.5" />
+    </edge>
+    <edge source="service.CourseService" target="dto.courses.PhysicalCourse">
+      <point x="-60.75" y="-191.5" />
+      <point x="3069.5096577380946" y="1184.0" />
+      <point x="3083.7596577380946" y="1184.0" />
+      <point x="0.0" y="159.0" />
+    </edge>
+    <edge source="logic.AddCourse_I" target="logic.Navigable">
+      <point x="0.0" y="-36.5" />
+      <point x="4267.745238095238" y="1084.0" />
+      <point x="2700.659657738094" y="1084.0" />
+      <point x="59.40000000000009" y="25.5" />
+    </edge>
+    <edge source="tests.MafisoftTest" target="dto.customer.Customer">
+      <point x="-92.5" y="-125.5" />
+      <point x="2453.0514781746037" y="1647.0" />
+      <point x="1784.00380952381" y="1647.0" />
+      <point x="1784.00380952381" y="1114.0" />
+      <point x="1275.7394692460307" y="1114.0" />
+      <point x="216.85714285714266" y="346.0" />
+    </edge>
+    <edge source="tests.MafisoftTest" target="service.CustomerService">
+      <point x="-166.5" y="-125.5" />
+      <point x="2379.0514781746037" y="1667.0" />
+      <point x="1692.00380952381" y="1667.0" />
+      <point x="81.5" y="103.5" />
+    </edge>
+    <edge source="logic.CourseList" target="logic.CourseList_I">
+      <point x="-144.14285714285688" y="-466.0" />
+      <point x="4770.688229166666" y="1787.0" />
+      <point x="4876.359523809524" y="1787.0" />
+      <point x="0.0" y="113.5" />
+    </edge>
+    <edge source="service.CourseService" target="dto.courses.VideoCourse">
+      <point x="182.25" y="-191.5" />
+      <point x="3312.5096577380946" y="1204.0" />
+      <point x="4237.109657738094" y="1204.0" />
+      <point x="-105.75" y="159.0" />
+    </edge>
+    <edge source="logic.AddCustomer_I" target="logic.Navigable">
+      <point x="0.0" y="-80.5" />
+      <point x="420.5" y="1134.0" />
+      <point x="2522.4596577380944" y="1134.0" />
+      <point x="-118.80000000000018" y="25.5" />
+    </edge>
+    <edge source="logic.HomePage" target="logic.Navigable">
+      <point x="0.0" y="-48.0" />
+      <point x="2420.1346577380946" y="1154.0" />
+      <point x="2641.2596577380946" y="1154.0" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="logic.AddCustomer" target="dto.customer.Customer">
+      <point x="-171.75" y="-301.0" />
+      <point x="171.75" y="1787.0" />
+      <point x="255.5" y="1787.0" />
+      <point x="255.5" y="1114.0" />
+      <point x="733.5966121031738" y="1114.0" />
+      <point x="-325.2857142857142" y="346.0" />
+    </edge>
+    <edge source="service.CourseService" target="DBHelper.DBHelper">
+      <point x="-182.25" y="-191.5" />
+      <point x="2948.0096577380946" y="1094.0" />
+      <point x="2303.257326388888" y="1094.0" />
+      <point x="70.5" y="82.0" />
+    </edge>
+    <edge source="logic.ChangeCustomerData" target="dto.courses.PhysicalCourse">
+      <point x="197.1111111111111" y="-411.0" />
+      <point x="1807.0292559523816" y="1687.0" />
+      <point x="2565.182326388888" y="1687.0" />
+      <point x="2565.182326388888" y="1164.0" />
+      <point x="2848.9025148809515" y="1164.0" />
+      <point x="-234.85714285714312" y="159.0" />
+    </edge>
+    <edge source="service.CustomerService" target="dto.customer.Customer">
+      <point x="-108.66666666666674" y="-103.5" />
+      <point x="1501.8371428571434" y="1124.0" />
+      <point x="1167.3108978174594" y="1124.0" />
+      <point x="108.42857142857133" y="346.0" />
+    </edge>
+    <edge source="logic.AddCourse" target="dto.courses.VideoCourse">
+      <point x="189.19999999999982" y="-169.0" />
+      <point x="3730.32880952381" y="1787.0" />
+      <point x="4390.745238095238" y="1787.0" />
+      <point x="4390.745238095238" y="1064.0" />
+      <point x="4378.109657738094" y="1064.0" />
+      <point x="35.25" y="159.0" />
+    </edge>
+    <edge source="logic.AddCourse" target="dto.courses.PhysicalCourse">
+      <point x="94.59999999999991" y="-169.0" />
+      <point x="3635.72880952381" y="1777.0" />
+      <point x="4379.745238095238" y="1777.0" />
+      <point x="4379.745238095238" y="1074.0" />
+      <point x="3162.0453720238083" y="1074.0" />
+      <point x="78.28571428571422" y="159.0" />
+    </edge>
+    <edge source="service.CustomerService" target="DBHelper.DBHelper">
+      <point x="108.66666666666674" y="-103.5" />
+      <point x="1719.1704761904768" y="1124.0" />
+      <point x="2162.257326388888" y="1124.0" />
+      <point x="-70.5" y="82.0" />
+    </edge>
+    <edge source="tests.MafisoftTest" target="service.CourseService">
+      <point x="92.5" y="-125.5" />
+      <point x="2638.0514781746037" y="1737.0" />
+      <point x="3039.1346577380946" y="1737.0" />
+      <point x="-91.125" y="191.5" />
+    </edge>
+    <edge source="logic.CourseList" target="dto.courses.VideoCourse">
+      <point x="432.42857142857156" y="-466.0" />
+      <point x="5347.259657738094" y="1777.0" />
+      <point x="5185.944469246031" y="1777.0" />
+      <point x="5185.944469246031" y="1014.0" />
+      <point x="4519.109657738094" y="1014.0" />
+      <point x="176.25" y="159.0" />
+    </edge>
+    <edge source="service.CustomerService" target="dao.CustomerDAO">
+      <point x="0.0" y="-103.5" />
+      <point x="1610.50380952381" y="1124.0" />
+      <point x="1618.882326388888" y="1124.0" />
+      <point x="0.0" y="70.0" />
+    </edge>
+    <edge source="logic.AddCourse" target="service.CourseService">
+      <point x="-189.20000000000027" y="-169.0" />
+      <point x="3351.92880952381" y="1747.0" />
+      <point x="3160.6346577380946" y="1747.0" />
+      <point x="30.375" y="191.5" />
+    </edge>
+    <edge source="logic.AddCourse" target="logic.AddCourse_I">
+      <point x="0.0" y="-169.0" />
+      <point x="3541.12880952381" y="1767.0" />
+      <point x="4267.745238095238" y="1767.0" />
+      <point x="0.0" y="36.5" />
+    </edge>
+    <edge source="logic.AddCustomer" target="dto.zipCode.NumberTextField">
+      <point x="-286.25" y="-301.0" />
+      <point x="57.25" y="1787.0" />
+      <point x="132.0" y="1787.0" />
+      <point x="0.0" y="48.0" />
+    </edge>
+    <edge source="logic.CourseList" target="service.CourseService">
+      <point x="-432.42857142857156" y="-466.0" />
+      <point x="4482.402514880951" y="1727.0" />
+      <point x="3282.1346577380946" y="1727.0" />
+      <point x="151.875" y="191.5" />
+    </edge>
+    <edge source="Mafisoft" target="javafx.application.Application">
+      <point x="0.0" y="-36.5" />
+      <point x="380.25" y="3171.0" />
+      <point x="399.75" y="3171.0" />
+      <point x="133.25" y="181.0" />
+    </edge>
+    <edge source="logic.ChangeCustomerData" target="dto.courses.Course">
+      <point x="-394.2222222222222" y="-411.0" />
+      <point x="1215.6959226190484" y="1757.0" />
+      <point x="668.882326388888" y="1757.0" />
+      <point x="668.882326388888" y="277.0" />
+      <point x="2964.0929910714276" y="277.0" />
+      <point x="-119.66666666666652" y="126.0" />
+    </edge>
+    <edge source="service.CourseService" target="dao.CourseDAO">
+      <point x="60.75" y="-191.5" />
+      <point x="3191.0096577380946" y="1184.0" />
+      <point x="3736.7596577380946" y="1184.0" />
+      <point x="0.0" y="147.0" />
+    </edge>
+    <edge source="logic.CourseList" target="dto.courses.PhysicalCourse">
+      <point x="144.14285714285688" y="-466.0" />
+      <point x="5058.97394345238" y="1787.0" />
+      <point x="5149.97394345238" y="1787.0" />
+      <point x="5149.97394345238" y="1034.0" />
+      <point x="3318.616800595237" y="1034.0" />
+      <point x="234.85714285714266" y="159.0" />
+    </edge>
+    <edge source="logic.ChangeCustomerData" target="service.CourseService">
+      <point x="295.66666666666674" y="-411.0" />
+      <point x="1905.5848115079373" y="1717.0" />
+      <point x="2917.6346577380946" y="1717.0" />
+      <point x="-212.625" y="191.5" />
+    </edge>
+    <edge source="config.R.Pages" target="config.R">
+      <point x="0.0" y="-69.5" />
+      <point x="753.5" y="2838.0" />
+      <point x="1039.8333333333333" y="2838.0" />
+      <point x="-18.666666666666742" y="14.5" />
+    </edge>
+    <edge source="logic.AddCustomer" target="service.CustomerService">
+      <point x="171.75" y="-301.0" />
+      <point x="515.25" y="1767.0" />
+      <point x="1474.6704761904768" y="1767.0" />
+      <point x="-135.83333333333326" y="103.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.45676538566033426" x="1502.276152809619" y="2475.138522382508" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
