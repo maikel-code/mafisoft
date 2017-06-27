@@ -19,3 +19,40 @@ Class: logic.CourseList
 Method: initialize
 Cause: java.lang.IllegalAccessException
 -----------------------------------------------------------------------------------
+Date: 26.06.2017
+Time: 20:06
+Level: INFO
+Class: DBHelper.DBHelper
+Log info: Connecting to Database
+-----------------------------------------------------------------------------------
+Date: 26.06.2017
+Time: 20:06
+Level: INFO
+Class: service.CourseService
+Log info: Add new course name = ewqdsa
+-----------------------------------------------------------------------------------
+Date: 26.06.2017
+Time: 20:06
+Level: SEVERE
+Class: service.CourseService
+Method: addPhysicalCourse
+Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'start' cannot be null
+-----------------------------------------------------------------------------------
+Date: 27.06.2017
+Time: 09:06
+Level: INFO
+Class: DBHelper.DBHelper
+Log info: Connecting to Database
+-----------------------------------------------------------------------------------
+Date: 27.06.2017
+Time: 09:06
+Level: INFO
+Class: DBHelper.DBHelper
+Log info: Connecting to Database
+-----------------------------------------------------------------------------------
+Date: 27.06.2017
+Time: 09:06
+Level: INFO
+Class: DBHelper.DBHelper
+Log info: Connecting to Database
+-----------------------------------------------------------------------------------
