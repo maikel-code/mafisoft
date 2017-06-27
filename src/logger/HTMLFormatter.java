@@ -37,7 +37,7 @@ public class HTMLFormatter extends java.util.logging.Formatter {
 
     @Override
     public String getTail(Handler handler) {
-        return "\n</table>\n" +
+        return "\n" + "</table>\n" +
                 "</body>\n" +
                 "</html>\n";
     }
