@@ -28,17 +28,42 @@ public class LogFormatter extends java.util.logging.Formatter {
                 .append(record.getSourceClassName())
                 .append("\n");
 
+
+        switch (record.getLevel().getName()) {
+            case "INFO":
+                sb = formatInfo(sb, record);
+                break;
+            case "SEVERE":
+                sb = formatSevere(sb, record);
+                break;
+
+        }
+
+        sb.append("-----------------------------------------------------------------------------------")
+                .append("\n");
+
+        return sb.toString();
+    }
+
+    private StringBuilder formatInfo(StringBuilder sb, LogRecord record) {
+        sb.append("Log info: ")
+                .append(record.getMessage())
+                .append("\n");
+        return sb;
+    }
+
+    private StringBuilder formatSevere(StringBuilder sb, LogRecord record) {
+
         if (record.getThrown() != null) {
             sb.append("Method: ")
                     .append(record.getSourceMethodName())
                     .append("\n")
                     .append("Cause: ")
                     .append(record.getThrown().toString())
-                    .append("\n")
-                    .append("-----------------------------------------------------------------------------------")
                     .append("\n");
         }
 
-        return sb.toString();
+        return sb;
     }
+
 }
