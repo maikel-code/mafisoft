@@ -17,8 +17,8 @@ public class CustomerService implements CustomerDAO {
     private static final Logger LOGGER = Log.getLogger(CustomerService.class);
 
     public int addCustomer(Customer customer) throws SQLException {
-        PreparedStatement preparedStatement = null;
-        Connection connection = null;
+        PreparedStatement preparedStatement;
+        Connection connection;
         Integer id = -1;
 
         try {
@@ -41,6 +41,8 @@ public class CustomerService implements CustomerDAO {
             if (rs.next()) {
                 id = rs.getInt(1);
             }
+
+            LOGGER.info("Add customer id = " + id);
         } catch (SQLException | ClassNotFoundException e) {
             LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
@@ -48,8 +50,8 @@ public class CustomerService implements CustomerDAO {
     }
 
     public void updateCustomer(Customer customer) throws SQLException {
-        PreparedStatement preparedStatement = null;
-        Connection connection = null;
+        PreparedStatement preparedStatement;
+        Connection connection;
 
         try {
             Class.forName(R.DB.DB_DRIVER);
@@ -66,6 +68,8 @@ public class CustomerService implements CustomerDAO {
             preparedStatement.setString(6, customer.getCity());
             preparedStatement.setString(7, customer.getStreet());
             preparedStatement.executeUpdate();
+
+            LOGGER.info("Update customer id = " + customer.getId());
         } catch (SQLException | ClassNotFoundException e) {
             LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
@@ -74,8 +78,8 @@ public class CustomerService implements CustomerDAO {
     public ObservableList<Customer> searchCustomer(String searchConfig, String search) throws SQLException {
         ObservableList<Customer> row = FXCollections.observableArrayList();
         ResultSet rs;
-        PreparedStatement preparedStatement = null;
-        Connection connection = null;
+        PreparedStatement preparedStatement;
+        Connection connection;
         try {
             Class.forName(R.DB.DB_DRIVER);
             connection = dbHelper.getConnection();
@@ -86,6 +90,7 @@ public class CustomerService implements CustomerDAO {
                     preparedStatement.setString(1, search + "%");
                     preparedStatement.setString(2, search + "%");
                     rs = preparedStatement.executeQuery();
+                    LOGGER.info("Search customer by name= " + search);
                     break;
                 case "id":
                 case "ID":
@@ -93,11 +98,14 @@ public class CustomerService implements CustomerDAO {
                     preparedStatement = connection.prepareStatement("SELECT * FROM customer WHERE customer_id=?");
                     preparedStatement.setString(1, search);
                     rs = preparedStatement.executeQuery();
+                    LOGGER.info("Search customer by id= " + search);
             }
 
             while (rs.next()) {
                 row.add(this.createCustomerFromRow(rs));
             }
+
+
         } catch (SQLException | ClassNotFoundException e) {
             LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
@@ -105,14 +113,15 @@ public class CustomerService implements CustomerDAO {
     }
 
     public void removeCustomerById(int id) {
-        PreparedStatement preparedStatement = null;
-        Connection connection = null;
+        PreparedStatement preparedStatement;
+        Connection connection;
         try {
             Class.forName(R.DB.DB_DRIVER);
             connection = dbHelper.getConnection();
             preparedStatement = connection.prepareStatement("SELECT customer.* FROM customer WHERE customer_id=?");
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
+            LOGGER.info("Delete customer by id = " + id);
         } catch (SQLException | ClassNotFoundException e) {
             LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
@@ -121,8 +130,8 @@ public class CustomerService implements CustomerDAO {
 
     public ObservableList<Customer> getAllCustomer() throws SQLException {
         ObservableList<Customer> row = FXCollections.observableArrayList();
-        PreparedStatement preparedStatement = null;
-        Connection connection = null;
+        PreparedStatement preparedStatement;
+        Connection connection;
         ResultSet rs;
 
         try {

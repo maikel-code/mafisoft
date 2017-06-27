@@ -20,8 +20,8 @@ public class CourseService implements CourseDAO {
 
     public ObservableList<PhysicalCourse> getAllCourseByCustomer(Customer dtoCustomer) throws SQLException {
         ObservableList<PhysicalCourse> row = FXCollections.observableArrayList();
-        PreparedStatement preparedStatement = null;
-        Connection connection = null;
+        PreparedStatement preparedStatement;
+        Connection connection;
 
         try {
             Class.forName(R.DB.DB_DRIVER);
@@ -48,8 +48,8 @@ public class CourseService implements CourseDAO {
      */
     public int addPhysicalCourse(PhysicalCourse dtoPhysicalCourse) throws SQLException {
 
-        PreparedStatement preparedStatement = null;
-        Connection connection = null;
+        PreparedStatement preparedStatement;
+        Connection connection;
         Integer id = 1;
         try {
             Class.forName(R.DB.DB_DRIVER);
@@ -66,6 +66,8 @@ public class CourseService implements CourseDAO {
             if (rs.next()) {
                 id = rs.getInt(1);
             }
+
+            LOGGER.info("Add new course name = " + dtoPhysicalCourse.getCourseName());
         } catch (SQLException | ClassNotFoundException e) {
             LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
@@ -73,8 +75,8 @@ public class CourseService implements CourseDAO {
     }
 
     public void updatePhysicalCourse(PhysicalCourse dtoPhysicalCourse) throws SQLException {
-        PreparedStatement preparedStatement = null;
-        Connection connection = null;
+        PreparedStatement preparedStatement;
+        Connection connection;
         try {
             Class.forName(R.DB.DB_DRIVER);
             connection = dbHelper.getConnection();
@@ -86,6 +88,8 @@ public class CourseService implements CourseDAO {
             preparedStatement.setTime(3, dtoPhysicalCourse.getStartTime());
             preparedStatement.setTime(4, dtoPhysicalCourse.getEndTime());
             preparedStatement.executeUpdate();
+
+            LOGGER.info("Update videocourse id = " + dtoPhysicalCourse.getId() + " name = " + dtoPhysicalCourse.getCourseName());
         } catch (SQLException | ClassNotFoundException e) {
             LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
@@ -93,8 +97,8 @@ public class CourseService implements CourseDAO {
 
     public ObservableList<PhysicalCourse> searchPhysicalCourse(String searchConfig, String search) throws SQLException {
         ObservableList<PhysicalCourse> row = FXCollections.observableArrayList();
-        PreparedStatement preparedStatement = null;
-        Connection connection = null;
+        PreparedStatement preparedStatement;
+        Connection connection;
         ResultSet rs;
         try {
             Class.forName(R.DB.DB_DRIVER);
@@ -129,8 +133,8 @@ public class CourseService implements CourseDAO {
 
     public ObservableList<PhysicalCourse> getAllCourse() throws SQLException {
         ObservableList<PhysicalCourse> row = FXCollections.observableArrayList();
-        PreparedStatement preparedStatement = null;
-        Connection connection = null;
+        PreparedStatement preparedStatement;
+        Connection connection;
         try {
             Class.forName(R.DB.DB_DRIVER);
             connection = dbHelper.getConnection();
@@ -148,8 +152,8 @@ public class CourseService implements CourseDAO {
 
     public ObservableList<PhysicalCourse> getAllAvailabileCourse(Customer dtoCustomer) throws SQLException {
         ObservableList<PhysicalCourse> row = FXCollections.observableArrayList();
-        PreparedStatement preparedStatement = null;
-        Connection connection = null;
+        PreparedStatement preparedStatement;
+        Connection connection;
         try {
             Class.forName(R.DB.DB_DRIVER);
             connection = dbHelper.getConnection();
@@ -170,8 +174,8 @@ public class CourseService implements CourseDAO {
     }
 
     public void addCourseToCustomer(Customer dtoCustomer, PhysicalCourse dtoCourse) throws SQLException {
-        PreparedStatement preparedStatement = null;
-        Connection connection = null;
+        PreparedStatement preparedStatement;
+        Connection connection;
         Integer id = -1;
         try {
             Class.forName(R.DB.DB_DRIVER);
@@ -185,14 +189,16 @@ public class CourseService implements CourseDAO {
             if (rs.next()) {
                 id = rs.getInt(1);
             }
+
+            LOGGER.info("Add course " + dtoCourse.getCourseName() + " to customer id = " + dtoCustomer.getId());
         } catch (SQLException | ClassNotFoundException e) {
             LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
     }
 
     public void removeCourseByCustomer(Customer dtoCustomer, PhysicalCourse dtoCourse) throws SQLException {
-        PreparedStatement preparedStatement = null;
-        Connection connection = null;
+        PreparedStatement preparedStatement;
+        Connection connection;
         try {
             Class.forName(R.DB.DB_DRIVER);
             connection = dbHelper.getConnection();
@@ -201,6 +207,8 @@ public class CourseService implements CourseDAO {
             preparedStatement.setInt(1, dtoCustomer.getId());
             preparedStatement.setInt(2, dtoCourse.getId());
             preparedStatement.executeLargeUpdate();
+
+            LOGGER.info("Remove course " + dtoCourse.getCourseName() + " from customer id = " + dtoCustomer.getId());
         } catch (SQLException | ClassNotFoundException e) {
             LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
@@ -208,8 +216,8 @@ public class CourseService implements CourseDAO {
 
     // VIDEO COURSES
     public int addVideoCourse(VideoCourse dtoVideoCourse) throws SQLException {
-        PreparedStatement preparedStatement = null;
-        Connection connection = null;
+        PreparedStatement preparedStatement;
+        Connection connection;
         Integer id = -1;
         try {
             Class.forName(R.DB.DB_DRIVER);
@@ -226,6 +234,8 @@ public class CourseService implements CourseDAO {
             if (rs.next()) {
                 id = rs.getInt(1);
             }
+
+            LOGGER.info("Add new videocourse name= " + dtoVideoCourse.getCourseName());
         } catch (SQLException | ClassNotFoundException e) {
             LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
@@ -233,8 +243,8 @@ public class CourseService implements CourseDAO {
     }
 
     public void updateVideoCourse(VideoCourse dtoVideoCourse) throws SQLException {
-        PreparedStatement preparedStatement = null;
-        Connection connection = null;
+        PreparedStatement preparedStatement;
+        Connection connection;
         try {
             Class.forName(R.DB.DB_DRIVER);
             connection = dbHelper.getConnection();
@@ -246,6 +256,7 @@ public class CourseService implements CourseDAO {
             preparedStatement.setString(3, dtoVideoCourse.getLink());
             preparedStatement.setString(4, dtoVideoCourse.getRemark());
             preparedStatement.executeUpdate();
+            LOGGER.info("Update videocourse id = " + dtoVideoCourse.getId() + " name = " + dtoVideoCourse.getCourseName());
         } catch (SQLException | ClassNotFoundException e) {
             LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
@@ -254,8 +265,8 @@ public class CourseService implements CourseDAO {
 
     public ObservableList<VideoCourse> searchVideoCourse(String searchConfig, String search) throws SQLException {
         ObservableList<VideoCourse> videoCourseList = FXCollections.observableArrayList();
-        PreparedStatement preparedStatement = null;
-        Connection connection = null;
+        PreparedStatement preparedStatement;
+        Connection connection;
 
         try {
             Class.forName(R.DB.DB_DRIVER);
@@ -266,6 +277,7 @@ public class CourseService implements CourseDAO {
                     preparedStatement = connection
                             .prepareStatement("SELECT * FROM video_course WHERE videoID=?");
                     preparedStatement.setString(1, search);
+                    LOGGER.info("Search videocourse by id= " + search);
                     break;
                 default:
                     preparedStatement = connection
