@@ -43,7 +43,7 @@
                 <TextField fx:id="lastName" promptText="Nachname" />
                 <TextField fx:id="mail" promptText="MaFiSoft@example.com" />
                 <TextField fx:id="mobile" promptText="+4912345678900" />
-                <NumberTextField fx:id="changeZipcode" promptText="PLZ" />
+                <NumberTextField fx:id="zipCode" promptText="PLZ" />
                 <TextField fx:id="city" promptText="Stadt" />
                 <TextField fx:id="street" promptText="Straße Hausnummer" />
                 <Button mnemonicParsing="false" onAction="#changeButtonPressed" text="Kunndendaten ändern">
