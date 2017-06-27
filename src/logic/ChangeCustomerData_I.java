@@ -10,12 +10,16 @@ public interface ChangeCustomerData_I extends Navigable {
     void mouseOnClick(MouseEvent mouseEvent);
 
     void fillTable();
+
     void fillEditingFormular(Object o);
+
     void cleanAll();
 
     void searchButton();
+
     void deleteSearchButton();
-    boolean check(int tab);
+
+    boolean check();
 
     void addButtonPressed(ActionEvent actionEvent);
 }

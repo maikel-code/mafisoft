@@ -12,7 +12,7 @@ public interface AddCustomer_I extends Navigable {
 
     void checkZipLength(KeyEvent keyEvent);
 
-    boolean check(int tab);
+    boolean check();
 
     void addButtonPressed(ActionEvent actionEvent);
 }
