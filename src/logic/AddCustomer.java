@@ -53,7 +53,7 @@ public class AddCustomer implements Initializable, AddCustomer_I {
     public void addButtonPressed(ActionEvent actionEvent) {
         setCustomer();
         try {
-            if (check(0)) {
+            if (check()) {
                 Integer genID = customerService.addCustomer(this.customer);
                 if (genID > 0) {
                     firstName.setText("");
@@ -65,7 +65,7 @@ public class AddCustomer implements Initializable, AddCustomer_I {
                     city.setText("");
                     zipCode.setText("");
                     period.setValue(null);
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION, "Video Kurs wurde angelegt");
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION, "Neue Kunde wurde angelegt");
                     alert.setHeaderText(null);
                     alert.show();
                 }
@@ -80,7 +80,7 @@ public class AddCustomer implements Initializable, AddCustomer_I {
     }
 
     public void setCustomer() {
-        if (check(0)) {
+        if (check()) {
             Calendar calendarEndCalendar = Calendar.getInstance();
             calendarEndCalendar.set(Calendar.MONTH, (currentDate.getMonth() + Integer.parseInt(String.valueOf(period.getSelectionModel().getSelectedItem()))));
             java.sql.Date calendarEnd = new java.sql.Date(calendarEndCalendar.getTime().getYear(), calendarEndCalendar.getTime().getMonth(), calendarEndCalendar.getTime().getDay());
@@ -97,7 +97,7 @@ public class AddCustomer implements Initializable, AddCustomer_I {
         }
     }
 
-    public boolean check(int tab) {
+    public boolean check() {
         boolean check = false;
         String fillText = "";
 
