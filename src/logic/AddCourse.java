@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import logger.Log;
@@ -39,7 +40,6 @@ public class AddCourse implements Initializable, AddCourse_I {
 
     }
 
-
     public boolean check(int tab) {
         switch (tab) {
             case 1:
@@ -56,61 +56,77 @@ public class AddCourse implements Initializable, AddCourse_I {
         return false;
     }
 
-
     public void addButtonPressed(ActionEvent actionEvent) {
-        if (check(1)) {
-            PhysicalCourse physicalCourse = new PhysicalCourse();
-            physicalCourse.setCourseName(courseName.getText());
-            physicalCourse.setTrainerName(trainer.getText());
-            String[] startSplitted = startTime.getText().split("\\p{Punct}");
-            String[] endSplitted = endTime.getText().split("\\p{Punct}");
-            if (startSplitted.length <= 1 || endSplitted.length <= 1) {
-                Alert alert = new Alert(Alert.AlertType.ERROR, "Fehlerhafte startzeit angegeben");
+        String buttonName = ((Button) actionEvent.getSource()).getId();
+
+        switch (buttonName) {
+            case "addPhysicalCourse":
+                if (check(1)) {
+                    addPhysicalCOurse();
+                }
+                break;
+            case "addVideoCourse":
+                if (check(2)) {
+                    addVideoCourse();
+                }
+                break;
+        }
+    }
+
+    private void addPhysicalCOurse() {
+        PhysicalCourse physicalCourse = new PhysicalCourse();
+        physicalCourse.setCourseName(courseName.getText());
+        physicalCourse.setTrainerName(trainer.getText());
+        String[] startSplitted = startTime.getText().split("\\p{Punct}");
+        String[] endSplitted = endTime.getText().split("\\p{Punct}");
+        if (startSplitted.length <= 1 || endSplitted.length <= 1) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Fehlerhafte startzeit angegeben");
+            alert.setHeaderText(null);
+            alert.show();
+        } else {
+            int timeHH = Integer.parseInt(startSplitted[0]);
+            int timeMM = Integer.parseInt(startSplitted[1]);
+            physicalCourse.setStartTime(new Time(timeHH, timeMM, 0));
+
+            timeHH = Integer.parseInt(endSplitted[0]);
+            timeMM = Integer.parseInt(endSplitted[1]);
+            physicalCourse.setEndTime(new Time(timeHH, timeMM, 0));
+        }
+        try {
+            Integer genID = courseService.addPhysicalCourse(physicalCourse);
+            if (genID > 0) {
+                courseName.setText("");
+                trainer.setText("");
+                startTime.setText("");
+                endTime.setText("");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "Kurs wurde angelegt");
                 alert.setHeaderText(null);
                 alert.show();
-            } else {
-                int timeHH = Integer.parseInt(startSplitted[0]);
-                int timeMM = Integer.parseInt(startSplitted[1]);
-                physicalCourse.setStartTime(new Time(timeHH, timeMM, 0));
+            }
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
+        }
+    }
 
-                timeHH = Integer.parseInt(endSplitted[0]);
-                timeMM = Integer.parseInt(endSplitted[1]);
-                physicalCourse.setEndTime(new Time(timeHH, timeMM, 0));
+    private void addVideoCourse() {
+        VideoCourse videoCourse = new VideoCourse();
+        videoCourse.setCourseName(vCourseName.getText());
+        videoCourse.setTrainerName(vTrainer.getText());
+        videoCourse.setLink(vLink.getText());
+        videoCourse.setRemark(vRemark.getText());
+        try {
+            Integer genID = courseService.addVideoCourse(videoCourse);
+            if (genID > 0) {
+                vCourseName.setText("");
+                vTrainer.setText("");
+                vLink.setText("");
+                vRemark.setText("");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "Video Kurs wurde angelegt");
+                alert.setHeaderText(null);
+                alert.show();
             }
-            try {
-                Integer genID = courseService.addPhysicalCourse(physicalCourse);
-                if (genID > 0) {
-                    courseName.setText("");
-                    trainer.setText("");
-                    startTime.setText("");
-                    endTime.setText("");
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION, "Kurs wurde angelegt");
-                    alert.setHeaderText(null);
-                    alert.show();
-                }
-            } catch (SQLException e) {
-                LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
-            }
-        } else if (check(2)) {
-            VideoCourse videoCourse = new VideoCourse();
-            videoCourse.setCourseName(vCourseName.getText());
-            videoCourse.setTrainerName(vTrainer.getText());
-            videoCourse.setLink(vLink.getText());
-            videoCourse.setRemark(vRemark.getText());
-            try {
-                Integer genID = courseService.addVideoCourse(videoCourse);
-                if (genID > 0) {
-                    vCourseName.setText("");
-                    vTrainer.setText("");
-                    vLink.setText("");
-                    vRemark.setText("");
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION, "Video Kurs wurde angelegt");
-                    alert.setHeaderText(null);
-                    alert.show();
-                }
-            } catch (SQLException e) {
-                LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
-            }
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
     }
 
