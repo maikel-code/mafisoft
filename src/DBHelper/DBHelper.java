@@ -22,6 +22,7 @@ public class DBHelper {
     public synchronized static DBHelper getInstance() {
         if (instance == null) {
             instance = new DBHelper();
+            LOGGER.info("Connecting to Database");
         }
 
         return instance;
