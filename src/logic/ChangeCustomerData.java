@@ -36,7 +36,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
     @FXML
     private ComboBox<PhysicalCourse> coursesCombobox;
     @FXML
-    private TextField changeZipcode;
+    private TextField zipCode;
     @FXML
     private TableView<Customer> customerTable;
     @FXML
@@ -112,7 +112,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         id.setText(customer.getId() + "");
         firstName.setText(customer.getFirstname());
         lastName.setText(customer.getLastname());
-        changeZipcode.setText(customer.getZipCode() + "");
+        zipCode.setText(customer.getZipCode() + "");
         city.setText(customer.getCity());
         street.setText(customer.getStreet());
 
@@ -135,8 +135,24 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         }
     }
 
-    public boolean check(int tab) {
-        return false;
+    public boolean check() {
+        if (firstName.getText() == null || firstName.getText().isEmpty()) {
+            return false;
+        }
+
+        if (lastName.getText() == null || lastName.getText().isEmpty()) {
+            return false;
+        }
+
+        if (city.getText() == null || city.getText().isEmpty()) {
+            return false;
+        }
+
+        if (street.getText() == null || street.getText().isEmpty()) {
+            return false;
+        }
+
+        return !(zipCode.getText() == null || zipCode.getText().isEmpty());
     }
 
     // Buttons
@@ -204,18 +220,26 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
 
     public void changeButtonPressed(ActionEvent actionEvent) {
         try {
-            Customer dtoCustomer = new Customer();
-            dtoCustomer.setId(Integer.parseInt(columnId.getText()));
-            dtoCustomer.setFirstname(firstName.getText());
-            dtoCustomer.setLastname(lastName.getText());
-            dtoCustomer.setMail(mail.getText());
-            dtoCustomer.setMobilephone(mobile.getText());
-            dtoCustomer.setZipCode(Integer.parseInt(changeZipcode.getText()));
-            dtoCustomer.setCity(city.getText());
-            dtoCustomer.setStreet(city.getText());
+            if (check()) {
+                Customer dtoCustomer = new Customer();
+                dtoCustomer.setId(Integer.parseInt(id.getText()));
+                dtoCustomer.setFirstname(firstName.getText());
+                dtoCustomer.setLastname(lastName.getText());
 
-            customerService.updateCustomer(dtoCustomer);
-            fillTable();
+                if (mail.getText() != null || mail.getText().isEmpty())
+                    dtoCustomer.setMail(mail.getText());
+
+                if (mobile.getText() != null || !mobile.getText().isEmpty())
+                    dtoCustomer.setMobilephone(mobile.getText());
+
+
+                dtoCustomer.setZipCode(Integer.parseInt(zipCode.getText()));
+                dtoCustomer.setCity(city.getText());
+                dtoCustomer.setStreet(city.getText());
+
+                customerService.updateCustomer(dtoCustomer);
+                fillTable();
+            }
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
