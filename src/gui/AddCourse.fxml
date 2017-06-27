@@ -41,7 +41,7 @@
                             <bottom>
                                 <HBox minHeight="-Infinity" BorderPane.alignment="CENTER">
                                     <children>
-                                        <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
+                                        <Button id="addPhysicalCourse" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
                                                 onAction="#addButtonPressed" text="Add" HBox.hgrow="ALWAYS"/>
                                         <Region prefWidth="200.0"/>
                                         <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
@@ -102,7 +102,7 @@
                             <bottom>
                                 <HBox minHeight="-Infinity" BorderPane.alignment="CENTER">
                                     <children>
-                                        <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
+                                        <Button id="addVideoCourse" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
                                                 onAction="#addButtonPressed" text="Add" HBox.hgrow="ALWAYS"/>
                                         <Region prefWidth="200.0"/>
                                         <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
