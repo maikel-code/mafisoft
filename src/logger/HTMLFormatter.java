@@ -37,9 +37,9 @@ public class HTMLFormatter extends java.util.logging.Formatter {
 
     @Override
     public String getTail(Handler handler) {
-        return "</table>\n" +
+        return "\n</table>\n" +
                 "</body>\n" +
-                "</html>";
+                "</html>\n";
     }
 
     @Override
@@ -83,13 +83,13 @@ public class HTMLFormatter extends java.util.logging.Formatter {
             String stackTrace = sw.toString();
 
             result.append(stackTrace);
-            result.append("</td>");
+            result.append("\n\t\t</td>");
         } else {
-            result.append("</td>\n\t\t<td>null");
-            result.append("</td>");
+            result.append("\n\t\t</td>\n\t\t<td>null");
+            result.append("\n\t\t</td>");
         }
 
-        result.append("\n\t\t</tr>");
+        result.append("\n\t</tr>\n");
         return result.toString();
     }
 }
