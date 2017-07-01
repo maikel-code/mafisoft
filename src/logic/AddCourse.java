@@ -44,7 +44,7 @@ public class AddCourse implements Initializable, AddCourse_I {
     private static final Logger LOGGER = Log.getLogger(AddCourse.class);
 
     public void initialize(URL location, ResourceBundle resources) {
-        setRessources(ResourceBundle.getBundle(R.Language.RESOURCE_BUNDLE, new Locale(R.Language.currentLanguage, R.Language.currentCountry)));
+        setResources(ResourceBundle.getBundle(R.Language.RESOURCE_BUNDLE, new Locale(R.Language.currentLanguage, R.Language.currentCountry)));
     }
 
     public boolean check(int tab) {
@@ -142,7 +142,7 @@ public class AddCourse implements Initializable, AddCourse_I {
         goToScene(actionEvent, R.Pages.PATH_TO_MAIN_WINDOW);
     }
 
-    public void setRessources(ResourceBundle resourceBundle) {
+    public void setResources(ResourceBundle resourceBundle) {
         try {
 
             // Video

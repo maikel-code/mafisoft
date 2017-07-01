@@ -61,7 +61,7 @@ public class AddCustomer implements Initializable, AddCustomer_I {
 
     public void initialize(URL location, ResourceBundle resources) {
         isChecked();
-        setRessources(ResourceBundle.getBundle(R.Language.RESOURCE_BUNDLE, new Locale(R.Language.currentLanguage, R.Language.currentCountry)));
+        setResources(ResourceBundle.getBundle(R.Language.RESOURCE_BUNDLE, new Locale(R.Language.currentLanguage, R.Language.currentCountry)));
     }
 
     @FXML
@@ -190,7 +190,7 @@ public class AddCustomer implements Initializable, AddCustomer_I {
         }
     }
 
-    public void setRessources(ResourceBundle resourceBundle) {
+    public void setResources(ResourceBundle resourceBundle) {
         try {
             // Text
             nameLbl.setText(new String(resourceBundle.getString("lbFirstName").getBytes("ISO-8859-1"), "UTF-8"));

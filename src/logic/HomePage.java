@@ -21,7 +21,7 @@ public class HomePage implements Initializable, Navigable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        setRessources(ResourceBundle.getBundle(R.Language.RESOURCE_BUNDLE, new Locale(R.Language.currentLanguage, R.Language.currentCountry)));
+        setResources(ResourceBundle.getBundle(R.Language.RESOURCE_BUNDLE, new Locale(R.Language.currentLanguage, R.Language.currentCountry)));
     }
 
     @FXML
@@ -68,10 +68,10 @@ public class HomePage implements Initializable, Navigable {
         Locale locale = new Locale(R.Language.currentLanguage, R.Language.currentCountry);
         ResourceBundle resourceBundle = ResourceBundle.getBundle(R.Language.RESOURCE_BUNDLE, locale);
 
-        setRessources(resourceBundle);
+        setResources(resourceBundle);
     }
 
-    public void setRessources(ResourceBundle resourceBundle) {
+    public void setResources(ResourceBundle resourceBundle) {
         try {
             newCourse.setText(new String(resourceBundle.getString("lbCreateCourse").getBytes("ISO-8859-1"), "UTF-8"));
             allCourse.setText(new String(resourceBundle.getString("lbAllCourse").getBytes("ISO-8859-1"), "UTF-8"));

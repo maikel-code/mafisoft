@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 public interface Navigable {
     default void goToScene(ActionEvent actionEvent, String path) {
@@ -21,4 +22,6 @@ public interface Navigable {
             e.printStackTrace();
         }
     }
+
+    void setResources(ResourceBundle resourceBundle);
 }

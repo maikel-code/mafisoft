@@ -66,7 +66,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
     private static final Logger LOGGER = Log.getLogger(ChangeCustomerData.class);
 
     public void initialize(URL location, ResourceBundle resources) {
-        setRessources(ResourceBundle.getBundle(R.Language.RESOURCE_BUNDLE, new Locale(R.Language.currentLanguage, R.Language.currentCountry)));
+        setResources(ResourceBundle.getBundle(R.Language.RESOURCE_BUNDLE, new Locale(R.Language.currentLanguage, R.Language.currentCountry)));
         fillTable();
 
 
@@ -267,7 +267,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         goToScene(actionEvent, R.Pages.PATH_TO_MAIN_WINDOW);
     }
 
-    public void setRessources(ResourceBundle resourceBundle) {
+    public void setResources(ResourceBundle resourceBundle) {
         try {
             // Columns
             columnId.setText(new String(resourceBundle.getString("lbId").getBytes("ISO-8859-1"), "UTF-8"));

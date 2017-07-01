@@ -78,7 +78,7 @@ public class CourseList implements Initializable, CourseList_I {
     private static final Logger LOGGER = Log.getLogger(CourseList.class);
 
     public void initialize(URL location, ResourceBundle resources) {
-        setRessources(ResourceBundle.getBundle(R.Language.RESOURCE_BUNDLE, new Locale(R.Language.currentLanguage, R.Language.currentCountry)));
+        setResources(ResourceBundle.getBundle(R.Language.RESOURCE_BUNDLE, new Locale(R.Language.currentLanguage, R.Language.currentCountry)));
         fillPhysicalTable();
     }
 
@@ -250,7 +250,7 @@ public class CourseList implements Initializable, CourseList_I {
         goToScene(actionEvent, R.Pages.PATH_TO_MAIN_WINDOW);
     }
 
-    public void setRessources(ResourceBundle resourceBundle) {
+    public void setResources(ResourceBundle resourceBundle) {
         try {
             // Columns
             // Physical
