@@ -23,4 +23,12 @@ public class R {
         public static final String LOG_PROPERTIES = "./src/config/logging.properties";
     }
 
+    public static class Language {
+        public static final String RESOURCE_BUNDLE = "config/LabelsBundle";
+        public static final String LANGUAGE_RU = "Russia";
+        public static final String LANGUAGE_EN = "English";
+        public static final String LANGUAGE_DE = "German";
+        public static String currentCountry = "DE";
+        public static String currentLanguage = "de";
+    }
 }
