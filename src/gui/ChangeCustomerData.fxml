@@ -23,60 +23,54 @@
     </center>
     <top>
         <HBox minWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
-            <children>
-                <TextField fx:id="searchCustomer" onKeyReleased="#searchButton" prefWidth="200" promptText="KundenNR/Vorname, Nachname" />
-                <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#deleteSearchButton" text="Suche zurücksetzen" />
-                <Region maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefWidth="-Infinity" />
-                <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="200.0" HBox.hgrow="ALWAYS" />
-                <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goToMainWindow" text="Zum Hauptfenster" />
-            </children>
             <padding>
                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
             </padding>
+            <TextField fx:id="searchCustomer" onKeyReleased="#searchButton" prefWidth="200" promptText="KundenNR/Vorname, Nachname" />
+            <Button fx:id="deleteSearchBtn" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#deleteSearchButton" text="Suche zurücksetzen" />
+            <Region maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefWidth="-Infinity" />
+            <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="200.0" HBox.hgrow="ALWAYS" />
+            <Button fx:id="goToMainWindowBtn" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goToMainWindow" text="Zum Hauptfenster" />
         </HBox>
     </top>
     <right>
-        <VBox prefWidth="178.0" spacing="10.0" BorderPane.alignment="CENTER">
-            <children>
-                <TextField fx:id="id" disable="true" editable="false" promptText="Kundennummer" />
-                <TextField fx:id="firstName" promptText="Vorname" />
-                <TextField fx:id="lastName" promptText="Nachname" />
-                <TextField fx:id="mail" promptText="MaFiSoft@example.com" />
-                <TextField fx:id="mobile" promptText="+4912345678900" />
-                <NumberTextField fx:id="zipCode" promptText="PLZ" />
-                <TextField fx:id="city" promptText="Stadt" />
-                <TextField fx:id="street" promptText="Straße Hausnummer" />
-                <Button mnemonicParsing="false" onAction="#changeButtonPressed" text="Kunndendaten ändern">
-                    <VBox.margin>
-                        <Insets left="5.0" right="5.0" />
-                    </VBox.margin>
-                </Button>
-                <ComboBox fx:id="coursesCombobox" promptText="Alle Kurse">
-                    <VBox.margin>
-                        <Insets left="25.0" right="10.0" />
-                    </VBox.margin>
-                </ComboBox>
-                <HBox spacing="30.0">
-                    <children>
-                        <Button mnemonicParsing="false" onAction="#addButtonPressed" text="Add" />
-                        <Button mnemonicParsing="false" onAction="#removeCourse" text="Remove" />
-                    </children>
-                    <VBox.margin>
-                        <Insets left="10.0" right="10.0" />
-                    </VBox.margin>
-                </HBox>
-                <TableView fx:id="customerCourseTable" prefHeight="200.0" prefWidth="200.0">
-                    <columns>
-                        <TableColumn fx:id="customerCourseList" prefWidth="167.0" text="Kurs name" />
-                    </columns>
-                    <VBox.margin>
-                        <Insets bottom="5.0" />
-                    </VBox.margin>
-                </TableView>
-            </children>
+        <VBox spacing="10.0" BorderPane.alignment="CENTER">
             <padding>
                 <Insets left="5.0" right="5.0" />
             </padding>
+            <TextField fx:id="id" disable="true" editable="false" promptText="Kundennummer" />
+            <TextField fx:id="firstName" promptText="Vorname" />
+            <TextField fx:id="lastName" promptText="Nachname" />
+            <TextField fx:id="mail" promptText="MaFiSoft@example.com" />
+            <TextField fx:id="mobile" promptText="+4912345678900" />
+            <NumberTextField fx:id="zipCode" promptText="PLZ" />
+            <TextField fx:id="city" promptText="Stadt" />
+            <TextField fx:id="street" promptText="Straße Hausnummer" />
+            <Button fx:id="changeBtn" mnemonicParsing="false" onAction="#changeButtonPressed" text="Kunndendaten ändern">
+                <VBox.margin>
+                    <Insets left="5.0" right="5.0" />
+                </VBox.margin>
+            </Button>
+            <ComboBox fx:id="coursesCombobox" promptText="Alle Kurse">
+                <VBox.margin>
+                    <Insets left="25.0" right="10.0" />
+                </VBox.margin>
+            </ComboBox>
+            <HBox spacing="30.0">
+                <VBox.margin>
+                    <Insets left="10.0" right="10.0" />
+                </VBox.margin>
+                <Button fx:id="addBtn" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addButtonPressed" text="Add" />
+                <Button fx:id="removeBtn" mnemonicParsing="false" onAction="#removeCourse" text="Remove" />
+            </HBox>
+            <TableView fx:id="customerCourseTable" prefHeight="200.0" prefWidth="200.0">
+                <columns>
+                    <TableColumn fx:id="customerCourseList" prefWidth="167.0" text="Kurs name" />
+                </columns>
+                <VBox.margin>
+                    <Insets bottom="5.0" />
+                </VBox.margin>
+            </TableView>
         </VBox>
     </right>
 </BorderPane>

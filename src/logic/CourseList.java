@@ -15,16 +15,22 @@ import javafx.scene.input.MouseEvent;
 import logger.Log;
 import service.CourseService;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
 public class CourseList implements Initializable, CourseList_I {
+    @FXML
+    private Button deleteSearchBtnPC, deleteSearchBtnVC, goToMainWindowBtnPC, goToMainWindowBtnVC, changeBtnPC, changeBtnVC;
+    @FXML
+    private Tab tabPhysical, tabVideo;
     @FXML
     private TableView courseTable;
     @FXML
@@ -72,6 +78,7 @@ public class CourseList implements Initializable, CourseList_I {
     private static final Logger LOGGER = Log.getLogger(CourseList.class);
 
     public void initialize(URL location, ResourceBundle resources) {
+        setRessources(ResourceBundle.getBundle(R.Language.RESOURCE_BUNDLE, new Locale(R.Language.currentLanguage, R.Language.currentCountry)));
         fillPhysicalTable();
     }
 
@@ -137,7 +144,6 @@ public class CourseList implements Initializable, CourseList_I {
 
     }
 
-
     public void deleteSearchButton(ActionEvent actionEvent) {
         try {
             String buttonsID = ((Button) actionEvent.getSource()).getId();
@@ -152,7 +158,6 @@ public class CourseList implements Initializable, CourseList_I {
             LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
     }
-
 
     public void changeButtonPressed(ActionEvent actionEvent) {
         String buttonsID = ((Button) actionEvent.getSource()).getId();
@@ -233,7 +238,6 @@ public class CourseList implements Initializable, CourseList_I {
         }
     }
 
-
     public void changeVideoCourse() {
         videoCourse.setCourseName(vCourseNameChanged.getText());
         videoCourse.setTrainerName(vTrainerChanged.getText());
@@ -244,6 +248,59 @@ public class CourseList implements Initializable, CourseList_I {
     @FXML
     private void goToMainWindow(ActionEvent actionEvent) {
         goToScene(actionEvent, R.Pages.PATH_TO_MAIN_WINDOW);
+    }
+
+    public void setRessources(ResourceBundle resourceBundle) {
+        try {
+            // Columns
+            // Physical
+            columnId.setText(new String(resourceBundle.getString("lbId").getBytes("ISO-8859-1"), "UTF-8"));
+            columnCourseName.setText(new String(resourceBundle.getString("lbCourseName").getBytes("ISO-8859-1"), "UTF-8"));
+            columnTrainerName.setText(new String(resourceBundle.getString("lbTrainer").getBytes("ISO-8859-1"), "UTF-8"));
+            columnTimeBegin.setText(new String(resourceBundle.getString("lbTimeBeginn").getBytes("ISO-8859-1"), "UTF-8"));
+            columnTimeEnd.setText(new String(resourceBundle.getString("lbEndTime").getBytes("ISO-8859-1"), "UTF-8"));
+            // Video
+            vID.setText(new String(resourceBundle.getString("lbId").getBytes("ISO-8859-1"), "UTF-8"));
+            vCourseName.setText(new String(resourceBundle.getString("lbCourseName").getBytes("ISO-8859-1"), "UTF-8"));
+            vTrainerName.setText(new String(resourceBundle.getString("lbTrainer").getBytes("ISO-8859-1"), "UTF-8"));
+            vURL.setText(new String(resourceBundle.getString("lbLink").getBytes("ISO-8859-1"), "UTF-8"));
+            vRemark.setText(new String(resourceBundle.getString("lbRemark").getBytes("ISO-8859-1"), "UTF-8"));
+
+
+            // Tabs
+            tabPhysical.setText(new String(resourceBundle.getString("lbPhysucalCourse").getBytes("ISO-8859-1"), "UTF-8"));
+            tabVideo.setText(new String(resourceBundle.getString("lbVideoCourse").getBytes("ISO-8859-1"), "UTF-8"));
+
+
+            // Buttons
+            // Physical
+            changeBtnPC.setText(new String(resourceBundle.getString("lbChange").getBytes("ISO-8859-1"), "UTF-8"));
+            deleteSearchBtnPC.setText(new String(resourceBundle.getString("lbChange").getBytes("ISO-8859-1"), "UTF-8"));
+            goToMainWindowBtnPC.setText(new String(resourceBundle.getString("lbGoHomePage").getBytes("ISO-8859-1"), "UTF-8"));
+
+            // Video
+            changeBtnVC.setText(new String(resourceBundle.getString("lbChange").getBytes("ISO-8859-1"), "UTF-8"));
+            deleteSearchBtnVC.setText(new String(resourceBundle.getString("lbChange").getBytes("ISO-8859-1"), "UTF-8"));
+            goToMainWindowBtnVC.setText(new String(resourceBundle.getString("lbGoHomePage").getBytes("ISO-8859-1"), "UTF-8"));
+
+
+            // Promp Text
+            // Physical
+            search.setPromptText(new String(resourceBundle.getString("lbPrompSearch").getBytes("ISO-8859-1"), "UTF-8"));
+            courseID.setPromptText(new String(resourceBundle.getString("lbId").getBytes("ISO-8859-1"), "UTF-8"));
+            coursename.setPromptText(new String(resourceBundle.getString("lbPromptCours").getBytes("ISO-8859-1"), "UTF-8"));
+            trainer.setPromptText(new String(resourceBundle.getString("lbPromptLastName").getBytes("ISO-8859-1"), "UTF-8"));
+
+            // Video
+            vSearch.setPromptText(new String(resourceBundle.getString("lbPrompSearch").getBytes("ISO-8859-1"), "UTF-8"));
+            vCourseIDChanged.setPromptText(new String(resourceBundle.getString("lbId").getBytes("ISO-8859-1"), "UTF-8"));
+            vCourseNameChanged.setPromptText(new String(resourceBundle.getString("lbPromptCours").getBytes("ISO-8859-1"), "UTF-8"));
+            vTrainerChanged.setPromptText(new String(resourceBundle.getString("lbPromptLastName").getBytes("ISO-8859-1"), "UTF-8"));
+            vURLChanged.setPromptText(new String(resourceBundle.getString("lbPromptSite").getBytes("ISO-8859-1"), "UTF-8"));
+            vRemarkChanged.setPromptText(new String(resourceBundle.getString("lbRemark").getBytes("ISO-8859-1"), "UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
 
 }

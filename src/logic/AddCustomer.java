@@ -11,14 +11,30 @@ import javafx.scene.input.KeyEvent;
 import logger.Log;
 import service.CustomerService;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class AddCustomer implements Initializable, AddCustomer_I {
+    @FXML
+    private Button addBtnLbl, clearBtnLbl, goToMainWIndow;
+    @FXML
+    private Label nameLbl,
+            surnameLbl,
+            bdLbl,
+            mailLbl,
+            mobLbl,
+            periodLbl,
+            zipLbl,
+            cityLbl,
+            streetLbl,
+            releaseLbl,
+            orderDateLbl;
     @FXML
     private TextField firstName,
             lastName,
@@ -27,7 +43,7 @@ public class AddCustomer implements Initializable, AddCustomer_I {
             street,
             city;
     @FXML
-    private DatePicker birthdayTXT;
+    private DatePicker birthday;
     @FXML
     private NumberTextField zipCode;
     @FXML
@@ -36,8 +52,6 @@ public class AddCustomer implements Initializable, AddCustomer_I {
     private CheckBox releaseDate;
     @FXML
     private DatePicker newDate;
-    @FXML
-    private Label orderDate;
 
     private java.sql.Date currentDate;
     private Customer customer;
@@ -47,6 +61,7 @@ public class AddCustomer implements Initializable, AddCustomer_I {
 
     public void initialize(URL location, ResourceBundle resources) {
         isChecked();
+        setRessources(ResourceBundle.getBundle(R.Language.RESOURCE_BUNDLE, new Locale(R.Language.currentLanguage, R.Language.currentCountry)));
     }
 
     @FXML
@@ -58,7 +73,7 @@ public class AddCustomer implements Initializable, AddCustomer_I {
                 if (genID > 0) {
                     firstName.setText("");
                     lastName.setText("");
-                    birthdayTXT.setValue(null);
+                    birthday.setValue(null);
                     mail.setText("");
                     mobile.setText("");
                     street.setText("");
@@ -110,7 +125,7 @@ public class AddCustomer implements Initializable, AddCustomer_I {
         } else if (period.getSelectionModel() == null || period.getSelectionModel().isEmpty()) {
             check = true;
             fillText += " ";
-        } else if (birthdayTXT.getEditor() == null || birthdayTXT.getEditor().getText().isEmpty()) {
+        } else if (birthday.getEditor() == null || birthday.getEditor().getText().isEmpty()) {
             check = true;
             fillText += " ";
         } else if (zipCode.getText() == null || zipCode.getText().isEmpty()) {
@@ -143,7 +158,7 @@ public class AddCustomer implements Initializable, AddCustomer_I {
     public void cleanAll() {
         firstName.clear();
         lastName.clear();
-        birthdayTXT.getEditor().clear();
+        birthday.getEditor().clear();
         mail.clear();
         mobile.clear();
         zipCode.clear();
@@ -153,11 +168,11 @@ public class AddCustomer implements Initializable, AddCustomer_I {
 
     public void isChecked() {
         if (releaseDate.isSelected()) {
-            orderDate.setVisible(false);
+            orderDateLbl.setVisible(false);
             newDate.setVisible(false);
             currentDate = new java.sql.Date(new Date().getTime());
         } else {
-            orderDate.setVisible(true);
+            orderDateLbl.setVisible(true);
             newDate.setVisible(true);
             if (!newDate.getEditor().getText().isEmpty())
                 currentDate = new java.sql.Date(newDate.getValue().getYear() - defaultYear, newDate.getValue().getMonth().getValue() - 1, newDate.getValue().getDayOfMonth());
@@ -165,13 +180,46 @@ public class AddCustomer implements Initializable, AddCustomer_I {
     }
 
     private java.sql.Date getDate() {
-        return new java.sql.Date(birthdayTXT.getValue().getYear() - defaultYear, birthdayTXT.getValue().getMonth().getValue() - 1, birthdayTXT.getValue().getDayOfMonth());
+        return new java.sql.Date(birthday.getValue().getYear() - defaultYear, birthday.getValue().getMonth().getValue() - 1, birthday.getValue().getDayOfMonth());
     }
 
     public void checkZipLength(KeyEvent actionEvent) {
         if (zipCode.getText().length() >= 5) {
             zipCode.setText(zipCode.getText().substring(0, 5));
             zipCode.positionCaret(5);
+        }
+    }
+
+    public void setRessources(ResourceBundle resourceBundle) {
+        try {
+            // Text
+            nameLbl.setText(new String(resourceBundle.getString("lbFirstName").getBytes("ISO-8859-1"), "UTF-8"));
+            surnameLbl.setText(new String(resourceBundle.getString("lbLastName").getBytes("ISO-8859-1"), "UTF-8"));
+            bdLbl.setText(new String(resourceBundle.getString("lbBirthday").getBytes("ISO-8859-1"), "UTF-8"));
+            mailLbl.setText(new String(resourceBundle.getString("lbEMail").getBytes("ISO-8859-1"), "UTF-8"));
+            mobLbl.setText(new String(resourceBundle.getString("lbTelephone").getBytes("ISO-8859-1"), "UTF-8"));
+            periodLbl.setText(new String(resourceBundle.getString("lbPeriod").getBytes("ISO-8859-1"), "UTF-8"));
+            zipLbl.setText(new String(resourceBundle.getString("lbZIP").getBytes("ISO-8859-1"), "UTF-8"));
+            cityLbl.setText(new String(resourceBundle.getString("lbCity").getBytes("ISO-8859-1"), "UTF-8"));
+            streetLbl.setText(new String(resourceBundle.getString("lbStreet").getBytes("ISO-8859-1"), "UTF-8"));
+            orderDateLbl.setText(new String(resourceBundle.getString("lbStartDate").getBytes("ISO-8859-1"), "UTF-8"));
+            period.setPromptText(new String(resourceBundle.getString("lbMonth").getBytes("ISO-8859-1"), "UTF-8"));
+            releaseDate.setText(new String(resourceBundle.getString("lbNow").getBytes("ISO-8859-1"), "UTF-8"));
+            releaseLbl.setText(new String(resourceBundle.getString("lbConcractDate").getBytes("ISO-8859-1"), "UTF-8"));
+            addBtnLbl.setText(new String(resourceBundle.getString("lbAdd").getBytes("ISO-8859-1"), "UTF-8"));
+            clearBtnLbl.setText(new String(resourceBundle.getString("lbEmpty").getBytes("ISO-8859-1"), "UTF-8"));
+            goToMainWIndow.setText(new String(resourceBundle.getString("lbGoHomePage").getBytes("ISO-8859-1"), "UTF-8"));
+
+            // Promp text
+            firstName.setPromptText(new String(resourceBundle.getString("lbPromptFirstName").getBytes("ISO-8859-1"), "UTF-8"));
+            lastName.setPromptText(new String(resourceBundle.getString("lbPromptLastName").getBytes("ISO-8859-1"), "UTF-8"));
+            mail.setPromptText(new String(resourceBundle.getString("lbPromptEmail").getBytes("ISO-8859-1"), "UTF-8"));
+            mobile.setPromptText(new String(resourceBundle.getString("lbPromptMobile").getBytes("ISO-8859-1"), "UTF-8"));
+            zipCode.setPromptText(new String(resourceBundle.getString("lbPromptZip").getBytes("ISO-8859-1"), "UTF-8"));
+            city.setPromptText(new String(resourceBundle.getString("lbPromptCity").getBytes("ISO-8859-1"), "UTF-8"));
+            street.setPromptText(new String(resourceBundle.getString("lbPromptStreet").getBytes("ISO-8859-1"), "UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
         }
     }
 

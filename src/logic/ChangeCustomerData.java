@@ -16,14 +16,18 @@ import logger.Log;
 import service.CourseService;
 import service.CustomerService;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
+    @FXML
+    private Button deleteSearchBtn, goToMainWindowBtn, changeBtn, addBtn, removeBtn;
     @FXML
     private TextField firstName,
             lastName,
@@ -32,11 +36,10 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
             city,
             street,
             id,
+            zipCode,
             searchCustomer;
     @FXML
     private ComboBox<PhysicalCourse> coursesCombobox;
-    @FXML
-    private TextField zipCode;
     @FXML
     private TableView<Customer> customerTable;
     @FXML
@@ -63,6 +66,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
     private static final Logger LOGGER = Log.getLogger(ChangeCustomerData.class);
 
     public void initialize(URL location, ResourceBundle resources) {
+        setRessources(ResourceBundle.getBundle(R.Language.RESOURCE_BUNDLE, new Locale(R.Language.currentLanguage, R.Language.currentCountry)));
         fillTable();
 
 
@@ -85,7 +89,6 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
 
     }
 
-
     public void fillTable() {
         columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
         columnFirstName.setCellValueFactory(new PropertyValueFactory<>("firstname"));
@@ -102,7 +105,6 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
             LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
     }
-
 
     public void fillEditingFormular(Object o) {
         cleanAll();
@@ -162,8 +164,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
             if (coursesCombobox.getValue() == null) {
                 return;
             }
-            //String[] parts = coursesCombobox.getValue().split("ID:");
-            // TODO: Add provide Objects not strings
+
             courseService.addCourseToCustomer(editingCustomer, coursesCombobox.getValue());
             fillEditingFormular(customerTable.getSelectionModel().getSelectedItem());
         } catch (Exception e) {
@@ -184,7 +185,6 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         }
     }
 
-
     public void searchButton() {
 
         String search = searchCustomer.getText();
@@ -197,9 +197,6 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
                 filteredCustomerList = customerService.searchCustomer("name", search);
             }
             customerTable.setItems(filteredCustomerList);
-            /*if (rs != null && rs.next()) {
-                fillEditingFormular(fillCustomer(rs));
-            }*/
 
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Kunde " + search + " nicht gefunden");
@@ -226,11 +223,13 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
                 dtoCustomer.setFirstname(firstName.getText());
                 dtoCustomer.setLastname(lastName.getText());
 
-                if (mail.getText() != null || mail.getText().isEmpty())
+                if (mail.getText() != null || mail.getText().isEmpty()) {
                     dtoCustomer.setMail(mail.getText());
+                }
 
-                if (mobile.getText() != null || !mobile.getText().isEmpty())
+                if (mobile.getText() != null || !mobile.getText().isEmpty()) {
                     dtoCustomer.setMobilephone(mobile.getText());
+                }
 
 
                 dtoCustomer.setZipCode(Integer.parseInt(zipCode.getText()));
@@ -245,9 +244,6 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         }
     }
 
-    //
-
-
     public void cleanAll() {
         firstName.clear();
         lastName.clear();
@@ -259,7 +255,6 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         id.clear();
     }
 
-
     public void mouseOnClick(MouseEvent mouseEvent) {
         if (mouseEvent.getClickCount() == 1) {
             editingCustomer = customerTable.getSelectionModel().getSelectedItem();
@@ -270,6 +265,43 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
     @FXML
     private void goToMainWindow(ActionEvent actionEvent) {
         goToScene(actionEvent, R.Pages.PATH_TO_MAIN_WINDOW);
+    }
+
+    public void setRessources(ResourceBundle resourceBundle) {
+        try {
+            // Columns
+            columnId.setText(new String(resourceBundle.getString("lbId").getBytes("ISO-8859-1"), "UTF-8"));
+            columnFirstName.setText(new String(resourceBundle.getString("lbFirstName").getBytes("ISO-8859-1"), "UTF-8"));
+            columnLastName.setText(new String(resourceBundle.getString("lbLastName").getBytes("ISO-8859-1"), "UTF-8"));
+            columnBirthday.setText(new String(resourceBundle.getString("lbBirthday").getBytes("ISO-8859-1"), "UTF-8"));
+            columnMail.setText(new String(resourceBundle.getString("lbEMail").getBytes("ISO-8859-1"), "UTF-8"));
+            columnMobile.setText(new String(resourceBundle.getString("lbTelephone").getBytes("ISO-8859-1"), "UTF-8"));
+            columnAddress.setText(new String(resourceBundle.getString("lbAdress").getBytes("ISO-8859-1"), "UTF-8"));
+
+            // Text
+            customerCourseList.setText(new String(resourceBundle.getString("lbCourses").getBytes("ISO-8859-1"), "UTF-8"));
+
+            // Promp text
+            id.setPromptText(new String(resourceBundle.getString("lbId").getBytes("ISO-8859-1"), "UTF-8"));
+            firstName.setPromptText(new String(resourceBundle.getString("lbFirstName").getBytes("ISO-8859-1"), "UTF-8"));
+            lastName.setPromptText(new String(resourceBundle.getString("lbLastName").getBytes("ISO-8859-1"), "UTF-8"));
+            mail.setPromptText(new String(resourceBundle.getString("lbEMail").getBytes("ISO-8859-1"), "UTF-8"));
+            mobile.setPromptText(new String(resourceBundle.getString("lbTelephone").getBytes("ISO-8859-1"), "UTF-8"));
+            zipCode.setPromptText(new String(resourceBundle.getString("lbZIP").getBytes("ISO-8859-1"), "UTF-8"));
+            city.setPromptText(new String(resourceBundle.getString("lbCity").getBytes("ISO-8859-1"), "UTF-8"));
+            street.setPromptText(new String(resourceBundle.getString("lbStreet").getBytes("ISO-8859-1"), "UTF-8"));
+            searchCustomer.setPromptText(new String(resourceBundle.getString("lbPrompSearch").getBytes("ISO-8859-1"), "UTF-8"));
+            coursesCombobox.setPromptText(new String(resourceBundle.getString("lbAllCourse").getBytes("ISO-8859-1"), "UTF-8"));
+
+            // Buttons
+            goToMainWindowBtn.setText(new String(resourceBundle.getString("lbGoHomePage").getBytes("ISO-8859-1"), "UTF-8"));
+            deleteSearchBtn.setText(new String(resourceBundle.getString("lbResetSearch").getBytes("ISO-8859-1"), "UTF-8"));
+            addBtn.setText(new String(resourceBundle.getString("lbAdd").getBytes("ISO-8859-1"), "UTF-8"));
+            changeBtn.setText(new String(resourceBundle.getString("lbChange").getBytes("ISO-8859-1"), "UTF-8"));
+            removeBtn.setText(new String(resourceBundle.getString("lbRemove").getBytes("ISO-8859-1"), "UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
 
 }
