@@ -1,58 +1,106 @@
-Date: 25.06.2017
-Time: 14:14
-Level: SEVERE
-Class: logic.ChangeCustomerData
-Method: getConnection
-Cause: java.lang.ClassNotFoundException: com.mysql.jdbc.Driver21
+Date: 03.07.2017
+Time: 08:07
+Level: INFO
+Class: logic.HomePage
+Log info: Set DE language
 -----------------------------------------------------------------------------------
-Date: 26.06.2017
-Time: 10:06
-Level: SEVERE
-Class: DBHelper.DBHelper
-Method: getConnection
-Cause: java.lang.ClassNotFoundException: com.mysql.jdbc.Driver21
------------------------------------------------------------------------------------
-Date: 26.06.2017
-Time: 10:06
-Level: SEVERE
-Class: logic.CourseList
-Method: initialize
-Cause: java.lang.IllegalAccessException
------------------------------------------------------------------------------------
-Date: 26.06.2017
-Time: 20:06
+Date: 03.07.2017
+Time: 08:07
 Level: INFO
 Class: DBHelper.DBHelper
 Log info: Connecting to Database
 -----------------------------------------------------------------------------------
-Date: 26.06.2017
-Time: 20:06
+Date: 03.07.2017
+Time: 08:07
 Level: INFO
-Class: service.CourseService
-Log info: Add new course name = ewqdsa
+Class: logic.HomePage
+Log info: Set RU language
 -----------------------------------------------------------------------------------
-Date: 26.06.2017
-Time: 20:06
-Level: SEVERE
-Class: service.CourseService
-Method: addPhysicalCourse
-Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'start' cannot be null
+Date: 03.07.2017
+Time: 08:07
+Level: INFO
+Class: logic.HomePage
+Log info: Set EN language
 -----------------------------------------------------------------------------------
-Date: 27.06.2017
-Time: 09:06
+Date: 03.07.2017
+Time: 08:07
+Level: INFO
+Class: logic.HomePage
+Log info: Set RU language
+-----------------------------------------------------------------------------------
+Date: 03.07.2017
+Time: 09:07
+Level: INFO
+Class: logic.HomePage
+Log info: Set RU language
+-----------------------------------------------------------------------------------
+Date: 03.07.2017
+Time: 09:07
 Level: INFO
 Class: DBHelper.DBHelper
 Log info: Connecting to Database
 -----------------------------------------------------------------------------------
-Date: 27.06.2017
-Time: 09:06
+Date: 03.07.2017
+Time: 09:07
+Level: INFO
+Class: service.CustomerService
+Log info: Add customer id = 43
+-----------------------------------------------------------------------------------
+Date: 03.07.2017
+Time: 09:07
+Level: INFO
+Class: service.CustomerService
+Log info: Update customer id = 43
+-----------------------------------------------------------------------------------
+Date: 03.07.2017
+Time: 10:07
+Level: INFO
+Class: logic.HomePage
+Log info: Set EN language
+-----------------------------------------------------------------------------------
+Date: 03.07.2017
+Time: 10:07
+Level: INFO
+Class: logic.HomePage
+Log info: Set RU language
+-----------------------------------------------------------------------------------
+Date: 03.07.2017
+Time: 10:07
+Level: INFO
+Class: logic.HomePage
+Log info: Set DE language
+-----------------------------------------------------------------------------------
+Date: 03.07.2017
+Time: 10:07
 Level: INFO
 Class: DBHelper.DBHelper
 Log info: Connecting to Database
 -----------------------------------------------------------------------------------
-Date: 27.06.2017
-Time: 09:06
+Date: 03.07.2017
+Time: 10:07
+Level: INFO
+Class: logic.HomePage
+Log info: Set EN language
+-----------------------------------------------------------------------------------
+Date: 03.07.2017
+Time: 10:07
+Level: INFO
+Class: logic.HomePage
+Log info: Set DE language
+-----------------------------------------------------------------------------------
+Date: 03.07.2017
+Time: 14:07
 Level: INFO
 Class: DBHelper.DBHelper
 Log info: Connecting to Database
+-----------------------------------------------------------------------------------
+Date: 03.07.2017
+Time: 14:07
+Level: WARNING
+Class: logic.AddCustomer
+-----------------------------------------------------------------------------------
+Date: 03.07.2017
+Time: 14:07
+Level: WARNING
+Class: logic.AddCustomer
 -----------------------------------------------------------------------------------
