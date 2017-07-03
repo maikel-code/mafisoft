@@ -14,11 +14,11 @@ import java.util.logging.LogRecord;
   Created by mrpitty on 26.06.17.
  */
 public class HTMLFormatter extends java.util.logging.Formatter {
-    @Override
+
     public String getHead(Handler handler) {
         return "<html>\n" +
                 "<head>\n" +
-                "\t<title>MaFiSoft logs</title>\n" +
+                "\t<title>MaFiSoft logs " + getCurrentDate() + " </title>\n" +
                 "<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\">\n" +
                 "</head>\n" +
                 "<body>\n" +
@@ -35,25 +35,27 @@ public class HTMLFormatter extends java.util.logging.Formatter {
                 "\t</tr>";
     }
 
-    @Override
+    private String getCurrentDate() {
+        return new SimpleDateFormat("dd.MM.yyyy").format(new Date());
+    }
+
     public String getTail(Handler handler) {
         return "\n" + "</table>\n" +
                 "</body>\n" +
                 "</html>\n";
     }
 
-    @Override
     public String format(LogRecord record) {
         StringBuilder result = new StringBuilder();
         Level level = record.getLevel();
         result.append("\n\t");
 
         if (level == Level.SEVERE) {
-            result.append("<tr bgColor=Tomato>\n\t\t<td>");
+            result.append("<tr bgColor=#F51E1E>\n\t\t<td>");
         } else if (level == Level.INFO) {
             result.append("<tr bgColor=#34cb34>\n\t\t<td>");
         } else {
-            result.append("<tr bgColor=WHITE>\n\t\t<td>");
+            result.append("<tr bgColor=#FBBA6B>\n\t\t<td>");
         }
 
         result.append(new SimpleDateFormat("HH:MM").format(new Time(record.getMillis())))
@@ -69,9 +71,7 @@ public class HTMLFormatter extends java.util.logging.Formatter {
                 .append(record.getMessage())
                 .append("</td>\n\t\t<td>");
 
-
         Throwable thrown = record.getThrown();
-
 
         if (thrown != null) {
             result.append(record.getThrown().getMessage());
@@ -92,4 +92,5 @@ public class HTMLFormatter extends java.util.logging.Formatter {
         result.append("\n\t</tr>\n");
         return result.toString();
     }
+
 }
