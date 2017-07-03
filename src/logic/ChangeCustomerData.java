@@ -237,6 +237,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
                 dtoCustomer.setStreet(city.getText());
 
                 customerService.updateCustomer(dtoCustomer);
+                LOGGER.info("Change data by customer id:" + dtoCustomer.getId());
                 fillTable();
             }
         } catch (Exception e) {

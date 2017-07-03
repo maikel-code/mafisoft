@@ -6,13 +6,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import logger.Log;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
 public class HomePage implements Initializable, Navigable {
+    private static final Logger LOGGER = Log.getLogger(HomePage.class);
     private String path;
     @FXML
     private ComboBox switchLanguage;
@@ -67,6 +70,8 @@ public class HomePage implements Initializable, Navigable {
 
         Locale locale = new Locale(R.Language.currentLanguage, R.Language.currentCountry);
         ResourceBundle resourceBundle = ResourceBundle.getBundle(R.Language.RESOURCE_BUNDLE, locale);
+
+        LOGGER.info(String.format("Set %S language", R.Language.currentLanguage));
 
         setResources(resourceBundle);
     }

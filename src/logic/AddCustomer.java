@@ -59,9 +59,10 @@ public class AddCustomer implements Initializable, AddCustomer_I {
     private static CustomerService customerService = new CustomerService();
     private static final Logger LOGGER = Log.getLogger(AddCustomer.class);
 
+
     public void initialize(URL location, ResourceBundle resources) {
         isChecked();
-        setResources(ResourceBundle.getBundle(R.Language.RESOURCE_BUNDLE, new Locale(R.Language.currentLanguage, R.Language.currentCountry)));
+        setResources(getRessources());
     }
 
     @FXML
@@ -80,17 +81,17 @@ public class AddCustomer implements Initializable, AddCustomer_I {
                     city.setText("");
                     zipCode.setText("");
                     period.setValue(null);
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION, "Neue Kunde wurde angelegt");
+                    String newCuscomer = new String(getRessources().getString("alCustomerCreated").getBytes("ISO-8859-1"), "UTF-8");
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION, newCuscomer);
                     alert.setHeaderText(null);
                     alert.show();
                 }
-                //goToMainWindow(actionEvent);
             }
         } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
             Alert alert = new Alert(Alert.AlertType.ERROR, "Fehler");
             alert.setHeaderText(null);
             alert.show();
-            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
     }
 
@@ -114,35 +115,44 @@ public class AddCustomer implements Initializable, AddCustomer_I {
 
     public boolean check() {
         boolean check = false;
-        String fillText = "";
+        String error = "";
 
         if (firstName.getText() == null || firstName.getText().isEmpty()) {
             check = true;
-            fillText += "Vorname ";
+            error += nameLbl.getText();
         } else if (lastName.getText() == null || lastName.getText().isEmpty()) {
             check = true;
-            fillText += " ";
+            error += nameLbl.getText();
         } else if (period.getSelectionModel() == null || period.getSelectionModel().isEmpty()) {
             check = true;
-            fillText += " ";
+            error += nameLbl.getText();
         } else if (birthday.getEditor() == null || birthday.getEditor().getText().isEmpty()) {
             check = true;
-            fillText += " ";
+            error += nameLbl.getText();
         } else if (zipCode.getText() == null || zipCode.getText().isEmpty()) {
             check = true;
-            fillText += " ";
+            error += nameLbl.getText();
         } else if (city.getText() == null || city.getText().isEmpty()) {
             check = true;
-            fillText += " ";
+            error += nameLbl.getText();
         } else if (street.getText() == null || street.getText().isEmpty()) {
             check = true;
-            fillText += " ";
+            error += nameLbl.getText();
         } else if (releaseDate.isSelected() && !newDate.getEditor().getText().isEmpty()) {
             check = true;
         }
 
         if (check) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, fillText);
+            StringBuilder fillText = new StringBuilder();
+            try {
+                fillText.append(new String(getRessources().getString("alField").getBytes("ISO-8859-1"), "UTF-8"))
+                        .append(error)
+                        .append(new String(getRessources().getString("alCantBeEmpty").getBytes("ISO-8859-1"), "UTF-8"));
+            } catch (UnsupportedEncodingException e) {
+                LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
+            }
+            LOGGER.log(Level.SEVERE, fillText.toString());
+            Alert alert = new Alert(Alert.AlertType.ERROR, fillText.toString());
             alert.setHeaderText(null);
             alert.show();
         }
@@ -221,6 +231,10 @@ public class AddCustomer implements Initializable, AddCustomer_I {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+    }
+
+    private ResourceBundle getRessources() {
+        return ResourceBundle.getBundle(R.Language.RESOURCE_BUNDLE, new Locale(R.Language.currentLanguage, R.Language.currentCountry));
     }
 
 }
