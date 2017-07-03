@@ -146,12 +146,14 @@ public class AddCustomer implements Initializable, AddCustomer_I {
             StringBuilder fillText = new StringBuilder();
             try {
                 fillText.append(new String(getRessources().getString("alField").getBytes("ISO-8859-1"), "UTF-8"))
+                        .append(" ")
                         .append(error)
+                        .append(" ")
                         .append(new String(getRessources().getString("alCantBeEmpty").getBytes("ISO-8859-1"), "UTF-8"));
             } catch (UnsupportedEncodingException e) {
                 LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
             }
-            LOGGER.log(Level.SEVERE, fillText.toString());
+            LOGGER.log(Level.WARNING, fillText.toString());
             Alert alert = new Alert(Alert.AlertType.ERROR, fillText.toString());
             alert.setHeaderText(null);
             alert.show();
