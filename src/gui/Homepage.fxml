@@ -81,7 +81,7 @@
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="English"/>
                     <String fx:value="German"/>
-                    <String fx:value="Russia"/>
+                    <String fx:value="Russian"/>
                 </FXCollections>
             </items>
             <BorderPane.margin>

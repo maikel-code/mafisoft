@@ -25,7 +25,7 @@ public class R {
 
     public static class Language {
         public static final String RESOURCE_BUNDLE = "config/LabelsBundle";
-        public static final String LANGUAGE_RU = "Russia";
+        public static final String LANGUAGE_RU = "Russian";
         public static final String LANGUAGE_EN = "English";
         public static final String LANGUAGE_DE = "German";
         public static String currentCountry = "DE";
