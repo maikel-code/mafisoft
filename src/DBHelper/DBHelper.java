@@ -35,8 +35,7 @@ public class DBHelper {
                 return connection;
             } else {
                 String dbPassword = "mafisoft";
-                String dbUser = "root";
-                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mafisoftBD?autoReconnect=true&useSSL=false", dbUser, dbPassword);
+                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mafisoftBD?autoReconnect=true&useSSL=false", R.DB.DB_USER, dbPassword);
             }
         } catch (SQLException sql) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Datenank existiert nicht oder wird nicht gefunden");
