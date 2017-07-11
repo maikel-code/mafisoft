@@ -8,6 +8,7 @@ public class R {
 
     public static class DB {
         public static final String DB_DRIVER = "com.mysql.jdbc.Driver";
+        public static final String DB_USER = "root";
     }
 
     public static class Pages {
