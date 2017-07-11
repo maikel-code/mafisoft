@@ -18,7 +18,7 @@ public class CourseService implements CourseDAO {
     private static DBHelper dbHelper = DBHelper.getInstance();
     private static final Logger LOGGER = Log.getLogger(CourseService.class);
 
-    public ObservableList<PhysicalCourse> getAllCourseByCustomer(Customer dtoCustomer) throws SQLException {
+    public ObservableList<PhysicalCourse> getAllCourseByCustomer(Customer dtoCustomer) {
         ObservableList<PhysicalCourse> row = FXCollections.observableArrayList();
         PreparedStatement preparedStatement;
         Connection connection;
@@ -44,9 +44,12 @@ public class CourseService implements CourseDAO {
     // Course
 
     /**
+     * <b>Insert in to Datenbank</b>
+     *
+     * @param dtoPhysicalCourse created Physical Cours
      * @return return PhysicalCourse id in DB
      */
-    public int addPhysicalCourse(PhysicalCourse dtoPhysicalCourse) throws SQLException {
+    public int addPhysicalCourse(PhysicalCourse dtoPhysicalCourse) {
 
         PreparedStatement preparedStatement;
         Connection connection;
@@ -74,7 +77,7 @@ public class CourseService implements CourseDAO {
         return id;
     }
 
-    public void updatePhysicalCourse(PhysicalCourse dtoPhysicalCourse) throws SQLException {
+    public void updatePhysicalCourse(PhysicalCourse dtoPhysicalCourse) {
         PreparedStatement preparedStatement;
         Connection connection;
         try {
@@ -95,7 +98,7 @@ public class CourseService implements CourseDAO {
         }
     }
 
-    public ObservableList<PhysicalCourse> searchPhysicalCourse(String searchConfig, String search) throws SQLException {
+    public ObservableList<PhysicalCourse> searchPhysicalCourse(String searchConfig, String search) {
         ObservableList<PhysicalCourse> row = FXCollections.observableArrayList();
         PreparedStatement preparedStatement;
         Connection connection;
@@ -131,7 +134,7 @@ public class CourseService implements CourseDAO {
 
     }
 
-    public ObservableList<PhysicalCourse> getAllCourse() throws SQLException {
+    public ObservableList<PhysicalCourse> getAllCourse() {
         ObservableList<PhysicalCourse> row = FXCollections.observableArrayList();
         PreparedStatement preparedStatement;
         Connection connection;
@@ -150,7 +153,7 @@ public class CourseService implements CourseDAO {
         return row;
     }
 
-    public ObservableList<PhysicalCourse> getAllAvailabileCourse(Customer dtoCustomer) throws SQLException {
+    public ObservableList<PhysicalCourse> getAllAvailabileCourse(Customer dtoCustomer) {
         ObservableList<PhysicalCourse> row = FXCollections.observableArrayList();
         PreparedStatement preparedStatement;
         Connection connection;
@@ -173,7 +176,7 @@ public class CourseService implements CourseDAO {
         return row;
     }
 
-    public void addCourseToCustomer(Customer dtoCustomer, PhysicalCourse dtoCourse) throws SQLException {
+    public void addCourseToCustomer(Customer dtoCustomer, PhysicalCourse dtoCourse) {
         PreparedStatement preparedStatement;
         Connection connection;
         Integer id = -1;
@@ -196,7 +199,7 @@ public class CourseService implements CourseDAO {
         }
     }
 
-    public void removeCourseByCustomer(Customer dtoCustomer, PhysicalCourse dtoCourse) throws SQLException {
+    public void removeCourseByCustomer(Customer dtoCustomer, PhysicalCourse dtoCourse) {
         PreparedStatement preparedStatement;
         Connection connection;
         try {
@@ -215,7 +218,7 @@ public class CourseService implements CourseDAO {
     }
 
     // VIDEO COURSES
-    public int addVideoCourse(VideoCourse dtoVideoCourse) throws SQLException {
+    public int addVideoCourse(VideoCourse dtoVideoCourse) {
         PreparedStatement preparedStatement;
         Connection connection;
         Integer id = -1;
@@ -242,7 +245,7 @@ public class CourseService implements CourseDAO {
         return id;
     }
 
-    public void updateVideoCourse(VideoCourse dtoVideoCourse) throws SQLException {
+    public void updateVideoCourse(VideoCourse dtoVideoCourse) {
         PreparedStatement preparedStatement;
         Connection connection;
         try {
@@ -263,7 +266,7 @@ public class CourseService implements CourseDAO {
 
     }
 
-    public ObservableList<VideoCourse> searchVideoCourse(String searchConfig, String search) throws SQLException {
+    public ObservableList<VideoCourse> searchVideoCourse(String searchConfig, String search) {
         ObservableList<VideoCourse> videoCourseList = FXCollections.observableArrayList();
         PreparedStatement preparedStatement;
         Connection connection;
@@ -296,10 +299,10 @@ public class CourseService implements CourseDAO {
         return videoCourseList;
     }
 
-    public ObservableList<VideoCourse> getAllVideoCourse() throws SQLException {
+    public ObservableList<VideoCourse> getAllVideoCourse() {
         ObservableList<VideoCourse> videoCourseList = FXCollections.observableArrayList();
-        PreparedStatement preparedStatement = null;
-        Connection connection = null;
+        PreparedStatement preparedStatement;
+        Connection connection;
 
         try {
             Class.forName(R.DB.DB_DRIVER);
@@ -317,29 +320,36 @@ public class CourseService implements CourseDAO {
         return videoCourseList;
     }
 
-    private VideoCourse createVideoCourseFromRow(ResultSet rs) throws SQLException {
+    private VideoCourse createVideoCourseFromRow(ResultSet rs) {
         VideoCourse dtoVideoCourse = new VideoCourse();
 
-        dtoVideoCourse.setId(rs.getInt("videoID"));
-        dtoVideoCourse.setCourseName(rs.getString("courseName"));
-        dtoVideoCourse.setTrainerName(rs.getString("trainerName"));
-        dtoVideoCourse.setLink(rs.getString("link"));
-        dtoVideoCourse.setRemark(rs.getString("remark"));
+        try {
+            dtoVideoCourse.setId(rs.getInt("videoID"));
+            dtoVideoCourse.setCourseName(rs.getString("courseName"));
+            dtoVideoCourse.setTrainerName(rs.getString("trainerName"));
+            dtoVideoCourse.setLink(rs.getString("link"));
+            dtoVideoCourse.setRemark(rs.getString("remark"));
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
+        }
 
         return dtoVideoCourse;
     }
 
-    private PhysicalCourse createPhysicalCourseFromRow(ResultSet rs) throws SQLException {
+    private PhysicalCourse createPhysicalCourseFromRow(ResultSet rs) {
         PhysicalCourse dtoCourse = new PhysicalCourse();
 
-        dtoCourse.setId(rs.getInt("course_id"));
-        dtoCourse.setCourseName(rs.getString("course_name"));
-        dtoCourse.setTrainerName(rs.getString("trainer_name"));
-        dtoCourse.setStartTime(rs.getTime("start"));
-        dtoCourse.setEndTime(rs.getTime("end"));
+        try {
+            dtoCourse.setId(rs.getInt("course_id"));
+            dtoCourse.setCourseName(rs.getString("course_name"));
+            dtoCourse.setTrainerName(rs.getString("trainer_name"));
+            dtoCourse.setStartTime(rs.getTime("start"));
+            dtoCourse.setEndTime(rs.getTime("end"));
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
+        }
 
         return dtoCourse;
-
     }
 
 }

@@ -16,7 +16,7 @@ public class CustomerService implements CustomerDAO {
     private static DBHelper dbHelper = DBHelper.getInstance();
     private static final Logger LOGGER = Log.getLogger(CustomerService.class);
 
-    public int addCustomer(Customer customer) throws SQLException {
+    public int addCustomer(Customer customer) {
         PreparedStatement preparedStatement;
         Connection connection;
         Integer id = -1;
@@ -49,7 +49,7 @@ public class CustomerService implements CustomerDAO {
         return id;
     }
 
-    public void updateCustomer(Customer customer) throws SQLException {
+    public void updateCustomer(Customer customer) {
         PreparedStatement preparedStatement;
         Connection connection;
 
@@ -75,7 +75,7 @@ public class CustomerService implements CustomerDAO {
         }
     }
 
-    public ObservableList<Customer> searchCustomer(String searchConfig, String search) throws SQLException {
+    public ObservableList<Customer> searchCustomer(String searchConfig, String search) {
         ObservableList<Customer> row = FXCollections.observableArrayList();
         ResultSet rs;
         PreparedStatement preparedStatement;
@@ -128,7 +128,7 @@ public class CustomerService implements CustomerDAO {
 
     }
 
-    public ObservableList<Customer> getAllCustomer() throws SQLException {
+    public ObservableList<Customer> getAllCustomer() {
         ObservableList<Customer> row = FXCollections.observableArrayList();
         PreparedStatement preparedStatement;
         Connection connection;
@@ -152,18 +152,22 @@ public class CustomerService implements CustomerDAO {
 
     }
 
-    private Customer createCustomerFromRow(ResultSet rs) throws SQLException {
+    private Customer createCustomerFromRow(ResultSet rs) {
         Customer customer = new Customer();
 
-        customer.setId(rs.getInt("customer_id"));
-        customer.setFirstname(rs.getString("customer_firstname"));
-        customer.setLastname(rs.getString("customer_lastname"));
-        customer.setBirthday(rs.getDate("birthday"));
-        customer.setMail(rs.getString("email"));
-        customer.setMobilephone(rs.getString("mobilephone"));
-        customer.setZipCode(rs.getInt("zipCode"));
-        customer.setCity(rs.getString("city"));
-        customer.setStreet(rs.getString("street"));
+        try {
+            customer.setId(rs.getInt("customer_id"));
+            customer.setFirstname(rs.getString("customer_firstname"));
+            customer.setLastname(rs.getString("customer_lastname"));
+            customer.setBirthday(rs.getDate("birthday"));
+            customer.setMail(rs.getString("email"));
+            customer.setMobilephone(rs.getString("mobilephone"));
+            customer.setZipCode(rs.getInt("zipCode"));
+            customer.setCity(rs.getString("city"));
+            customer.setStreet(rs.getString("street"));
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
+        }
 
         return customer;
     }
