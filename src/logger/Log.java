@@ -3,6 +3,8 @@ package logger;
 import config.R;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
@@ -11,27 +13,29 @@ import java.util.logging.Logger;
  */
 
 public class Log {
-    private static Logger logger;
 
     public static Logger getLogger(Class clazz) {
-        if (logger == null) {
-            Log.useProperties(clazz);
-        }
-        return logger;
+        return useProperties(clazz);
     }
 
-    public static void useProperties(Class logName) {
-        System.setProperty("java.util.logging.config.file", R.LogConfig.LOG_PROPERTIES);
+    private static Logger useProperties(Class clazz) {
+        try {
+            System.setProperty(R.LogConfig.CONFIG_FILE, R.LogConfig.LOG_PROPERTIES);
+        } catch (Exception e) {
+            System.err.println(Arrays.toString(e.getStackTrace()));
+        }
+
+        Logger log = Logger.getLogger(clazz.getName());
         LogManager manager = LogManager.getLogManager();
 
         try {
             manager.readConfiguration();
-            Logger log = Logger.getLogger(logName.getName());
             manager.addLogger(log);
-            logger = log;
         } catch (IOException e) {
-            e.printStackTrace();
+            log.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
+
+        return log;
     }
 
 
