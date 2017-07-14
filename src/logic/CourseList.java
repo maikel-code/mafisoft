@@ -17,7 +17,6 @@ import service.CourseService;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
@@ -32,7 +31,7 @@ public class CourseList implements Initializable, CourseList_I {
     @FXML
     private Tab tabPhysical, tabVideo;
     @FXML
-    private TableView courseTable;
+    private TableView<PhysicalCourse> courseTable;
     @FXML
     private TableView<VideoCourse> vCourseTable;
     @FXML
@@ -92,20 +91,28 @@ public class CourseList implements Initializable, CourseList_I {
             columnTimeBegin.setCellValueFactory(new PropertyValueFactory<>("startTime"));
             columnTimeEnd.setCellValueFactory(new PropertyValueFactory<>("endTime"));
             courseTable.setItems(courseService.getAllCourse());
-        } catch (SQLException e) {
+        } catch (Exception e) {
             LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
     }
 
     public void changePhysicalCourse() {
-        physicalCourse.setCourseName(coursename.getText());
-        physicalCourse.setTrainerName(trainer.getText());
-        int timeHH = Integer.parseInt(startTime.getText().split("\\p{Punct}")[0]);
-        int timeMM = Integer.parseInt(startTime.getText().split("\\p{Punct}")[1]);
-        physicalCourse.setStartTime(new Time(timeHH, timeMM, 0));
-        timeHH = Integer.parseInt(endTime.getText().split("\\p{Punct}")[0]);
-        timeMM = Integer.parseInt(endTime.getText().split("\\p{Punct}")[1]);
-        physicalCourse.setEndTime(new Time(timeHH, timeMM, 0));
+        try {
+            physicalCourse.setCourseName(coursename.getText());
+            physicalCourse.setTrainerName(trainer.getText());
+
+            int timeHH = Integer.parseInt(startTime.getText().split("\\p{Punct}")[0]);
+            int timeMM = Integer.parseInt(startTime.getText().split("\\p{Punct}")[1]);
+            int millis = 0xea60 * (timeHH * 60 + timeMM);
+            physicalCourse.setStartTime(new Time(millis));
+
+            timeHH = Integer.parseInt(endTime.getText().split("\\p{Punct}")[0]);
+            timeMM = Integer.parseInt(endTime.getText().split("\\p{Punct}")[1]);
+            millis = 0xea60 * (timeHH * 60 + timeMM);
+            physicalCourse.setEndTime(new Time(millis));
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
+        }
     }
 
     // Used both
@@ -161,16 +168,12 @@ public class CourseList implements Initializable, CourseList_I {
 
     public void changeButtonPressed(ActionEvent actionEvent) {
         String buttonsID = ((Button) actionEvent.getSource()).getId();
-        try {
-            if (buttonsID.equals("physical")) {
-                changePhysicalCourse();
-                courseService.updatePhysicalCourse(physicalCourse);
-            } else if (buttonsID.equals("video")) {
-                changeVideoCourse();
-                courseService.updateVideoCourse(videoCourse);
-            }
-        } catch (SQLException e) {
-            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
+        if (buttonsID.equals("physical")) {
+            changePhysicalCourse();
+            courseService.updatePhysicalCourse(physicalCourse);
+        } else if (buttonsID.equals("video")) {
+            changeVideoCourse();
+            courseService.updateVideoCourse(videoCourse);
         }
     }
 
@@ -178,7 +181,7 @@ public class CourseList implements Initializable, CourseList_I {
         String buttonID = ((TableView) mouseEvent.getSource()).getId();
         if (mouseEvent.getClickCount() == 1) {
             if (buttonID.equals("physical")) {
-                physicalCourse = (PhysicalCourse) courseTable.getSelectionModel().getSelectedItem();
+                physicalCourse = courseTable.getSelectionModel().getSelectedItem();
                 fillChangedTable(physicalCourse);
             } else if (buttonID.equals("video")) {
                 videoCourse = vCourseTable.getSelectionModel().getSelectedItem();
@@ -233,7 +236,7 @@ public class CourseList implements Initializable, CourseList_I {
             vURL.setCellValueFactory(new PropertyValueFactory<>("link"));
             vRemark.setCellValueFactory(new PropertyValueFactory<>("remark"));
             vCourseTable.setItems(courseService.getAllVideoCourse());
-        } catch (SQLException e) {
+        } catch (Exception e) {
             LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
     }
