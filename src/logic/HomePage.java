@@ -16,9 +16,10 @@ import java.util.logging.Logger;
 
 public class HomePage implements Initializable, Navigable {
     private static final Logger LOGGER = Log.getLogger(HomePage.class);
+    public String english, russian, german;
     private String path;
     @FXML
-    private ComboBox switchLanguage;
+    private ComboBox<String> switchLanguage;
     @FXML
     private Button newCourse, allCourse, newCustomer, allCustomer;
 
@@ -27,21 +28,27 @@ public class HomePage implements Initializable, Navigable {
         setResources(ResourceBundle.getBundle(R.Language.RESOURCE_BUNDLE, new Locale(R.Language.currentLanguage, R.Language.currentCountry)));
     }
 
+
+    /*
+        All fx:id's be associated with R.Pages.FX_ID_*
+        and all path to other windows with R.Pages.PATH_TO_*
+    */
+
     @FXML
     private void buttonPressed(ActionEvent actionEvent) {
         String button = ((Button) actionEvent.getSource()).getId();
 
         switch (button) {
-            case "newCourse":
+            case R.Pages.FX_ID_ADD_COURSE:
                 path = R.Pages.PATH_TO_ADD_COURSE_WINDOW;
                 break;
-            case "allCourse":
+            case R.Pages.FX_ID_ALL_COURSES:
                 path = R.Pages.PATH_TO_CHANGE_COURSE_WINDOW;
                 break;
-            case "newCustomer":
+            case R.Pages.FX_ID_ADD_CUSTOMER:
                 path = R.Pages.PATH_TO_ADD_CUSTOMER_WINDOW;
                 break;
-            case "allCustomer":
+            case R.Pages.FX_ID_ALL_CUSTOMERS:
                 path = R.Pages.PATH_TO_CHANGE_CUSTOMER_WINDOW;
                 break;
         }
@@ -51,7 +58,7 @@ public class HomePage implements Initializable, Navigable {
 
     @FXML
     private void switchLanguage() {
-        String lang = (String) switchLanguage.getSelectionModel().getSelectedItem();
+        String lang = switchLanguage.getSelectionModel().getSelectedItem();
 
         switch (lang) {
             case R.Language.LANGUAGE_RU:
