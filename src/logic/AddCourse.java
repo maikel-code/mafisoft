@@ -12,7 +12,6 @@ import service.CourseService;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.sql.Time;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -39,6 +38,7 @@ public class AddCourse implements Initializable, AddCourse_I {
     @FXML
     private Label pcText, trainerTxt, stText, etText, videoLbl,
             trainerLbl, linkLbl, remarkLbl;
+    private String alertAddCours, alerAddVideoCourse, alertTimeException;
 
     private static CourseService courseService = new CourseService();
     private static final Logger LOGGER = Log.getLogger(AddCourse.class);
@@ -87,7 +87,7 @@ public class AddCourse implements Initializable, AddCourse_I {
         String[] startSplitted = startTime.getText().split("\\p{Punct}");
         String[] endSplitted = endTime.getText().split("\\p{Punct}");
         if (startSplitted.length <= 1 || endSplitted.length <= 1) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Fehlerhafte startzeit angegeben");
+            Alert alert = new Alert(Alert.AlertType.ERROR, alertTimeException);
             alert.setHeaderText(null);
             alert.show();
         } else {
@@ -99,19 +99,17 @@ public class AddCourse implements Initializable, AddCourse_I {
             timeMM = Integer.parseInt(endSplitted[1]);
             physicalCourse.setEndTime(new Time(timeHH, timeMM, 0));
         }
-        try {
-            Integer genID = courseService.addPhysicalCourse(physicalCourse);
-            if (genID > 0) {
-                courseName.setText("");
-                trainer.setText("");
-                startTime.setText("");
-                endTime.setText("");
-                Alert alert = new Alert(Alert.AlertType.INFORMATION, "Kurs wurde angelegt");
-                alert.setHeaderText(null);
-                alert.show();
-            }
-        } catch (SQLException e) {
-            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
+        Integer genID = courseService.addPhysicalCourse(physicalCourse);
+
+        if (genID > 0) {
+            courseName.setText("");
+            trainer.setText("");
+            startTime.setText("");
+            endTime.setText("");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, alertAddCours);
+            alert.setHeaderText(null);
+            alert.show();
+            LOGGER.log(Level.INFO, alertAddCours);
         }
     }
 
@@ -121,19 +119,15 @@ public class AddCourse implements Initializable, AddCourse_I {
         videoCourse.setTrainerName(vTrainer.getText());
         videoCourse.setLink(vLink.getText());
         videoCourse.setRemark(vRemark.getText());
-        try {
-            Integer genID = courseService.addVideoCourse(videoCourse);
-            if (genID > 0) {
-                vCourseName.setText("");
-                vTrainer.setText("");
-                vLink.setText("");
-                vRemark.setText("");
-                Alert alert = new Alert(Alert.AlertType.INFORMATION, "Video Kurs wurde angelegt");
-                alert.setHeaderText(null);
-                alert.show();
-            }
-        } catch (SQLException e) {
-            LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
+        Integer genID = courseService.addVideoCourse(videoCourse);
+        if (genID > 0) {
+            vCourseName.setText("");
+            vTrainer.setText("");
+            vLink.setText("");
+            vRemark.setText("");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, alerAddVideoCourse);
+            alert.setHeaderText(null);
+            alert.show();
         }
     }
 
@@ -167,6 +161,10 @@ public class AddCourse implements Initializable, AddCourse_I {
             tabPhysical.setText(new String(resourceBundle.getString("lbPhysucalCourse").getBytes("ISO-8859-1"), "UTF-8"));
             tabVideo.setText(new String(resourceBundle.getString("lbVideoCourse").getBytes("ISO-8859-1"), "UTF-8"));
 
+            // Allerts
+            alertAddCours = new String(resourceBundle.getString("alAddCourse").getBytes("ISO-8859-1"), "UTF-8");
+            alerAddVideoCourse = new String(resourceBundle.getString("alAddVideoCourse").getBytes("ISO-8859-1"), "UTF-8");
+            alertTimeException = new String(resourceBundle.getString("alTimeException").getBytes("ISO-8859-1"), "UTF-8");
 
             // Promp text Video
             vCourseName.setPromptText(new String(resourceBundle.getString("lbPromptCours").getBytes("ISO-8859-1"), "UTF-8"));
