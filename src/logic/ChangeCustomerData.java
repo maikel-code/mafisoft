@@ -19,7 +19,6 @@ import service.CustomerService;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.sql.Date;
-import java.sql.SQLException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -101,7 +100,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         columnAddress.setCellValueFactory(new PropertyValueFactory<>("street"));
         try {
             customerTable.setItems(customerService.getAllCustomer());
-        } catch (SQLException e) {
+        } catch (Exception e) {
             LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
     }
@@ -132,29 +131,35 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
                     coursesCombobox.getItems().add(oneCourse);
                 }
             }
-        } catch (SQLException e) {
+        } catch (Exception e) {
             LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
     }
 
     public boolean check() {
+        boolean check = true;
+
         if (firstName.getText() == null || firstName.getText().isEmpty()) {
-            return false;
+            check = false;
         }
 
         if (lastName.getText() == null || lastName.getText().isEmpty()) {
-            return false;
+            check = false;
         }
 
         if (city.getText() == null || city.getText().isEmpty()) {
-            return false;
+            check = false;
         }
 
         if (street.getText() == null || street.getText().isEmpty()) {
-            return false;
+            check = false;
         }
 
-        return !(zipCode.getText() == null || zipCode.getText().isEmpty());
+        if (zipCode.getText() == null || zipCode.getText().isEmpty()) {
+            check = false;
+        }
+
+        return check;
     }
 
     // Buttons
@@ -164,7 +169,6 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
             if (coursesCombobox.getValue() == null) {
                 return;
             }
-
             courseService.addCourseToCustomer(editingCustomer, coursesCombobox.getValue());
             fillEditingFormular(customerTable.getSelectionModel().getSelectedItem());
         } catch (Exception e) {
@@ -175,11 +179,11 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
     @FXML
     private void removeCourse() {
         if (customerCourseTable.getSelectionModel().getSelectedItem() != null) {
-            PhysicalCourse course = customerCourseTable.getSelectionModel().getSelectedItem();
             try {
+                PhysicalCourse course = customerCourseTable.getSelectionModel().getSelectedItem();
                 courseService.removeCourseByCustomer(editingCustomer, course);
                 fillEditingFormular(customerTable.getSelectionModel().getSelectedItem());
-            } catch (SQLException e) {
+            } catch (Exception e) {
                 LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
             }
         }
