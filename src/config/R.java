@@ -17,11 +17,15 @@ public class R {
         public static final String PATH_TO_CHANGE_COURSE_WINDOW = "gui/CourseList.fxml";
         public static final String PATH_TO_ADD_CUSTOMER_WINDOW = "gui/AddCustomer.fxml";
         public static final String PATH_TO_CHANGE_CUSTOMER_WINDOW = "gui/ChangeCustomerData.fxml";
-
+        public static final String FX_ID_ADD_COURSE = "newCourse";
+        public static final String FX_ID_ALL_COURSES = "allCourse";
+        public static final String FX_ID_ADD_CUSTOMER = "newCustomer";
+        public static final String FX_ID_ALL_CUSTOMERS = "allCustomer";
     }
 
     public static class LogConfig {
         public static final String LOG_PROPERTIES = "./src/config/logging.properties";
+        public static final String CONFIG_FILE = "java.util.logging.config.file";
     }
 
     public static class Language {
