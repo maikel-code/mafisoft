@@ -24,6 +24,9 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Logic class for listing all customers and editing existing customer, as well as adding courses to customers.
+ */
 public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
     @FXML
     private Button deleteSearchBtn, goToMainWindowBtn, changeBtn, addBtn, removeBtn;
@@ -88,6 +91,9 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
 
     }
 
+    /**
+     * Customer table ist filled with all customer data from DB
+     */
     public void fillTable() {
         columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
         columnFirstName.setCellValueFactory(new PropertyValueFactory<>("firstname"));
@@ -105,6 +111,11 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         }
     }
 
+    /**
+     * Fills the right handed Formular with selected row with customer data and connected courses to customer
+     *
+     * @param o Row data of a customer equivalent with a customer object
+     */
     public void fillEditingFormular(Object o) {
         cleanAll();
 
@@ -136,6 +147,10 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         }
     }
 
+    /**
+     * checks for not empty editigns input fields
+     * @return
+     */
     public boolean check() {
         boolean check = true;
 
@@ -164,6 +179,11 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
 
     // Buttons
 
+    /**
+     * Links selected course to customer.
+     *
+     * @param actionEvent EventOject of clicked Add course button
+     */
     public void addButtonPressed(ActionEvent actionEvent) {
         try {
             if (coursesCombobox.getValue() == null) {
@@ -176,6 +196,9 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         }
     }
 
+    /**
+     * Removes linked course from customer
+     */
     @FXML
     private void removeCourse() {
         if (customerCourseTable.getSelectionModel().getSelectedItem() != null) {
@@ -189,6 +212,9 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         }
     }
 
+    /**
+     * Executes search with provided text in search field, and filters list of customer
+     */
     public void searchButton() {
 
         String search = searchCustomer.getText();
@@ -210,6 +236,9 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         }
     }
 
+    /**
+     * clear search input field
+     */
     public void deleteSearchButton() {
         try {
             customerTable.setItems(customerService.getAllCustomer());
@@ -219,6 +248,12 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         }
     }
 
+    /**
+     * check required field for notempty
+     * then creates new customer object from field data and calls customer service updateCustomer function with customer object as param
+     *
+     * @param actionEvent click event of change customer data button
+     */
     public void changeButtonPressed(ActionEvent actionEvent) {
         try {
             if (check()) {
@@ -249,6 +284,9 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         }
     }
 
+    /**
+     * clears input field data of editing form
+     */
     public void cleanAll() {
         firstName.clear();
         lastName.clear();
@@ -260,6 +298,10 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         id.clear();
     }
 
+    /**
+     * Listens for click in customer list and loads customer data into editing form
+     * @param mouseEvent
+     */
     public void mouseOnClick(MouseEvent mouseEvent) {
         if (mouseEvent.getClickCount() == 1) {
             editingCustomer = customerTable.getSelectionModel().getSelectedItem();
@@ -271,7 +313,11 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
     private void goToMainWindow(ActionEvent actionEvent) {
         goToScene(actionEvent, R.Pages.PATH_TO_MAIN_WINDOW);
     }
-
+    /**
+     * Set's all  labels with internationalalbe resourceBundles
+     *
+     * @param resourceBundle for properties
+     */
     public void setResources(ResourceBundle resourceBundle) {
         try {
             // Columns

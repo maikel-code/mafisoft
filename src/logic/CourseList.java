@@ -24,7 +24,9 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
+/**
+ * Logic for lisiting physical and video courses, and editing form of selected physical or video courses
+ */
 public class CourseList implements Initializable, CourseList_I {
     @FXML
     private Button deleteSearchBtnPC, deleteSearchBtnVC, goToMainWindowBtnPC, goToMainWindowBtnVC, changeBtnPC, changeBtnVC;
@@ -83,6 +85,9 @@ public class CourseList implements Initializable, CourseList_I {
 
     // Physical
 
+    /**
+     * Physical Course table ist filled with all Physical courses data from DB
+     */
     public void fillPhysicalTable() {
         try {
             columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -96,6 +101,9 @@ public class CourseList implements Initializable, CourseList_I {
         }
     }
 
+    /**
+     * Creates new Physical Course object from filled fields and assigns this object to own object attribute
+     */
     public void changePhysicalCourse() {
         try {
             physicalCourse.setCourseName(coursename.getText());
@@ -116,7 +124,9 @@ public class CourseList implements Initializable, CourseList_I {
     }
 
     // Used both
-
+    /**
+     * Executes search with provided text in search field, and filters list of either physical or video courses
+     */
     public void searchButton(KeyEvent actionEvent) {
         String buttonsID = ((TextField) actionEvent.getSource()).getId();
         String search = "";
@@ -151,6 +161,10 @@ public class CourseList implements Initializable, CourseList_I {
 
     }
 
+
+    /**
+     * clear search input field
+     */
     public void deleteSearchButton(ActionEvent actionEvent) {
         try {
             String buttonsID = ((Button) actionEvent.getSource()).getId();
@@ -166,6 +180,13 @@ public class CourseList implements Initializable, CourseList_I {
         }
     }
 
+    /**
+     * check required field for notempty
+     * then creates new course object from field data
+     * then calls courseService service updatePhysicalCourse or updateVideoCourse function with Course object as param
+     *
+     * @param actionEvent click event of change customer data button
+     */
     public void changeButtonPressed(ActionEvent actionEvent) {
         String buttonsID = ((Button) actionEvent.getSource()).getId();
         if (buttonsID.equals("physical")) {
@@ -177,6 +198,10 @@ public class CourseList implements Initializable, CourseList_I {
         }
     }
 
+    /**
+     * Listens for click in course table list and loads course data into editing form
+     * @param mouseEvent
+     */
     public void mouseOnClick(MouseEvent mouseEvent) {
         String buttonID = ((TableView) mouseEvent.getSource()).getId();
         if (mouseEvent.getClickCount() == 1) {
@@ -190,6 +215,9 @@ public class CourseList implements Initializable, CourseList_I {
         }
     }
 
+    /**
+     * clears input field data of editing form in both tabs
+     */
     public void cleanAll(int tab) {
         switch (tab) {
             case 1:
@@ -208,6 +236,11 @@ public class CourseList implements Initializable, CourseList_I {
         }
     }
 
+    /**
+     * Fills the right handed Formular with selected row with course data
+     *
+     * @param course Row data of a course equivalent with a course object
+     */
     public void fillChangedTable(Course course) {
         if (course instanceof PhysicalCourse) {
             cleanAll(1);
@@ -228,6 +261,9 @@ public class CourseList implements Initializable, CourseList_I {
 
     // Video
 
+    /**
+     * Video Course table ist filled with all Video courses data from DB
+     */
     public void fillVideoTable() {
         try {
             vID.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -241,6 +277,9 @@ public class CourseList implements Initializable, CourseList_I {
         }
     }
 
+    /**
+     * Creates new Video Course object from filled fields and assigns this object to own object attribute
+     */
     public void changeVideoCourse() {
         videoCourse.setCourseName(vCourseNameChanged.getText());
         videoCourse.setTrainerName(vTrainerChanged.getText());
@@ -253,6 +292,11 @@ public class CourseList implements Initializable, CourseList_I {
         goToScene(actionEvent, R.Pages.PATH_TO_MAIN_WINDOW);
     }
 
+    /**
+     * Set's all  labels with internationalalbe resourceBundles
+     *
+     * @param resourceBundle for properties
+     */
     public void setResources(ResourceBundle resourceBundle) {
         try {
             // Columns

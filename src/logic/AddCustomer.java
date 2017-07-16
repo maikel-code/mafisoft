@@ -20,6 +20,9 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Logic class for view of adding Customers to DB
+ */
 public class AddCustomer implements Initializable, AddCustomer_I {
     @FXML
     private Button addBtnLbl, clearBtnLbl, goToMainWIndow;
@@ -65,6 +68,13 @@ public class AddCustomer implements Initializable, AddCustomer_I {
         setResources(getRessources());
     }
 
+    /**
+     * First calls setCustomer, to create customer object from filled fields
+     * the calls Check function to detetd valid customer object
+     * cusotmer object is provided to customerService class add Customer function
+     *
+     * @param actionEvent EventOject of clicked button
+     */
     @FXML
     public void addButtonPressed(ActionEvent actionEvent) {
         setCustomer();
@@ -95,6 +105,9 @@ public class AddCustomer implements Initializable, AddCustomer_I {
         }
     }
 
+    /**
+     * Creates new customer object from filled fields and assigns this object to  own object attribute
+     */
     public void setCustomer() {
         if (check()) {
             Calendar calendarEndCalendar = Calendar.getInstance();
@@ -112,7 +125,11 @@ public class AddCustomer implements Initializable, AddCustomer_I {
             customer.setEndDate(calendarEnd);
         }
     }
-
+    /**
+     * Checks if required fields are not empty
+     *
+     * @return true if required fields are not empty
+     */
     public boolean check() {
         boolean check = false;
         String error = "";
@@ -167,6 +184,9 @@ public class AddCustomer implements Initializable, AddCustomer_I {
         goToScene(actionEvent, R.Pages.PATH_TO_MAIN_WINDOW);
     }
 
+    /**
+     * clears all input fields
+     */
     public void cleanAll() {
         firstName.clear();
         lastName.clear();
@@ -195,13 +215,22 @@ public class AddCustomer implements Initializable, AddCustomer_I {
         return new java.sql.Date(birthday.getValue().getYear() - defaultYear, birthday.getValue().getMonth().getValue() - 1, birthday.getValue().getDayOfMonth());
     }
 
+    /**
+     * Checks zipc code field for maximum length of 5 numbers
+     *
+     * @param actionEvent of zip input field when a key is pressed
+     */
     public void checkZipLength(KeyEvent actionEvent) {
         if (zipCode.getText().length() >= 5) {
             zipCode.setText(zipCode.getText().substring(0, 5));
             zipCode.positionCaret(5);
         }
     }
-
+    /**
+     * Set's all  labels with internationalalbe resourceBundles
+     *
+     * @param resourceBundle for properties
+     */
     public void setResources(ResourceBundle resourceBundle) {
         try {
             // Text

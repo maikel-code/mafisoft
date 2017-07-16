@@ -18,6 +18,9 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Logic class for view of adding physical and video courses,
+ */
 public class AddCourse implements Initializable, AddCourse_I {
 
     @FXML
@@ -43,10 +46,20 @@ public class AddCourse implements Initializable, AddCourse_I {
     private static CourseService courseService = new CourseService();
     private static final Logger LOGGER = Log.getLogger(AddCourse.class);
 
+    /**
+     *
+     * @param location
+     * @param resources
+     */
     public void initialize(URL location, ResourceBundle resources) {
         setResources(ResourceBundle.getBundle(R.Language.RESOURCE_BUNDLE, new Locale(R.Language.currentLanguage, R.Language.currentCountry)));
     }
 
+    /**
+     * Checks if required fields are not empty, for a certain tab
+     *
+     * @return true if required fields are not empty
+     */
     public boolean check(int tab) {
         switch (tab) {
             case 1:
@@ -63,6 +76,12 @@ public class AddCourse implements Initializable, AddCourse_I {
         return false;
     }
 
+    /**
+     * Checks which button of certain tab was pressed, and calls either addPhysicalCourse or addVideoCourse
+     * In both function a Course Object is created with data from the filled fields and given to courseService Class
+     *
+     * @param actionEvent EventOject of clicked button
+     */
     public void addButtonPressed(ActionEvent actionEvent) {
         String buttonName = ((Button) actionEvent.getSource()).getId();
 
@@ -80,6 +99,9 @@ public class AddCourse implements Initializable, AddCourse_I {
         }
     }
 
+    /**
+     *
+     */
     private void addPhysicalCOurse() {
         PhysicalCourse physicalCourse = new PhysicalCourse();
         physicalCourse.setCourseName(courseName.getText());
@@ -136,6 +158,11 @@ public class AddCourse implements Initializable, AddCourse_I {
         goToScene(actionEvent, R.Pages.PATH_TO_MAIN_WINDOW);
     }
 
+    /**
+     * Set's all  labels with internationalalbe resourceBundles
+     *
+     * @param resourceBundle for properties
+     */
     public void setResources(ResourceBundle resourceBundle) {
         try {
 

@@ -14,6 +14,9 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Contains all DB operations for the CourseList and AddCourse logic layer
+ */
 public class CourseService implements CourseDAO {
     private static DBHelper dbHelper = DBHelper.getInstance();
     private static final Logger LOGGER = Log.getLogger(CourseService.class);

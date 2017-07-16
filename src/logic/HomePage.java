@@ -14,6 +14,9 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
+/**
+ * Logic for first view, where all views are linked to
+ */
 public class HomePage implements Initializable, Navigable {
     private static final Logger LOGGER = Log.getLogger(HomePage.class);
     public String english, russian, german;
@@ -34,6 +37,10 @@ public class HomePage implements Initializable, Navigable {
         and all path to other windows with R.Pages.PATH_TO_*
     */
 
+    /**
+     * Loads the view which was selected in gui
+     * @param actionEvent Button of a view which should be loaded
+     */
     @FXML
     private void buttonPressed(ActionEvent actionEvent) {
         String button = ((Button) actionEvent.getSource()).getId();
@@ -56,6 +63,9 @@ public class HomePage implements Initializable, Navigable {
         goToScene(actionEvent, path);
     }
 
+    /**
+     * set resource bundle with selected language from select box
+     */
     @FXML
     private void switchLanguage() {
         String lang = switchLanguage.getSelectionModel().getSelectedItem();
@@ -82,7 +92,11 @@ public class HomePage implements Initializable, Navigable {
 
         setResources(resourceBundle);
     }
-
+    /**
+     * Set's all  labels with internationalalbe resourceBundles
+     *
+     * @param resourceBundle for properties
+     */
     public void setResources(ResourceBundle resourceBundle) {
         try {
             newCourse.setText(new String(resourceBundle.getString("lbCreateCourse").getBytes("ISO-8859-1"), "UTF-8"));

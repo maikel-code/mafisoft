@@ -12,6 +12,9 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Contains all DB operations for the ChangeCustomerData and AddCustomer logic layer
+ */
 public class CustomerService implements CustomerDAO {
     private static DBHelper dbHelper = DBHelper.getInstance();
     private static final Logger LOGGER = Log.getLogger(CustomerService.class);

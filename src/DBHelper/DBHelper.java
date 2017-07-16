@@ -10,6 +10,9 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Singelton Class which connects to DB and holds that DB connection
+ */
 public class DBHelper {
     private static DBHelper instance;
     private Connection connection;
@@ -19,6 +22,10 @@ public class DBHelper {
         // Exists only to defeat instantiation.
     }
 
+    /**
+     * Singleton static DBHelper class
+     * @return static instance of DBHelper
+     */
     public synchronized static DBHelper getInstance() {
         if (instance == null) {
             instance = new DBHelper();
@@ -28,6 +35,10 @@ public class DBHelper {
         return instance;
     }
 
+    /**
+     *
+     * @return connection to Database
+     */
     public synchronized Connection getConnection() {
         try {
             Class.forName(R.DB.DB_DRIVER);

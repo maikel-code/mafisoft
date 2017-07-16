@@ -14,6 +14,12 @@ public class Mafisoft extends Application {
         launch(args);
     }
 
+    /**
+     * Starts application with main window enabled and visible
+     *
+      * @param primaryStage
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource(R.Pages.PATH_TO_MAIN_WINDOW));

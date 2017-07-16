@@ -24,6 +24,11 @@ public interface Navigable {
      * @since JDK 1.8 because of <code>default</code> method
      */
 
+    /**
+     *  Changes the screen and loads selected view
+     * @param actionEvent Button Click of a view which should be loaded
+     * @param path of view which should be loaded
+     */
     default void goToScene(ActionEvent actionEvent, String path) {
         try {
             @NotNull Parent home_page_parent = FXMLLoader.load(getClass().getClassLoader().getResource(path));
