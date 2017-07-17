@@ -79,9 +79,9 @@
                   BorderPane.alignment="BOTTOM_RIGHT">
             <items>
                 <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="English"/>
-                    <String fx:value="German"/>
-                    <String fx:value="Russian"/>
+                    <String fx:id="english" fx:value="English"/>
+                    <String fx:id="german" fx:value="German"/>
+                    <String fx:id="russian" fx:value="Russian"/>
                 </FXCollections>
             </items>
             <BorderPane.margin>
