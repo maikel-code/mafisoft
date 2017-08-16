@@ -34,8 +34,7 @@ public class Mafisoft extends Application {
     }
 
     private static void checkLogs() {
-        Path path = Paths.get("../logs");
-        System.out.println(path);
+        Path path = Paths.get("logs");
         if (!Files.exists(path)) {
             try {
                 Files.createDirectories(path);
