@@ -30,9 +30,9 @@ public class R {
 
     public static class Language {
         public static final String RESOURCE_BUNDLE = "config/LabelsBundle";
-        public static final String LANGUAGE_RU = "Russian";
-        public static final String LANGUAGE_EN = "English";
-        public static final String LANGUAGE_DE = "German";
+        public static final int LANGUAGE_RU = 0;
+        public static final int LANGUAGE_EN = 1;
+        public static final int LANGUAGE_DE = 2;
         public static String currentCountry = "DE";
         public static String currentLanguage = "de";
     }

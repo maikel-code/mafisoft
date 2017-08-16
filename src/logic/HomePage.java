@@ -67,7 +67,7 @@ public class HomePage implements Initializable, Navigable {
      */
     @FXML
     private void switchLanguage() {
-        String lang = switchLanguage.getSelectionModel().getSelectedItem();
+        int lang = switchLanguage.getSelectionModel().getSelectedIndex();
 
         switch (lang) {
             case R.Language.LANGUAGE_RU:
