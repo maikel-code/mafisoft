@@ -1,24 +1,22 @@
 package logic;
 
 import config.R;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import logger.Log;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.util.Locale;
 import java.util.ResourceBundle;
-import java.util.logging.Logger;
 
 /**
  * Logic for first view, where all views are linked to
  */
 public class HomePage implements Initializable, Navigable {
-    private static final Logger LOGGER = Log.getLogger(HomePage.class);
     public String english, russian, german;
     private String path;
     @FXML
@@ -39,6 +37,7 @@ public class HomePage implements Initializable, Navigable {
 
     /**
      * Loads the view which was selected in gui
+     *
      * @param actionEvent Button of a view which should be loaded
      */
     @FXML
@@ -88,10 +87,9 @@ public class HomePage implements Initializable, Navigable {
         Locale locale = new Locale(R.Language.currentLanguage, R.Language.currentCountry);
         ResourceBundle resourceBundle = ResourceBundle.getBundle(R.Language.RESOURCE_BUNDLE, locale);
 
-        LOGGER.info(String.format("Set %S language", R.Language.currentLanguage));
-
         setResources(resourceBundle);
     }
+
     /**
      * Set's all  labels with internationalalbe resourceBundles
      *
@@ -104,6 +102,18 @@ public class HomePage implements Initializable, Navigable {
             newCustomer.setText(new String(resourceBundle.getString("lbCreateCustomer").getBytes("ISO-8859-1"), "UTF-8"));
             allCustomer.setText(new String(resourceBundle.getString("lbChangeCustomerData").getBytes("ISO-8859-1"), "UTF-8"));
             switchLanguage.setPromptText(new String(resourceBundle.getString("lbSelectLanguage").getBytes("ISO-8859-1"), "UTF-8"));
+
+
+            // Set Language text
+            russian = new String(resourceBundle.getString("languageRU").getBytes("ISO-8859-1"), "UTF-8");
+            english = new String(resourceBundle.getString("languageEN").getBytes("ISO-8859-1"), "UTF-8");
+            german = new String(resourceBundle.getString("languageDE").getBytes("ISO-8859-1"), "UTF-8");
+
+
+            ObservableList<String> languageList = switchLanguage.getItems();
+            languageList.setAll(russian, english, german);
+            switchLanguage.setItems(languageList);
+
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
