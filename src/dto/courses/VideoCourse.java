@@ -1,7 +1,6 @@
 package dto.courses;
 
 
-import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -23,12 +22,9 @@ public class VideoCourse extends Course {
         return link.get();
     }
 
-    public void setLink(String link) {
+    public VideoCourse setLink(String link) {
         this.link.set(link);
-    }
-
-    public StringProperty linkProperty() {
-        return link;
+        return this;
     }
 
     public String getRemark() {
@@ -39,44 +35,31 @@ public class VideoCourse extends Course {
         this.remark.set(remark);
     }
 
-    public StringProperty remarkProperty() {
-        return remark;
-    }
-
     public int getId() {
         return id.get();
     }
 
-    public void setId(int id) {
+    public VideoCourse setId(int id) {
         this.id.set(id);
-    }
-
-    public IntegerProperty idProperty() {
-        return id;
+        return this;
     }
 
     public String getCourseName() {
         return courseName.get();
     }
 
-    public void setCourseName(String courseName) {
+    public VideoCourse setCourseName(String courseName) {
         this.courseName.set(courseName);
-    }
-
-    public StringProperty courseNameProperty() {
-        return courseName;
+        return this;
     }
 
     public String getTrainerName() {
         return trainerName.get();
     }
 
-    public void setTrainerName(String trainerName) {
+    public VideoCourse setTrainerName(String trainerName) {
         this.trainerName.set(trainerName);
-    }
-
-    public StringProperty trainerNameProperty() {
-        return trainerName;
+        return this;
     }
 
 }

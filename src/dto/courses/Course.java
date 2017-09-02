@@ -8,8 +8,8 @@ import javafx.beans.property.StringProperty;
 
 public abstract class Course {
     protected IntegerProperty id;
-    protected StringProperty trainerName;
-    protected StringProperty courseName;
+    StringProperty trainerName;
+    StringProperty courseName;
 
 
     public Course() {
@@ -22,37 +22,27 @@ public abstract class Course {
         return id.get();
     }
 
-    public void setId(int id) {
+    public Course setId(int id) {
         this.id.set(id);
-    }
-
-    public IntegerProperty idProperty() {
-        return id;
+        return this;
     }
 
     public String getTrainerName() {
         return trainerName.get();
     }
 
-    public void setTrainerName(String trainerName) {
+    public Course setTrainerName(String trainerName) {
         this.trainerName.set(trainerName);
-    }
-
-    public StringProperty trainerNameProperty() {
-        return trainerName;
+        return this;
     }
 
     public String getCourseName() {
         return courseName.get();
     }
 
-    public void setCourseName(String courseName) {
+    public Course setCourseName(String courseName) {
         this.courseName.set(courseName);
+        return this;
     }
-
-    public StringProperty courseNameProperty() {
-        return courseName;
-    }
-
 
 }
