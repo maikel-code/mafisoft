@@ -23,6 +23,8 @@ public class HomePage implements Initializable, Navigable {
     private ComboBox<String> switchLanguage;
     @FXML
     private Button newCourse, allCourse, newCustomer, allCustomer;
+    // Template variable
+    private int selected = R.Language.LANGUAGE_DE;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -68,26 +70,29 @@ public class HomePage implements Initializable, Navigable {
     @FXML
     private void switchLanguage() {
         int lang = switchLanguage.getSelectionModel().getSelectedIndex();
+        if (lang != selected) {
 
-        switch (lang) {
-            case R.Language.LANGUAGE_RU:
-                R.Language.currentLanguage = "ru";
-                R.Language.currentCountry = "RU";
-                break;
-            case R.Language.LANGUAGE_EN:
-                R.Language.currentLanguage = "en";
-                R.Language.currentCountry = "US";
-                break;
-            case R.Language.LANGUAGE_DE:
-                R.Language.currentLanguage = "de";
-                R.Language.currentCountry = "DE";
-                break;
+            switch (lang) {
+                case R.Language.LANGUAGE_RU:
+                    R.Language.currentLanguage = "ru";
+                    R.Language.currentCountry = "RU";
+                    break;
+                case R.Language.LANGUAGE_EN:
+                    R.Language.currentLanguage = "en";
+                    R.Language.currentCountry = "US";
+                    break;
+                case R.Language.LANGUAGE_DE:
+                    R.Language.currentLanguage = "de";
+                    R.Language.currentCountry = "DE";
+                    break;
+            }
+
+            Locale locale = new Locale(R.Language.currentLanguage, R.Language.currentCountry);
+            ResourceBundle resourceBundle = ResourceBundle.getBundle(R.Language.RESOURCE_BUNDLE, locale);
+
+            selected = lang;
+            setResources(resourceBundle);
         }
-
-        Locale locale = new Locale(R.Language.currentLanguage, R.Language.currentCountry);
-        ResourceBundle resourceBundle = ResourceBundle.getBundle(R.Language.RESOURCE_BUNDLE, locale);
-
-        setResources(resourceBundle);
     }
 
     /**
@@ -109,10 +114,10 @@ public class HomePage implements Initializable, Navigable {
             english = new String(resourceBundle.getString("languageEN").getBytes("ISO-8859-1"), "UTF-8");
             german = new String(resourceBundle.getString("languageDE").getBytes("ISO-8859-1"), "UTF-8");
 
-
             ObservableList<String> languageList = switchLanguage.getItems();
             languageList.setAll(russian, english, german);
             switchLanguage.setItems(languageList);
+
 
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
