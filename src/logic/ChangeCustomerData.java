@@ -127,6 +127,8 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
         zipCode.setText(customer.getZipCode() + "");
         city.setText(customer.getCity());
         street.setText(customer.getStreet());
+        mobile.setText(customer.getMobilephone());
+        mail.setText(customer.getMail());
 
         ObservableList<PhysicalCourse> allCourses;
         try {
@@ -149,6 +151,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
 
     /**
      * checks for not empty editigns input fields
+     *
      * @return
      */
     public boolean check() {
@@ -300,6 +303,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
 
     /**
      * Listens for click in customer list and loads customer data into editing form
+     *
      * @param mouseEvent
      */
     public void mouseOnClick(MouseEvent mouseEvent) {
@@ -313,6 +317,7 @@ public class ChangeCustomerData implements Initializable, ChangeCustomerData_I {
     private void goToMainWindow(ActionEvent actionEvent) {
         goToScene(actionEvent, R.Pages.PATH_TO_MAIN_WINDOW);
     }
+
     /**
      * Set's all  labels with internationalalbe resourceBundles
      *
