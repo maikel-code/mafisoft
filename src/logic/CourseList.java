@@ -106,24 +106,24 @@ public class CourseList implements Initializable, CourseList_I {
      */
     public void changePhysicalCourse() {
         try {
-            physicalCourse.setCourseName(coursename.getText());
-            physicalCourse.setTrainerName(trainer.getText());
-
             int timeHH = Integer.parseInt(startTime.getText().split("\\p{Punct}")[0]);
             int timeMM = Integer.parseInt(startTime.getText().split("\\p{Punct}")[1]);
             int millis = 0xea60 * (timeHH * 60 + timeMM);
-            physicalCourse.setStartTime(new Time(millis));
+            int endTimeHH = Integer.parseInt(endTime.getText().split("\\p{Punct}")[0]);
+            int endTimeMM = Integer.parseInt(endTime.getText().split("\\p{Punct}")[1]);
+            int endMillis = 0xea60 * (endTimeHH * 60 + endTimeMM);
 
-            timeHH = Integer.parseInt(endTime.getText().split("\\p{Punct}")[0]);
-            timeMM = Integer.parseInt(endTime.getText().split("\\p{Punct}")[1]);
-            millis = 0xea60 * (timeHH * 60 + timeMM);
-            physicalCourse.setEndTime(new Time(millis));
+            physicalCourse.setCourseName(coursename.getText())
+                    .setTrainerName(trainer.getText())
+                    .setEndTime(new Time(endMillis))
+                    .setStartTime(new Time(millis));
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
     }
 
     // Used both
+
     /**
      * Executes search with provided text in search field, and filters list of either physical or video courses
      */
@@ -200,6 +200,7 @@ public class CourseList implements Initializable, CourseList_I {
 
     /**
      * Listens for click in course table list and loads course data into editing form
+     *
      * @param mouseEvent
      */
     public void mouseOnClick(MouseEvent mouseEvent) {

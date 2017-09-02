@@ -327,11 +327,10 @@ public class CourseService implements CourseDAO {
         VideoCourse dtoVideoCourse = new VideoCourse();
 
         try {
-            dtoVideoCourse.setId(rs.getInt("videoID"));
-            dtoVideoCourse.setCourseName(rs.getString("courseName"));
-            dtoVideoCourse.setTrainerName(rs.getString("trainerName"));
-            dtoVideoCourse.setLink(rs.getString("link"));
-            dtoVideoCourse.setRemark(rs.getString("remark"));
+            dtoVideoCourse.setId(rs.getInt("videoID"))
+                    .setCourseName(rs.getString("courseName"))
+                    .setLink(rs.getString("link"))
+                    .setRemark(rs.getString("remark"));
         } catch (SQLException e) {
             LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }
@@ -343,11 +342,11 @@ public class CourseService implements CourseDAO {
         PhysicalCourse dtoCourse = new PhysicalCourse();
 
         try {
-            dtoCourse.setId(rs.getInt("course_id"));
-            dtoCourse.setCourseName(rs.getString("course_name"));
-            dtoCourse.setTrainerName(rs.getString("trainer_name"));
-            dtoCourse.setStartTime(rs.getTime("start"));
-            dtoCourse.setEndTime(rs.getTime("end"));
+            dtoCourse.setId(rs.getInt("course_id"))
+                    .setCourseName(rs.getString("course_name"))
+                    .setTrainerName(rs.getString("trainer_name"))
+                    .setEndTime(rs.getTime("end"))
+                    .setStartTime(rs.getTime("start"));
         } catch (SQLException e) {
             LOGGER.log(Level.SEVERE, e.getLocalizedMessage(), e);
         }

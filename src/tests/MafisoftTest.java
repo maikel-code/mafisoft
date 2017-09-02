@@ -49,13 +49,13 @@ public class MafisoftTest {
 
     @Test
     public void testAddPhysicalCourse() throws SQLException {
-        physicalCourse.setCourseName("Best training");
-        physicalCourse.setTrainerName("John Cena");
-        physicalCourse.setStartTime(new Time(14, 0, 0));
-        physicalCourse.setEndTime(new Time(16, 0, 0));
+
+        physicalCourse.setCourseName("Best training")
+                .setTrainerName("John Cena")
+                .setStartTime(new Time(14, 0, 0))
+                .setEndTime(new Time(16, 0, 0));
 
         String id = courseService.addPhysicalCourse(physicalCourse) + "";
-
         PhysicalCourse testCourse = courseService.searchPhysicalCourse("id", id).get(0);
 
         Assert.assertEquals(physicalCourse.getCourseName(), testCourse.getCourseName());

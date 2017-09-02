@@ -47,7 +47,6 @@ public class AddCourse implements Initializable, AddCourse_I {
     private static final Logger LOGGER = Log.getLogger(AddCourse.class);
 
     /**
-     *
      * @param location
      * @param resources
      */
@@ -104,8 +103,6 @@ public class AddCourse implements Initializable, AddCourse_I {
      */
     private void addPhysicalCOurse() {
         PhysicalCourse physicalCourse = new PhysicalCourse();
-        physicalCourse.setCourseName(courseName.getText());
-        physicalCourse.setTrainerName(trainer.getText());
         String[] startSplitted = startTime.getText().split("\\p{Punct}");
         String[] endSplitted = endTime.getText().split("\\p{Punct}");
         if (startSplitted.length <= 1 || endSplitted.length <= 1) {
@@ -115,11 +112,13 @@ public class AddCourse implements Initializable, AddCourse_I {
         } else {
             int timeHH = Integer.parseInt(startSplitted[0]);
             int timeMM = Integer.parseInt(startSplitted[1]);
-            physicalCourse.setStartTime(new Time(timeHH, timeMM, 0));
+            int endTimeHH = Integer.parseInt(endSplitted[0]);
+            int endTimeMM = Integer.parseInt(endSplitted[1]);
 
-            timeHH = Integer.parseInt(endSplitted[0]);
-            timeMM = Integer.parseInt(endSplitted[1]);
-            physicalCourse.setEndTime(new Time(timeHH, timeMM, 0));
+            physicalCourse.setCourseName(courseName.getText())
+                    .setTrainerName(trainer.getText())
+                    .setStartTime(new Time(timeHH, timeMM, 0))
+                    .setEndTime(new Time(endTimeHH, endTimeMM, 0));
         }
         Integer genID = courseService.addPhysicalCourse(physicalCourse);
 
